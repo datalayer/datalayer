@@ -7,7 +7,7 @@
 DLA_SKIP_HEADER=true dla minikube-stop
 
 echo
-echo -e $BOLD$YELLOW"Deleting Minikube..."$NOCOLOR$NOBOLD
+echo -e $BOLD$YELLOW"Removing Minikube..."$NOCOLOR$NOBOLD
 echo
 
 minikube delete || true

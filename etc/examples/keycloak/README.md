@@ -27,13 +27,13 @@ cd $DLAHOME/etc/examples/keycloak && \
   docker-compose -f keycloak.yml up -d && \
   docker-compose -f keycloak.yml ps && \
   sleep 3s && \
-  ldapadd -x -D "cn=admin,dc=datalayer,dc=io" -w admin -H ldap:// -f _ldap/entries-1.ldif && \
+  ldapadd -x -D "cn=admin,dc=datalayer,dc=io" -w admin -H ldap:// -f ldap/entries-1.ldif && \
   ldapsearch -x -D "cn=admin,dc=datalayer,dc=io" \
     -w admin -H ldap://localhost:389 \
     -b "ou=users,dc=datalayer,dc=io" \
     -s sub "(uid=*)"
 # password is `123`
-ldapadd -x -D "cn=admin,dc=datalayer,dc=io" -w admin -H ldap:// -f _ldap/entries-2.ldif
+ldapadd -x -D "cn=admin,dc=datalayer,dc=io" -w admin -H ldap:// -f ldap/entries-2.ldif
 ```
 
 ```bash

@@ -6,13 +6,13 @@ title: Install on Kubernetes
 
 Datalayer is available with services that makes up the `Datalayer Science Platform`.
 
-The services are deployed in the Kubernetes Cluster via [Helm charts](https://github.com/datalayer/datalayer/tree/master/etc).
+The services are deployed in the Kubernetes Cluster via [Helm charts](https://github.com/datalayer/datalayer/tree/master/etc/helm).
 
 ## Configure /etc/hosts
 
 ```bash
 echo "127.0.0.1 dla-solr-zookeeper"  | sudo tee -a /etc/hosts
-echo "$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-keycloak-http.dla-iam.svc.cluster.local"  | sudo tee -a /etc/hosts
+echo "$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-http.dla-iam.svc.cluster.local"  | sudo tee -a /etc/hosts
 ```
 
 ## Build the Docker Images
@@ -36,8 +36,6 @@ dla dsp-helm-build
 
 ## Deploy the Services
 
-![DSP on Kubernetes](/_images/dsp/dsp-k8s.svg)
-
 ### Instrument Services
 
 ```bash
@@ -60,7 +58,7 @@ subjects:
   name: k8s-dashboard-kubernetes-dashboard
   namespace: kube-system
 EOF
-# Connect K8S Dashboard.
+# Browse K8S Dashboard.
 dla minikube-dashboard
 ```
 
@@ -99,7 +97,7 @@ dla dsp-k8s-up keycloak
 # Initialize Keycloak.
 dla dsp-keycloak-init
 # Check Authentication.
-open http://dla-keycloak-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account # eric/123
+open http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account # eric/123
 ```
 
 ```bash
@@ -144,6 +142,7 @@ open http://minikube.datalayer.io.local/library
 ```bash
 # Deploy the JupyterHub service.
 dla dsp-k8s-up jupyterhub
+open http://minikube.datalayer.io.local/jupyterhub
 ```
 
 ### UI Services
@@ -151,6 +150,7 @@ dla dsp-k8s-up jupyterhub
 ```bash
 # Deploy the Studio services.
 dla dsp-k8s-up studio
+open http://minikube.datalayer.io.local
 ```
 
 ## Remove the Services

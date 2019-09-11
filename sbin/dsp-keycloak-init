@@ -9,22 +9,24 @@ echo
 
 echo -e $YELLOW"""Login on Keycloak$NOCOLOR
 
+Open the Keycloak Admin UI.
+
 open http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/admin/master/console # admin/admin
 $YELLOW
 Create a Realm$NOCOLOR
 
-Via the Keycloak Admin UI, create a datalayer Realm.
+Create a \`datalayer\` Realm.
 $YELLOW
 Create a Client$NOCOLOR
 
-Then create and a datalayer Client with Root URL = http://minikube.datalayer.io.local
+Create and a \`datalayer\` Client with \`Root URL\` = http://minikube.datalayer.io.local
 
 Define the Valid Redirect URIs = http://minikube.datalayer.io.local/*
 
-Set the datalayer client Access Type to confidential.
+Set the \`datalayer\` Client Access Type to \`confidential\`.
 Copy the Secret Credential (in the Credentials tab).
-vi ~/.datalayer/dlarc and update with the copied secret.
-source ~/.datalayer/dlarc
+\`vi ~/.datalayer/dlarc\` and update with DLA_KEYCLOAK_REALM_CLIENT_SECRET with the copied secret.
+\`source ~/.datalayer/dlarc\`
 $YELLOW
 Configure the LDAP User Federation$NOCOLOR
 
@@ -39,8 +41,9 @@ In the User Federation menu, add the LDAP provider with following settings.
 $YELLOW
 Synchronize Users$NOCOLOR
 
-... and click on Synchronize all users button.
+... and click on \`Synchronize all users\` button.
 $YELLOW
 Validate Configuration$NOCOLOR
 
-open http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account # eric/123"""
+open http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account # eric/123
+"""

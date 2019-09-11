@@ -8,6 +8,4 @@ title: Install on Kubernetes on AWS
 
 ## Deploy the Services
 
-![DSP on Kubernetes](/_images/dsp/dsp-k8s.svg)
-
 > WIP

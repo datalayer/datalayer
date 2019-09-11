@@ -13,6 +13,8 @@ Choose a Kubernetes cluster flavor where you will to install the `Datalayer Scie
 + Before going to the cloud, try it on a local Kubernetes cluster with `Minikube`.
 + When you feel confident with your local env, install on a cloud provider such as `AWS`, `Azure`, `GCloud`...
 
+![DSP on Kubernetes](/_images/dsp/dsp-k8s.svg)
+
 ## Install on Minikube
 
 Install on your [Minikube Kubernetes](/install/minikube/index.md) with `Helm Charts` and deploy the meshed services.

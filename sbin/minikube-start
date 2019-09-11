@@ -59,7 +59,8 @@ minikube start \
     --v 0
 
 # https://kubernetes.io/docs/reference/access-authn-authz/rbac
-# Many add-ons currently run as the “default” service account in the kube-system namespace. To allow those add-ons to run with super-user access, grant cluster-admin permissions to the “default” service account in the kube-system namespace.
+# Many add-ons currently run as the “default” service account in the kube-system namespace.
+# To allow those add-ons to run with super-user access, grant cluster-admin permissions to the “default” service account in the kube-system namespace.
 # Note: Enabling this means the kube-system namespace contains secrets that grant super-user access to the API.
 kubectl create clusterrolebinding add-on-cluster-admin \
   --clusterrole=cluster-admin \
@@ -75,6 +76,7 @@ minikube addons enable storage-provisioner
 
 DLA_SKIP_HEADER=true dla minikube-help "$@"
 DLA_SKIP_HEADER=true dla minikube-status "$@"
+echo
 DLA_SKIP_HEADER=true dla kubectl-check "$@"
 
 echo -e $GREEN$BOLD"""

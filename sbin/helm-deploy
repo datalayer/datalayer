@@ -7,7 +7,6 @@
 echo -e $BOLD$YELLOW"Deploying Helm..."$NOCOLOR$NOBOLD
 echo
 
-"""
 helm_ins() {
  kubectl -n kube-system create serviceaccount tiller
  kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
@@ -19,7 +18,6 @@ helm_del() {
  kubectl delete clusterrolebinding tiller
  kubectl -n kube-system delete serviceaccount tiller
 }
-"""
 
 deploy_on_k8s() {
     # Set up a ServiceAccount for use by Tiller, the server side component of helm.

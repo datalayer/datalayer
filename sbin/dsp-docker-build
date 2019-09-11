@@ -21,7 +21,7 @@ declare -a FILES=(
   "k8s-sidecar"
   )
 
-more() {
+build_more() {
   # HDFS.
   cd $DLAHOME/etc/docker/hdfs/base && \
     make build && \
