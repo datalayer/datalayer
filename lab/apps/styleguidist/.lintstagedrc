@@ -1,0 +1,6 @@
+{
+  "src/components/**/*.{ts,tsx}": [
+    "npm run prettier:base -- --write",
+    "git add"
+  ]
+}

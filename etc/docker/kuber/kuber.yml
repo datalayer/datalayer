@@ -1,0 +1,16 @@
+microsoftApplicationId: microsoft_application_id
+microsoftRedirect: http://minikube.datalayer.io.local:4326
+microsoftScope: User.ReadBasic.All+Contacts.Read+Mail.Send+Files.ReadWrite+Notes.ReadWrite
+libraryRest: http://minikube.datalayer.io.local:9600
+iamRest: http://minikube.datalayer.io.local:9600
+jupyterhubUi: http://minikube.datalayer.io.local:8000
+kuberRest: http://minikube.datalayer.io.local:9091
+kuberWs: ws://minikube.datalayer.io.local:9091
+hdfs: http://minikube.datalayer.io.local:50070
+twitterRedirect: http://minikube.datalayer.io.local:9091/kuber/api/v1/twitter/callback
+twitterConsumerKey: twitter_consumer_key
+twitterConsumerSecret: twitter_consumer_secret
+# server:
+#   port: 8080
+# database:
+#   connectionUri: "database connection uri"

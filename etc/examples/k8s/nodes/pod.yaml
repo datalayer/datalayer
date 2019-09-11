@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: onspecificnode
+spec:
+  containers:
+  - name: dla
+    image: datalayer/simple:0.0.3
+    ports:
+    - containerPort: 9876
+  nodeSelector:
+    shouldrun: here

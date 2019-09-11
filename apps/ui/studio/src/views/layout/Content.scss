@@ -1,0 +1,30 @@
+.dla-body .dla-container {
+  padding: 0;
+  height: 100%;
+}
+.dla-body .ms-Breadcrumb {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+#dla-about .ms-Button {
+  color: white !important;
+}
+.dla-body .selection {
+  height: calc(100vh - 16.5em);
+  overflow-x: auto;
+}
+.dla-body .selection .selection-item {
+  display: flex;
+  padding: 0.5em;
+}
+.dla-body .selection .selection-item .name {
+  margin-left: 1em;
+}
+.dla-landing .ms-SearchBox {
+  border-color: transparent;
+  border-width: 4px;
+}
+.dla-landing .ms-SearchBox:hover {
+  border-color: #d1d1d1;
+  border-width: 4px;
+}

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Deploying Datalayer DSP on Docker Swarm"$NOCOLOR$NOBOLD
+echo
+
+source dsp-swarm-services
+
+function up() {
+
+  echo -e $BOLD"🔥  Deploying service [$BLUE$@$NOCOLOR]."$NOBOLD
+  echo
+
+  cd $DLAHOME/etc/swarm && \
+    docker stack deploy \
+      "$@" \
+      datalayer
+
+  echo
+  echo -e $BOLD"✅  Service [$BLUE$@$NOCOLOR] is deployed."$NOBOLD
+  echo
+
+}
+
+if [ -z "$1" ]; then
+  up $DOCKER_SERVICES_SWARM
+elif [ "$1" == "dev" ]; then
+  up $DOCKER_SERVICES_SWARM_DEV
+elif [ "$1" == "base" ]; then
+  up $DOCKER_SERVICES_SWARM_BASE
+else
+  IFS=',' read -ra CMD_SPLITS <<< "$1"
+  for i in "${CMD_SPLITS[@]}"; do
+    up "-c $i/$i.yml"
+  done
+fi
+
+# echo -e $YELLOW"open http://localhost:9600/mesh?kuberRest=http://localhost:9091"$NOCOLOR

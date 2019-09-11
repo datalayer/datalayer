@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $YELLOW$BOLD"Starting Apache PySpark on YARN"$NOBOLD$NOCOLOR
+echo
+
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
+
+eval exec $SPARK_HOME/bin/pyspark \
+  --conf spark.sql.catalogImplementation=in-memory \
+  --conf spark.sql.warehouse.dir=/tmp/spark-warehouse \
+  --driver-memory 3g \
+  --executor-memory 3g \
+  --master yarn \
+  --deploy-mode client \
+  "$@"

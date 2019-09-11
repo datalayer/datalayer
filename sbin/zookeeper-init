@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $RED$BOLD"Existing Zookeeper data will be lost forever!!!"$NOBOLD$NOCOLOR
+echo
+#read -p "Are you sure you want to remove all Zookeeper persisted files, they will be lost forever!!! (y/N)?" -n 1 -r
+echo -e $YELLOW"Are you sure you want to remove $BOLD'$DLAHOME/var/zookeeper'$NOBOLD (y/N)?"$NOCOLOR
+read REPLY
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo
+    echo "Removing Zookeeper '$DLAHOME/var/zookeeper'..."
+    rm -fr $DLAHOME/var/zookeeper
+    echo "Zookeeper files are now removed."
+else
+  echo
+  echo "I didn't touch any file... Come back when you want..."
+fi
+
+echo

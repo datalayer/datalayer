@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $YELLOW$BOLD"Starting Apache Zookeeper CLI"$NOBOLD$NOCOLOR
+echo
+
+DLA_SKIP_HEADER=true dla zookeeper-help
+
+$ZOOKEEPER_HOME/bin/zkCli.sh -server localhost:2181
+echo

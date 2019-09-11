@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Installing Helm..."$NOCOLOR$NOBOLD
+echo
+
+HELM_VERSION=2.14.1
+
+install_helm_on_linux() {
+    curl -Lo /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz \
+        && tar xvfz /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz -C /tmp \
+        && mv /tmp/linux-amd64/helm /usr/local/bin \
+        && chmod +x /usr/local/bin/helm
+}
+
+install_helm_on_macos() {
+    curl -Lo /tmp/helm-v${HELM_VERSION}-darwin-amd64.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-darwin-amd64.tar.gz \
+        && tar xvfz /tmp/helm-v${HELM_VERSION}-darwin-amd64.tar.gz -C /tmp \
+        && mv /tmp/darwin-amd64/helm /usr/local/bin \
+        && chmod +x /usr/local/bin/helm
+}
+
+case "${OS}" in
+    LINUX)     install_helm_on_linux;;
+    MACOS)     install_helm_on_macos;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+helm version

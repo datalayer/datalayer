@@ -1,0 +1,22 @@
+keycloak:
+  ingress:
+    enabled: true
+    path: /auth(/|$)(.*)
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: "/auth/$2"
+    hosts:
+      - dla-keycloak-http.dla-iam.svc.cluster.local
+  username: admin
+  password: admin
+  persistence:
+    dbVendor: postgres
+    deployPostgres: true
+    dbUser: keycloak
+    dbPassword: keycloak
+postgresql:
+  persistence:
+    enabled: true
+  postgresqlPassword: keycloak
+  global:
+    postgresql:
+      postgresqlUsername: keycloak

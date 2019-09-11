@@ -1,0 +1,10 @@
+{
+  "name": "headline",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sean Stephenson <Sean.M.Stephenson@espn.com> (http://espn.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.3.2"
+  }
+}

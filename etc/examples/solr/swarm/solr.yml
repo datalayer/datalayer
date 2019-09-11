@@ -1,0 +1,54 @@
+version: '3.5'
+services:
+  solr:
+    image: solr:7.7.0
+    container_name: solr
+    restart: always
+    networks:
+      - solr
+    ports:
+      - 8983:8983
+    volumes:
+      - solr-logs:/opt/solr/server/logs
+      - solr-store:/store/solr
+      - solr-docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      SOLR_PORT: 8983
+      SOLR_HOME: /opt/solr/server/solr
+      SOLR_CONF_DIR: /opt/solr/server/solr
+      ZK_HOST: zookeeper:2181
+      SOLR_LOGS_DIR: /opt/solr/server/logs
+      SOLR_HOST: solr
+      SOLR_HEAP:
+      SOLR_JAVA_MEM:
+    depends_on:
+      - zookeeper
+  zookeeper:
+    image: zookeeper:3.4.13
+    container_name: zookeeper
+#    hostname: "{{.Service.Name}}"
+    hostname: zookeeper
+    networks:
+      - solr
+    restart: always
+    ports:
+      - "2181:2181"
+    volumes:
+      - zoo-logs:/opt/persist/logs
+      - zoo-data:/opt/persist/data
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_PORT: 2181
+      ZOO_LOG_DIR: /opt/persist/logs
+      ZOO_DATA_LOG_DIR: /opt/persist/data
+networks:
+  solr:
+    external: false
+    name: solr
+volumes:
+  zoo-logs:
+  zoo-data:
+  solr-logs:
+  solr-store:
+  solr-docker-entrypoint-initdb.d:
+  solr-data:

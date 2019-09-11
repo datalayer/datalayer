@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Library.
+name: library
+version: 0.0.3
+appVersion: 0.0.3
+home: https://datalayer.io
+sources:
+- https://github.com/datalayer/datalayer/tree/master/apps/library
+icon: https://docs.datalayer.io/logo/datalayer-square.png
+maintainers:
+- name: eric
+  email: eric@datalayer.io

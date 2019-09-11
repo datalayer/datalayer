@@ -1,0 +1,65 @@
+version: "3.5"
+services:
+  jupyterhub:
+    image: datalayer/jupyterhub:${DLAVERSION}
+    container_name: jupyterhub
+#    command: >
+#      jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
+    hostname: jupyterhub
+    networks:
+      - datalayer
+    depends_on:
+      - jupyterhub-db
+    restart: always
+    volumes:
+      # Bind Docker socket on the host so we can connect to the daemon from within the container
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      # Bind Docker volume on host for JupyterHub database and cookie secrets
+      - jupyterhub-data:/data
+    ports:
+      - "8000:8000"
+    environment:
+      DLA_KEYCLOAK_SCHEME_HOST: ${DLA_KEYCLOAK_SCHEME_HOST}
+      DLA_KEYCLOAK_REALM_CLIENT_SECRET: ${DLA_KEYCLOAK_REALM_CLIENT_SECRET}
+      DLA_JUPYTERHUB_AUTH_CALLBACK: ${DLA_JUPYTERHUB_AUTH_CALLBACK}
+      DLA_SOLR_ZK_HOST: ${DLA_SOLR_ZK_HOST}
+      # All containers will join this network
+      DLA_DOCKER_NETWORK: ${DLA_DOCKER_NETWORK}
+      # JupyterHub will spawn this Notebook image for users
+      DLA_JUPYTERHUB_NOTEBOOK_IMAGE: ${DLA_JUPYTERHUB_NOTEBOOK_IMAGE}
+      # Notebook directory inside user image
+      DLA_JUPYTERHUB_NOTEBOOK_DIR: ${DLA_JUPYTERHUB_NOTEBOOK_DIR}
+      # Using this run command (optional)
+      DLA_NOTEBOOK_SPAWN_CMD: "start-singleuser.sh --SingleUserNotebookApp.default_url=/lab"
+      # Postgres db info
+      DLA_JUPYTERHUB_POSTGRES_HOST: jupyterhub-db
+      DLA_JUPYTERHUB_POSTGRES_DB: jupyterhub
+      DLA_JUPYTERHUB_DB_PWD: ${DLA_JUPYTERHUB_DB_PWD}
+      DLA_TWITTER_CONSUMER_KEY: ${DLA_TWITTER_CONSUMER_KEY}
+      DLA_TWITTER_CONSUMER_SECRET: ${DLA_TWITTER_CONSUMER_SECRET}
+      DLA_TWITTER_OAUTH_CALLBACK_URL: ${DLA_TWITTER_OAUTH_CALLBACK_URL}
+      DLA_TWITTER_OAUTH_REDIRECT: ${DLA_TWITTER_OAUTH_REDIRECT}
+  jupyterhub-db:
+    image: postgres:9.5
+    container_name: jupyterhub-db
+    hostname: jupyterhub-db
+    restart: always
+    networks:
+      - datalayer
+    environment:
+      POSTGRES_DB: jupyterhub
+      POSTGRES_PASSWORD: ${DLA_JUPYTERHUB_DB_PWD}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - jupyterhub-db-data:/var/lib/postgresql/data
+volumes:
+  jupyterhub-db-data:
+    name: jupyterhub-db-data
+  jupyterhub-data:
+    name: jupyterhub-data
+networks:
+  default:
+    name: datalayer
+  datalayer:
+    external: false
+    attachable: true

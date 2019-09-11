@@ -1,0 +1,285 @@
+@import './variables';
+
+@import './common/common';
+
+.codeBlock {
+  margin-bottom: 16px;
+}
+
+// Styles for a collapsible code block
+.codeBlock.isCollapsible {
+  padding-top: $CodeBlock-toggleButtonHeight;
+  position: relative;
+
+  .code {
+    max-height: 1px; // Leave a horizontal rule
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .toggle {
+    background: transparent;
+    border: 1px solid $ms-color-neutralDark;
+    border-bottom-width: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: $ms-color-black;
+    font-family: monospace;
+    font-size: $ms-font-size-m;
+    font-weight: $ms-font-weight-regular;
+    height: $CodeBlock-toggleButtonHeight;
+    padding: 0 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.167s ease;
+  }
+
+  // The collapsed code block is now open
+  &.isOpen {
+    .code {
+      max-height: 400px;
+    }
+
+    .toggle {
+      background: $ms-color-neutralDark;
+      color: $ms-color-white;
+    }
+  }
+}
+
+// Common styles between themes
+:global {
+  .hljs {
+    -webkit-overflow-scrolling: touch;  // Improves scrolling performance
+    display: block;
+    font-family: monospace;
+    line-height: 1.4;
+    overflow-x: auto;
+    padding: 20px;
+  }
+}
+
+// Default dark theme
+.codeBlock.isDarkTheme :global {
+  .hljs {
+    background: $ms-color-neutralDark;
+    color: $ms-color-white;
+  }
+  .hljs-comment, .hljs-quote {
+    color: #777;
+  }
+  .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-regexp, .hljs-meta, .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-params, .hljs-symbol, .hljs-bullet, .hljs-link, .hljs-deletion {
+    color: #ab875d;
+  }
+  .hljs-section, .hljs-title, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-type, .hljs-attribute {
+    color: #9b869b;
+  }
+  .hljs-string, .hljs-keyword, .hljs-selector-tag, .hljs-addition {
+    color: #8f9c6c;
+  }
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  .hljs-strong {
+    font-weight: bold;
+  }
+}
+
+// Light theme
+.codeBlock.isLightTheme :global {
+  .hljs {
+    background: $ms-color-white;
+  }
+  .hljs, .hljs-subst {
+    color: #434f54;
+  }
+  .hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-doctag, .hljs-name {
+    color: #00979D;
+  }
+  .hljs-built_in, .hljs-literal, .hljs-bullet, .hljs-code, .hljs-addition {
+    color: #D35400;
+  }
+  .hljs-regexp, .hljs-symbol, .hljs-variable, .hljs-template-variable, .hljs-link, .hljs-selector-attr, .hljs-selector-pseudo {
+    color: #00979D;
+  }
+  .hljs-type, .hljs-string, .hljs-selector-id, .hljs-selector-class, .hljs-quote, .hljs-template-tag, .hljs-deletion {
+    color: #005C5F;
+  }
+  .hljs-title, .hljs-section {
+    color: #880000;
+    font-weight: bold;
+  }
+  .hljs-comment {
+    color: rgba(149, 165, 166, 0.8);
+  }
+  .hljs-meta-keyword {
+    color: #728E00;
+  }
+  .hljs-meta {
+    color: #728E00;
+    color: #434f54;
+  }
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  .hljs-strong {
+    font-weight: bold;
+  }
+  .hljs-function {
+    color: #728E00;
+  }
+  .hljs-number {
+    color: #8A7B52;
+  }
+}
+
+:global {
+  .ExerciseCard {
+    margin-bottom: 20px;
+  }
+
+  .ExerciseCard-header {
+    border-bottom: 1px solid $ms-color-neutralTertiary;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .ExerciseCard-title {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+
+  .ExerciseCard-toggleButtons {
+    display: block;
+    @include float(right);
+
+    .ms-Button.ExerciseCard-codeButton {
+      @include margin-right(0);
+      background: none;
+      border: 1px solid $ms-color-neutralTertiary;
+      border-bottom: 0;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      line-height: 1;
+      padding: 4px 12px;
+      min-width: 100px;
+      transition: border $ms-animation-duration-3 $ms-animation-ease-1;
+
+      .ms-Button-label {
+        color: $ms-color-neutralDark;
+        display: inline-block;
+      }
+
+      &.is-active,
+      &:hover {
+        background-color: $ms-color-neutralDark;
+        border-color: $ms-color-neutralDark;
+
+        .ms-Button-icon,
+        .ms-Button-label {
+          color: $ms-color-white;
+        }
+      }
+    }
+  }
+
+  .ExerciseCard-example {
+    -webkit-overflow-scrolling: touch;
+    max-height: 80vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+
+  .ExerciseCard-example.is-right-aligned {
+    @include text-align(right);
+  }
+
+  .ExerciseCard-code {
+    background-color: $ms-color-neutralDark;
+    overflow: hidden;
+
+    // Collapsed by default
+    pre {
+      margin: 0;
+      max-height: 0;
+      overflow: auto;
+      transition: all $ms-animation-duration-3 $ms-animation-ease-1;
+    }
+
+    code {
+      display: block;
+      margin: 12px;
+    }
+  }
+
+  .ExerciseCard.is-codeVisible {
+    .ExerciseCard-header {
+      border-color: $ms-color-neutralDark;
+    }
+
+    .ExerciseCard-code pre {
+      max-height: 480px;
+      min-height: 120px;
+    }
+  }
+
+  .ExerciseCard.is-codeVisible .ExerciseCard-code {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .ExerciseCard-dosAndDonts {
+    width: 100%;
+  }
+
+  .ExerciseCard-dos {
+    width: calc(50% - 50px);
+    display: inline-block;
+    @include margin-right(50px);
+
+    h4 {
+      @include ms-font-l;
+      color: #177D3E;
+    }
+  }
+
+  .ExerciseCard-donts {
+    width: calc(50%);
+    display: inline-block;
+
+    h4 {
+      @include ms-font-l;
+      color: #A61E22;
+    }
+  }
+
+  .ExerciseCard-contentAndPrerequisites {
+    width: 100%;
+  }
+
+  .ExerciseCard-content {
+    width: calc(50% - 50px);
+    display: inline-block;
+    @include margin-right(50px);
+
+    h4 {
+      @include ms-font-l;
+      color: #177D3E;
+    }
+  }
+
+  .ExerciseCard-prerequisites {
+    width: calc(50%);
+    display: inline-block;
+
+    h4 {
+      @include ms-font-l;
+      color: #177D3E;
+    }
+  }
+
+}

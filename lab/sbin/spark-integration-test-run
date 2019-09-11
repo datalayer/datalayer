@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Running Apache Spark K8S Integration Tests $BLUE[$@]"$NOCOLOR$NOBOLD
+echo
+
+# Afterwards, the integration tests can be executed with Maven or your IDE.
+# Note that when running tests from an IDE, the pre-integration-test phase must be run every time the Spark main code changes.
+# When running tests from the command line, the pre-integration-test phase should automatically be invoked if the integration-test phase is run.
+
+#  -Psparkr \
+#  -Phive \
+#  -Phive-thriftserver \
+#  -Pnetlib-lgpl \
+#  -Pyarn \
+#  -Dyarn.version=$HADOOP_VERSION \
+#  -Dspark.shade.packageName=org.eclipse \
+#  -pl resource-managers/kubernetes/integration-tests \
+#  -pl resource-managers/kubernetes/integration-tests -am \
+#  -Dsuites=org.apache.spark.deploy.k8s.integrationtest.KubernetesSuite \
+#  -Dspark.kubernetes.test.master=k8s://https://52.88.44.52:433 \
+#  -Dspark.docker.test.driverImage=<driver-image> \
+#  -Dspark.docker.test.executorImage=<executor-image>" \
+
+#  -DextraScalaTestArgs="-Dspark.kubernetes.test.master=k8s://https://52.88.44.52:433" \
+
+# mvn \
+#   -Pkubernetes \
+#   -Pkubernetes-integration-tests \
+#   -Pbigtop-dist \
+#   -Phadoop-2.7 \
+#   -Dhadoop.version=$HADOOP_VERSION \
+#   -Dmaven.javadoc.skip=true \
+#   -Dcheckstyle.skip=true \
+#   -Dscalastyle.skip=true \
+#   -Drat.skip=true \
+#   -Dcobertura.skip=true \
+#   -Dtest=None \
+#   -DmembersOnlySuites=org.apache.spark.deploy.k8s.integrationtest \
+#   -DextraScalaTestArgs=-Dspark.docker.test.persistMinikube=true \
+#   -Dspark.docker.test.persistMinikube=true \
+#   integration-test \
+#   "$@"
+
+# build/mvn -Pkubernetes \
+#     -Pkubernetes-integration-tests \
+#     -Dtest=None \
+#     -DmembersOnlySuites=org.apache.spark.deploy.k8s.integrationtest \
+#     -pl resource-managers/kubernetes/integration-tests \
+#     -am \
+#     integration-test 
+
+dla spark-mvn \
+  integration-test \
+  -Pkubernetes-integration-tests \
+  -Dtest=None \
+  -DmembersOnlySuites=org.apache.spark.deploy.k8s.integrationtest \
+  -DextraScalaTestArgs=-Dspark.docker.test.persistMinikube=true \
+  -Dspark.docker.test.persistMinikube=true \
+  "$@"

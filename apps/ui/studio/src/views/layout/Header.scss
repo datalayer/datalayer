@@ -1,0 +1,40 @@
+.dla-navbar {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+//  align-items: center;
+  padding: 0;
+  padding-top: 5px;
+  color: white;
+  background-color: rgba(255, 255, 255, 1);
+}
+// .dla-navbar .searchbox {
+//   width: 20em;
+// }
+.dla-navbar .searchbox .ms-SearchBox {
+  margin-bottom: 0;
+  margin-top: 0;
+//  background-color: white;
+}
+.dla-navbar .searchbox .ms-SearchBox:hover {
+  border-color: #d1d1d1;
+}
+.dla-navbar .searchbox .ms-SearchBox:focus-within {
+  background-color: white;
+  border-color: #d1d1d1;
+}
+.dla-logo {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 1);
+  background-image: url('/img/datalayer/datalayer-square.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 36px auto;
+  border: 0 solid #cfd8dc;
+  cursor: pointer;
+}

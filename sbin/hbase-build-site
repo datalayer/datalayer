@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Building Apache HBase Site..."$NOCOLOR$NOBOLD
+echo
+
+mvn site
+
+xdg-open target/site/index.html
+
+# mvn \
+#   site:site \
+#   -Dmaven.javadoc.skip=true \
+#   -Dmaven.findbugs.enable=false \
+#   -Dcheckstyle.skip=true \
+#   -Drat.skip=true
+#   -o
+
+# mvn docbkx-maven-plugin:generate-html
+# mvn docbookx:generate-html (generate-rtf, generate-html, generate-pdf, generate-manpages, generate-epub, generate-javahelp, generate-xhtml, generate-webhelp, generate-eclipse)

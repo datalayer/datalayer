@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Apache HDFS is a ditributed storage system.
+name: hdfs
+version: ${DLAVERSION}
+appVersion: 2.9.0
+home: https://hadoop.apache.org
+sources:
+- https://github.com/apache/hadoop
+icon: http://hadoop.apache.org/images/hdfs-logo.jpg
+maintainers:
+- name: eric
+  email: eric@datalayer.io

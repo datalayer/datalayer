@@ -1,0 +1,13 @@
+diff --git a/jupyterhub/tests/test_pages.py b/jupyterhub/tests/test_pages.py
+index cd810f6..fc058dd 100644
+--- a/jupyterhub/tests/test_pages.py
++++ b/jupyterhub/tests/test_pages.py
+@@ -524,7 +524,7 @@ async def test_static_files(app):
+     r = await async_requests.get(ujoin(base_url, 'logo'))
+     r.raise_for_status()
+     assert r.headers['content-type'] == 'image/png'
+-    r = await async_requests.get(ujoin(base_url, 'static', 'images', 'jupyter.png'))
++    r = await async_requests.get(ujoin(base_url, 'static', 'images', 'datalayer-25.svg'))
+     r.raise_for_status()
+     assert r.headers['content-type'] == 'image/png'
+     r = await async_requests.get(ujoin(base_url, 'static', 'css', 'style.min.css'))

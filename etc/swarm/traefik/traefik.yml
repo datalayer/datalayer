@@ -1,0 +1,27 @@
+# labels:
+#   - "traefik.backend=wekan-app"
+#   - "traefik.docker.network=web"
+#   - "traefik.frontend.rule=Host:wekan.myinternaldomain.org"
+#   - "traefik.enable=true"
+#   - "traefik.port=8080"
+#   - "traefik.default.protocol=http"
+version: '3.5'
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:1.7.9
+    networks:
+      - datalayer
+#    command: --api --docker
+    command: --docker
+    ports:
+      - 80:80
+      - 443:443
+      - 8089:8089
+    volumes:
+      - /etc/letsencrypt:/certs/letsencrypt
+      - ${DLAHOME}/etc/conf/traefik/${DLAHOST}.toml:/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
+#    labels:
+#      - traefik.frontend.rule=Host:${DLAHOST};Path:/dashboard/
+#      - traefik.frontend.rule=Path:/dashboard/

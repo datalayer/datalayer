@@ -1,0 +1,16 @@
+{
+  "display_name": "Python 3 Local",
+  "language": "python", 
+  "metadata": {
+    "process_proxy": {
+      "class_name": "enterprise_gateway.services.processproxies.processproxy.LocalProcessProxy"
+    }
+  },
+  "argv": [
+    "/opt/datalayer/opt/miniconda3/envs/datalayer/bin/python",
+    "-m",
+    "ipykernel_launcher",
+    "-f",
+    "{connection_file}"
+  ]
+}

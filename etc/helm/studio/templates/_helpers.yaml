@@ -1,0 +1,22 @@
+{{/*
+Expand the name of the chart.
+*/}}
+{{- define "studio.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 24 chars because some Studionetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "studio.fullname" -}}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- printf "%s-%s" .Release.Name $name | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Define the name of the client service for studio.
+*/}}
+{{- define "studio.service-name" -}}
+{{- printf "%s-%s" (include "studio.fullname" .) "svc" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

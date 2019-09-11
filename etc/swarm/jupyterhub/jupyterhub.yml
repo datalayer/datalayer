@@ -1,0 +1,74 @@
+version: '3.5'
+services:
+  jupyterhub:
+    image: datalayer/jupyterhub:${DLAVERSION}
+    hostname: jupyterhub
+    container_name: jupyterhub
+    depends_on:
+      - jupyterhub-db
+      - solr
+    restart: always
+    networks:
+      - datalayer
+    volumes:
+      # Bind Docker socket on the host so we can connect to the daemon from within the container.
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
+      # Bind Docker volume on host for JupyterHub database and cookie secrets.
+      - jupyterhub-data:/data
+    ports:
+      - 8000:8000
+    environment:
+      JUPYTERHUB_CRYPT_KEY: ${JUPYTERHUB_CRYPT_KEY}
+      DLA_KEYCLOAK_SCHEME_HOST: ${DLA_KEYCLOAK_SCHEME_HOST}
+      DLA_KEYCLOAK_REALM_CLIENT_SECRET: ${DLA_KEYCLOAK_REALM_CLIENT_SECRET}
+      DLA_JUPYTERHUB_AUTH_CALLBACK: ${DLA_JUPYTERHUB_AUTH_CALLBACK}
+      DLA_SOLR_ZK_HOST: ${DLA_SOLR_ZK_HOST}
+      DLA_DOCKER_NETWORK: datalayer
+      # JupyterHub will spawn this Notebook image for users.
+      DLA_JUPYTERHUB_NOTEBOOK_IMAGE: ${DLA_JUPYTERHUB_NOTEBOOK_IMAGE}
+      # Notebook directory inside user image.
+      DLA_JUPYTERHUB_NOTEBOOK_DIR: ${DLA_JUPYTERHUB_NOTEBOOK_DIR}
+      # Using this run command.
+      DLA_NOTEBOOK_SPAWN_CMD: "start-singleuser.sh --SingleUserNotebookApp.default_url=/lab"
+      # Postgres DB info.
+      DLA_JUPYTERHUB_POSTGRES_HOST: jupyterhub-db
+      DLA_JUPYTERHUB_POSTGRES_DB: jupyterhub
+      DLA_JUPYTERHUB_DB_PWD: ${DLA_JUPYTERHUB_DB_PWD}
+      DLA_TWITTER_CONSUMER_KEY: ${DLA_TWITTER_CONSUMER_KEY}
+      DLA_TWITTER_CONSUMER_SECRET: ${DLA_TWITTER_CONSUMER_SECRET}
+      DLA_TWITTER_OAUTH_CALLBACK_URL: ${DLA_TWITTER_OAUTH_CALLBACK_URL}
+      DLA_TWITTER_OAUTH_REDIRECT: ${DLA_TWITTER_OAUTH_REDIRECT}
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/jupyterhub
+      - traefik.port=8000
+      - traefik.docker.network=datalayer
+    # Ensure that we execute on a Swarm manager
+#    deploy:
+#      replicas: 1
+#      placement:
+#        constraints:
+#          - node.role == manager
+  jupyterhub-db:
+    image: postgres:9.5
+    hostname: jupyterhub-db
+    container_name: jupyterhub-db
+    restart: always
+    environment:
+      POSTGRES_DB: jupyterhub
+      POSTGRES_PASSWORD: ${DLA_JUPYTERHUB_DB_PWD}
+      PGDATA: /var/lib/postgresql/data
+    networks:
+      - datalayer
+    volumes:
+      - jupyterhub-db-data:/var/lib/postgresql/data
+    # Ensure that we execute on a Swarm manager
+#    deploy:
+#      replicas: 1
+#      placement:
+#        constraints:
+#          - node.role == manager
+volumes:
+  jupyterhub-db-data:
+    name: jupyterhub-db-data
+  jupyterhub-data:
+    name: jupyterhub-data

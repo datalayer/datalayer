@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Removing Datalayer DSP from Docker Swarm"$NOCOLOR$NOBOLD
+echo
+
+source dsp-swarm-services
+
+function down_all() {
+
+  echo -e $BOLD"🔥  Removing all services."$NOBOLD
+  echo
+
+  docker stack rm \
+    datalayer \
+    "$@"
+
+  echo
+  echo -e $BOLD"✅  Allo services are removed."$NOBOLD
+  echo
+
+}
+
+function down() {
+
+  echo -e $BOLD"🔥  Removing service [$BLUE$@$NOCOLOR]."$NOBOLD
+  echo
+
+  docker service rm datalayer_$1
+
+  echo
+  echo -e $BOLD"✅  Service [$BLUE$@$NOCOLOR] is removed."$NOBOLD
+  echo
+
+}
+
+if [ -z "$1" ]; then
+  down_all
+else
+  IFS=',' read -ra CMD_SPLITS <<< "$1"
+  for i in "${CMD_SPLITS[@]}"; do
+    down "$i"
+  done
+fi

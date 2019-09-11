@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+uname_out="$(uname -s)"
+
+case "${uname_out}" in
+    Linux*)     export OS=LINUX;;
+    Darwin*)    export OS=MACOS;;
+#    CYGWIN*)    OS=CYGWIND;;
+#    MINGW*)     OS=MINGW;;
+    *)          export OS="UNSUPPORTED:${unameOut}"
+esac

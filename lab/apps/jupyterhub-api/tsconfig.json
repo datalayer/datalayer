@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es6",
+    "outDir": "./lib",
+    "lib": ["es6", "ES2015.Promise", "dom", "ES2015.Collection", "es7"],
+    "types": [],
+    "jsx": "react"
+  },
+  "include": ["src/*"]
+}

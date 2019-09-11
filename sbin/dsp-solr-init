@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Initialize Datalayer DSP Solr"$NOCOLOR$NOBOLD
+echo
+
+$SOLR_HOME/bin/solr create -c datalayer -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/datalayer -p 8983 -force
+#  $SOLR_HOME/bin/solr zk upconfig -n datalayer -d $DLAHOME/etc/conf/solr -p 8983
+
+echo
+dla solr-help

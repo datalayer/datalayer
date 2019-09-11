@@ -1,0 +1,13 @@
+dn: cn=Eric Charles,ou=users,dc=datalayer,dc=io
+cn: Eric Charles
+gidnumber: 500
+givenname: Eric
+homedirectory: /home/users/echarles
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Charles
+uid: echarles
+mail: eric@datalayer.io
+uidnumber: 1012
+userpassword: {MD5}ICy5YqxZB1uWSwcVLSNLcA==

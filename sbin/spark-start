@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo Starting Apache Spark...
+
+# -i IP, --ip IP  IP address or DNS name to listen on
+# -p PORT, --port PORT    Port for service to listen on (default: 7077 for master, random for worker)
+# --webui-port PORT   Port for web UI (default: 8080 for master, 8081 for worker)
+# -c CORES, --cores CORES     Total CPU cores to allow Spark applications to use on the machine (default: all available); only on worker
+# -m MEM, --memory MEM    Total amount of memory to allow Spark applications to use on the machine, in a format like 1000M or 2G (default: your machine's total RAM minus 1 GB); only on worker
+# -d DIR, --work-dir DIR  Directory to use for scratch space and job output logs (default: SPARK_HOME/work); only on worker
+
+DLA_SKIP_HEADER=true dla spark-help
+
+$SPARK_HOME/bin/spark-class org.apache.spark.deploy.worker.Worker spark://localhost:9090

@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Installing Terraform"$NOCOLOR$NOBOLD
+echo
+
+export TERRAFORM_VERSION=0.12.5
+
+install_on_linux() {
+    echo -e "Installing terraform into /usr/local/bin"
+    echo
+    curl -Lo /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+      unzip /tmp/terraform.zip -d /usr/local/bin && \
+      rm /tmp/terraform.zip
+    curl -o terraform_0.11.13_linux_amd64.zip https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip && \
+        unzip terraform_0.11.13_linux_amd64.zip && \
+        rm terraform_0.11.13_linux_amd64.zip && \
+        mv terraform /usr/local/bin/tf11
+    echo
+}
+
+install_on_macos() {
+    echo -e "Installing terraform into /usr/local/bin"
+    echo
+    curl -Lo /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_darwin_amd64.zip && \
+      unzip /tmp/terraform.zip -d /usr/local/bin && \
+      rm /tmp/terraform.zip
+    curl -o terraform_0.11.13_darwin_amd64.zip https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_darwin_amd64.zip && \
+        unzip terraform_0.11.13_darwin_amd64.zip && \
+        rm terraform_0.11.13_darwin_amd64.zip && \
+        mv terraform /usr/local/bin/tf11
+    echo
+}
+
+case "${OS}" in
+    LINUX)     install_on_linux;;
+    MACOS)     install_on_macos;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+DLA_SKIP_HEADER=true dla terraform-help "$@"

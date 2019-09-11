@@ -1,0 +1,155 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# Place this file in /usr/local/bin
+# chmod 744 /usr/local/bin/kubeadm-master
+
+function install_docker() {
+  mkdir /etc/docker
+  cat << EOF_D1 > /etc/docker/daemon.json
+  {
+    "exec-opts": ["native.cgroupdriver=cgroupfs"]
+  }
+EOF_D1
+  cat << EOF_D2 >/root/install-docker.sh
+sudo apt -y remove docker docker-engine docker.io docker-ce
+sudo apt update
+sudo apt -y install \
+    linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual
+sudo apt -y install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable"
+sudo apt update
+sudo apt -y install docker-ce
+systemctl daemon-reload
+systemctl restart docker
+EOF_D2
+  chmod +x /root/install-docker.sh && /root/install-docker.sh
+}
+
+function install_kubeadm() {
+  cat <<EOF_K1 >/etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF_K1
+  cat << EOF_K2 > /root/install-kubeadm.sh
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+apt update
+apt install -y apt-transport-https
+apt install -y --allow-unauthenticated \
+  kubelet=1.8.4-00 \
+  kubeadm=1.8.4-00 \
+  kubectl=1.8.4-00
+EOF_K2
+  chmod +x /root/install-kubeadm.sh && /root/install-kubeadm.sh
+  # cat <<EOF >/etc/systemd/system/kubelet.service.d/90-extras.conf
+  # --fail-swap-on=false
+  cat <<EOF_K3 >>/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"
+EOF_K3
+  systemctl daemon-reload && systemctl restart kubelet
+}
+
+function install_kuber_master() {
+  kubeadm reset
+  cat <<EOF >kubeadm-master.conf
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+kubernetesVersion: 1.8.3
+token: ed5ef9.6c35783ca6cb8994
+tokenTTL: 99999h0m0s
+api:
+  advertiseAddress: $HOSTNAME
+  bindPort: 433
+nodeName: $HOSTNAME
+networking:
+  podSubnet: $POD_SUBNET
+apiServerCertSANs:
+- 127.0.0.1
+EOF
+  kubeadm init --config=kubeadm-master.conf
+}
+
+function install_config() {
+  rm -fr  ~/.kube
+  mkdir -p ~/.kube
+  sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
+  sudo chown $(id -u):$(id -g) ~/.kube/config
+}
+
+function install_calico() {
+  kubectl apply -f https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
+}
+
+function install_flannel() {
+  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
+}
+
+function setup_rbac() {
+  cat << EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: dla-rbac
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+EOF
+}
+
+function install_helm() {
+#  wget https://storage.googleapis.com/kubernetes-helm/helm-v2.7.2-linux-amd64.tar.gz
+#  tar xvfz helm-v2.7.2-linux-amd64.tar.gz
+#  mv linux-amd64/helm /usr/local/bin
+  helm init --canary-image --upgrade
+  kubectl create serviceaccount --namespace kube-system tiller
+  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+  kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'      
+  helm init --service-account tiller --upgrade
+}
+
+# apt install -y awscli
+sysctl net.bridge.bridge-nf-call-iptables=1
+
+POD_SUBNET=192.168.0.0/16 # Calico
+# POD_SUBNET=10.244.0.0/16 # Flannel
+
+# install_docker
+# install_kubeadm
+install_kuber_master
+install_config
+
+# Taint master to host pods.
+kubectl taint nodes --all node-role.kubernetes.io/master-
+
+setup_rbac
+
+if [ $POD_SUBNET == "192.168.0.0/16" ]
+then
+  echo Installing Calico
+  install_calico
+elif [ $POD_SUBNET == "10.244.0.0/16" ]
+then
+  echo Installing Flannel
+  install_flannel
+else
+  exit -1
+fi
+
+install_helm

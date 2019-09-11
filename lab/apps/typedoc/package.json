@@ -1,0 +1,16 @@
+{
+  "name": "@datalayer/datalab-typedoc",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "package:docs": "node node_modules/.bin/typedoc --module commonjs --includes inc/ --media media/ --target ES5 --json json.json --out _gen/doc/ src/",
+    "package:docs2": "typedoc --options typedoc.js ."
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typedoc": "0.14.2"
+  }
+}

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $YELLOW$BOLD"Starting Apache Solr..."$NOBOLD$NOCOLOR
+echo
+
+cp $SOLR_CONF_DIR/solr.xml $DLAHOME/var/solr
+
+cd $SOLR_HOME
+# $SOLR_HOME/bin/solr start -cloud -noprompt -s $DLAHOME/etc/conf/solr -p 7574 -z localhost:2181 -m 512m
+# Instead of -c, you can use `-e cloud`, `-e schemaless` or `-e techproducts`.
+# $SOLR_HOME/bin/solr start -e cloud -noprompt -p 8983 -z localhost:2181 -m 512m
+# $SOLR_HOME/bin/solr start -e schemaless -noprompt -p 8983 -z localhost:2181 -m 512m
+# $SOLR_HOME/bin/solr start -e techproducts -noprompt -p 8983 -z localhost:2181 -m 512m
+$SOLR_HOME/bin/solr start -cloud -noprompt -s $DLAHOME/var/solr -p 8983 -m 1g -z localhost:2181
+
+echo
+dla solr-help

@@ -1,0 +1,15 @@
+library:
+  image: datalayer/library:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 9800
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"
+  env:
+    DLAHOST: ""
+    DLA_IAM_AUTH_CALLBACK: ""
+    DLA_IAM_UI_REDIRECT: ""
+    DLA_SOLR_ZK_HOST: ""
+    DLA_KEYCLOAK_REALM_CLIENT_SECRET: ""
+    DLA_KEYCLOAK_SCHEME_HOST: ""

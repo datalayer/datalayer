@@ -1,0 +1,39 @@
+hdfsVersion: 2.9.0
+# Select anitAffinity as either hard or soft, default is hard
+antiAffinity: "soft"
+imagePullPolicy: IfNotPresent
+hdfs:
+  nameNode:
+    image: datalayer/hdfs-nn:2.9.0
+    pdbMinAvailable: 1
+    masterOperator: In
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "10m"
+      limits:
+        memory: "2048Mi"
+        cpu: "1000m"
+  dataNode:
+    image: datalayer/hdfs-dn:2.9.0
+    replicas: 1
+    pdbMinAvailable: 1
+    masterOperator: NotIn
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "10m"
+      limits:
+        memory: "2048Mi"
+        cpu: "1000m"
+persistence:
+  nameNode:
+    enabled: false
+    storageClass: "-"
+    accessMode: ReadWriteOnce 
+    size: 50Gi
+  dataNode:
+    enabled: false
+    storageClass: "-"
+    accessMode: ReadWriteOnce 
+    size: 200Gi

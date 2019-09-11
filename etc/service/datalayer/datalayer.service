@@ -1,0 +1,20 @@
+# /etc/systemd/system/datalayer.service
+
+# systemctl daemon-reload
+# systemctl stop datalayer
+# systemctl start datalayer
+# systemctl status datalayer
+# journalctl -lxeu datalayer
+# journalctl -fu datalayer
+
+[Unit]
+Description=Datalayer
+After=syslog.target network.target
+
+[Service]
+User=root
+Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/miniconda3/envs/datalayer/bin"
+ExecStart=/opt/datalayer/bin/datalayer hub
+
+[Install]
+WantedBy=multi-user.target

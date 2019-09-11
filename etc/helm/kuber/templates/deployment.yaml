@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-kuber
+  labels:
+    app: {{ template "kuber.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "kuber.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: kuber
+          image: {{ .Values.kuber.image }}
+          imagePullPolicy: {{ .Values.kuber.imagePullPolicy }}
+          env:
+          - name: APISERVER_HOST
+            value: http://localhost:8001
+          - name: DLA_IAMREST
+            value: {{ .Values.kuber.env.DLA_IAMREST }}
+          - name: DLA_JUPYTERHUBUI
+            value: {{ .Values.kuber.env.DLA_JUPYTERHUBUI }}
+          - name: DLA_KUBERWS
+            value: {{ .Values.kuber.env.DLA_KUBERWS }}
+          - name: DLA_LIBRARYREST
+            value: {{ .Values.kuber.env.DLA_LIBRARYREST }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.kuber.resources | indent 12 }} 
+        - name: kuber-sidecar
+          image: datalayer/k8s-sidecar:0.0.3
+          imagePullPolicy: IfNotPresent
+          args: ["proxy", "-p", "8001"]

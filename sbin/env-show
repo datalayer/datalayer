@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+if [ "$DLA_ENV_ECHO" == "true" ]
+
+then
+
+  echo -e $YELLOW
+  echo -e $BOLD"$DLA_ECHO_SEPARATOR"$NOBOLD
+  echo -e $BOLD"DATALAYER ENVIRONMENT"$NOBOLD
+  echo -e $BOLD"$DLA_ECHO_SEPARATOR"$NOBOLD
+  echo -e ""
+  echo -e "PATH="$PATH
+  echo -e ""
+  echo -e "$DLA_ECHO_SEPARATOR"
+  echo -e ""
+  echo -e "DLAVERSION="$DLAVERSION
+  echo -e ""
+  echo -e "DLAHOME="$DLAHOME
+  echo -e "DLABIN="$DLABIN
+  echo -e "DLASBIN="$DLASBIN
+  echo -e "DLAREPOS="$DLAREPOS
+  echo -e ""
+  echo -e "DLA_ENV_ECHO="$DLA_ENV_ECHO
+  echo -e "DLA_SHOW_HEADER="$DLA_SHOW_HEADER
+  echo -e "DLA_DOWNLOAD_EXT_SKIP="$DLA_DOWNLOAD_EXT_SKIP
+  echo -e ""
+  echo -e "DLA_REPOSITORY="$DLA_REPOSITORY
+  echo -e ""
+  echo -e "DLA_SECURITY="$DLA_SECURITY
+  echo -e ""
+  echo -e "DLA_NOTEBOOK_DIR="$DLA_NOTEBOOK_DIR
+  echo -e ""
+  echo -e "JAVA_HOME="$JAVA_HOME
+  echo -e "CLASSPATH="$CLASSPATH
+  echo -e "MAVEN_HOME="$MAVEN_HOME
+  echo -e "DLA_CLASSPATH="$DLA_CLASSPATH
+  echo -e "DLA_CLASSPATH_FILE="$DLA_CLASSPATH_FILE
+#  echo
+#  mvn -v
+  echo -e ""
+  echo -e "DLA_PORT="$DLA_PORT
+  echo -e ""
+  echo -e "DLA_HADOOP="$DLA_HADOOP
+  echo -e "DLA_HADOOP_STATUS="$DLA_HADOOP_STATUS
+  echo -e "DLA_HADOOP_DATA_DIR="$DLA_HADOOP_DATA_DIR
+  echo -e ""
+  echo -e "DLA_SPARK_ASSEMBLY_JAR"=$DLA_SPARK_ASSEMBLY_JAR
+  echo -e ""
+  echo -e "$DLA_ECHO_SEPARATOR"
+  echo -e ""
+  echo -e "HADOOP_HOME="$HADOOP_HOME
+  echo -e "HADOOP_CONF_DIR="$HADOOP_CONF_DIR
+  echo -e ""
+  echo -e "HBASE_HOME="$HBASE_HOME
+  echo -e "HBASE_CONF_DIR="$HBASE_CONF_DIR
+  echo -e ""
+  echo -e "ZOOKEEPER_HOME="$ZOOKEEPER_HOME
+  echo -e "ZOOKEEPER_CONF_FILE="$ZOOKEEPER_CONF_FILE
+  echo -e ""
+  echo -e "SPARK_HOME="$SPARK_HOME
+  echo -e "SPARK_DAEMON_MEMORY="$SPARK_DAEMON_MEMORY
+  echo -e "MASTER"=$MASTER
+  echo -e "SPARK_YARN_MODE"=$SPARK_YARN_MODE
+  echo -e "SPARK_YARN_USER_ENV"=$SPARK_YARN_USER_ENV
+  echo -e ""
+  echo -e "PYTHONPATH"=$PYTHONPATH
+  echo -e ""
+  echo -e "ZEPPELIN_HOME="$ZEPPELIN_HOME
+  echo -e "ZEPPELIN_PORT="$ZEPPELIN_PORT
+  echo -e "ZEPPELIN_WAR="$ZEPPELIN_WAR
+  echo -e "ZEPPELIN_API_WAR="$ZEPPELIN_API_WAR
+  echo -e "ZEPPELIN_INTERPRETERS="$ZEPPELIN_INTERPRETERS
+  echo -e "ZEPPELIN_INTERPRETER_DIR="$ZEPPELIN_INTERPRETER_DIR
+  echo -e "ZEPPELIN_ENCODING="$ZEPPELIN_ENCODING
+  echo -e "ZEPPELIN_NOTEBOOK_DIR="$ZEPPELIN_NOTEBOOK_DIR
+  echo -e ""
+  echo -e "$DLA_ECHO_SEPARATOR"
+  echo -e ""
+  echo -e "$DLA_ECHO_SEPARATOR"
+  echo -e ""
+  printenv
+  echo -e $BOLD"$DLA_ECHO_SEPARATOR"$NOBOLD
+  echo -e "$NOCOLOR"
+
+else
+
+  if [ "$1" == "-q" ]
+  then
+    exit 0
+  fi
+
+  if [ "$DLA_SHOW_HEADER" == "false" ]
+  then
+    exit 0
+  fi
+
+#  echo -e "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+#  echo -e "░░ Launch with \`DLA_ENV_ECHO=true\` to see environment details. ░░"
+#  echo -e "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+#  echo -e "$NOCOLOR"
+
+fi

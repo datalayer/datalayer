@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+restore_ldap_users() {
+    echo -e $BOLD$YELLOW"Restore LDAP Users for Datalayer DSP"$NOCOLOR$NOBOLD
+    echo
+    ldapadd -H ldap:// -x -D "$DLA_LDAP_BIND" -w $DLA_LDAP_BIND_PWD -f ~/backups/users.ldif
+}
+
+restore_volumes() {
+    echo -e $BOLD$YELLOW"Restore JupyterHub Volumes"$NOCOLOR$NOBOLD
+    echo
+    docker volume rm -f jupyterhub-data && docker volume create jupyterhub-data
+    docker run --rm -v jupyterhub-data:/data -v ~/backups:/backup ubuntu:18.04 bash -c "cd / && tar xvf /backup/jupyterhub-data.tar"
+    docker volume rm -f jupyterhub-db-data && docker volume create jupyterhub-db-data
+    docker run --rm -v jupyterhub-db-data:/data -v ~/backups:/backup ubuntu:18.04 bash -c "cd / && tar xvf /backup/jupyterhub-db-data.tar"
+}
+
+restore_ldap_users
+# restore_volumes

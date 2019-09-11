@@ -1,0 +1,45 @@
+{
+  "name": "profile",
+  "plural": "profiles",
+  "label": "Profile",
+  "fields": {
+    "first_name": {
+      "name": "first_name",
+      "label": "First Name",
+      "required": true,
+      "pattern": "^[A-Za-z0-9_]+$",
+      "errorMessage": "Only allow alphanumeric characters (A-Z, a-z, 0-9) and underscore (_)",
+      "type": "string"
+    },
+    "family_name": {
+      "name": "family_name",
+      "label": "Last Name",
+      "required": true,
+      "pattern": "^[A-Za-z0-9_]+$",
+      "errorMessage": "Only allow alphanumeric characters (A-Z, a-z, 0-9) and underscore (_)",
+      "type": "string"
+    },
+    "username": {
+      "name": "username",
+      "label": "Username",
+      "type": "string",
+      "length": [
+        3,
+        20
+      ],
+      "pattern": "^[A-Za-z0-9_]+$",
+      "errorMessage": "Only allow alphanumeric characters (A-Z, a-z, 0-9) and underscore (_)",
+      "required": true
+    },
+    "email": {
+      "name": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": true,
+      "length": [
+        6,
+        100
+      ]
+    }
+  }
+}

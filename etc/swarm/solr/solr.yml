@@ -1,0 +1,48 @@
+version: '3.5'
+services:
+  solr:
+    image: datalayer/solr:${DLAVERSION}
+    container_name: solr
+    restart: always
+    networks:
+      - datalayer
+    ports:
+      - 8983:8983
+#    entrypoint:
+#      - docker-entrypoint.sh
+#      - solr-precreate
+#      - datalayer
+#      - /datalayer-conf
+    volumes:
+      - solr-data:/opt/solr/server/solr
+#      - solr-logs:/opt/solr/server/logs
+#      - solr-store:/store/solr
+#      - solr-initdb:/docker-entrypoint-initdb.d
+#      - ${DLAHOME}/etc/conf/solr:/datalayer-conf
+#      - solr-data:/var/solr
+    environment:
+      SOLR_PORT: 8983
+      SOLR_HOME: /opt/solr/server/solr
+      SOLR_CONF_DIR: /opt/solr/server/solr
+#      ZK_HOST: zookeeper:2181,zookeeper-2:2182,zookeeper-3:2183
+      ZK_HOST: zookeeper:2181
+      SOLR_LOGS_DIR: /opt/solr/server/logs
+      SOLR_HOST: solr
+      SOLR_HEAP: 1g
+      SOLR_JAVA_MEM: -Xms1g -Xmx2g
+#      SOLR_DATA_HOME: /var/solr
+    depends_on:
+      - zk
+    labels:
+      - traefik.docker.network=datalayer
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/solr
+      - traefik.port=8983
+volumes:
+#  solr-logs:
+#    name: solr-logs
+#  solr-store:
+#    name: solr-store
+#  solr-initdb:
+#    name: solr-initdb
+  solr-data:
+    name: solr-data

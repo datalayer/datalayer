@@ -1,0 +1,42 @@
+diff --git a/packages/cells/src/widget.ts b/packages/cells/src/widget.ts
+index f1a1d1cde..c67646464 100644
+--- a/packages/cells/src/widget.ts
++++ b/packages/cells/src/widget.ts
+@@ -682,6 +682,7 @@ export class CodeCell extends Cell {
+       rendermime,
+       contentFactory: contentFactory
+     }));
++    output.id = this.guid();
+     output.addClass(CELL_OUTPUT_AREA_CLASS);
+     // Set a CSS if there are no outputs, and connect a signal for future
+     // changes to the number of outputs. This is for conditional styling
+@@ -700,6 +701,29 @@ export class CodeCell extends Cell {
+     model.stateChanged.connect(this.onStateChanged, this);
+   }
+ 
++  guid() {
++    return (
++    this.s4() +
++    this.s4() +
++    '-' +
++    this.s4() +
++    '-' +
++    this.s4() +
++    '-' +
++    this.s4() +
++    '-' +
++    this.s4() +
++    this.s4() +
++    this.s4()
++    );
++  }
++
++  s4() {
++    return Math.floor((1 + Math.random()) * 0x10000)
++    .toString(16)
++    .substring(1);
++  }
++
+   /**
+    * The model used by the widget.
+    */

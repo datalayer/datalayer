@@ -1,0 +1,12 @@
+{
+  "name": "@datalayer/ui",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datalayer/datalayer/tree/master/apps"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  }
+}

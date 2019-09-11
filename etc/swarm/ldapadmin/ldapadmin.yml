@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  ldapadmin:
+    image: osixia/phpldapadmin:0.7.2
+    container_name: ldapadmin
+    networks:
+      - datalayer
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap
+      PHPLDAPADMIN_HTTPS: "false"
+    ports:
+      - 8083:80
+    depends_on:
+      - ldap
+    labels:
+      - traefik.frontend.rule=Host:${DLA_LDAP_HOST}
+      - traefik.port=80
+      - traefik.docker.network=datalayer

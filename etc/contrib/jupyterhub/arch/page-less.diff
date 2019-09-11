@@ -1,0 +1,20 @@
+diff --git a/share/jupyterhub/static/less/page.less b/share/jupyterhub/static/less/page.less
+index 6193b35..e39ea57 100644
+--- a/share/jupyterhub/static/less/page.less
++++ b/share/jupyterhub/static/less/page.less
+@@ -1,8 +1,13 @@
+-@logo-height: 28px;
++@logo-height: 25px;
+ 
++body {
++  padding-top: 70px;
++}
++
+ .jpy-logo {
+   height: @logo-height;
+-  margin-top: (@navbar-height - @logo-height) / 2;
++//  margin-top: (@navbar-height - @logo-height) / 2;
++  margin-top: 5px;
+ }
+ 
+ #header {

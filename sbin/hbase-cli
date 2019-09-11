@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Starting Apache HBase CLI..."$NOCOLOR$NOBOLD
+echo
+DLA_SKIP_HEADER=true dla hbase-help
+
+$HBASE_HOME/bin/hbase shell "$@"
+# DLA_SKIP_HEADER=true dla hbase shell "$@"

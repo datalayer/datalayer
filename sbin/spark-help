@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# Once you have started a worker, look at the master’s web UI (http://localhost:8080 by default). 
+# You should see the new node listed there, along with its number of CPUs and memory (minus one gigabyte left for the OS).
+
+echo
+echo "Check Spark Application      http://localhost:4040"
+echo "Check Spark History Server   http://localhost:18080"
+echo
+echo "Other options:"
+echo "--------------"
+echo
+echo "MASTER=yarn HADOOP_CONF_DIR=$DLAHOME/etc/hadoop/conf $SPARK_HOME/bin/spark-shell --packages javax.mail:mail:1.4.5-rc1"
+echo """
+Users may also include any other dependencies by supplying a comma-delimited list of maven coordinates with --packages.
+All transitive dependencies will be handled when using this command. Additional repositories (or resolvers in SBT) can be added in a comma-delimited fashion with the flag --repositories.
+(Note that credentials for password-protected repositories can be supplied in some cases in the repository URI, such as in https://user:password@host/.... Be careful when supplying credentials this way.).
+
+These commands can be used with pyspark, spark-shell, and spark-submit to include Spark Packages.
+
+For Python, the equivalent --py-files option can be used to distribute .egg, .zip and .py libraries to executors.
+"""

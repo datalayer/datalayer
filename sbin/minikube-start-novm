@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Starting Minikube on Local Node"$NOCOLOR$NOBOLD
+echo
+
+export MINIKUBE_WANTUPDATENOTIFICATION=false
+export MINIKUBE_WANTREPORTERRORPROMPT=false
+export MINIKUBE_HOME=$HOME
+export CHANGE_MINIKUBE_NONE_USER=true
+
+# mkdir $HOME/.kube || true
+# touch $HOME/.kube/config
+
+export KUBECONFIG=$HOME/.kube/config
+
+sudo -E minikube start \
+  --vm-driver=none \
+  "$@"
+
+DLA_SKIP_HEADER=true dla kubectl-check "$@"
+
+DLA_SKIP_HEADER=true dla minikube-help "$@"

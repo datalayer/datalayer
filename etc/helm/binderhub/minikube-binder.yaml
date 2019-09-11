@@ -1,0 +1,47 @@
+rbac:
+  enabled: false
+
+resources:
+  requests:
+    cpu: 0.2
+    memory: 100Mi
+
+cors: &cors
+  allowOrigin: '*'
+
+hub:
+  url: http://192.168.99.100:30902
+
+service:
+  type: NodePort
+  nodePort: 30901
+
+jupyterhub:
+  rbac:
+    enabled: false
+  hub:
+    resources:
+      requests:
+        cpu: 0.2
+        memory: 100Mi
+    cookieSecret: 1470700e01f77171c2c67b12130c25081dfbdf2697af8c2f2bd05621b31100bf
+    db:
+      type: sqlite-memory
+    services:
+      binder:
+        apiToken: 0c18e3dcb7c55b8c7740f1d7ee6977510ce3cb22221669278ee03f3c2259ab6b
+    extraConfigMap:
+      cors: *cors
+
+  proxy:
+    secretToken: f89ddee5ba10f2268fcefcd4e353235c255493095cd65addf29ebebf8df86255
+    service:
+      type: NodePort
+      nodePorts:
+        http: 30902
+
+  singleuser:
+    storage:
+      type: none
+    memory:
+      guarantee: null

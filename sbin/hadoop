@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Starting Datalayer Hadoop Client..."$NOCOLOR$NOBOLD
+echo
+
+export DLA_HADOOP=yarn
+export DLA_HADOOP_STATUS=starting
+
+$HADOOP_HOME/bin/hadoop "$@"

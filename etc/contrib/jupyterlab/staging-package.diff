@@ -1,0 +1,22 @@
+diff --git a/jupyterlab/staging/package.json b/jupyterlab/staging/package.json
+index b7dbdea49..07577cc32 100644
+--- a/jupyterlab/staging/package.json
++++ b/jupyterlab/staging/package.json
+@@ -11,13 +11,16 @@
+     "prepublishOnly": "npm run build",
+     "watch": "webpack --watch"
+   },
++  "resolutions": {
++    "@jupyterlab/**/@jupyterlab/cells": "file:/repos/jupyterlab/packages/cells"
++  },
+   "dependencies": {
+     "@jupyterlab/application": "^1.0.0-alpha.6",
+     "@jupyterlab/application-extension": "^1.0.0-alpha.6",
+     "@jupyterlab/apputils": "^1.0.0-alpha.6",
+     "@jupyterlab/apputils-extension": "^1.0.0-alpha.6",
+     "@jupyterlab/attachments": "^1.0.0-alpha.6",
+-    "@jupyterlab/cells": "^1.0.0-alpha.7",
++    "@jupyterlab/cells": "file:/repos/jupyterlab/packages/cells",
+     "@jupyterlab/codeeditor": "^1.0.0-alpha.6",
+     "@jupyterlab/codemirror": "^1.0.0-alpha.6",
+     "@jupyterlab/codemirror-extension": "^1.0.0-alpha.6",

@@ -1,0 +1,21 @@
+
+1. You can check the status of HDFS by running this command (make sure to update the values.yaml if you want to make this permanent):
+
+   kubectl exec -n {{ .Release.Namespace }} -it {{ template "hdfs.fullname" . }}-hdfs-nn-0 -- hdfs dfsadmin -report
+   kubectl exec -n {{ .Release.Namespace }} -it {{ template "hdfs.fullname" . }}-hdfs-nn-0 -- hdfs dfs -ls /
+
+2. To access the Namenode user interface, type this command and point your browser to http://localhost:50070.
+
+   kubectl port-forward {{ template "hdfs.fullname" . }}-hdfs-nn-0 50070:50070
+
+3. This chart can also be used with the Spitfire chart:
+   
+   helm install -n {{ .Release.Namespace }} --set hdfs.useConfigMap=true,hdfs.configMapName={{ template "hdfs.fullname" . }} zeppelin -n zeppelin
+
+4. In case of issue, open a shell and inspect the logs:
+
+   kubectl exec -n {{ .Release.Namespace }} -it {{ template "hdfs.fullname" . }}-hdfs-nn-0 -- bash
+
+5. You can scale up or down the number of data nodes:
+   
+   helm upgrade -n {{ .Release.Namespace }} --set hdfs.dataNode.replicas=6 {{ template "hdfs.fullname" . }} {{ template "hdfs.fullname" . }}

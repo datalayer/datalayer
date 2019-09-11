@@ -1,0 +1,21 @@
+name: datalayer_lab
+channels:
+  - conda-forge
+dependencies:
+  - py4j=0.10.7
+  - pylint=1.9.2
+  - py4j=0.10.7
+  - pyspark=2.3.1
+  - pytest=4.0.1
+  - python=3.7
+  - pip:
+#    - apache-airflow[crypto,celery,postgres,hive,jdbc,mysql]==1.10.0
+    - awscli==1.16.65
+    - boto3==1.9.52
+    - botocore==1.12.55
+    - notebook==5.7.2
+    - pycurl==7.43.0
+    - psycopg2==2.7.6.1
+    - pyqt5
+    - oauthenticator
+    - oauthlib

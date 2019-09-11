@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Datalayer Status on Docker Swarm"$NOCOLOR$NOBOLD
+echo
+
+echo -e $WHITE_BCK"Docker Node"$NOCOLOR
+echo
+docker node ls
+echo
+
+echo -e $WHITE_BCK"Docker Volume"$NOCOLOR
+echo
+docker volume ls
+echo
+
+echo -e $WHITE_BCK"Docker Containers"$NOCOLOR
+echo
+docker ps
+echo
+
+echo -e $WHITE_BCK"Docker Stack"$NOCOLOR
+echo
+docker stack ls
+echo
+
+echo -e $WHITE_BCK"Docker Stack PS Datalayer"$NOCOLOR
+echo
+docker stack ps datalayer
+echo
+
+echo -e $WHITE_BCK"Docker Stack Services Datalayer DSP"$NOCOLOR
+echo
+docker stack services datalayer
+echo
+
+echo -e $WHITE_BCK"Docker Service PS datalayer_studio"$NOCOLOR
+echo
+docker service ps --no-trunc datalayer_studio
+echo
+echo 'In case of issue: docker service ps --no-trunc <service>'
+echo

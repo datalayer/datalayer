@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Starting Datalayer Kafka..."$NOCOLOR$NOBOLD
+
+PID_FILE=$DLAHOME/var/run/kafka.pid
+
+# nohup $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties > $DLAHOME/log/kafka.nohup.out & echo $! > $PID_FILE
+
+nohup $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties &> /dev/null & echo $! > $PID_FILE
+
+dla kafka-help
+
+echo "Use \`tail -f $DLAHOME/log/...\` to read the log."
+echo

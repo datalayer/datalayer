@@ -1,0 +1,25 @@
+Your library server has now been installed, and can be accessed in the following ways:
+
+1. Connect to the library CLI pod:
+
+  kubectl exec -n {{ .Release.Namespace }} $(kubectl get pod -n {{ .Release.Namespace }} --selector=app={{ template "library.name" . }} -o jsonpath='{.items...metadata.name}') -- sh
+
+2. Connect with HTTP internally, within the librarynetes cluster on:
+
+  {{ template "library.service-name" . }}.{{ .Release.Namespace }}:{{ .Values.library.port }}
+
+3. Connect with HTTP Node Port to the librarynetes cluster:
+
+  export NODE_IP=$(kubectl get nodes --namespace library -o jsonpath="{.items[0].status.addresses[0].address}")
+  export NODE_PORT=$(kubectl get --namespace library -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "library.service-name" . }})
+  echo http://$NODE_IP:$NODE_PORT/library
+
+4. Connect with HTTP external service to the librarynetes cluster:
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "library.name" . }}" -o jsonpath="{ .items[0].metadata.name }")
+  echo "Visit http://127.0.0.1:{{ .Values.library.port }}/library to access library"
+  kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME {{ .Values.library.port }}:{{ .Values.library.port }}
+
+5. For Minikube:
+
+  open http://minikube.datalayer.io.local/library

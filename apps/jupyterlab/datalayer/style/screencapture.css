@@ -1,0 +1,62 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.p-SplitPanel-child {
+  z-index: auto !important;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999999999 !important;
+}
+
+.overlay.highlighting {
+  background: none;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-style: solid;
+  z-index: 9999999999 !important;
+}
+
+.crosshairs {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 9999999999 !important;
+}
+
+.crosshairs.hidden {
+  display: none;
+  z-index: 9999999999 !important;
+}
+
+.crosshairs::before, .crosshairs::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: none !important;
+  border-image: none !important;
+  z-index: 9999999999 !important;
+}
+
+.crosshairs::before {
+  left: -100%;
+  top: -100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  z-index: 9999999999 !important;
+}
+
+.crosshairs::after {
+  left: 0px;
+  top: 0px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.3) !important;
+  z-index: 9999999999 !important;
+}

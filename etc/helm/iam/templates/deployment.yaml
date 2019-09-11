@@ -1,0 +1,74 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-iam
+  labels:
+    app: {{ template "iam.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "iam.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: iam
+          image: {{ .Values.iam.image }}
+          imagePullPolicy: {{ .Values.iam.imagePullPolicy }}
+          env:
+          - name: DLAHOST
+            value: {{ .Values.iam.env.DLAHOST }}
+          - name: DLA_IAM_AUTH_CALLBACK
+            value: {{ .Values.iam.env.DLA_IAM_AUTH_CALLBACK }}
+          - name: DLA_IAM_UI_REDIRECT
+            value: {{ .Values.iam.env.DLA_IAM_UI_REDIRECT }}
+          - name: DLA_IAM_JOIN_SUCCESS
+            value: {{ .Values.iam.env.DLA_IAM_JOIN_SUCCESS }}
+          - name: DLA_IAM_JOIN_ERROR
+            value: {{ .Values.iam.env.DLA_IAM_JOIN_ERROR }}
+          - name: DLA_IAM_PASSWORD_SUCCESS
+            value: {{ .Values.iam.env.DLA_IAM_PASSWORD_SUCCESS }}
+          - name: DLA_IAM_PASSWORD_ERROR
+            value: {{ .Values.iam.env.DLA_IAM_PASSWORD_ERROR }}
+          - name: DLA_SMTP_HOST
+            value: {{ .Values.iam.env.DLA_SMTP_HOST }}
+          - name: DLA_SMTP_PORT
+            value: {{ .Values.iam.env.DLA_SMTP_PORT | quote }}
+          - name: DLA_SMTP_USERNAME
+            value: {{ .Values.iam.env.DLA_SMTP_USERNAME }}
+          - name: DLA_SMTP_PASSWORD
+            value: {{ .Values.iam.env.DLA_SMTP_PASSWORD }}
+          - name: DLA_LDAP_HOST
+            value: {{ .Values.iam.env.DLA_LDAP_HOST }}
+          - name: DLA_LDAP_BIND
+            value: {{ .Values.iam.env.DLA_LDAP_BIND }}
+          - name: DLA_LDAP_BIND_PWD
+            value: {{ .Values.iam.env.DLA_LDAP_BIND_PWD }}
+          - name: DLA_KEYCLOAK_REALM_CLIENT_SECRET
+            value: {{ .Values.iam.env.DLA_KEYCLOAK_REALM_CLIENT_SECRET }}
+          - name: DLA_KEYCLOAK_SCHEME_HOST
+            value: {{ .Values.iam.env.DLA_KEYCLOAK_SCHEME_HOST }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.iam.resources | indent 12 }} 
+        - name: iam-sidecar
+          image: datalayer/k8s-sidecar:0.0.3
+          imagePullPolicy: IfNotPresent
+          args: ["proxy", "-p", "8001"]

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $GREEN$BOLD"Hadoop YARN Help"$NOCOLOR$NOBOLD$NOCOLOR
+echo
+
+echo -e "Resource Manager             "$YELLOW"http://localhost:8088/cluster"$NOCOLOR
+echo -e "Resource Manager Endpoint    "$YELLOW"http://localhost:8088/ws/v1/cluster"$NOCOLOR
+echo -e "Node Manager                 "$YELLOW"http://localhost:8042/node"$NOCOLOR
+echo
+echo -e "Application Status           "$YELLOW"http://localhost:8089/proxy/<app-id>"$NOCOLOR
+echo
+echo -e "Job History Server           "$YELLOW"http://localhost:8188"$NOCOLOR
+echo
+
+# echo -e "Secondary Namenode           "$YELLOW"http://localhost:50090"$NOCOLOR
+# echo
+# echo -e "Resource Manager             "$YELLOW"http://localhost:8088/cluster"$NOCOLOR
+# echo -e "Node Manager                 "$YELLOW"http://localhost:8042/node"$NOCOLOR
+# echo
+# echo -e "Job History Server           "$YELLOW"http://localhost:19888"$NOCOLOR
+# echo -e "Job History Server           "$YELLOW"http://localhost:8188"$NOCOLOR
+# echo
+# echo -e "Application Status           "$YELLOW"http://localhost:8089/proxy/<app-id>"$NOCOLOR
+# echo

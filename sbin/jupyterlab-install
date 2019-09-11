@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# Valid for AWS EMR 5.21.0
+
+cd
+
+curl -o miniconda-install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+  chmod +x miniconda-install.sh && \
+  ./miniconda-install.sh -b
+cat << 'EOF' >> ~/.bashrc
+# >>> conda initialize >>>
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/~/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="~/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+EOF
+sed -i "s|~|$HOME|g" ~/.bashrc
+source ~/.bashrc
+
+cat << EOF > ./conda.yml
+name: jupyterlab
+channels:
+  - anaconda-nb-extensions
+  - conda-forge
+  - plotly
+dependencies:
+  - altair
+  - bokeh
+  - boto3
+  - bqplot
+  - geoviews
+  - holoviews
+  - ipympl
+  - ipywidgets
+  - ipyleaflet
+  - jupyter
+  - nodejs
+  - matplotlib
+  - networkx
+  - pandas
+  - pyviz_comms
+  - pip
+  - plotly=3.7.1
+  - plotly-orca
+  - pyspark=2.4.0
+  - python=3.6
+  - seaborn
+  - vega_datasets
+  - voila
+  - xesmf
+  - yarn
+  - pip:
+    - cufflinks
+    - dynamodb-encryption-sdk
+    - findspark
+    - opencv-python
+    - vdom
+EOF
+conda env create -n jupyterlab -f ./conda.yml
+conda activate jupyterlab
+
+install_from_src() {
+  git clone https://github.com/jupyterlab/jupyterlab_server && \
+    cd jupyterlab_server && \
+    pip install -e . && \
+    cd ~
+  git clone https://github.com/jupyterlab/jupyterlab && \
+    cd jupyterlab && \
+    pip install -e . && \
+    yarn install && \
+    yarn build && \
+    cd ~ && \
+    jupyter lab build
+}
+
+install_from_dst() {
+  pip install jupyterlab
+}
+
+if [ "$1" == "SRC" ]; then
+  install_from_src
+else
+  install_from_dst
+fi
+
+pip install jupyterlab_latex && \
+  jupyter serverextension enable --sys-prefix jupyterlab_latex && \
+  pip install ipyleaflet && \
+  pip install bqplot && \
+  jupyter labextension install \
+    @jupyter-widgets/jupyterlab-manager \
+    @jupyter-widgets/jupyterlab-sidecar \
+    @jupyterlab/plotly-extension \
+    @jupyterlab/latex \
+    @pyviz/jupyterlab_pyviz \
+    jupyterlab_bokeh \
+    jupyterlab-chart-editor \
+    jupyter-matplotlib \
+    bqplot \
+    jupyter-leaflet \
+    @jupyterlab/geojson-extension
+
+cd
+
+jupyter serverextension list && \
+  jupyter labextension list
+
+# export PYSPARK_PYTHON=/usr/bin/python3 && \
+#   export PYSPARK_DRIVER_PYTHON=/usr/bin/python3 && \
+
+nohup jupyter lab --port 8889 --notebook-dir ~/notebooks & > jupyterlab.out
+
+jupyter notebook list
+
+# conda deactivate && \
+#   conda remove -n jupyterlab -y --all

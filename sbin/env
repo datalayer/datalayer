@@ -1,0 +1,464 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# ------------------------------------
+
+source $DLAHOME/sbin/version
+
+# export $(cat ~/.datalayer/dlarc | xargs) &>/dev/null
+source ~/.datalayer/dlarc
+
+source $DLAHOME/sbin/cli
+
+source $DLAHOME/sbin/os
+
+if [ -z "$DLAOPT" ]
+then
+  export DLAOPT=$DLAHOME/opt
+fi
+
+if [ -z "$DLABRANCH" ]
+then
+  export DLABRANCH=datalayer
+fi
+
+if [ -z "$DLA_ENV_ECHO" ]
+then
+  export DLA_ENV_ECHO=false
+fi
+
+if [ -z "$DLA_ECHO_SEPARATOR" ]
+then
+  export DLA_ECHO_SEPARATOR="""─────────────────────────────────────────────────────────────────────"""
+fi
+
+if [ -z "$DLA_SHOW_HEADER" ]
+then
+  export DLA_SHOW_HEADER=true
+fi
+
+if [ -z "$DLA_DOWNLOAD_EXT_SKIP" ]
+then
+  export DLA_DOWNLOAD_EXT_SKIP=false
+fi
+
+# ------------------------------------
+
+# yarn config set cache-folder ~/.yarn-cache
+
+# ------------------------------------
+
+# export PATH=$DLAHOME/opt/miniconda3/bin:$PATH
+# . $DLAOPT/miniconda3/etc/profile.d/conda.sh
+# conda activate datalayer
+
+# ------------------------------------
+
+# On MacOs https://github.com/ContinuumIO/anaconda-issues/issues/7713
+# export DYLD_LIBRARY_PATH=/usr/lib
+# unset DYLD_LIBRARY_PATH
+
+# ------------------------------------
+
+if [ -z "$KUBECONFIG" ]
+then
+  export KUBECONFIG=$HOME/.datalayer/k8s/config
+fi
+
+# ------------------------------------
+
+export PYTHONIOENCODING="UTF-8"
+
+# ------------------------------------
+
+if [ -z "$GOPATH" ]
+then
+  export GOPATH=$HOME/go
+fi
+
+if [ -z "$GOBIN" ]
+then
+  export GOBIN=$GOPATH/bin
+fi
+
+export PATH=$GOBIN:$PATH
+
+# ------------------------------------
+
+if [ -z "$JAVA_HOME" ]
+then
+  if [ -e "$DLAOPT/jdk/jre/bin/java" ]
+  then
+    export JAVA_HOME="$DLAOPT/jdk"
+  else
+    echo
+    echo -e "!!! No JAVA_HOME found here...     !!!"
+    echo -e "!!! Set JAVA_HOME e.g. to $DLAOPT/jdk !!!"
+    echo
+  fi
+fi
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+unset JAVA_TOOL_OPTIONS
+
+export DLA_CLASSPATH=$DLAHOME/lib/*:$DLA_CLASSPATH
+
+export DLA_CLASSPATH_FILE=$DLAHOME/gen/datalayer-classpath.sh
+
+export MAVEN_VERSION=3.5.4
+export MAVEN_HOME=$DLAOPT/apache-maven-$MAVEN_VERSION
+export PATH=$MAVEN_HOME/bin:$PATH
+
+export MAVEN_OPTS="-Xmx8g -Xms2g -XX:ReservedCodeCacheSize=2g"
+
+if [ -z "$DLA_REPOSITORY" ]
+then
+  export DLA_REPOSITORY=$DLAHOME/mvn/repository
+fi
+
+# ------------------------------------
+
+export SCALA_HOME=$DLAOPT/scala-2.11.8
+export PATH=$SCALA_HOME/bin:$PATH
+
+export SBT_HOME=$DLAOPT/sbt
+export PATH=$SBT_HOME/bin:$PATH
+
+# ------------------------------------
+
+export R_HOME=/usr/lib/R
+export PATH=$R_HOME/bin:$PATH
+
+case "${OS}" in
+    LINUX)     ;;
+    MACOS)     export R_SCRIPT_PATH=/usr/local/bin;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+# ------------------------------------
+
+export DOCKER_API_VERSION=1.29
+
+# ------------------------------------
+
+export KUBERNETES_HOME=$DLAOPT/kubernetes
+export PATH=$KUBERNETES_HOME/client/bin:$KUBERNETES_HOME/server/kubernetes/server/bin:$PATH
+export KUBECONFIG=~/.kube/config
+
+# export KUBERNETES_PROVIDER=none
+# export NUM_NODES=2
+# export KUBERNETES_NUM_NODES=2
+
+# ------------------------------------
+
+export JLAB_HOME=$DLAHOME/repos/jupyterlab
+
+# ------------------------------------
+
+if [ -z "$ZEPPELIN_HOME" ]
+then
+  export ZEPPELIN_HOME=$DLAHOME/repos/zeppelin
+fi
+
+if [ -z "$DLA_NOTEBOOK_DIR" ]
+then
+  export ZEPPELIN_NOTEBOOK_DIR=$DLAHOME/repos/notebooks-zeppelin/school
+else
+  export ZEPPELIN_NOTEBOOK_DIR=$DLA_NOTEBOOK_DIR
+fi
+
+if [ -z "$DLA_PORT" ]
+then
+  ZEPPELIN_PORT=
+else
+  export ZEPPELIN_PORT=$DLA_PORT
+fi
+
+export ZEPPELIN_IDENT_STRING=$USER
+
+# ------------------------------------
+
+export ZOOKEEPER_VERSION=3.4.12
+export ZOOKEEPER_HOME=$DLAOPT/zookeeper-$ZOOKEEPER_VERSION
+export PATH=$ZOOKEEPER_HOME/bin:$PATH
+
+if [ -z "$ZOOKEEPER_CONF_FILE" ]; then
+  export ZOOKEEPER_CONF_FILE=$DLAHOME/etc/conf/zookeeper/zoo.cfg
+fi
+
+export ZOOKEEPER_CONF_DIR=$DLAHOME/etc/conf/zookeeper
+# export ZOO_LOG_DIR=$ZOOKEEPER_HOME/logs
+# export PATH=$ZOOKEEPER_HOME/bin:$PATH
+
+export DLA_ZOOKEEPER_CONF_TEMPLATE_DIR=$DLAHOME/etc/template/zookeeper
+
+# ------------------------------------
+
+# export DLA_HADOOP=local
+# export DLA_HADOOP_STATUS=started
+
+# export HADOOP_VERSION=2.9.2
+export HADOOP_VERSION=3.1.0
+
+export HADOOP_HOME=$DLAOPT/hadoop-$HADOOP_VERSION
+# export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+export HADOOP_CONF_DIR=$DLAHOME/etc/hadoop/conf
+export DLA_HADOOP_DATA_DIR=$DLAHOME/var/hadoop
+export DLA_HADOOP_CONF_TEMPLATE_DIR=$DLAHOME/etc/hadoop/template
+
+# export HADOOP_CLASSPATH=$DLAOPT/hadoop-lzo/build/hadoop-lzo-0.4.17-SNAPSHOT.jar:$HADOOP_CLASSPATH
+# export JAVA_LIBRARY_PATH=/usr/local/lzo-2.06/lib:/o/hadoop-lzo/build/native/???linux???/lib:$JAVA_LIBRARY_PATH
+
+if [ -z "$DLA_HADOOP" ]
+then
+  # Run by default without hadoop
+  export DLA_HADOOP=none
+fi
+
+# Define the way the notebook connects to SPARK (you must have SPARK_HOME defined to your spark local distribution).
+if [ "$DLA_HADOOP" == "yarn" ]
+then
+  export MASTER=yarn
+  export SPARK_YARN_MODE=true
+  if [ "$DLA_HADOOP_STATUS" != "started" ]
+  then
+    if [ -z "$DLA_HADOOP_DATA_DIR" ]
+    then
+      export DLA_HADOOP_DATA_DIR=$DLAHOME$DLAHOME/var/hadoop
+    fi
+    if [ -z "$HADOOP_CONF_DIR" ]
+    then
+      export HADOOP_CONF_DIR=$DLAHOME/etc/hadoop/conf
+      if [ "$DLA_SECURITY" == "kerberos" ]
+      then
+        export DLA_HADOOP_CONF_TEMPLATE_DIR=$DLAHOME/etc/hadoop/template/kerberos
+      fi
+      datalayer hadoop-conf-generate
+    fi
+    if [ -z "$HADOOP_HOME" ]
+    then
+      if [ "$DLA_SECURITY" == "kerberos" ]
+      then
+      #  For kerberos security, user is supposed to preset HADOOP_HOME with a root owned Hadoop distribution.
+        export HADOOP_HOME=/hadoop-secure
+      else
+        export HADOOP_HOME=$DLAOPT/hadoop
+      fi
+    fi
+    export PATH=$HADOOP_HOME/bin:$PATH
+    if [ ! -d $DLA_HADOOP_DATA_DIR ]; then
+      mkdir -p $DLA_HADOOP_DATA_DIR
+      export DLA_HADOOP_STATUS=init
+      dla hadoop-init
+      export DLA_HADOOP_STATUS=stopped
+    fi
+    if [ "$DLA_HADOOP_STATUS" != "stopped" ]
+    then
+      if [ "$DLA_HADOOP_STATUS" != "started" ]
+      then
+        if [ "$DLA_HADOOP_STATUS" != "init" ]
+        then
+          if [ "$DLA_HADOOP_STATUS" != "stopping" ]
+          then
+            if [ "$DLA_HADOOP_STATUS" != "starting" ]
+            then
+              export DLA_HADOOP_STATUS=starting
+              dla hadoop-start
+              export DLA_HADOOP_STATUS=started
+            fi
+          fi
+        fi
+      fi
+    fi
+  fi
+else
+  export MASTER=local[*]
+#  export HADOOP_HOME=
+#  export HADOOP_CONF_DIR=
+  if [ -z "$SPARK_DAEMON_MEMORY" ]
+  then
+    export SPARK_DAEMON_MEMORY=1g
+  fi
+fi
+
+# ------------------------------------
+
+if [ -z "$HIVE_HOME" ]; then
+  export HIVE_HOME=$DLAOPT/apache-hive-2.3.0-bin
+# export HIVE_HOME=$DLAOPT/hive-0.7.1
+fi
+
+export PATH=$HIVE_HOME/bin:$PATH
+
+# ------------------------------------
+
+export HBASE_VERSION=2.0.0
+
+export HBASE_HOME=$DLAOPT/hbase-$HBASE_VERSION
+# if [ -z "$HBASE_HOME" ]; then
+#   export HBASE_HOME=$DLAOPT/hbase-$HBASE_VERSION
+# fi
+export PATH=$HBASE_HOME/bin:$PATH
+export HBASE_CONF_DIR=$DLAHOME/etc/hbase/conf
+# if [ -z "$HBASE_CONF_DIR" ]; then
+#  export HBASE_CONF_DIR=$DLAHOME/etc/hbase/conf
+# fi
+
+# Tell HBase whether it should manage its own instance of Zookeeper or not.
+# HBASE_MANAGES_ZK variable in conf/hbase-env.sh has to be set to false.
+# (This tells hbase not to start its own zookeeper ensemble).
+export HBASE_MANAGES_ZK=false
+
+export PATH=$HBASE_HOME/bin:$PATH
+
+export DLA_HBASE_CONF_TEMPLATE_DIR=$DLAHOME/etc/hbase/template
+
+# ------------------------------------
+
+export PHOENIX_HOME=$DLAOPT/phoenix-4.10.0-HBase-1.2-SNAPSHOT
+export PATH=$PHOENIX_HOME/bin:$PATH
+
+# ------------------------------------
+
+export LUKE_HOME=$DLAOPT/luke-6.1.0
+export PATH=$LUKE_HOME/bin:$PATH
+
+# ------------------------------------
+
+export SOLR_VERSION=7.6.0
+export SOLR_HOME=$DLAOPT/solr-$SOLR_VERSION
+export PATH=$SOLR_HOME/bin:$PATH
+export SOLR_CONF_DIR=$DLAHOME/etc/conf/solr/datalayer
+
+# ------------------------------------
+
+# export ELASTICSEARCH_HOME=$DLAOPT/elasticsearch
+# export PATH=$ELASTICSEARCH_HOME/bin:$PATH
+
+# ------------------------------------
+
+# export CASSANDRA_HOME=$DLAOPT/apache-cassandra-3.7
+# export PATH=$CASSANDRA_HOME/bin:$PATH
+
+# ------------------------------------
+
+if [ -z "$SPARK_VERSION" ]
+then
+  export SPARK_VERSION=2.2.0-k8s-0.5.0
+fi
+
+if [ -z "$SPARK_HOME" ]
+then
+  export SPARK_HOME=$DLAOPT/spark
+fi
+
+export PATH=$SPARK_HOME/bin:$PATH
+
+# export SPARK_OPTS="--master=local[4] --conf spark.driver.memory=2g --conf spark.executor.memory=1g --conf spark.sql.catalogImplementation=in-memory --conf spark.sql.warehouse.dir=/tmp/spark-warehouse"
+# export SPARK_DAEMON_MEMORY=1g
+# export SPARK_JAVA_OPTS="-Xms1g -Xmx3g"
+
+export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$SPARK_HOME/python/:$PYTHONPATH
+
+export SPARK_YARN_USER_ENV="PYTHONPATH=${PYTHONPATH}"
+
+# ------------------------------------
+
+export KAFKA_HOME=$DLAOPT/kafka_2.11-0.8.2.1
+export PATH=$KAFKA_HOME/bin:$PATH
+
+# ------------------------------------
+
+# export MAHOUT_HOME=/s/mahout
+# export PATH=$MAHOUT_HOME/bin:$PATH
+
+# ------------------------------------
+
+# export OPENNLP_HOME=$DLAOPT/apache-opennlp-1.5.3
+# export PATH=$OPENNLP_HOME/bin:$PATH
+
+# ------------------------------------
+
+# export GATE_HOME=$DLAOPT/gate
+# export PATH=$GATE_HOME/bin:$PATH
+
+# ------------------------------------
+
+export GREMLIN_CONSOLE_HOME=$DLAOPT/apache-tinkerpop-gremlin-console-3.2.4
+export PATH=$GREMLIN_CONSOLE_HOME/bin:$PATH
+
+export GREMLIN_SERVER_HOME=$DLAOPT/apache-tinkerpop-gremlin-server-3.2.4
+export PATH=$GREMLIN_SERVER_HOME/bin:$PATH
+
+# ------------------------------------
+
+export GEPHI_HOME=$DLAOPT/gephi-0.9.1
+export PATH=$GEPHI_HOME/bin:$PATH
+
+# ------------------------------------
+
+export NEO4J_HOME=$DLAOPT/neo4j-community-3.1.0
+export PATH=$NEO4J_HOME/bin:$PATH
+
+# ------------------------------------
+
+export ADS_HOME=$DLAOPT/apacheds-2.0.0-M20
+export PATH=$ADS_HOME/bin:$PATH
+
+# ------------------------------------
+
+export AIRFLOW_HOME=~/airflow
+
+# ------------------------------------
+
+# export AZURE_CLI_HOME=$DLAOPT/azure-cli.0.9.2
+# export PATH=$AZURE_CLI_HOME/bin:$PATH
+
+# ------------------------------------
+
+export GIT_LFS_HOME=$DLAOPT/git-lfs-1.5.2
+export PATH=$GIT_LFS_HOME:$PATH
+
+# ------------------------------------
+
+# export GRE_HOME=$DLAOPT/mozilla-1.9.1/mozilla-1-9-1-920bcf17a9e1/obj-xulrunner/dist/bin
+# export PATH=$GRE_HOME:$PATH
+
+# ------------------------------------
+
+function errexit() {
+  local err=$?
+  set +o xtrace
+  local code="${1:-1}"
+  echo "Error in ${BASH_SOURCE[1]}:${BASH_LINENO[0]}. '${BASH_COMMAND}' exited with status $err"
+  # Print out the stack trace described by $function_stack  
+  if [ ${#FUNCNAME[@]} -gt 2 ]
+  then
+    echo "Call tree:"
+    for ((i=1;i<${#FUNCNAME[@]}-1;i++))
+    do
+      echo " $i: ${BASH_SOURCE[$i+1]}:${BASH_LINENO[$i]} ${FUNCNAME[$i]}(...)"
+    done
+  fi
+  echo "Exiting with status ${code}"
+  exit "${code}"
+}
+
+# trap ERR to provide an error handler whenever a command exits nonzero
+#  this is a more verbose version of set -o errexit
+trap 'errexit' ERR
+
+# setting errtrace allows our ERR trap handler to be propagated to functions, expansions and subshells
+# set -o errtrace
+
+# ------------------------------------
+
+# export PATH=$PATH:/usr/local/pkg-config-0.23/bin
+
+# export PATH=$DLAOPT/local/bin:$DLAOPT/local/sbin:$PATH
+
+export PATH=.:/usr/local/bin:$PATH

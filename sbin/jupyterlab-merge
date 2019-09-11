@@ -1,0 +1,410 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# local_branch,remote_url,remote_branch,remote_branch_origin,pull_request,info
+
+BRANCHES="""fabricui-css,https://github.com/datalayer-contrib/jupyterlab.git,fabricui-css,fabricui-css,pull_request,fabricui-css|\
+outputarea-id,https://github.com/datalayer-contrib/jupyterlab.git,outputarea-id,outputarea-id,pull_request,outputarea-id|\
+staging-package,https://github.com/datalayer-contrib/jupyterlab.git,staging-package,staging-package,pull_request,staging-package|\
+!
+""";
+
+DO_PULL=false
+
+function print_branches() {
+  echo -e $GREEN$BOLD"LIST OF BRANCHES"$NOBOLD$NOCOLOR
+  echo
+  IFS='|' read -d '!' -a array <<< "$BRANCHES"
+  for element in "${array[@]}"
+  do
+    IFS=',' read -a el <<< "$element"
+    local_branch=${el[0]}
+    remote_url=${el[1]}
+    remote=${el[2]}
+    remote_branch=${el[2]}
+    remote_branch_origin=${el[3]}
+    pr=${el[4]}
+    info=${el[5]}
+    echo -e $GREEN"+ $remote: UPSTREAM[$remote_url#$remote_branch] >>> ORIGIN[$remote_branch_origin] <<<>>> LOCAL[$local_branch] - INFO[$info]"$NOCOLOR
+  done
+  echo
+}
+
+function merge_branches() {
+
+  IFS='|' read -d '!' -a array <<< "$BRANCHES"
+
+  for element in "${array[@]}"
+  do
+
+    IFS=',' read -a el <<< "$element"
+    local_branch=${el[0]}
+    remote_url=${el[1]}
+    remote=${el[2]}
+    remote_branch=${el[2]}
+    remote_branch_origin=${el[3]}
+    info=${el[4]}
+
+    echo -e $GREEN$BOLD"================================================================================================="$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"$remote:"$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"  UPSTREAM [$remote_url#$remote_branch]"$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"  >>> ORIGIN [$remote_branch_origin]"$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"  <<<>>> LOCAL [$local_branch]"$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"         INFO [$info]"$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"================================================================================================="$NOBOLD$NOCOLOR
+    echo
+
+    echo -e $YELLOW$BOLD">>> Checking out $local_branch"$NOBOLD$NOCOLOR
+    echo
+    git checkout master
+    git branch $local_branch > /dev/null 2>&1
+    git checkout $local_branch
+    if [ $? -eq 0 ]
+    then
+      git branch -v | grep $local_branch
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git checkout $local_branch failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Adding remote $remote"$NOBOLD$NOCOLOR
+    echo
+    git remote rm $remote > /dev/null 2>&1
+    git remote add $remote $remote_url > /dev/null 2>&1
+    git remote -v | grep $remote
+
+    echo
+    echo -e $YELLOW$BOLD">>> Fetching remote branch $remote/$remote_branch $local_branch"$NOBOLD$NOCOLOR
+    echo
+    git fetch $remote $remote_branch
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git fetch $remote $remote_branch failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Setting tracking information set-upstream-to=$remote/$remote_branch $local_branch"$NOBOLD$NOCOLOR
+    echo
+    git branch --set-upstream-to=$remote/$remote_branch $local_branch
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git branch --set-upstream-to=$remote/$remote_branch $local_branch failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    if [ "$DO_PULL" = true ] ; then
+      echo -e $YELLOW$BOLD">>> Pulling from $remote_url:$remote_branch to $local_branch"$NOBOLD$NOCOLOR
+      echo
+      git pull --no-edit $remote_branch $local_branch
+      if [ $? -eq 0 ]
+      then
+        echo
+      else
+        echo
+        echo -e $BOLD$RED"git pull --no-edit $remote_branch $local_branch failed..."$NOCOLOR$NOBOLD
+        echo
+        exit
+      fi
+    fi
+
+    echo -e $YELLOW$BOLD">>> Merge from master to $local_branch"$NOBOLD$NOCOLOR
+    echo
+    git merge master
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git merge master failed... on $local_branch"$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Pushing $local_branch to origin"$NOBOLD$NOCOLOR
+    echo
+    git push -f origin $local_branch
+#    echo -e $BLUE$BOLD"==> Skipping git push -f $remote_branch $local_branch <=="$NOBOLD$NOCOLOR
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git push -f $remote_branch $local_branch failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Reseting $local_branch in a hard way"$NOBOLD$NOCOLOR
+    echo
+    git reset --hard
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git reset --hard failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+
+
+    echo -e $YELLOW$BOLD">>> Merging $local_branch to datalayer"$NOBOLD$NOCOLOR
+    echo
+    git checkout datalayer
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git checkout datalayer failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+    git merge $local_branch -m "Merge branch '"$local_branch"' into datalayer"
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git merge $local_branch into datalayer failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+  done
+
+}
+
+PATCHES="""\
+!
+""";
+
+function print_patches() {
+  echo -e $GREEN$BOLD"LIST OF PATCHES"$NOBOLD$NOCOLOR
+  echo
+  IFS='|' read -d '!' -a array <<< "$PATCHES"
+  for element in "${array[@]}"
+  do
+    IFS=',' read -a el <<< "$element"
+    patch_name=${el[0]}
+    patch_url=${el[1]}
+    patch_file=${el[2]}
+    echo -e $GREEN"+ patch_name[$patch_name] patch_url[$patch_url] patch_file[$patch_file]"$NOCOLOR
+    echo
+  done
+}
+
+function merge_patches() {
+
+  IFS='|' read -d '!' -a array <<< "$PATCHES"
+
+  for element in "${array[@]}"
+  do
+
+    IFS=',' read -a el <<< "$element"
+    patch_name=${el[0]}
+    patch_url=${el[1]}
+    patch_file=${el[2]}
+
+    echo -e $GREEN$BOLD"================================================================================================="$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"patch_name[$patch_name] patch_url[$patch_url] patch_file[$patch_file]"$NOBOLD$NOCOLOR
+    echo -e $GREEN$BOLD"================================================================================================="$NOBOLD$NOCOLOR
+    echo
+
+    echo -e $YELLOW$BOLD">>> Checking out $patch_name"$NOBOLD$NOCOLOR
+    echo
+    git checkout master
+    git branch -D $patch_name
+    git branch $patch_name > /dev/null 2>&1
+    git checkout $patch_name
+    if [ $? -eq 0 ]
+    then
+      git branch -v | grep $patch_name
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git checkout $patch_name failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Adding remote $patch_name"$NOBOLD$NOCOLOR
+    echo
+    git remote rm $patch_name > /dev/null 2>&1
+    git remote add $patch_name $patch_name > /dev/null 2>&1
+    git remote -v | grep $patch_name
+    echo
+
+    echo -e $YELLOW$BOLD">>> Get and apply patch $patch_name"$NOBOLD$NOCOLOR
+    echo
+    curl $patch_url > $patch_file
+    git apply $patch_file
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git apply $patch_file failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+    rm $patch_file
+
+    echo -e $YELLOW$BOLD">>> Pushing $patch_name to origin"$NOBOLD$NOCOLOR
+    echo
+    git add -A
+    git commit -am "Apply $patch_name"
+    git push -f origin $patch_name
+#    echo -e $BLUE$BOLD"==> Skipping git push -f $remote_branch $patch_name <=="$NOBOLD$NOCOLOR
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git push -f $remote_branch $patch_name failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Setting tracking information set-upstream-to=$remote/$patch_name $patch_name"$NOBOLD$NOCOLOR
+    echo
+    git branch --set-upstream-to=origin/$patch_name $patch_name
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git branch --set-upstream-to=$remote/$patch_name $patch_name failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+
+    echo -e $YELLOW$BOLD">>> Merging $patch_name to datalayer"$NOBOLD$NOCOLOR
+    echo
+    git checkout datalayer
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git checkout datalayer failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+    git merge $patch_name -m "Merge branch '"$patch_name"' into datalayer"
+    if [ $? -eq 0 ]
+    then
+      echo
+    else
+      echo
+      echo -e $BOLD$RED"git merge $patch_name into datalayer failed..."$NOCOLOR$NOBOLD
+      echo
+      exit
+    fi
+    git add -A
+    git commit -am "Merge branch '"$patch_name"' into datalayer"
+    
+  done
+
+}
+
+echo -e $YELLOW$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo -e $YELLOW$BOLD"Run git pull upstream master if you want to merge upstream before hand."$NOBOLD$NOCOLOR
+echo -e $YELLOW$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"cd $DLAHOME/repos/jupyterlab"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+cd $DLAHOME/repos/jupyterlab
+if [ $? -eq 0 ]
+then
+    pwd
+    echo
+else
+    echo
+    echo -e $BOLD$RED"Check $DLAHOME/repos/jupyterlab contains https://github.com/jupyterlab/jupyterlab.git clone ..."$NOCOLOR$NOBOLD
+    echo
+    exit
+fi
+
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"git checkout master"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+git checkout master
+git reset --hard
+if [ $? -eq 0 ]
+then
+  echo
+else
+    echo
+    echo -e $BOLD$RED"git checkout master failed..."$NOCOLOR$NOBOLD
+    echo
+    exit
+fi
+
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"git branch -D datalayer"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+git branch -D datalayer
+# echo -e $YELLOW$BOLD"==> git branch -D datalayer skipped <=="$NOBOLD$NOCOLOR
+if [ $? -eq 0 ]
+then
+  echo
+else
+    echo
+fi
+
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"git branch datalayer"$NOBOLD$NOCOLOR
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+git branch datalayer
+# echo -e $YELLOW$BOLD"==> git branch datalayer skipped <=="$NOBOLD$NOCOLOR
+echo
+
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+if [ $? -eq 0 ]
+then
+    git branch
+    echo
+else
+    echo
+    echo -e $BOLD$RED"git branch datalayer failed..."$NOCOLOR$NOBOLD
+    echo
+    exit
+fi
+
+# -----------------------------------------------------------------------------
+
+print_branches
+merge_branches
+
+# print_patches
+# merge_patches
+
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+echo
+echo
+echo -e $GREEN$BOLD"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"$NOBOLD$NOCOLOR
+echo
+echo -e $GREEN$BOLD"Check you are on 'datalayer' branch and 'git push -f origin datalayer && git reset --hard'"$NOBOLD$NOCOLOR
+echo
+echo -e $GREEN$BOLD"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"$NOBOLD$NOCOLOR
+echo
+echo
+echo -e $GREEN$BOLD"-------------------------------------------------------------------------------------------------"$NOBOLD$NOCOLOR
+git branch
+echo

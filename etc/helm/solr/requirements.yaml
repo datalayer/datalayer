@@ -1,0 +1,4 @@
+dependencies:
+  - name: solr
+    version: 1.2.0
+    repository: https://kubernetes-charts-incubator.storage.googleapis.com

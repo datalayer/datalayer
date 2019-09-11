@@ -1,0 +1,33 @@
+diff --git a/src/App.js b/src/App.js
+index 69a7e16..c314f9a 100644
+--- a/src/App.js
++++ b/src/App.js
+@@ -1,7 +1,9 @@
+ import * as React from "react";
+ import StockTable from "./StockTable";
+ 
+-import StockChart from "./StockChart";
++const StockChart = React.lazy(() =>
++  import(/* webpackChunkName: 'StockChart' */ "./StockChart")
++);
+ 
+ class App extends React.Component {
+   state = {
+@@ -11,7 +13,7 @@ class App extends React.Component {
+     const { stocks } = this.props;
+     const { selectedStock } = this.state;
+     return (
+-      <React.Fragment>
++      <React.Suspense fallback={<div>Loading...</div>}>
+         <StockTable
+           stocks={stocks}
+           onSelect={selectedStock => this.setState({ selectedStock })}
+@@ -22,7 +24,7 @@ class App extends React.Component {
+             onClose={() => this.setState({ selectedStock: false })}
+           />
+         )}
+-      </React.Fragment>
++      </React.Suspense>
+     );
+   }
+ }

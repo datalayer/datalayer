@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Installing Miniconda..."$NOCOLOR$NOBOLD
+echo
+
+miniconda_on_linux() {
+    URL=https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+}
+
+miniconda_on_macos() {
+    URL=https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+}
+
+case "${OS}" in
+    LINUX)     miniconda_on_linux;;
+    MACOS)     miniconda_on_macos;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+curl -o miniconda-install.sh $URL && \
+  chmod +x miniconda-install.sh && \
+  ./miniconda-install.sh -b && \
+  rm miniconda-install.sh
+
+cat << 'EOF' >> ~/.bashrc
+# >>> conda initialize >>>
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/~/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="~/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+EOF
+
+sed -i "s|~|$HOME|g" ~/.bashrc
+source ~/.bashrc
+
+# conda help
+# conda -V

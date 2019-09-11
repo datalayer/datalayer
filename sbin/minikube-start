@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Starting Minikube"$NOCOLOR$NOBOLD
+echo
+
+minikube config set kubernetes-version v1.15.0
+minikube config set bootstrapper kubeadm
+minikube config set cpus 8
+minikube config set memory 8192
+minikube config set disk-size 50g
+minikube config set WantReportErrorPrompt false
+
+# --container-runtime containerd
+# --container-runtime rkt
+
+# --iso-url https://github.com/coreos/minikube-iso/releases/download/v0.0.5/minikube-v0.0.5.iso
+# --network-plugin cni
+# --allocate-node-cidrs true
+# --cluster-cidr 10.244.0.0/16
+# --pod-network-cidr 10.244.0.0/16
+# --hyperv-virtual-switch Minikube
+# --v 6
+
+# --extra-config apiserver.EnableInsecureLogin.Mode=false
+# --extra-config apiserver.enable-admission-plugins="LimitRanger,NamespaceExists,NamespaceLifecycle,ResourceQuota,ServiceAccount,DefaultStorageClass,MutatingAdmissionWebhook"
+# --extra-config apiserver.Authorization.Mode=RBAC
+# --extra-config apiserver.v=10
+# --extra-config apiserver.ServiceClusterIPRange=10.1.0.1/16
+# --extra-config kubelet.max-pods=100
+# --extra-config kubelet.container-runtime=remote
+# --extra-config kubelet.container-runtime-endpoint=unix:///run/containerd/containerd.sock
+# --extra-config kubelet.image-service-endpoint=unix:///run/containerd/containerd.sock
+
+linux_conf() {
+    minikube config set vm-driver kvm2
+}
+
+macos_conf() {
+    minikube config set vm-driver hyperkit
+    minikube start \
+      --logtostderr \
+      --insecure-registry localhost:5000 \
+      --v 0
+}
+
+case "${OS}" in
+    LINUX)     linux_conf;;
+    MACOS)     macos_conf;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+minikube start \
+    --logtostderr \
+    --insecure-registry localhost:5000 \
+    --v 0
+
+# https://kubernetes.io/docs/reference/access-authn-authz/rbac
+# Many add-ons currently run as the “default” service account in the kube-system namespace. To allow those add-ons to run with super-user access, grant cluster-admin permissions to the “default” service account in the kube-system namespace.
+# Note: Enabling this means the kube-system namespace contains secrets that grant super-user access to the API.
+kubectl create clusterrolebinding add-on-cluster-admin \
+  --clusterrole=cluster-admin \
+  --serviceaccount=kube-system:default
+
+minikube addons disable dashboard
+minikube addons disable registry-creds
+# minikube addons disable coredns
+
+minikube addons enable ingress
+minikube addons enable registry
+minikube addons enable storage-provisioner
+
+DLA_SKIP_HEADER=true dla minikube-help "$@"
+DLA_SKIP_HEADER=true dla minikube-status "$@"
+DLA_SKIP_HEADER=true dla kubectl-check "$@"
+
+echo -e $GREEN$BOLD"""
+K8S Dashboard$NOBOLD
+
+dla dsp-k8s-up k8s-dashboard
+$BOLD
+Use Minikube Docker Process$NOBOLD
+
+eval $(minikube docker-env)
+$BOLD
+Upudate /etc/host to allow connections via Minikube Ingress$NOBOLD
+
+echo \"$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-http.dla-iam.svc.cluster.local\"  | sudo tee -a /etc/hosts
+"""$NOCOLOR

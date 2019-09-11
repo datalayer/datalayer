@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  solr:
+    image: solr:7.7
+    ports:
+     - "8983:8983"
+    volumes:
+      - solr-data:/opt/solr/server/solr/datalayer
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - datalayer
+volumes:
+  solr-data:

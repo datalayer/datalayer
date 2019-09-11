@@ -1,0 +1,98 @@
+diff --git a/src/App.js b/src/App.js
+index 69a7e16..01844f7 100644
+--- a/src/App.js
++++ b/src/App.js
+@@ -1,28 +1,49 @@
+ import * as React from "react";
+ import StockTable from "./StockTable";
+ 
+-import StockChart from "./StockChart";
++const StockChart = React.lazy(() =>
++  import(/* webpackChunkName: 'StockChart' */ "./StockChart")
++);
++
++const neverResolve = new Promise(() => {});
++function Suspender({ suspend }) {
++  if (suspend) {
++    throw neverResolve;
++  } else {
++    return null;
++  }
++}
++function Preload({ show, children }) {
++  return (
++    <React.Suspense fallback={show ? undefined : null}>
++      {children}
++      <Suspender suspend={!show} />
++    </React.Suspense>
++  );
++}
+ 
+ class App extends React.Component {
+   state = {
+-    selectedStock: null
++    selectedStock: null,
++    preloadStock: this.props.stocks[0]
+   };
+   render() {
+     const { stocks } = this.props;
+-    const { selectedStock } = this.state;
++    const { selectedStock, preloadStock } = this.state;
+     return (
+-      <React.Fragment>
++      <React.Suspense fallback={<div>Loading...</div>}>
+         <StockTable
+           stocks={stocks}
++          onPreSelect={preloadStock => this.setState({ preloadStock })}
+           onSelect={selectedStock => this.setState({ selectedStock })}
+         />
+-        {selectedStock && (
++        <Preload show={selectedStock !== null}>
+           <StockChart
+-            stock={selectedStock}
+-            onClose={() => this.setState({ selectedStock: false })}
++            stock={selectedStock || preloadStock}
++            onClose={() => this.setState({ selectedStock: null })}
+           />
+-        )}
+-      </React.Fragment>
++        </Preload>
++      </React.Suspense>
+     );
+   }
+ }
+diff --git a/src/StockTable.js b/src/StockTable.js
+index 7d49a1d..68e7a44 100644
+--- a/src/StockTable.js
++++ b/src/StockTable.js
+@@ -1,21 +1,26 @@
+ import * as React from "react";
+ 
+-export default function StockTable({ stocks, onSelect }) {
++export default function StockTable({ stocks, onSelect, onPreSelect }) {
+   return (
+     <table>
+       <caption>Stocks</caption>
+       <tbody>
+         {stocks.map(stock => (
+-          <Row key={stock.name} stock={stock} onClick={() => onSelect(stock)} />
++          <Row
++            key={stock.name}
++            stock={stock}
++            onClick={() => onSelect(stock)}
++            onMouseEnter={() => onPreSelect(stock)}
++          />
+         ))}
+       </tbody>
+     </table>
+   );
+ }
+ 
+-function Row({ stock, onClick }) {
++function Row({ stock, onClick, onMouseEnter }) {
+   return (
+-    <tr key={stock.name} onClick={onClick}>
++    <tr key={stock.name} onClick={onClick} onMouseEnter={onMouseEnter}>
+       <td>{stock.name}</td>
+       <td>{stock.today}</td>
+       <td style={{ color: stock.change < 0 ? "darkred" : "darkgreen" }}>

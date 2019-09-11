@@ -1,0 +1,83 @@
+/*
+@import url('https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.0/css/fabric.min.css');
+*/
+@import 'react-redux-toastr/src/styles/index.scss';
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+.ms-Card {
+  height: 100% !important;
+}
+a {
+  color: #20a8d8;
+  text-decoration: none;
+}
+.text-center {
+  text-align: center !important;
+}
+.dla-padding20 {
+  padding: 20px;
+}
+.dla-padding20-lr {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.dla-body .sidebar {
+  order: -1;
+}
+.dla-body .content {
+  flex: 1;
+}
+// Set the main wrapper component to take up the entire height of the page
+.dla-app {
+  min-height: 100vh; 
+}
+/*
+To use Flexbox we need to set the display setting of the container component to flex.
+The we set the direction of the wrapped  components. By default flexbox will order 
+them by row, but we can also tell it to do it by column.
+*/
+.dla-app {
+  display: flex;
+  flex-direction: column;
+}
+// Something similar is done to the dla-body element, except we order the wrapped component as rows.
+.dla-app .dla-body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.dla-header .ms-Button--action {
+  color: white !important;
+  font-size: 17px !important;
+}
+/*
+Flexbox let's us reorder the way the elements are placed inside the wrapper component.
+Using the order rule, we move the sidebar to the left of the content component. 
+We also set its width to 12em and set its flex propertires so it doesn't grow or shrink 
+with the rest of the page.
+*/
+.dla-body .sidebar {
+  order: -1;
+  max-width: 12em;
+  flex: 0 0 12em;
+  flex-grow: 0;    /* Defined the ability to groe */
+  flex-shrink: 0;  /* Defines the ability to shrink */
+  flex-basis: 12em;/* Default value of the element before distribuing the remaing space */
+}
+.dla-header {
+  z-index: 9999;
+}
+// Lastly we give some custom height to our dla components.
+.dla-app .dla-header, .dla-app {
+  height: 3em;
+}
+.ms-SearchBox-icon {
+  opacity: 1 !important;
+}
+.ms-SearchBox-iconContainer {
+  width: 32px !important;
+}

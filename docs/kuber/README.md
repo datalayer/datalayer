@@ -1,0 +1,37 @@
+[![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
+
+> :sparkles: :mega: Documentation for Kuber. :lollipop:
+
+The content of this folder is deployed on the Kuber documentation [website](https://docs.kuber.sh).
+
+## Contribute to the Documentation
+
+Clone this repository.
+
+```bash
+git clone https://github.com/datalayer/datalayer && \
+  cd datalayer/docs/kuber
+```
+
+You need [gitbook](https://www.gitbook.com).
+
+```bash
+# Install gitbook and its plugins.
+make env install
+```
+
+You are now ready to build and serve on http://localhost:4000.
+
+```bash
+# Build and Serve the documentation content.
+make build serve
+```
+
+To generate the PDF, you need to install [calibre](https://calibre-ebook.com).
+
+For MacOS, you also need to link ebook-convert with `ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin`.
+
+```bash
+# Generate a PDF - TODO Fix issue with SVG in PDF.
+make pdf
+```

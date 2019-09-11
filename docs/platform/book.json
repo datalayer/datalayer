@@ -1,0 +1,65 @@
+{
+    "gitbook": ">= 3.2.1",
+    "title": "Datalayer Documentation",
+    "description": "Datalayer Documentation",
+    "author": "Datalayer Authors",
+    "language": "en",
+    "plugins": [
+        "codegroup",
+        "ga",
+        "image-captions",
+        "insert-logo-link",
+        "page-toc-button",
+        "simpletabs",
+        "splitter",
+        "theme-default",
+        "toggle-chapters",
+        "ungrey"
+    ],
+    "structure": {
+        "readme": "index.md",
+        "summary": "index.md",
+        "glossary": "glossary.md"
+    },
+    "pluginsConfig": {
+        "codegroup":{
+            "defaultTabName": "Code",
+            "tabNameSeperator": "::",
+            "rememberTabs": true
+        },
+        "ga": {
+            "token": "UA-21012230-36"
+        },
+        "image-captions": {
+            "caption": "Figure - _CAPTION_"
+        },
+        "insert-logo-link": {
+            "src": "/logo/datalayer-25.svg",
+            "url": "https://datalayer.io"
+        },
+        "page-toc-button": {
+			"maxTocDepth": 2,
+			"minTocSize": 2
+        },
+        "theme-default": {
+            "showLevel": false
+        }
+    },
+    "styles": {
+        "website": "_css/datalayer.css"
+    },
+    "variables": {
+    },
+    "pdf": {
+        "pageNumbers": true,
+        "fontSize": 12,
+        "paperSize": "a4",
+        "margin": {
+            "right": 62,
+            "left": 62,
+            "top": 36,
+            "bottom": 36
+        },
+        "footerTemplate": "Datalayer Documentation (c) Datalayer 2019"
+    }
+}

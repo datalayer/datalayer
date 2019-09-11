@@ -1,0 +1,16 @@
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# Place this file at /etc/systemd/system/kubeadm-master.service
+# Run sudo systemctl daemon-reload
+# Run sudo systemctl enable kubeadm-master
+
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/kubeadm-master
+
+[Install]
+WantedBy=default.target

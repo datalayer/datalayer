@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+export DLABIN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ -z "$DLAHOME" ]
+then
+  export DLAHOME=$DLABIN/..
+fi
+
+export DLASBIN=$DLAHOME/sbin
+export DLAREPOS=$DLAHOME/repos
+export DLALAB=$DLAHOME/lab
+
+INITIAL_PATH=$PATH
+export PATH=$DLABIN:$DLASBIN:$DLALABHOME/sbin:$DLALAB/sbin:$PATH
+
+source $DLASBIN/env
+
+$DLASBIN/header "$@"
+$DLASBIN/env-show "$@"
+
+if [ $# == 0 ] ; then
+#  echo $USAGE
+  exit 0;
+fi
+
+DLA_SKIP_HEADER=true /bin/bash $1 "${@:2}"
+FLAG=$?
+
+PATH=$INITIAL_PATH
+
+exit $FLAG

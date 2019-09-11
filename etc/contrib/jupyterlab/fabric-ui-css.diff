@@ -1,0 +1,13 @@
+diff --git a/jupyterlab/staging/templates/partial.html b/jupyterlab/staging/templates/partial.html
+index 673b9c52d..5bed7ec4c 100644
+--- a/jupyterlab/staging/templates/partial.html
++++ b/jupyterlab/staging/templates/partial.html
+@@ -7,6 +7,7 @@
+   }</script>
+ 
+   {% block favicon %}
++  <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.0/css/fabric.min.css">
+   <link rel="icon" type="image/x-icon" href="{{ base_url }}static/base/images/favicon.ico" class="idle favicon">
+   <link rel="" type="image/x-icon" href="{{ base_url }}static/base/images/favicon-busy-1.ico" class="busy favicon">
+   {% endblock %}
+ 

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Stopping Apache HBase..."$NOCOLOR$NOBOLD
+echo
+
+# $HBASE_HOME/bin/stop-hbase.sh --config $HBASE_CONF_DIR
+
+$HBASE_HOME/bin/hbase-daemon.sh stop regionserver --config $HBASE_CONF_DIR
+
+$HBASE_HOME/bin/hbase-daemon.sh stop master --config $HBASE_CONF_DIR
+
+echo

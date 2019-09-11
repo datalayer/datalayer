@@ -1,0 +1,81 @@
+{
+  "name": "@datalayer/jupyterlab-kuber",
+  "version": "0.0.1",
+  "description": "JupyterLab Extension to manage Kubernetes clusters.",
+  "license": "Apache-2.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datalayer/datalayer/tree/master/apps/jupyterlab-kuber"
+  },
+  "author": "Datalayer <info@datalayer.io>",
+  "keywords": [
+    "datalayer",
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension",
+    "twitter"
+  ],
+  "homepage": "https://github.com/datalayer/datalayer#README",
+  "bugs": {
+    "url": "https://github.com/datalayer/datalayer/issues"
+  },
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/*.css",
+    "style/images/*.svg"
+  ],
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf lib",
+    "prepublish": "npm run build",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@uifabric/experiments": "5.33.1",
+    "@uifabric/icons": "5.7.1",
+    "es6-promise": "~4.1.1",
+    "@jupyterlab/application": "0.19.1",
+    "@jupyterlab/apputils": "0.19.1",
+    "@jupyterlab/cells": "file:/repos/jupyterlab/packages/cells",
+    "@jupyterlab/console": "0.19.1",
+    "@jupyterlab/coreutils": "2.2.1",
+    "@jupyterlab/filebrowser": "0.19.3",
+    "@jupyterlab/mainmenu": "0.8.1",
+    "@jupyterlab/notebook": "0.19.2",
+    "@jupyterlab/terminal": "0.19.1",
+    "@jupyterlab/theming": "0.9.0",
+    "@phosphor/widgets": "1.6.0",
+    "better-react-spinkit": "2.0.4",
+    "html2canvas": "1.0.0-alpha.12",
+    "nbdime": "4.0.1",
+    "office-ui-fabric-core": "9.6.0",
+    "office-ui-fabric-react": "5.90.0",
+    "prop-types": "15.6.1",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-redux": "5.0.7",
+    "react-redux-toastr": "7.3.0",
+    "react-twitter-widgets": "1.7.1",
+    "redux": "4.0.0",
+    "react-toggle-display": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/prop-types": "15.5.2",
+    "@types/react": "16.3.13",
+    "@types/react-dom": "16.0.5",
+    "rimraf": "~2.6.2",
+    "typescript": "~2.6.2"
+  },
+  "jupyterlab": {
+    "extension": true
+  },
+  "resolutions": {
+    "@types/**/@types/react": "16.3.13",
+    "@jupyterlab/**/@types/react": "16.3.13"
+  }
+}

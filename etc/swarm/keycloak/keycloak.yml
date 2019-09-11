@@ -1,0 +1,60 @@
+version: '3.5'
+services:
+  keycloak:
+    image: datalayer/keycloak:${DLAVERSION}
+    container_name: keycloak
+    networks:
+      - datalayer
+#    command:
+#      - -Djboss.http.port=8080
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=${DLA_KEYCLOAK_PWD}
+#      - KEYCLOAK_HOSTNAME=${DLAHOST}
+      - KEYCLOAK_HTTP_PORT=8080
+      - KEYCLOAK_HTTPS_PORT=8443
+      - PROXY_ADDRESS_FORWARDING=true
+      - DB_VENDOR=mysql
+      - DB_ADDR=keycloak-db
+      - DB_USER=keycloak
+      - DB_PASSWORD=${DLA_KEYCLOAK_DB_PWD}
+      - JDBC_PARAMS=useSSL=false # it's needed for mysql 8 -> &allowPublicKeyRetrieval=true
+    ports:
+      - 8080:8080
+      - 8443:8443
+    volumes:
+      - ${DLAHOME}/srv/certs:/etc/x509/https
+    depends_on:
+      - keycloak-db
+    healthcheck:
+      test: "curl -f http://localhost:8080/auth || exit 1"
+      start_period: 10s
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/auth
+      - traefik.port=8080
+      - traefik.protocol=http
+      - traefik.docker.network=datalayer
+      - traefik.frontend.passHostHeader=true
+#      - traefik.frontend.auth.forward.tls.insecureSkipVerify=true
+  keycloak-db:
+    image: mysql:5.7.24 #8.0.13 <- At least Keycloak 4.4.0.Final doesn't work with MySQL 8
+    container_name: keycloak-db
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=keycloak
+      - MYSQL_USER=keycloak
+      - MYSQL_PASSWORD=${DLA_KEYCLOAK_DB_PWD}
+      - MYSQL_ROOT_PASSWORD=root_${DLA_KEYCLOAK_DB_PWD}
+    networks:
+      - datalayer
+    healthcheck:
+      test: "mysqladmin ping -u root -p$${MYSQL_ROOT_PASSWORD}"
+      start_period: 10s
+    volumes:
+      - keycloak-db-data:/var/lib/mysql
+    labels:
+      - traefik.docker.network=datalayer
+volumes:
+  keycloak-db-data:
+    name: keycloak-db-data

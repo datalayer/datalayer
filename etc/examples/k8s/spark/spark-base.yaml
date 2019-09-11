@@ -1,0 +1,33 @@
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: spark-base
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        spark-base: base
+        spark-resource-staging-server-instance: default
+    spec:
+      volumes:
+        - name: spark-base
+      containers:
+        - name: spark-base
+          image: datalayer/spark-executor:2.2.0
+          imagePullPolicy: IfNotPresent
+          command:
+          - "/bin/bash"
+          - "-c"
+          - "sleep 99999"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 100m
+              memory: 1Gi

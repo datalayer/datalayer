@@ -1,0 +1,6 @@
+kuber:
+  env:
+    DLA_IAMREST: http://minikube.datalayer.io.local
+    DLA_JUPYTERHUBUI: http://minikube.datalayer.io.local
+    DLA_KUBERWS: ws://minikube.datalayer.io.local
+    DLA_LIBRARYREST: http://minikube.datalayer.io.local

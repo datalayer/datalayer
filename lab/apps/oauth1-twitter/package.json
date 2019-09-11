@@ -1,0 +1,56 @@
+{
+  "name": "@datalayer/datalab-twitter",
+  "version": "0.1.1",
+  "scripts": {
+    "build": "tsc && webpack",
+    "clean": "rimraf lib build",
+    "clean-all": "rimraf lib build",
+    "prepublishOnly": "npm run build",
+    "watch-ts": "concurrently --kill-others \"tsc -w\" \"webpack --watch\"",
+    "watch": "concurrently --kill-others \"bash ./server.sh\" \"tsc -w\" \"webpack --watch\""
+  },
+  "license": "Apache-2.0",
+  "author": "Datalayer",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "images/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "@uifabric/experiments": "5.33.1",
+    "@uifabric/icons": "5.7.1",
+    "es6-promise": "~4.1.1",
+    "office-ui-fabric-core": "9.6.0",
+    "office-ui-fabric-react": "5.90.0",
+    "prop-types": "15.6.1",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-redux": "5.0.7",
+    "react-redux-toastr": "7.2.6",
+    "react-twitter-widgets": "1.7.1",
+    "redux": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/prop-types": "15.5.2",
+    "@types/react": "16.3.13",
+    "@types/react-dom": "16.0.5",
+    "concurrently": "4.1.0",
+    "css-loader": "~0.28.7",
+    "file-loader": "~0.10.1",
+    "raw-loader": "~0.5.1",
+    "rimraf": "~2.6.2",
+    "style-loader": "~0.13.2",
+    "typescript": "~2.8.3",
+    "url-loader": "~0.5.9",
+    "watch": "~1.0.2",
+    "webpack": "4.8.1",
+    "webpack-cli": "2.1.3",
+    "webpack-dev-server": "3.1.4",
+    "whatwg-fetch": "~2.0.3"
+  },
+  "resolutions": {
+    "@types/**/@types/react": "16.3.13"
+  }
+}

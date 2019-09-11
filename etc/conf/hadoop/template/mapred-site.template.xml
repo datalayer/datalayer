@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+ | Licensed to Datalayer (https://datalayer.io) under one or
+ | more contributor license agreements.  See the NOTICE file
+ | distributed with this work for additional information
+ | regarding copyright ownership. Datalayer licenses this file
+ | to you under the Apache License, Version 2.0 (the 
+ | "License"); you may not use this file except in compliance
+ | with the License.  You may obtain a copy of the License at
+ |
+ |   http://www.apache.org/licenses/LICENSE-2.0
+ |
+ | Unless required by applicable law or agreed to in writing,
+ | software distributed under the License is distributed on an
+ | "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ | KIND, either express or implied.  See the License for the
+ | specific language governing permissions and limitations
+ | under the License.
+-->
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+    <description>The runtime framework for executing MapReduce jobs. Can be one of local, classic or yarn.
+    </description>
+  </property>
+  <property>
+    <name>mapreduce.jobhistory.address</name>
+    <value>HOSTNAME:10020</value>
+  </property>
+  <property>
+    <name>mapreduce.jobhistory.webapp.address</name>
+    <value>HOSTNAME:19888</value>
+  </property>
+<!--
+   <property>
+     <name>mapreduce.jobtracker.address</name>
+     <value>HOSTNAME:54311</value>
+   </property>
+   <property>
+     <name>mapreduce.jobtracker.http.address</name>
+     <value>0.0.0.0:50030</value>
+   </property>
+   <property>
+     <name>mapred.child.java.opts</name>
+     <value>-Xmx200m -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=y</value>
+     <description>The runtime framework for executing MapReduce jobs.
+       Can be one of local, classic or yarn.
+     </description>
+   </property>
+   <property>
+     <name>mapreduce.task.files.preserve.failedtasks</name>
+     <value>true</value>
+   </property>
+   <property>
+     <name>mapreduce.task.files.preserve.filepattern</name>
+     <value>*</value>
+   </property>
+   <property>
+     <name>keep.failed.task.files</name>
+     <value>true</value>
+   </property>
+   <property>
+     <name>keep.task.files.pattern</name>
+     <value>*</value>
+   </property>
+   <property>
+     <name>mapreduce.cluster.temp.dir</name>
+     <value>DLA_HADOOP_DATA_DIR/hadoop-mapreduce-cluster-temp</value>
+     <description>No description</description>
+     <final>true</final>
+   </property>
+   <property>
+     <name>mapreduce.cluster.local.dir</name>
+     <value>DLA_HADOOP_DATA_DIR/hadoop-mapreduce-cluster-local</value>
+     <description>No description</description>
+     <final>true</final>
+   </property>
+     <property>
+     <name>mapred.system.dir</name>
+     <value>DLA_HADOOP_DATA_DIR/hadoop-mapred-system-dir/system</value>
+     <final>true</final>
+   </property>
+   <property>
+     <name>mapred.local.dir</name>
+     <value>DLA_HADOOP_DATA_DIR/hadoop-mapred-local-dir/local</value>
+     <final>true</final>
+   </property>
+-->
+</configuration>

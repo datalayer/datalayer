@@ -1,0 +1,71 @@
+@import './chatbox.css';
+@import './browser.css';
+
+.jp-datalayerWidget {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.jp-datalayerCartoon {
+  margin: auto;
+}
+
+.jp-datalayerAttribution {
+  margin: 20px auto;
+}
+
+.overflowYOverlay {
+  overflow-y: 'overlay';
+}
+
+.commandBarLarge {
+  min-width: 1000px;
+}
+
+.commandBarBackgroundTransparent {
+  background-color: transparent !important;
+}
+
+.commandBarBackgroundTransparentMarginLeftMinus30 {
+  background-color: transparent !important;
+  margin-left: -30px;
+}
+
+.commandBarBackgroundTransparentLarge {
+  background-color: transparent !important;
+  min-width: 600px;
+}
+
+.homeHeight {
+  height: calc(100vh - 150px);
+  padding-bottom: 0px;
+}
+
+.editorHeight {
+  height: calc(100vh - 90px);
+/* max-width: 50vw; */
+  padding-bottom: 0px;
+}
+
+.rendererHeight {
+  height: calc(100vh - 90px);
+/* max-width: 50vw; */
+  padding-bottom: 0px;
+}
+
+.flowDag {
+  height: calc(100vh - 130px);
+  width: 100wh;
+}
+
+.dlaIndicatorIcon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+}
+
+.itemIcon {
+  font-size: 10px !important;
+}

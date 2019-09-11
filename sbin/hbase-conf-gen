@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Generating Apache HBase Configuration from Template"$NOCOLOR$NOBOLD
+echo
+
+sed -e "s|HOSTNAME|$HOSTNAME|g" $DLA_HBASE_CONF_TEMPLATE_DIR/hbase-site.template.xml > $HBASE_CONF_DIR/hbase-site.xml
+sed -e "s|HOSTNAME|$HOSTNAME|g" $DLA_HBASE_CONF_TEMPLATE_DIR/regionservers.template > $HBASE_CONF_DIR/regionservers
+
+echo $HBASE_CONF_DIR
+ls -alp $HBASE_CONF_DIR

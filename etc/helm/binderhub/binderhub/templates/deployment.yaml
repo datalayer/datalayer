@@ -1,0 +1,114 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: binder
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+        # We set this so the service always has at least one endpoint!
+        # Attempt to fix https://github.com/jupyterhub/mybinder.org-deploy/issues/55
+        # Long term fix is to have more than one replica of this deployment!
+        maxSurge: 1
+        maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: binder
+        name: binder
+        component: binder
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        {{ if .Values.deployment.labels -}}
+        # Because toYaml + indent is super flaky
+        {{ range $key, $value := .Values.deployment.labels -}}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+        {{- end }}
+      annotations:
+        # This lets us autorestart when the configmap changes!
+        checksum/config-map: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+    spec:
+      nodeSelector: {{ toJson .Values.nodeSelector }}
+      {{- if .Values.rbac.enabled }}
+      serviceAccountName: binderhub
+      {{- end }}
+      volumes:
+      - name: config
+        configMap:
+          name: binder-config
+      {{ if .Values.registry.enabled -}}
+      - name: docker-secret
+        secret:
+          secretName: binder-secret
+      {{ else -}}
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+      {{- end }}
+      containers:
+      - name: binder-container
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        volumeMounts:
+          - mountPath: /etc/binderhub/config/
+            name: config
+          {{ if .Values.registry.enabled -}}
+          - mountPath: /root/.docker
+            name: docker-secret
+            readOnly: true
+          {{ else -}}
+          - mountPath: /var/run/docker.sock
+            name: docker-socket
+          {{- end }}
+        resources:
+{{ toYaml .Values.resources | indent 12}}
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: BUILD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: JUPYTERHUB_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: binder-secret
+              key: "binder.hub-token"
+        {{ if .Values.github.clientId -}}
+        - name: GITHUB_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: binder-secret
+              key: "github.client-id"
+        {{- end }}
+        {{ if .Values.github.clientSecret -}}
+        - name: GITHUB_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: binder-secret
+              key: "github.client-secret"
+        {{- end }}
+        {{ if .Values.github.accessToken -}}
+        - name: GITHUB_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: binder-secret
+              key: "github.access-token"
+        {{- end }}
+        {{ if .Values.gitlab.accessToken -}}
+        - name: GITLAB_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: binder-secret
+              key: "gitlab.access-token"
+        {{- end }}
+        {{ if .Values.gitlab.privateToken -}}
+        - name: GITLAB_PRIVATE_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: binder-secret
+              key: "gitlab.private-token"
+        {{- end }}
+        ports:
+          - containerPort: 8585
+            name: binder

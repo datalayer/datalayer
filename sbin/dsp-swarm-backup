@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+mkdir ~/backups &>/dev/null
+
+backup_ldap_users() {
+    echo -e $BOLD$YELLOW"Backup LDAP Users from Datalayer DSP"$NOCOLOR$NOBOLD
+    echo
+    ldapsearch -x -H ldap:// -b dc=datalayer,dc=io -D "$DLA_LDAP_BIND" -w $DLA_LDAP_BIND_PWD -z 3000 > ~/backups/users.ldif
+    ls ~/backups/users.ldif
+}
+
+list_volumes() {
+    echo -e $BOLD$YELLOW"Backup Docker Volumes"$NOCOLOR$NOBOLD
+    echo
+    VOLS=$(docker volume ls | awk '// {print $2}' | grep -v VOLUME)
+    for VOL in $VOLS
+    do
+        echo $VOL
+    done | sort
+}
+
+backup_volumes() {
+    echo -e $WHITE_BCK"Backup JupyterHub Volumes"$NOCOLOR
+    echo
+    docker run --rm -v jupyterhub-data:/data -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/jupyterhub-data.tar /data
+    docker run --rm -v jupyterhub-db-data:/data -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/jupyterhub-db-data.tar /data
+    echo
+    echo -e $WHITE_BCK"Backup LDAP Volumes"$NOCOLOR
+    echo
+    docker run --rm -v ldap-lib-data:/data -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/ldap-lib-data.tar /data
+    docker run --rm -v ldap-slapd-data:/data -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/ldap-slapd-data.tar /data
+    docker run --rm -v ldap-certs-data:/data -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/ldap-certs-data.tar /data
+    echo
+#    echo -e $WHITE_BCK"Backup Solr Volumes"$NOCOLOR
+#    echo
+#    docker run --rm -v solr_solr-data:/data -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/solr.tar /data
+#    echo
+#    echo -e $WHITE_BCK"Backup HDFS Namenode Volume"$NOCOLOR
+#    echo
+#    docker run --rm --volumes-from namenode -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/namenode.tar /hadoop
+#    echo
+#    echo -e $WHITE_BCK"Backup HDFS Datanodes Volume"$NOCOLOR
+#    echo
+#    docker run --rm --volumes-from datanode1 -v ~/backups:/backups ubuntu:18.04 tar cvf /backups/datanode1.tar /hadoop
+#    echo
+}
+
+backup_ldap_users
+# list_volumes
+# backup_volumes

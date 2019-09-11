@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+#  --conf spark.driver.host=spark-driver-service \
+#  --conf spark.driver.port=7077 \
+#  --conf spark.driver.blockManager.port=10000 \
+
+#  local://$DLAOPT/spark/examples/jars/spark-examples_2.11-*.jar \
+
+echo -e $BOLD$YELLOW"Apache Spark Submit Spl"$NOCOLOR$NOBOLD
+echo
+
+$DLAOPT/spark/bin/spark-submit \
+  --name "$APP_NAME" \
+  --conf spark.app.name="$APP_NAME" \
+  --conf spark.master=k8s://"$APISERVER" \
+  --conf spark.submit.deployMode="$DEPLOY_MODE" \
+  --conf spark.sql.catalogImplementation=in-memory \
+  --conf spark.sql.warehouse.dir=/tmp/spark-warehouse \
+  --conf spark.kubernetes.driver.pod.name="$DRIVER_POD_NAME" \
+  --conf spark.kubernetes.namespace=default \
+  --conf spark.kubernetes.resourceStagingServer.uri="$RESOURCESTAGINGSERVER_URI" \
+  --conf spark.executor.instances=2 \
+  --conf spark.kubernetes.initcontainer.docker.image=datalayer/spark-init:2.2.0 \
+  --conf spark.kubernetes.driver.docker.image=datalayer/spark-driver:2.2.0 \
+  --conf spark.kubernetes.executor.docker.image=datalayer/spark-executor:2.2.0 \
+  --conf spark.kubernetes.docker.image.pullPolicy=IfNotPresent \
+  --conf spark.kubernetes.driver.container.image=datalayer/spark:2.4.0 \
+  --conf spark.kubernetes.executor.container.image=datalayer/spark:2.4.0 \
+  --conf spark.kubernetes.container.image.pullPolicy=IfNotPresent \
+  --conf spark.dynamicAllocation.enabled=false \
+  --conf spark.shuffle.service.enabled=false \
+  --conf spark.kubernetes.shuffle.namespace=default \
+  --conf spark.kubernetes.shuffle.labels="app=spark-shuffle-service,spark-version=2.2.0" \
+  --conf spark.local.dir=/tmp/spark-local \
+  --class org.apache.spark.examples.SparkPi \
+  http://dl.bintray.com/palantir/releases/org/apache/spark/spark-examples_2.11/2.1.0-palantir1-58-g7f02e95/spark-examples_2.11-2.1.0-palantir1-58-g7f02e95.jar \
+  10

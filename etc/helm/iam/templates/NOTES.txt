@@ -1,0 +1,25 @@
+Your iam server has now been installed, and can be accessed in the following ways:
+
+1. Connect to the iam CLI pod:
+
+  kubectl exec -n {{ .Release.Namespace }} $(kubectl get pod -n {{ .Release.Namespace }} --selector=app={{ template "iam.name" . }} -o jsonpath='{.items...metadata.name}') -- sh
+
+2. Connect with HTTP internally, within the iamnetes cluster on:
+
+  {{ template "iam.service-name" . }}.{{ .Release.Namespace }}:{{ .Values.iam.port }}
+
+3. Connect with HTTP Node Port to the iamnetes cluster:
+
+  export NODE_IP=$(kubectl get nodes --namespace iam -o jsonpath="{.items[0].status.addresses[0].address}")
+  export NODE_PORT=$(kubectl get --namespace iam -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "iam.service-name" . }})
+  echo http://$NODE_IP:$NODE_PORT/iam/
+
+4. Connect with HTTP external service to the iamnetes cluster:
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "iam.name" . }}" -o jsonpath="{ .items[0].metadata.name }")
+  echo "Visit http://127.0.0.1:{{ .Values.iam.port }}/iam/ to access iam"
+  kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME {{ .Values.iam.port }}:{{ .Values.iam.port }}
+
+5. For Minikube:
+
+  open http://minikube.datalayer.io.local/iam/

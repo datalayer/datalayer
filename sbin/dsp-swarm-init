@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Docker Swarm Init for Datalayer DSP"$NOCOLOR$NOBOLD
+echo
+
+# docker network create datalayer
+
+docker swarm init
+# docker service create --name registry --publish published=5000,target=5000 registry:2
+# curl http://localhost:5000/v2/
+
+echo -e $BOLD$YELLOW"To join a node as manager"$NOCOLOR$NOBOLD
+echo
+docker swarm join-token manager
+
+echo -e $BOLD$YELLOW"To join a node as worker"$NOCOLOR$NOBOLD
+echo
+docker swarm join-token worker

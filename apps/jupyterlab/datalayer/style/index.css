@@ -1,0 +1,62 @@
+:root {
+  --jp-private-git-button-height: 28px;
+  --jp-private-git-button-width: 48px;
+  --jp-private-git-item-height: 24px;
+  --jp-private-git-shutdown-button-height: 24px;
+}
+
+:root {
+  --jp-private-tab-manager-active-top-border: 2px;
+  --jp-private-tab-manager-tab-height: 32px;
+  --jp-private-tab-manager-tab-padding-top: 8px;
+}
+
+.jp-Twitter {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  color: var(--jp-ui-font-color1);
+  background: var(--jp-layout-color1);
+  font-size: var(--jp-ui-font-size0);
+}
+
+.jp-Twitter-container{
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.jp-Twitter-section-fileContainer{
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.jp-Twitter-tablogo {
+  background-size: 100%;
+  width: var(--jp-private-sidebar-tab-width);
+  height: var(--jp-private-sidebar-tab-width);
+  background-image: url(images/twitter-black.svg);
+}
+
+.jp-TwitterLoginScreen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jp-TwitterDrive-logo {
+  background-size: 100%;
+  width: 150px;
+  height: 150px;
+  background-image: url(images/twitter.svg);
+}
+
+.jp-TwitterDrive-text {
+  font-size: var(--jp-ui-font-size3);
+  color: var(--jp-ui-font-color1);
+  padding: 12px;
+}

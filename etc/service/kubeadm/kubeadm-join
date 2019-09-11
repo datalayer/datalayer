@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# Place this file in /usr/local/bin
+# chmod 744 /usr/local/bin/kubeadm-join
+
+function install_docker() {
+  mkdir /etc/docker
+  cat << EOF_D1 > /etc/docker/daemon.json
+  {
+    "exec-opts": ["native.cgroupdriver=cgroupfs"]
+  }
+EOF_D1
+  cat << EOF_D2 > /root/install-docker.sh
+sudo apt -y remove docker docker-engine docker.io docker-ce
+sudo apt update
+sudo apt -y install \
+    linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual
+sudo apt -y install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable"
+sudo apt update
+sudo apt -y install docker-ce
+systemctl daemon-reload
+systemctl restart docker
+EOF_D2
+  chmod +x /root/install-docker.sh && /root/install-docker.sh
+}
+
+function install_kubeadm() {
+  cat <<EOF_K1 > /etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF_K1
+  cat << EOF_K2 > /root/install-kubeadm.sh
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+apt update
+apt install -y apt-transport-https
+apt install -y --allow-unauthenticated \
+  kubelet=1.8.4-00 \
+  kubeadm=1.8.4-00 \
+  kubectl=1.8.4-00
+EOF_K2
+  chmod +x install-kubeadm.sh && /root/install-kubeadm.sh
+  # cat <<EOF >/etc/systemd/system/kubelet.service.d/90-extras.conf
+  # --fail-swap-on=false 
+  cat <<EOF_K3 >>/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs --cloud-provider=aws"
+EOF_K3
+  systemctl daemon-reload && systemctl restart kubelet
+}
+
+function join_kuber() {
+  rm kubeadm-join.conf
+#  rm kubeadm.out
+  kubeadm reset
+  cat <<EOF_J > kubeadm-join.conf
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: NodeConfiguration
+kubernetesVersion: 1.8.3
+token: $TOKEN
+nodeName: $PRIVATE_HOSTNAME
+discoveryTokenAPIServers:
+- $MASTER
+discoveryTokenCACertHashes:
+- $HASH
+EOF_J
+  # kubeadm join --config=kubeadm.conf > kubeadm.out
+  kubeadm join --config=kubeadm-join.conf
+}
+
+sysctl net.bridge.bridge-nf-call-iptables=1
+# apt install -y awscli jq
+
+# KUBER_JSON=$(curl 'https://datalayer.io/kuber.json')
+MASTER=$HOSTNAME
+TOKEN=ed5ef9.6c35783ca6cb8994
+HASH=sha256:7bf0f47620e72759990436589e5346c08f074dc7bd2d26a248f5c839dbbf32ea
+
+# install_docker
+# install_kubeadm
+
+join_kuber

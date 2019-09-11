@@ -1,0 +1,10 @@
+kind: StorageClass
+metadata:
+  creationTimestamp: 2016-10-12T02:57:52Z
+  name: standard
+  resourceVersion: "326829"
+  selfLink: /apis/storage.k8s.io/v1beta1/storageclasses/standard
+  uid: aa97c487-9027-11e6-95d2-02534ff6b987
+parameters:
+  type: gp2
+provisioner: kubernetes.io/aws-ebs

@@ -1,0 +1,18 @@
+
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $YELLOW$BOLD"Starting Apache Zookeeper..."$NOBOLD$NOCOLOR
+echo
+
+echo $ZOOKEEPER_HOME
+echo $ZOOKEEPER_CONF_FILE
+
+$ZOOKEEPER_HOME/bin/zkServer.sh start $ZOOKEEPER_CONF_FILE
+
+rm zookeeper.out
+echo
+dla zookeeper-help

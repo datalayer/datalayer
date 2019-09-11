@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $YELLOW"K8S"$NOCOLOR
+kubectl get pods --all-namespaces
+echo
+
+echo -e $YELLOW"DOCKER"$NOCOLOR
+docker ps -a
+echo
+
+echo -e $YELLOW"JAVA"$NOCOLOR
+jps
+echo
+
+echo -e $YELLOW"JUPYTER"$NOCOLOR
+ps -ef | grep configurable-proxy
+ps -ef | grep jupyter
+echo
+
+# echo -e $YELLOW"PID"$NOCOLOR
+# ls $DLAHOME/var/run
+# cat $DLAHOME/var/run/*

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Starting Apache YARN..."$NOCOLOR$NOBOLD
+echo
+
+export DLA_HADOOP=yarn
+export DLA_HADOOP_STATUS=starting
+
+# To debug Kerberos, use -Dsun.security.krb5.debug=true -Dsun.security.spnego.debug=true -Djavax.net.debug=all
+
+# Start the YARN with the following command, run on the designated ResourceManager:
+$HADOOP_HOME/bin/yarn --daemon start resourcemanager
+# $HADOOP_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
+
+# Run a script to start NodeManagers on all slaves:
+$HADOOP_HOME/bin/yarn --daemon start nodemanager
+# $HADOOP_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start nodemanager
+
+# Start the JobHistory Server with the following command, run on the designated server:
+$HADOOP_HOME/bin/yarn --daemon start timelineserver
+# $HADOOP_HOME/sbin/yarn-daemon.sh start timelineserver
+# $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver --config $HADOOP_CONF_DIR
+
+# Start a standalone WebAppProxy server. If multiple servers are used with load balancing it should be run on each of them:
+# $HADOOP_HOME/bin/yarn --daemon start proxyserver
+# $HADOOP_HOME/sbin/yarn-daemon.sh start proxyserver --config $HADOOP_CONF_DIR
+
+DLA_SKIP_HEADER=true dla yarn-help

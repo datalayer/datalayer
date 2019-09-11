@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Deploying Helm..."$NOCOLOR$NOBOLD
+echo
+
+"""
+helm_ins() {
+ kubectl -n kube-system create serviceaccount tiller
+ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+ helm init --service-account=tiller
+}
+
+helm_del() {
+ kubectl -n kube-system delete deployment tiller-deploy
+ kubectl delete clusterrolebinding tiller
+ kubectl -n kube-system delete serviceaccount tiller
+}
+"""
+
+deploy_on_k8s() {
+    # Set up a ServiceAccount for use by Tiller, the server side component of helm.
+    kubectl -n kube-system create sa tiller
+    # Give the ServiceAccount RBAC full permissions to manage the cluster.
+    # While most clusters have RBAC enabled and you need this line, you must skip this step if your kubernetes cluster does not have RBAC enabled (for example, if you are using Azure AKS).
+    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+    # Set up Helm on the cluster.
+    helm init --service-account tiller
+   # Ensure that tiller is secure from access inside the cluster.
+    kubectl --namespace=kube-system patch deployment tiller-deploy --type=json --patch='[{"op": "add", "path": "/spec/template/spec/containers/0/command", "value": ["/tiller", "--listen=localhost:44134"]}]'
+}
+
+add_helm_repos() {
+    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+    helm repo add jupyterhub https://jupyterhub.github.io/helm-chart
+    helm repo add codecentric https://codecentric.github.io/helm-charts
+    helm repo update
+}
+
+deploy_on_k8s
+add_helm_repos
+
+helm version

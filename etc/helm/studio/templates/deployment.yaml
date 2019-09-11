@@ -1,0 +1,48 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-studio
+  labels:
+    app: {{ template "studio.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "studio.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: studio
+          image: {{ .Values.studio.image }}
+          imagePullPolicy: {{ .Values.studio.imagePullPolicy }}
+          env:
+          - name: APISERVER_HOST
+            value: http://localhost:8001
+          - name: DLAHOST
+            value: {{ .Values.studio.env.DLAHOST }}
+          - name: DLA_STUDIO_INDEX_PAGE
+            value: {{ .Values.studio.env.DLA_STUDIO_INDEX_PAGE }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.studio.resources | indent 12 }} 
+        - name: studio-sidecar
+          image: datalayer/k8s-sidecar:0.0.3
+          imagePullPolicy: IfNotPresent
+          args: ["proxy", "-p", "8001"]

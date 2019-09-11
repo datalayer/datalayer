@@ -1,0 +1,25 @@
+iam:
+  image: datalayer/iam:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 9700
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"
+  env:
+    DLAHOST: ""
+    DLA_IAM_AUTH_CALLBACK: ""
+    DLA_IAM_UI_REDIRECT: ""
+    DLA_IAM_JOIN_SUCCESS: ""
+    DLA_IAM_JOIN_ERROR: ""
+    DLA_IAM_PASSWORD_SUCCESS: ""
+    DLA_IAM_PASSWORD_ERROR: ""
+    DLA_SMTP_HOST: ""
+    DLA_SMTP_PORT: ""
+    DLA_SMTP_USERNAME: ""
+    DLA_SMTP_PASSWORD: ""
+    DLA_LDAP_HOST: ""
+    DLA_LDAP_BIND: ""
+    DLA_LDAP_BIND_PWD: ""
+    DLA_KEYCLOAK_REALM_CLIENT_SECRET: ""
+    DLA_KEYCLOAK_SCHEME_HOST: ""

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Redeploying Datalayer DSP on K8S"$NOCOLOR$NOBOLD
+echo
+
+DLA_SKIP_HEADER=true dla dsp-k8s-down "$@"
+echo Sleeping...
+echo
+# sleep 5s
+DLA_SKIP_HEADER=true dla dsp-k8s-up "$@"

@@ -1,0 +1,15 @@
+{
+    "web": {
+        "auth_uri": "http://localhost:8092/auth/realms/datalayer/protocol/openid-connect/auth",
+        "client_id": "datalayer",
+        "client_secret": "",
+        "issuer": "http://localhost:8092/auth/realms/datalayer",
+        "redirect_uris": [
+            "http://localhost:8092/*",
+            "https://datalayer.io/*"
+        ],
+        "token_introspection_uri": "http://localhost:8092/auth/realms/datalayer/protocol/openid-connect/token/introspect",
+        "token_uri": "http://localhost:8092/auth/realms/datalayer/protocol/openid-connect/token",
+        "userinfo_uri": "http://localhost:8092/auth/realms/datalayer/protocol/openid-connect/userinfo"
+    }
+}

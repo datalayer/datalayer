@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Removing Datalayer DSP from K8S"$NOCOLOR$NOBOLD
+echo
+
+function k8s-dashboard() {
+  export RELEASE=k8s-dashboard
+  helm delete $RELEASE --purge
+}
+
+function kuber() {
+  export RELEASE=dla-kuber
+  helm delete $RELEASE --purge
+}
+
+function ldap() {
+  export RELEASE=dla-ldap
+  helm delete $RELEASE --purge
+}
+
+function ldapadmin() {
+  export RELEASE=dla-ldapadmin
+  helm delete $RELEASE --purge
+}
+
+function keycloak() {
+  export RELEASE=dla-keycloak
+  helm delete $RELEASE --purge
+}
+
+function iam() {
+  export RELEASE=dla-iam
+  helm delete $RELEASE --purge
+}
+
+function solr() {
+  export RELEASE=dla-solr
+  helm delete $RELEASE --purge
+}
+
+function library() {
+  export RELEASE=dla-library
+  helm delete $RELEASE --purge
+}
+
+function jupyterhub() {
+  export RELEASE=dla-jupyterhub
+  helm delete $RELEASE --purge
+}
+
+function studio() {
+  export RELEASE=dla-studio
+  helm delete $RELEASE --purge
+}
+
+function commands() {
+  echo -e $YELLOW"💛  Valid commands: [ k8s-dashboard | kuber | ldap | ldapadmin | keycloak | iam | solr | library | jupyterhub | studio ]"$NOCOLOR 1>&2
+}
+
+CMDS="$1"
+
+if [ -z "$CMDS" ]; then
+  echo -e $RED$BOLD"💔  No command to execute has been provided."$NOCOLOR$NOBOLD 1>&2
+  echo
+  commands
+  echo
+  exit 1
+fi
+
+function apply_cmd() {
+
+  echo -e $BOLD"✋  Removing service [$BLUE$1$NOCOLOR]."$NOBOLD
+  echo
+
+  case "$1" in
+
+    k8s-dashboard)
+      k8s-dashboard
+      ;;
+
+    kuber)
+      kuber
+      ;;
+
+    ldap)
+      ldap
+      ;;
+
+    ldapadmin)
+      ldapadmin
+      ;;
+
+    keycloak)
+      keycloak
+      ;;
+
+    iam)
+      iam
+      ;;
+
+    solr)
+      solr
+      ;;
+
+    library)
+      library
+      ;;
+
+    jupyterhub)
+      jupyterhub
+      ;;
+
+    studio)
+      studio
+      ;;
+
+    *)
+      echo -e $RED$BOLD"💔  Unknown command: $1"$NOBOLD$NOCOLOR 1>&2
+      echo
+      commands
+      echo
+      exit 1
+
+  esac
+
+  echo
+  echo -e $BOLD"🛑  Service [$BLUE$1$NOCOLOR] is removed."$NOBOLD
+
+}
+
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+for i in "${CMD_SPLITS[@]}"; do
+  apply_cmd $i
+  echo
+done
