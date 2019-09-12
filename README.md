@@ -7,11 +7,13 @@
   Datalayer Monorepo
 </h1>
 
-Datalayer allows you to **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **collaborative** way.
+Datalayer allows you to **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
 
-You use real datasets and code to create **reproducible** analysis and have access to a online library with tons of existing artifacts like dataset, paper, courses...
+You use real datasets and code to create **Reproducible** analysis.
 
-See it as a **GitHub for Data** targeted to education and business.
+You also access a searchable online **Library** with tons of existing artifacts like datasets, papers, courses... you can reuse.
+
+See it as a **GitHub for Data** targeted to **Education** and **Business**.
 
 ## 🚀 Reproducible Data Papers
 
