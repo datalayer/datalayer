@@ -21,4 +21,5 @@ with models.DAG(
     in_cluster=True,
     task_id="task-two",
     get_logs=True,
-    dag=dag)
+    dag=dag
+    )

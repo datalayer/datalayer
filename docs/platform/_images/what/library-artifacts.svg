@@ -1210,13 +1210,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.45633693"
-     inkscape:cx="-148.67871"
-     inkscape:cy="371.20069"
+     inkscape:cx="160.30352"
+     inkscape:cy="195.89163"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1680"
-     inkscape:window-height="960"
+     inkscape:window-height="965"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1"
@@ -1229,7 +1229,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1408,17 +1408,17 @@
     <text
        id="text1407"
        y="810.95068"
-       x="509.87778"
+       x="371.12775"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-size:25.58334541px;line-height:1.25"
          y="810.95068"
-         x="509.87778"
+         x="371.12775"
          id="tspan1405"
-         sodipodi:role="line">Notebook</tspan></text>
+         sodipodi:role="line">Course</tspan></text>
     <g
        id="g4219"
-       transform="matrix(0.33333333,0,0,0.33333333,522.54323,674.00504)">
+       transform="matrix(0.33333333,0,0,0.33333333,374.41823,674.00504)">
       <path
          inkscape:export-ydpi="51.959999"
          inkscape:export-xdpi="51.959999"
@@ -1502,14 +1502,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="245.34828"
+       x="235.97328"
        y="810.55719"
        id="text1221"><tspan
          sodipodi:role="line"
          id="tspan1219"
-         x="245.34828"
+         x="235.97328"
          y="810.55719"
-         style="font-size:25.58334541px;line-height:1.25">Note</tspan></text>
+         style="font-size:25.58334541px;line-height:1.25">Paper</tspan></text>
     <g
        id="g1816"
        transform="translate(11.044377,5.1957112)">
@@ -1550,14 +1550,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="397.95428"
-       y="809.48291"
+       x="537.90295"
+       y="811.53729"
        id="text1247"><tspan
          id="tspan1245"
          sodipodi:role="line"
-         x="397.95428"
-         y="809.48291"
-         style="font-size:25.58334541px;line-height:1.25">Quiz</tspan></text>
+         x="537.90295"
+         y="811.53729"
+         style="font-size:25.58334541px;line-height:1.25">Exam</tspan></text>
     <g
        id="g1834"
        transform="translate(-5.4055471,4.488574)">
@@ -1588,7 +1588,7 @@
     </g>
     <g
        id="g1829"
-       transform="translate(-135.3552,3.1349812)">
+       transform="translate(12.09347,5.1893843)">
       <path
          inkscape:export-ydpi="51.959999"
          inkscape:export-xdpi="51.959999"

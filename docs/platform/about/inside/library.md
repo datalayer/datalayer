@@ -17,9 +17,9 @@ Datalayer supports extensive usage of the exploration artifacts stored in the [L
 You can access and (re)use:
 
 + Dataset.
-+ Note.
-+ Quiz.
-+ Notebook.
++ Paper.
++ Course.
++ Examen.
 + Model.
 + API.
 + User Interface.

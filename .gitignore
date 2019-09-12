@@ -74,7 +74,7 @@
 **/yarn-metadata.json
 **/yarn.lock
 apps/kuber/kuber
-lab/apps/styleguidist/styleguide/
+lab/styleguidist/styleguide/
 docs/blog/public
 opt/*/
 opt/spark*
@@ -111,7 +111,7 @@ github_issue_summarization/build/
 !.env
 !.gitattributes
 !.vscode
-!lab/apps/medias/output/README.md
+!lab/medias/output/README.md
 !bin/dla
 !dist/README.md
 !opt/README.md

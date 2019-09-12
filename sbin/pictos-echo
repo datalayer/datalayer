@@ -80,7 +80,7 @@ picto_9="""
 
 print_picto() {
     echo -e  """$1$BOLD$2$RED
-data-pirats 10100010100 -=::>$NOCOLOR$NOBOLD
+datapirats 10100010100$NOCOLOR$NOBOLD
 """
 }
 

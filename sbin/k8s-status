@@ -17,32 +17,20 @@ do
   echo 'Error while getting the pods - Sleeping for 2 seconds...'
   sleep 2
 done
-echo -e $GREEN"kubectl get nodes"$NOCOLOR
-echo
-kubectl get nodes
-echo
-echo -e $GREEN"kubectl get pods --all-namespaces"$NOCOLOR
-echo
-kubectl get pods --all-namespaces
-echo
-echo -e $GREEN"kubectl get services --all-namespaces"$NOCOLOR
-echo
-kubectl get services --all-namespaces
-echo
-echo -e $GREEN"kubectl config view"$NOCOLOR
+# kubectl commands are now able to interact with minikube cluster.
+echo -e $WHITE_BCK"CONFIG"$NOCOLOR
 echo
 kubectl config view
 echo
-# kubectl commands are now able to interact with minikube cluster.
 echo -e $WHITE_BCK"NODES"$NOCOLOR
 echo
-kubectl get nodes --all-namespaces
-echo
-echo -e $WHITE_BCK"PODS"$NOCOLOR
-echo
-kubectl get pods --all-namespaces
+kubectl get nodes
 echo
 echo -e $WHITE_BCK"SERVICES"$NOCOLOR
 echo
 kubectl get svc --all-namespaces
+echo
+echo -e $WHITE_BCK"PODS"$NOCOLOR
+echo
+kubectl get pods --all-namespaces
 echo

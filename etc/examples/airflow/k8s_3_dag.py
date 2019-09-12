@@ -24,5 +24,4 @@ hello = KubernetesPodOperator(namespace='airflow',
                           in_cluster=True
                           )
 
-
 hello >> task

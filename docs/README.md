@@ -1,5 +1,5 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Etc
+# Datalayer Docs
 
-Definitions for the `Datalayer Science Platform`.
+Documentation for the `Datalayer Science Platform`.
