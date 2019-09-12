@@ -10,8 +10,7 @@ You need a running minikube instance and a running K8S proxy.
 
 ```bash
 dla minikube-start && \
-  dla minikube-dashboard && \
-  make k8s-proxy
+  dla k8s-dashboard
 ```
 
 Start the local Kuber server.

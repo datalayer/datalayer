@@ -4,7 +4,7 @@
 # Distributed under the terms of the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0.txt
 
-echo -e $BOLD$YELLOW"Minikube Dashboard"$NOCOLOR$NOBOLD
+echo -e $BOLD$YELLOW"K8S Dashboard"$NOCOLOR$NOBOLD
 echo
 
 echo """open http://127.0.0.1:???/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/overview?namespace=default
@@ -42,7 +42,7 @@ echo -e $YELLOW$BOLD"""AUTH TOKEN$NOBOLD
 
 $TOKEN
 $BOLD$GREEN
-https://localhost:8443$NOBOLD$NOCOLOR
+open https://localhost:8443$NOBOLD$NOCOLOR
 """
 open https://localhost:8443
 

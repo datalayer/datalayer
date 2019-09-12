@@ -21,6 +21,6 @@ kubectl expose deployment hello-minikube --type=NodePort
 curl \$(minikube service hello-minikube --url)
 kubectl delete service,deployment hello-minikube
 
-dla minikube-dashboard
+dla k8s-dashboard
 kubectl describe rc k8s-dashboard --namespace=kube-system
 """

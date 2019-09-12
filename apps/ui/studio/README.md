@@ -33,7 +33,7 @@ You are expected to have the following running services.
 # A Kubernetes cluster, eg with minikube.
 dla minikube-start && \
   dla minikube-status && \
-  dla minikube-dashboard
+  dla k8s-dashboard
 ```
 
 ```bash

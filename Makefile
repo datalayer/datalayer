@@ -27,7 +27,7 @@ env:
 	echo "\x1b[34m\x1b[43mEnsure you have run \x1b[1;37m\x1b[41m conda deactivate \x1b[22m\x1b[34m\x1b[43m before invoking this.\x1b[0m"
 	SLUGIFY_USES_TEXT_UNIDECODE=yes conda create -y -n py2 python=2.7
 	SLUGIFY_USES_TEXT_UNIDECODE=yes conda create -y -n py3 python=3.7
-	SLUGIFY_USES_TEXT_UNIDECODE=yes conda env create -n datalayer -f ${DLAHOME}/conda.yml
+	SLUGIFY_USES_TEXT_UNIDECODE=yes conda env create -n datalayer -f ${DLAHOME}/etc/env/datalayer/conda.yml
 	@exec echo "You can now further populate the datalayer env."
 	@exec echo 
 	@exec echo "conda activate datalayer"

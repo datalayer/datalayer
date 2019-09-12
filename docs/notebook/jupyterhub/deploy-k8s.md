@@ -30,7 +30,7 @@ dla minikube-start
 eval $(minikube docker-env)
 dla helm-deploy
 helm ls
-dla minikube-dashboard
+dla k8s-dashboard
 # Prepare.
 mkdir jupyterhub && \
   cd jupyterhub && \

@@ -21,4 +21,4 @@ EOF
 
 2. Launch the Dashboard
 
-  dla minikube-dashboard
+  dla k8s-dashboard

@@ -22,7 +22,7 @@ minikube addons list
 kubectl get deploy --all-namespaces
 kubectl get svc --all-namespaces
 echo $(minikube service kubernetes-dashboard  -n kube-system --url)
-dla minikube-dashboard
+dla k8s-dashboard
 ```
 
 **Option 2 - Deploy a Spec with Auth Header Authentication**

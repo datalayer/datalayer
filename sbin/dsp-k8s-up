@@ -24,7 +24,7 @@ function kuber() {
     --install $RELEASE \
     $DLAHOME/etc/helm/kuber \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/kuber/dsp.yaml \
+    --values $DLAHOME/etc/helm/kuber/dsp-minikube.yaml \
     --timeout 99999
 }
 
@@ -36,7 +36,7 @@ function ldap() {
     $DLAHOME/etc/helm/ldap \
     --namespace $NAMESPACE \
     --timeout 99999 \
-    --values $DLAHOME/etc/helm/ldap/dsp.yaml \
+    --values $DLAHOME/etc/helm/ldap/dsp-minikube.yaml \
     --set openldap.adminPassword=${DLA_LDAP_BIND_PWD},openldap.configPassword=${DLA_LDAP_BIND_PWD}    
 }
 
@@ -47,7 +47,7 @@ function ldapadmin() {
     --install $RELEASE \
     $DLAHOME/etc/helm/ldapadmin \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/ldapadmin/dsp.yaml \
+    --values $DLAHOME/etc/helm/ldapadmin/dsp-minikube.yaml \
     --timeout 99999
 }
 
@@ -59,7 +59,7 @@ function keycloak() {
     --install $RELEASE \
     codecentric/keycloak \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/keycloak/dsp.yaml \
+    --values $DLAHOME/etc/helm/keycloak/dsp-minikube.yaml \
     --timeout 99999
 }
 
@@ -70,7 +70,7 @@ function iam() {
     --install $RELEASE \
     $DLAHOME/etc/helm/iam \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/iam/dsp.yaml \
+    --values $DLAHOME/etc/helm/iam/dsp-minikube.yaml \
     --set iam.env.DLAHOST="minikube.datalayer.io.local" \
     --set iam.env.DLA_IAM_AUTH_CALLBACK="http://minikube.datalayer.io.local/oidc_callback" \
     --set iam.env.DLA_IAM_UI_REDIRECT="http://minikube.datalayer.io.local/home" \
@@ -97,7 +97,7 @@ function solr() {
     --install $RELEASE \
     $DLAHOME/etc/helm/solr \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/solr/dsp.yaml \
+    --values $DLAHOME/etc/helm/solr/dsp-minikube.yaml \
     --set solr.image.tag=7.7.2,javaMem="-Xms1g -Xmx1g",solr.logLevel=INFO,solr.replicaCount=2 \
     --set solr.livenessProbe.initialDelaySeconds=420,solr.exporter.readinessProbe.periodSeconds=30 \
     --timeout 99999
@@ -110,7 +110,7 @@ function library() {
     --install $RELEASE \
     $DLAHOME/etc/helm/library \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/library/dsp.yaml \
+    --values $DLAHOME/etc/helm/library/dsp-minikube.yaml \
     --set library.env.DLAHOST="minikube.datalayer.io.local" \
     --set library.env.DLA_IAM_AUTH_CALLBACK="http://minikube.datalayer.io.local/oidc_callback" \
     --set library.env.DLA_SOLR_ZK_HOST="dla-solr-zookeeper" \
@@ -126,7 +126,7 @@ function jupyterhub() {
     --install $RELEASE \
     jupyterhub/jupyterhub  \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/jupyterhub/dsp.yaml \
+    --values $DLAHOME/etc/helm/jupyterhub/dsp-minikube.yaml \
     --set hub.extraEnv.JUPYTERHUB_CRYPT_KEY=${JUPYTERHUB_CRYPT_KEY} \
     --set hub.extraEnv.DLA_KEYCLOAK_SCHEME_HOST="http://dla-keycloak-http.dla-iam.svc.cluster.local" \
     --set hub.extraEnv.DLA_KEYCLOAK_REALM_CLIENT_SECRET="${DLA_KEYCLOAK_REALM_CLIENT_SECRET}" \
@@ -152,7 +152,7 @@ function studio() {
     --install $RELEASE \
     $DLAHOME/etc/helm/studio \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/studio/dsp.yaml \
+    --values $DLAHOME/etc/helm/studio/dsp-minikube.yaml \
     --set studio.env.DLAHOST="minikube.datalayer.io.local" \
     --set studio.env.DLA_STUDIO_INDEX_PAGE=${DLA_STUDIO_INDEX_PAGE} \
     --timeout 99999
@@ -165,7 +165,7 @@ function ingress() {
     --install $RELEASE \
     stable/nginx-ingress \
     --namespace $NAMESPACE \
-    --values $DLAHOME/etc/helm/ingress/dsp.yaml \
+    --values $DLAHOME/etc/helm/ingress/dsp-minikube.yaml \
     --timeout 99999
 }
 

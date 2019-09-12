@@ -10,7 +10,7 @@ kubectl cluster-info
 helm init
 kubectl -n kube-system get deploy tiller-deploy -w
 minikube addons enable registry
-dla minikube-dashboard
+dla k8s-dashboard
 ```
 
 ```bash

@@ -59,7 +59,7 @@ subjects:
   namespace: kube-system
 EOF
 # Browse K8S Dashboard.
-dla minikube-dashboard
+dla k8s-dashboard
 ```
 
 ```bash
