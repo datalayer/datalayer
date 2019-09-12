@@ -1,4 +1,4 @@
-# Welcome to the Datalayer Documentation
+# Welcome to the Datalayer Platform Documentation
 
 > Open and Collaborative. Data. Science. Platform.
 

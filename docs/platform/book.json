@@ -1,7 +1,7 @@
 {
     "gitbook": ">= 3.2.1",
-    "title": "Datalayer Documentation",
-    "description": "Datalayer Documentation",
+    "title": "Datalayer Platform Documentation",
+    "description": "Datalayer Platform Documentation",
     "author": "Datalayer Authors",
     "language": "en",
     "plugins": [
@@ -60,6 +60,6 @@
             "top": 36,
             "bottom": 36
         },
-        "footerTemplate": "Datalayer Documentation (c) Datalayer 2019"
+        "footerTemplate": "Datalayer Platform Documentation (c) Datalayer 2019"
     }
 }

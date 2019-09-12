@@ -4,6 +4,9 @@
 
 Phosphor.js [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
 
++ http://phosphorjs.github.io/examples
++ https://github.com/phosphorjs/phosphor/tree/master/examples
+
 ## Dockpanel
 
 [Dockpanel](./dockpanel) example.
