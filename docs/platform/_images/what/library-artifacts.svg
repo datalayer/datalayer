@@ -1210,7 +1210,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.45633693"
-     inkscape:cx="160.30352"
+     inkscape:cx="-231.95051"
      inkscape:cy="195.89163"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -1364,12 +1364,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="257.12186"
+       x="405.24686"
        y="995.40112"
        id="text6369-1"><tspan
          sodipodi:role="line"
          id="tspan6371-2"
-         x="257.12186"
+         x="405.24686"
          y="995.40112"
          style="font-size:25.58334541px;line-height:1.25">API</tspan></text>
     <text
@@ -1538,15 +1538,15 @@
     </g>
     <text
        id="text1224"
-       y="995.21997"
-       x="413.57535"
+       y="995.30096"
+       x="207.35394"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-size:25.58334541px;line-height:1.25"
-         y="995.21997"
-         x="413.57535"
+         y="995.30096"
+         x="207.35394"
          sodipodi:role="line"
-         id="tspan1241">UI</tspan></text>
+         id="tspan1241">Dashboard</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1617,8 +1617,8 @@
            sodipodi:role="line">?!</tspan></text>
     </g>
     <rect
-       y="859.11548"
-       x="393.88779"
+       y="862.94647"
+       x="243.91637"
        height="84.255577"
        width="65.370705"
        id="rect1297"
@@ -1626,7 +1626,7 @@
        ry="15.979506" />
     <g
        id="g1812"
-       transform="matrix(0.2097374,0,0,0.2097374,222.61539,855.58856)">
+       transform="matrix(0.2097374,0,0,0.2097374,370.74039,855.58856)">
       <g
          id="g1748">
         <path

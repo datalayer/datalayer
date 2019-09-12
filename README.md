@@ -9,9 +9,9 @@
 
 Datalayer allows you to **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
 
-You use real datasets and code to create **Reproducible** analysis.
+You use real datasets and code to create and publish **Reproducible** analysis.
 
-You also access a searchable online **Library** with tons of existing artifacts like datasets, papers, courses... you can reuse.
+You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
 
 See it as a **GitHub for Data** targeted to **Education** and **Business**.
 
@@ -39,9 +39,9 @@ Others can understand, reuse and build on top of your papers.
 
 Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities designed to be:
 
-1. Didactic.
-1. Extensible.
-1. Secured
+1. Reroducible.
+1. Scalable.
+1. Secured.
 
 ## 🧐 What's Inside?
 

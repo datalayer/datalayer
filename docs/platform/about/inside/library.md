@@ -21,6 +21,6 @@ You can access and (re)use:
 + Course.
 + Examen.
 + Model.
++ Dashboard.
 + API.
-+ User Interface.
 + Application.
