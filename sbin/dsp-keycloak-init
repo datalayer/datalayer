@@ -21,7 +21,10 @@ Create a Client$NOCOLOR
 
 Create and a \`datalayer\` Client with \`Root URL\` = http://minikube.datalayer.io.local
 
-Define the Valid Redirect URIs = http://minikube.datalayer.io.local/*
+Define the Valid Redirect URIs:
+
++ http://minikube.datalayer.io.local/*
++ http://minikube.datalayer.io.local:9700/*
 
 Set the \`datalayer\` Client Access Type to \`confidential\`.
 Copy the Secret Credential (in the Credentials tab).

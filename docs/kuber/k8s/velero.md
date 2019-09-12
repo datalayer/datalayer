@@ -4,7 +4,17 @@ title: Velero
 
 # Velero
 
-Install Velero Service.
++ https://velero.io
++ https://velero.io/docs/v1.1.0/
++ https://github.com/heptio/velero
+
++ [Conquering a Kubeflow Kubernetes Cluster with ksonnet, Ark, & Sonobuo](https://www.youtube.com/watch?v=givpqZ2IchI).
+
+## Restic
+
++ https://restic.net
+
+## Install
 
 ```bash
 kubectl apply -f $DLAHOME/repos/k8s-velero/examples/common/00-prereqs.yaml
@@ -58,9 +68,7 @@ kubectl delete -f $DLAHOME/repos/k8s-velero/examples/nginx-app/base.yaml
 
 ## Plugin Example
 
-+ https://github.com/heptio/velero
 + https://github.com/heptio/velero-plugin-example
 
 + https://github.com/portworx/velero-plugin
-
 + https://www.digitalocean.com/community/tutorials/how-to-back-up-and-restore-a-kubernetes-cluster-on-digitalocean-using-heptio-velero

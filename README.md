@@ -60,6 +60,7 @@ If you simply want to use the features and have fun with data, create a free acc
 Read more about Datalayer on the [documentation site](https://docs.datalayer.io) and check the latest [blog posts](https://blog.datalayer.io). You can also follow us on [Twitter](https://twitter.com/datalayerio).
 
 <!--
+
 <p align="center">
   <a href="https://datalayer.io">
     <img alt="Datalayer" src="https://docs.datalayer.io/_images/what/architecture.svg" />

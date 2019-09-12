@@ -8,3 +8,5 @@ title: Kubeflow
 
 + https://www.kubeflow.org
 + https://www.kubeflow.org/docs/pipelines/overview/pipelines-overview
+
++ [Conquering a Kubeflow Kubernetes Cluster with ksonnet, Ark, & Sonobuo](https://www.youtube.com/watch?v=givpqZ2IchI).

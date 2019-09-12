@@ -40,11 +40,12 @@ helm repo add datalayer http://helm-charts.datalayer.io
 -->
 To install on a local machine or develop in the [Datalayer repository](https://github.com/datalayer/datalayer) you also need on your `Linux` or `MacOs` operating system additional tools.
 
-+ [Miniconda](https://conda.io/miniconda.html) with `dla miniconda-install`.
 <!--
 + [Node.js 8.x](https://nodejs.org/en/download/releases).
 + [Python 3.x](https://www.python.org).
 -->
+
++ [Miniconda](https://conda.io/miniconda.html) with `dla miniconda-install`.
 + [Golang 1.11](https://blog.golang.org/go1.11).
 + [OpenJDK 8.x](https://openjdk.java.net/install).
 + [Apache Maven](https://maven.apache.org/download.cgi) with `dla mvn-install`.

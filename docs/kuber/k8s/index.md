@@ -20,6 +20,10 @@ The [Landscape](https://landscape.cncf.io) (search for logo, e.g. [etcd](https:/
 
 [Katacoda](https://www.katacoda.com/courses/kubernetes/playground) or [Play with K8S](https://labs.play-with-k8s.com/).
 
+## Info
+
+[TGIK](https://github.com/heptio/tgik/blob/master/playlist.md).
+
 ## CI / CD
 
 [Test Grid](https://k8s-testgrid.appspot.com).
