@@ -16,7 +16,9 @@ export default class Footer extends React.Component<any, any> {
           <div className="ms-Grid-row">
             <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-textAlignCenter">
               <img src="/img/datalayer/datalayer-square_black.png" style={{width: 32}}/>
+{/*
               <div>share awesome data stories</div>
+*/}
             </div>
           </div>
         </div>

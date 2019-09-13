@@ -53,8 +53,8 @@ case "${OS}" in
     *)         echo "Unsupported operating system ${OS}"
 esac
 
-mkdir -p ~/.minikube/files/etc
-cp /etc/localtime  ~/.minikube/files/etc
+# mkdir -p ~/.minikube/files/etc && \
+#   cp /etc/localtime  ~/.minikube/files/etc
 
 #    --logtostderr \
 #    --v 0 \

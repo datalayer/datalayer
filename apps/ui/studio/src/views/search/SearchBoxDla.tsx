@@ -58,7 +58,7 @@ export default class SearchBoxDla extends React.Component<any, any> {
                 onSearch={ (q) => { this.setState({q: q}); history.push('/search/' + q); } }
                 underlined={false}
                 disableAnimation={true}
-                placeholder="Search free notebooks"
+                placeholder="Search data stories"
                 styles = {{
 //                  fieldGroup: { borderRadius: 2 },
                   root: { 

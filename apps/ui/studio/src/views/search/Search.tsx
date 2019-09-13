@@ -83,7 +83,7 @@ export default class Search extends React.Component<any, any> {
           </StackGrid>
           :
           (refreshed) && <div className="text-center">
-            <div className="ms-font-su">No result found...</div>
+            <div className="ms-font-su">No story found...</div>
             <img src={ noresult } style={{width: 200}} />
           </div>
         }

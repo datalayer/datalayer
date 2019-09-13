@@ -17,7 +17,7 @@
     "clean": "rimraf lib dist",
     "test:watch": "jest --watch",
     "watch": "concurrently --kill-others \"python datalayer_studio/main.py\" \"make yarn-start\"",
-    "dev": "concurrently --kill-others \"./dev/portforward-zookeeper.sh\" \"./dev/portforward-solr.sh\" \"./dev/serve-iam.sh\" \"./dev/serve-library.sh\" \"./dev/serve-kuber.sh\" \"./dev/serve-jupyterhub.sh\" \"./dev/serve-studio.sh\" \"make yarn-start\""
+    "dev": "concurrently --kill-others \"./dev/portforward-zookeeper.sh\" \"./dev/portforward-solr.sh\" \"./dev/serve-iam.sh\" \"./dev/serve-library.sh\" \"./dev/serve-kuber.sh\" \"./dev/serve-jupyterhub.sh\" \"./dev/serve-studio.sh\" \"make yarn-start\" \"./dev/k8s-dashboard.sh\""
   },
   "repository": {
     "type": "git",

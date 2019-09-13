@@ -27,6 +27,7 @@ Define the \`Valid Redirect URIs\`.
     + http://minikube.datalayer.io.local/*
     + http://localhost:9700/*
     + http://localhost:8000/*
+    + http://localhost:3000/*
 
   For AWS:
     + https://datalayer.io/*

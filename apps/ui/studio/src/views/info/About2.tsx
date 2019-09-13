@@ -5,22 +5,23 @@ import { getDividerClassNames } from 'office-ui-fabric-react/lib/components/Divi
 import { mergeStyleSets, ITheme } from 'office-ui-fabric-react/lib/Styling'
 import { memoizeFunction } from 'office-ui-fabric-react/lib/Utilities'
 import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
-import { mapStateToPropsAuth, mapDispatchToPropsAuth } from './../actions/AuthActions'
-import { DatalayerStore } from './../store/DatalayerStore'
-import { IConfig } from './../api/config/ConfigApi'
-import About3Lines from './info/About3Lines'
-import GoogleApi from './../api/google/GoogleApi'
-import MicrosoftApi from './../api/microsoft/MicrosoftApi'
-import TwitterApi from './../api/twitter/TwitterApi'
-import IamApi from './../api/iam/IamApi'
-import LibraryApi from './../api/library/LibraryApi'
-import LoadableDla from './../widget/LoadableDla'
-import Cards from './cards/Cards'
-import { mapDispatchToPropsConfig, mapStateToPropsConfig } from './../actions/ConfigActions'
-import './../styles/Styles.scss'
+import { mapStateToPropsAuth, mapDispatchToPropsAuth } from './../../actions/AuthActions'
+import { DatalayerStore } from './../../store/DatalayerStore'
+import { IConfig } from './../../api/config/ConfigApi'
+import About3Lines from './../info/About3Lines'
+import GoogleApi from './../../api/google/GoogleApi'
+import MicrosoftApi from './../../api/microsoft/MicrosoftApi'
+import TwitterApi from './../../api/twitter/TwitterApi'
+import IamApi from './../../api/iam/IamApi'
+import LibraryApi from './../../api/library/LibraryApi'
+import LoadableDla from './../../widget/LoadableDla'
+import Cards from './../cards/Cards'
+import SearchBoxDla from './../search/SearchBoxDla'
+import { mapDispatchToPropsConfig, mapStateToPropsConfig } from './../../actions/ConfigActions'
+import './../../styles/Styles.scss'
 
 const DATALAYER_PROFILE_PHOTO = '/img/datalayer/datalayer-square_white.png'
-const FeaturesBand = LoadableDla( { loader: () => import('./info/FeaturesBand') })
+const FeaturesBand = LoadableDla( { loader: () => import('./../info/FeaturesBand') })
 FeaturesBand.preload()
 
 const getVerticalDividerClassNames = memoizeFunction(
@@ -95,9 +96,25 @@ export default class Landing extends React.Component<any, any> {
             <>
             </>
         :
-        <div className={ "" } style={{ margin: 0 }}>
+        <div className={ "hero" } style={{ margin: 0 }}>
           <div className="ms-Grid" style={{ padding: 0, width: '100%' }}>
             <>
+              <div className="ms-Grid-row">
+                <div className="ms-Grid-col ms-sm2 ms-md2 ms-lg2">
+                </div>
+                <div className="ms-Grid-col ms-sm8 ms-md8 ms-lg8">
+                  <div style={{marginBottom: 20}}/>
+                  <h2 className={ "title" }>Datalayer</h2>
+                  <div className={ "tagline" } style={{marginBottom: 10, textAlign: 'left', fontWeight: 'normal'}}>A distributed open science platform.</div>
+                  <div className={ "tagline" } style={{marginBottom: 10, textAlign: 'left', fontWeight: 'normal', maxWidth: 1000}}>Designed for academics and data geeks to analyse with real datasets and code.</div>
+                  <SearchBoxDla />
+                  <div className={ "tagline" } style={{color: 'white', paddingTop: 20, textAlign: 'left', maxWidth: '100%'}} >
+                    <About3Lines />
+                  </div>
+                </div>
+                <div className="ms-Grid-col ms-sm2 ms-md2 ms-lg2">
+                </div>
+              </div>
               <div className="ms-Grid-row">
               </div>
             </>

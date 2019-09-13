@@ -123,16 +123,16 @@ export default class Header extends React.Component<any, HeaderState> {
             <div style={{display: 'flex', justifyContent: 'space-between', color: 'rgb(51, 51, 51, 1)'}}>
               <a onClick={e => this.goHome(e)} className="dla-logo"/>
               <div onClick={e => this.goHome(e)} style={{cursor: 'pointer', width: 120}}>
-                <div style={{fontWeight: 'bold'}}>
+                <div style={{fontWeight: 'bold', paddingTop: '3px'}}>
                   DATALAYER
                 </div>
                 <div style={{fontSize: 'small'}}>
-                  code-on-data
+                  Share Data Stories
                 </div>
               </div>
             </div>
-            <div className="searchbox" style={{width: '100%', marginLeft: 10}}>
-              <SearchBox placeholder="Search free notebooks"
+            <div className="searchbox" style={{width: '100%', marginLeft: 10, paddingTop: '4px'}}>
+              <SearchBox placeholder="Search data stories"
                 value={q}
 //                onChange={ (q) => this.setState({q: q}) }
                 onSearch={ (q) => { this.setState({q: q}); history.push('/search/' + q); } }
@@ -146,7 +146,7 @@ export default class Header extends React.Component<any, HeaderState> {
                   root: { 
                     borderRadius: 24,
                     height: 35,
-                    marginTop: 4,
+                    marginTop: 6,
                     backgroundColor: '#eee',
                     border: '1px solid transparent',
                   },
@@ -163,7 +163,7 @@ export default class Header extends React.Component<any, HeaderState> {
                         borderRadius: 4,
                         width: 70,
                         height: 30,
-                        marginTop: 4,
+                        marginTop: 6,
                         marginLeft: 10,
                         marginRight: 10,
                         fontSize: 14,
@@ -216,7 +216,7 @@ export default class Header extends React.Component<any, HeaderState> {
                         borderRadius: 4,
                         width: 100,
                         height: 30,
-                        marginTop: 4,
+                        marginTop: 6,
                         marginLeft: 10,
                         marginRight: 10,
                         fontSize: 14,

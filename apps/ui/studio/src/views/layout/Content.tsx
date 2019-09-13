@@ -16,6 +16,7 @@ import ForgotPasswordError from '../sign/ForgotPasswordError'
 import TellMeMore from './../info/TellMeMore'
 import Osa from './../info/Osa'
 import About from './../info/About'
+import About2 from './../info/About2'
 import ToS from './../info/ToS'
 import Privacy from './../info/Privacy'
 import UserGuide from './../info/UserGuide'
@@ -43,6 +44,7 @@ export default class Content extends React.Component<any, any> {
           <Route exact path="/explore" name="Explore" component={Explore}/>
           <Route exact path="/osa" name="Osa" component={Osa}/>
           <Route exact path="/about" name="About" component={About}/>
+          <Route exact path="/about2" name="About2" component={About2}/>
           <Route exact path="/tos" name="Terms of Service" component={ToS}/>
           <Route exact path="/docs" name="Documentation" component={UserGuide}/>
           <Route exact path="/blog" name="Blog" component={Blog}/>
