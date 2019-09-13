@@ -6,7 +6,7 @@
 
 # A running iam server.
 
-echo -e "\x1b[34m\x1b[43mStarting IAM\x1b[0m"
+echo -e "\x1b[34m\x1b[43mServe IAM\x1b[0m"
 
 # Option 1 - Run from source.
 # cd $DLAHOME/apps/iam && \

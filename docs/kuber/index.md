@@ -20,6 +20,7 @@ Kuber makes Kubernetes easier.
   * [Kubeadm](/k8s/kubeadm.md)
   * [Minikube](/k8s/minikube.md)
   * [Kind](/k8s/kind.md)
+  * [Conformance](/k8s/conformance.md)
   * [Cluster API](/k8s/cluster-api.md)
   * [Cluster API AWS](/k8s/cluster-api-aws.md)
   * [Cluster API Azure](/k8s/cluster-api-azure.md)

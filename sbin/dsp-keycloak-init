@@ -21,32 +21,41 @@ Create a Client$NOCOLOR
 
 Create and a \`datalayer\` Client with \`Root URL\` = http://minikube.datalayer.io.local
 
-Define the Valid Redirect URIs:
+Define the \`Valid Redirect URIs\`.
 
-+ http://minikube.datalayer.io.local/*
-+ http://minikube.datalayer.io.local:9700/*
+  For Minikube:
+    + http://minikube.datalayer.io.local/*
+    + http://localhost:9700/*
+    + http://localhost:8000/*
+
+  For AWS:
+    + https://datalayer.io/*
 
 Set the \`datalayer\` Client Access Type to \`confidential\`.
-Copy the Secret Credential (in the Credentials tab).
-\`vi ~/.datalayer/dlarc\` and update with DLA_KEYCLOAK_REALM_CLIENT_SECRET with the copied secret.
-\`source ~/.datalayer/dlarc\`
+
+Copy and activate the \`Secret Credential\` (in the \`Credentials\` tab).
+
+  \`vi ~/.datalayer/dlarc\` - Update with DLA_KEYCLOAK_REALM_CLIENT_SECRET with the copied secret.
+  \`source ~/.datalayer/dlarc\`
 $YELLOW
 Configure the LDAP User Federation$NOCOLOR
 
 In the User Federation menu, add the LDAP provider with following settings.
 
-+ Vendor: Other.
-+ Connection URL: ldap://dla-ldap-openldap (click on the Test connection button).
-+ Users DN: ou=users,dc=datalayer,dc=io
-+ Bind DN: cn=admin,dc=datalayer,dc=io
++ Vendor:          Other.
++ Connection URL:  ldap://dla-ldap-openldap (click on the Test connection button).
++ Users DN:        ou=users,dc=datalayer,dc=io
++ Bind DN:         cn=admin,dc=datalayer,dc=io
 + Bind Credential: admin (click on the Test authentication button).
-+ Cache Policy: NO_CACHE.
++ Cache Policy:    NO_CACHE.
 $YELLOW
-Synchronize Users$NOCOLOR
+Synchronize the Users$NOCOLOR
 
-... and click on \`Synchronize all users\` button.
+Click on \`Synchronize all users\` button.
 $YELLOW
-Validate Configuration$NOCOLOR
+Validate the Configuration$NOCOLOR
 
-open http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account # eric/123
+In \`Manage\` \`Users\`, clik on \`View all users\` and check you see the synced user \`eric\`.
+
+open http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account and logon with eric/123
 """

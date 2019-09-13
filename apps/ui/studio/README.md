@@ -6,7 +6,7 @@
 
 This folder contains the `Datalayer Studio` source code that allows accessing the `Datalayer Science Platform` in a visual way.
 
-The Studio will help you create and manage your K8S cluster and transform it into a powerful solution for your Big Data Science projects.
+The Studio will help you create and manage your `K8S` cluster and transform it into a powerful `JupyterLab` solution for your Big Data Science projects.
 
 ## Build
 
@@ -27,41 +27,26 @@ cd $DLAHOME/apps/ui/studio && \
   make build
 ```
 
-## Prerequisites on Minikube
+## Minikube Services
 
 Install the services on [minikube](https://docs.datalayer.io/install/minikube) until the `keycloak` service (included).
 
-Skip `iam` service and deploy `solr`
+Then skip the deployment of the `iam` service and deploy `solr` service.
+
+Don't further deploy the other services as we will run them locally.
 
 ```bash
-dla dsp-k8s-up solr
-# Port-forward Zookeeper, it will be used by the `library` service.
-export ZK_POD_NAME=$(kubectl get pods -n dla-library -l "app=zookeeper,component=server" -o jsonpath="{ .items[0].metadata.name }")
-kubectl port-forward -n dla-library $ZK_POD_NAME 2181:2181
+# Ensure locally run services are down.
+dla dsp-k8s-down iam,kuber,jupyterhub,library,studio
 ```
 
-## Develop
+## Local Services
 
-Run `iam`, `kuber`, `jupyterhub`, `library` and `studio` applications in `dev` mode.
+Run `iam`, `kuber`, `jupyterhub`, `library` and `studio` services on your `local` environment (aka `dev` mode).
 
 ```bash
 cd $DLAHOME/apps/ui/studio && \
-  dla dsp-k8s-down iam,kuber,jupyterhub,library,studio && \
   make dev
-```
-
-You can also launch the processes one by one.
-
-```bash
-# shell #1: start the studio frontend compiler.
-cd $DLAHOME/apps/ui/studio && \
-  make yarn-start
-# shell #2: start the studio server.
-cd $DLAHOME/apps/ui/studio && \
-  DLA_STUDIO_INDEX_PAGE=index.html && \
-  echo http://minikube.datalayer.io.local:4326?kuberRest=http://minikube.datalayer.io.local:9091 && \
-  open http://minikube.datalayer.io.local:9600?kuberRest=http://minikube.datalayer.io.local:9091 && \
-  python datalayer_studio/main.py
 ```
 
 # Help

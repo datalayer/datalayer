@@ -16,10 +16,14 @@ app = Flask(__name__, static_folder = ROOT_FOLDER)
 def res(folder, path):
     return send_from_directory(ROOT_FOLDER + '/' + folder, path)
 
-@app.route('/mesh')
-def mesh():
-    return app.send_static_file('mesh.html')
-    
+@app.route('/minikube')
+def minikube():
+    return app.send_static_file('minikube.html')
+
+@app.route('/cloud')
+def cloud():
+    return app.send_static_file('cloud.html')
+
 @app.route('/', defaults = {'path': ''})
 @app.route('/<path:path>')
 def index(path):

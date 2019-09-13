@@ -53,10 +53,13 @@ case "${OS}" in
     *)         echo "Unsupported operating system ${OS}"
 esac
 
+mkdir -p ~/.minikube/files/etc
+cp /etc/localtime  ~/.minikube/files/etc
+
+#    --logtostderr \
+#    --v 0 \
 minikube start \
-    --logtostderr \
-    --insecure-registry localhost:5000 \
-    --v 0
+    --insecure-registry localhost:5000
 
 # https://kubernetes.io/docs/reference/access-authn-authz/rbac
 # Many add-ons currently run as the “default” service account in the kube-system namespace.
@@ -77,9 +80,9 @@ minikube addons enable storage-provisioner
 DLA_SKIP_HEADER=true dla minikube-help "$@"
 DLA_SKIP_HEADER=true dla minikube-status "$@"
 echo
-DLA_SKIP_HEADER=true dla kubectl-check "$@"
+DLA_SKIP_HEADER=true dla kubectl-status "$@"
 
-echo -e $GREEN$BOLD"""
+echo -e $YELLOW$BOLD"""
 K8S Dashboard$NOBOLD
 
 dla dsp-k8s-up k8s-dashboard
@@ -87,8 +90,4 @@ $BOLD
 Use Minikube Docker Process$NOBOLD
 
 eval $(minikube docker-env)
-$BOLD
-Upudate /etc/host to allow connections via Minikube Ingress$NOBOLD
-
-echo \"$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-http.dla-iam.svc.cluster.local\"  | sudo tee -a /etc/hosts
 """$NOCOLOR

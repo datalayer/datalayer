@@ -11,8 +11,8 @@ The services are deployed in the Kubernetes Cluster via [Helm charts](https://gi
 ## Configure /etc/hosts
 
 ```bash
-echo "127.0.0.1 dla-solr-zookeeper"  | sudo tee -a /etc/hosts
-echo "$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-http.dla-iam.svc.cluster.local"  | sudo tee -a /etc/hosts
+echo "127.0.0.1 dla-solr-zookeeper dla-solr-0.dla-solr-headless"  | sudo tee -a /etc/hosts
+echo "$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-http.dla-iam.svc.cluster.local "  | sudo tee -a /etc/hosts
 ```
 
 ## Build the Docker Images

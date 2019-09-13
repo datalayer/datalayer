@@ -6,7 +6,7 @@
 
 # A running jupyterhub server.
 
-echo -e "\x1b[34m\x1b[43mStarting JupyterHub\x1b[0m"
+echo -e "\x1b[34m\x1b[43mServe JupyterHub\x1b[0m"
 
 start_dev() {
   cd $DLAHOME/etc/dev/jupyterhub && \
