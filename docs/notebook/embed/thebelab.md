@@ -1,12 +1,12 @@
 ---
-title: JupyterLab TheBeLab
+title: TheBeLab
 ---
 
-# JupyterLab TheBeLab
+# TheBeLab
 
-JupyterLab ThebeLab [GitHub](https://github.com/minrk/thebelab) repository.
+ThebeLab [GitHub](https://github.com/minrk/thebelab) repository.
 
-JupyterLab ThebeLab [Docs](https://thebelab.readthedocs.io).
+ThebeLab [Docs](https://thebelab.readthedocs.io).
 
 ## Local Server
 

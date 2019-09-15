@@ -13,7 +13,8 @@ Grader [Docs](https://nbgrader.readthedocs.io).
 See also.
 
 + [NbAutoeval](https://github.com/parmentelat/nbautoeval).
-+ [NbTutor](https://github.com/lgpage/nbtutor).
++ [NbTutor 1](https://github.com/lgpage/nbtutor).
++ [NbTutor 2](https://github.com/jorisvandenbossche/nbtutor).
 
 ## Grader on JupyterLab
 
@@ -25,15 +26,15 @@ JupyterHub Deploy Teaching [GitHub](https://github.com/jupyterhub/jupyterhub-dep
 
 JupyterHub Deploy Teaching [Docs](http://jupyterhub-deploy-teaching.readthedocs.io/en/latest).
 
-## Juniper
+## Ines
 
-Juniper Courses.
+Courses.
 
 + Course Spacy [GitHub](https://github.com/ines/spacy-course) repository.
 + Course Starter Python [GitHub](https://github.com/ines/course-starter-python) repository.
 + Course Starter R [GitHub](https://github.com/ines/course-starter-r) repository.
 
-Juniper Technology Based.
+Technology.
 
 + Built with [Gatsby](http://gatsbyjs.org) and [Reveal.js](https://revealjs.com).
 + See also [RISE](https://github.com/damianavila/rise).

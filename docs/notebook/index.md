@@ -4,7 +4,7 @@
 
 Project [Jupyter](https://jupyter.org) exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages.
 
-{% tabs jupyter="Jupyter", jupyterlab="JupyterLab", jupyterhub="JupyterHub", jupyterpool="JupyterPool", dashboard="Dashboard", apps="Applications" %}
+{% tabs jupyter="Jupyter", jupyterlab="JupyterLab", jupyterhub="JupyterHub", jupyterpool="JupyterPool", dashboard="Dashboard", others="Others" %}
 
 {% content "jupyter" %}
 
@@ -110,18 +110,25 @@ Details on Kernels Management and Configuration.
   * [Dash](/dashboard/dash.md)
   * [PyViz](/dashboard/pyviz.md)
 
-{% content "apps" %}
+{% content "others" %}
 
 Applications built on top of Jupyter.
 
 * [Applications](/apps/index.md)
-  * [Education](/apps/edu.md)
   * [App Mode](/apps/app-mode.md)
-  * [TheBeLab](/apps/thebelab.md)
-  * [Juniper](/apps/juniper.md)
   * [Iodide](/apps/iodide.md)
-  
-Visualization toolkits.
+
+Embedded.
+
+* [Embed](/embed/index.md)
+  * [TheBeLab](/embed/thebelab.md)
+  * [Juniper](/embed/juniper.md)
+
+Education
+
+* [Education](/edu/index.md)
+
+Visualization.
 
 * [Visualization](/viz/index.md)
   * [React.js](/viz/react.js.md)

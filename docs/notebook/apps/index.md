@@ -12,18 +12,9 @@ title: Applications
   + [Dash](/apps/dash.md).
   + [PyViz](/apps/pyviz.md).
 
-## Education
-
-+ [Education](/apps/edu.md).
-
 ## App Mode
 
 * [App Mode](/apps/app-mode.md).
-
-## Widgets
-
-+ [ThebeLab](/apps/thebelab.md).
-+ [Juniper](/apps/juniper.md).
 
 ## Others
 
