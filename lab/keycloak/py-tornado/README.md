@@ -12,7 +12,7 @@ open http://localhost:8080/auth/realms/datalayer/account
 ```
 
 ```bash
-cd $DLAHOME/lab/apps/keycloak/py/tornado/repo && \
+cd $DLAHOME/lab/keycloak/py/tornado/repo && \
   open http://localhost:8888 && \
   python main.py
 ```

@@ -38,7 +38,8 @@ Some `transversal` useful topics.
 
 Authenticate and authorize with various providers.
 
-+ [OAuth1](./oauth1-twitter) with Twitter API.
++ OpenID Connect with [Keycloak](./keycloak).
++ Twitter [OAuth1](./oauth1-twitter).
 + Tornado [Simple Authentication](./tornado-auth).
 + Tornado [OpenID Connect](./tornado-oidc).
 + JupyterHub [OpenID Connect](./jupyterhub-oidc).

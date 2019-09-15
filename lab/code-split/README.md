@@ -9,13 +9,13 @@
 + [loadable-components](https://github.com/smooth-code/loadable-components).
 
 ```bash
-cd $DLAHOME/lab/apps/code-split && \
+cd $DLAHOME/lab/code-split && \
   yarn install && \
   yarn start
 ```
 
 ```bash
-cd $DLAHOME/lab/apps/code-split && \
+cd $DLAHOME/lab/code-split && \
   yarn install && \
   yarn build && \
   serve -s build

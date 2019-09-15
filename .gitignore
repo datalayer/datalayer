@@ -107,6 +107,7 @@ github_issue_summarization/build/
 # Include.
 !**/.*ignore
 !**/.*rc
+!**/.*config
 !**/.github
 !.env
 !.gitattributes

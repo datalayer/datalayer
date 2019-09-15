@@ -87,6 +87,10 @@ pip install git+https://github.com/notpushkin/mkdocs-alabaster
 
 [Starter Blog](https://github.com/gatsbyjs/gatsby-starter-blog).
 
+[gatsby-starter-ggt-material-ui-blog](https://github.com/greatgatsbyjsthemes/gatsby-starter-ggt-material-ui-blog).
+
+[gatsby-starter-uifabric](https://github.com/microsoft/gatsby-starter-uifabric).
+
 ## Vuepress
 
 [Vuepress](https://vuepress.vuejs.org).

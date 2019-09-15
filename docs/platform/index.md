@@ -135,7 +135,7 @@ Create a [FREE account on the Datalayer Web Site](https://datalayer.io).
     * [Benchmarks](/dev/spark/benchmarks.md)
     * [Contributions](/dev/spark/contributions.md)
   * [Kubeflow](/dev/kubeflow/index.md)
-  * [Mlflow](/dev/mlflow/index.md)
+  * [MlFlow](/dev/mlflow/index.md)
   * [TensorFlow](/dev/tensorflow/index.md)
   * [Droids](/dev/droids/index.md)
     * [Facebook](/dev/droids/facebook.md)

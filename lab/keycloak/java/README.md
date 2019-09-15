@@ -7,7 +7,7 @@
 For LDAP, see also [Blog about LDAP](https://blog.exceptionerror.io/2018/08/29/openldap-keycloak-and-docker).
 
 ```bash
-cd $DLAHOME/lab/apps/keycloak/java/repo && \
+cd $DLAHOME/lab/keycloak/java/repo && \
   docker-compose up -d && \
   docker-compose ps
 ```
@@ -273,7 +273,7 @@ Response Body: bgates, it is private.
 Add a new user in LDAP.
 
 ```bash
-cd $DLAHOME/lab/apps/keycloak/java && \
+cd $DLAHOME/lab/keycloak/java && \
   ldapadd -H ldap://localhost -c -D "cn=admin,dc=datalayer,dc=io" -w admin -f ./user.ldif
 ldapsearch -x -D "cn=admin,dc=datalayer,dc=io" \
   -w admin -H ldap://localhost:389 \

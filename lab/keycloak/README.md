@@ -11,7 +11,7 @@ Integrate Keycloak with:
 + [Python clients](./py-client)
 + [Flask](./py-flask).
 + [Tornado](./py-tornado).
-+ [Django](https://medium.com/@sairamkrish/keycloak-integration-part-3-integration-with-python-django-backend-5dac3b4a8e4e).
++ [Django](./py-django).
 + [Java with LDAP and Swagger](./java).
 + [JupyterHub](./jupyterhub).
 + [React.js](./react.js).

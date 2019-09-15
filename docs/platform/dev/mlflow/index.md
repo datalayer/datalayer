@@ -1,8 +1,8 @@
 ---
-title: Mlflow
+title: MlFlow
 ---
 
-# Mlflow
+# MlFlow
 
 + https://mlflow.org
 + https://github.com/mlflow/mlflow

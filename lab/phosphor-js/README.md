@@ -12,7 +12,7 @@ Phosphor.js [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
 [Dockpanel](./dockpanel) example.
 
 ```bash
-cd $DLAHOME/lab/apps/phosphor-js/dockpanel && \
+cd $DLAHOME/lab/phosphor-js/dockpanel && \
   yarn install && \
   yarn build && \
   http-server -o
@@ -23,7 +23,7 @@ cd $DLAHOME/lab/apps/phosphor-js/dockpanel && \
 [Datagrid](./datagrid) example.
 
 ```bash
-cd $DLAHOME/lab/apps/phosphor-js/datagrid && \
+cd $DLAHOME/lab/phosphor-js/datagrid && \
   yarn install && \
   yarn build && \
     http-server -o

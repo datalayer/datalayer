@@ -12,7 +12,7 @@ Review the provided `jupyterhub_config.py` and ensure your environment is correc
 + When you create a user, you have to ensure it exists on your local Linux system).
 
 ```bash
-cd $DLAHOME/lab/apps/oauth1-twitter
+cd $DLAHOME/lab/oauth1-twitter
 # Prepare a conda env.
 conda deactivate && conda remove -y --name oauth1-twitter --all
 conda config --add channels conda-forge

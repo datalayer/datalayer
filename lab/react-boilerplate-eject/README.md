@@ -3,13 +3,13 @@
 # React Boilerplate
 
 ```bash
-cd $DLAHOME/lab/apps/react-boilerplate && \
+cd $DLAHOME/lab/react-boilerplate && \
   yarn install && \
   yarn start
 ```
 
 ```bash
-cd $DLAHOME/lab/apps/react-boilerplate && \
+cd $DLAHOME/lab/react-boilerplate && \
   yarn install && \
   yarn build && \
   serve -s build

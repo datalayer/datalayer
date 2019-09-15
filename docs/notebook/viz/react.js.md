@@ -8,38 +8,40 @@ title: React.js
 
 Try the [examples](https://github.com/datalayer/datalayer/tree/master/lab/apps) in the Datalayer repository.
 
-Material UI.
+## Material UI
 
 + [GitHub](https://github.com/mui-org/material-ui).
 + [Website](https://material-ui.com).
++ [Theming]https://material-ui.com/customization/theming).
++ [Themes](https://themes.material-ui.com).
 
-Fabric UI.
+## Fabric UI
 
 + [GitHub](https://github.com/officedev/office-ui-fabric-react).
 + [Widgets](https://developer.microsoft.com/en-us/fabric).
 + [unpkg.com](https://unpkg.com/office-ui-fabric-react@0.22.1/index.html).
 
-Blueprint JS.
+## Blueprint JS
 
 + [GitHub](https://github.com/palantir/blueprint).
 + [Widgets](https://blueprintjs.com).
 
-Semantic UI.
+## Semantic UI
 
 + [GitHub](https://github.com/semantic-org/semantic-ui-react).
 + [Widgets](https://react.semantic-ui.com).
 
-Stardust UI.
+## Stardust UI
 
 + [GitHub](https://github.com/stardust-ui/react).
 + [Widgets](https://stardust-ui.github.io/react).
 
-Evergreeen.
+## Evergreeen
 
 + [GitHub](https://github.com/segmentio/evergreen).
 + [Widgets](https://evergreen.segment.com).
 
-Paragon.
+## Paragon
 
 + [Paragon](https://github.com/edx/paragon)
 
@@ -49,7 +51,7 @@ Paragon.
 + https://codesandbox.io/embed/jzn14k0ppy
 + https://codesandbox.io/embed/j21ykr7ypw
 
-## Lighter React Variants
+## Light Variants
 
 + [Preact](https://preactjs.com).
 + [Inferno](https://infernojs.org).

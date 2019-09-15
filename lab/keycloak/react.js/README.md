@@ -2,6 +2,12 @@
 
 # Keycloak with React.js
 
+## React Keycloak
+
++ https://github.com/panz3r/react-keycloak
+
+## Example
+
 From [user-authentication-with-keycloak](https://blog.scalac.io/user-authentication-with-keycloak-part1.html) and its [github repo](https://github.com/kmikulski/blog-keycloak), using [keycloak-js](https://github.com/keycloak/keycloak-js-bower).
 
 ```bash
@@ -19,7 +25,7 @@ open http://localhost:8080/auth/realms/datalayer/account
 ```
 
 ```bash
-cd $DLAHOME/lab/apps/keycloak/react.js/repo && \
+cd $DLAHOME/lab/keycloak/react.js/repo && \
   yarn install && \
   yarn build && \
   yarn start

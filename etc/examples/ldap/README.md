@@ -4,7 +4,7 @@
 
 ```bash
 # Start OpenLDAP Server with SSL.
-cd $DLAHOME/lab/apps/ldap && \
+cd $DLAHOME/lab/ldap && \
   docker run \
   -p 636:636 \
   --name ldap \
