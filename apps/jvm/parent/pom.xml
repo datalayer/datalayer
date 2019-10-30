@@ -160,7 +160,7 @@
 <!--
     <netty.version>4.1.1.Final</netty.version>
 -->
-    <netty.version>4.0.42.Final</netty.version>
+    <netty.version>4.1.43.Final</netty.version>
     <netty3.version>3.2.9.Final</netty3.version>
     <npn.version>1.1.0.v20120525</npn.version>
     <npn.boot.version>1.1.5.v20130313</npn.boot.version>
