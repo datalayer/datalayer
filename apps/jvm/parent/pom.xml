@@ -216,7 +216,7 @@
     <thrift.version>0.9.3</thrift.version>
     <tinkerpop.version>3.2.4</tinkerpop.version>
     <titan.version>1.1.0-SNAPSHOT</titan.version>
-    <tika.version>1.14</tika.version>
+    <tika.version>1.22</tika.version>
     <tomcat.version>7.0.21</tomcat.version>
     <tomcat.port>8090</tomcat.port>
     <twitter4j.version>4.0.2</twitter4j.version>
