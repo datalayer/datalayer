@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+cd $SOLR_HOME
+
+echo -e $BOLD$YELLOW"Apache Solr Help"$NOCOLOR$NOBOLD
+echo
+echo -e "View Solr"
+echo -e $YELLOW"http://localhost:8983/solr"$NOCOLOR
+echo -e $YELLOW"http://localhost:8983/solr/admin/info/system"$NOCOLOR
+echo
+echo -e "Check Solr"
+echo -e $YELLOW"$SOLR_HOME/bin/solr status"$NOCOLOR
+echo
+echo -e "Create a collection"
+echo -e "The create command detects the mode that Solr is running in (standalone or SolrCloud) and then creates a core or collection depending on the mode."
+echo -e $YELLOW"$SOLR_HOME/bin/solr create -c demo -shards 2 -replicationFactor 2 -d $DLAHOME/etc/conf/solr/demo -p 8983"$NOCOLOR
+echo -e $YELLOW"$SOLR_HOME/bin/solr create_collection -c demo -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/demo -p 8983"$NOCOLOR
+echo
+echo -e "Delete a collection"
+echo -e $YELLOW"$SOLR_HOME/bin/solr delete -c demo"$NOCOLOR
+echo 
+echo -e "Add documents"
+echo -e $YELLOW"""$SOLR_HOME/bin/post -c demo $SOLR_HOME/example/exampledocs/*.xml
+$SOLR_HOME/bin/post -c demo $SOLR_HOME/docs/
+$SOLR_HOME/bin/post -c demo $SOLR_HOME/example/exampledocs/*.xml
+$SOLR_HOME/bin/post -c demo $SOLR_HOME/example/exampledocs/books.json
+$SOLR_HOME/bin/post -c demo $SOLR_HOME/example/exampledocs/books.csv
+$SOLR_HOME/bin/post -c demo -d \"<delete><id>SP2514N</id></delete>\"
+curl http://localhost:8983/solr/demo/update?commit=true -H 'Content-type:application/json' -d '
+[
+ {\"id\" : \"book1\",
+  \"title\" : \"American Gods\",
+  \"author\" : \"Neil Gaiman\"
+ }
+]'
+"""$NOCOLOR
+echo -e "Query documents"
+echo -e $YELLOW"http://localhost:8983/solr/demo/select?q=video"$NOCOLOR
+echo
+echo -e "View shards"
+echo -e $YELLOW"http://localhost:8983/solr/#/demo/collection-overview"$NOCOLOR
+echo -e $YELLOW"http://localhost:8983/solr/#/demo_shard1_replica_n1"$NOCOLOR
+echo
+echo -e "View logs"
+echo -e $YELLOW"tail -f $SOLR_HOME/server/logs/solr.log"$NOCOLOR
+echo
+echo -e "Start preconfigured sets"
+echo -e $YELLOW"$SOLR_HOME/bin/solr start -e cloud -noprompt"$NOCOLOR
+echo -e $YELLOW"$SOLR_HOME/bin/solr start -e techproducts"$NOCOLOR
+echo
+echo -e "Commands with Docker"
+echo -e $YELLOW"docker exec -it --user=solr solr bin/solr create_collection -c demo -shards 3 -replicationFactor 3"$NOCOLOR
+echo -e $YELLOW"cd $SOLR_HOME"$NOCOLOR
+echo -e $YELLOW"docker exec -it --user=solr solr bin/post -c demo example/exampledocs/manufacturers.xml"$NOCOLOR
+echo -e $YELLOW"docker cp $SOLR_HOME/example/exampledocs/manufacturers.xml solr:/opt/solr/manufacturers.xml"$NOCOLOR
+echo -e $YELLOW"docker exec -it --user=solr solr bin/post -c demo manufacturers.xml"$NOCOLOR
+echo

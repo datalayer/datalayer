@@ -1,0 +1,67 @@
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: spark-resource-staging-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        spark-resource-staging-server-instance: default
+    spec:
+      volumes:
+        - name: spark-resource-staging-server-config
+          configMap:
+            name: spark-resource-staging-server-config
+      containers:
+        - name: spark-resource-staging-server
+          image: datalayer/spark-resource-staging-server:2.2.0
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 100m
+              memory: 1Gi
+          volumeMounts:
+            - name: spark-resource-staging-server-config
+              mountPath: '/etc/spark-resource-staging-server'
+          args:
+            - '/etc/spark-resource-staging-server/spark-resource-staging-server.properties'
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spark-resource-staging-server-config
+data:
+  spark-resource-staging-server.properties: |
+    spark.kubernetes.resourceStagingServer.port=10000
+    spark.ssl.kubernetes.resourceStagingServer.enabled=false
+# Other possible properties are listed below, primarily for setting up TLS. The paths given by KeyStore, password, and PEM files here should correspond to
+# files that are securely mounted into the resource staging server container, via e.g. secret volumes.
+#   spark.ssl.kubernetes.resourceStagingServer.keyStore=/mnt/secrets/resource-staging-server/keyStore.jks
+#   spark.ssl.kubernetes.resourceStagingServer.keyStorePassword=changeit
+#   spark.ssl.kubernetes.resourceStagingServer.keyPassword=changeit
+#   spark.ssl.kubernetes.resourceStagingServer.keyStorePasswordFile=/mnt/secrets/resource-staging-server/keystore-password.txt
+#   spark.ssl.kubernetes.resourceStagingServer.keyPasswordFile=/mnt/secrets/resource-staging-server/keystore-key-password.txt
+#   spark.ssl.kubernetes.resourceStagingServer.keyPem=/mnt/secrets/resource-staging-server/key.pem
+#   spark.ssl.kubernetes.resourceStagingServer.serverCertPem=/mnt/secrets/resource-staging-server/cert.pem
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spark-resource-staging-service
+spec:
+  type: NodePort
+  selector:
+    spark-resource-staging-server-instance: default
+  ports:
+    - protocol: TCP
+      port: 10000
+      targetPort: 10000
+      nodePort: 31000

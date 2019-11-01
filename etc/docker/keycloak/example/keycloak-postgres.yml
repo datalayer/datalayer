@@ -1,0 +1,35 @@
+version: '3'
+volumes:
+  postgres_data:
+    driver: local
+services:
+  keycloak:
+#    image: jboss/keycloak:4.4.0.Final
+    image: datalayer/keycloak:${DLAVERSION}
+    command:
+      - -Djboss.http.port=8080
+    environment:
+      KEYCLOAK_HTTP_PORT: 8080
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      # Uncomment the line below if you want to specify JDBC parameters.
+      # The parameter below is just an example, and it shouldn't be used in production without knowledge.
+      # It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+      # JDBC_PARAMS: "ssl=true"
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:9.5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      DLA_JUYPYERHUB_POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      DLA_JUPYTERHUB_DB_PWD: password

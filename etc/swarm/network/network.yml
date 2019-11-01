@@ -1,0 +1,9 @@
+version: '3.5'
+networks:
+  default:
+    name: datalayer
+  datalayer:
+    name: datalayer
+    external: false
+    attachable: true
+    driver: overlay

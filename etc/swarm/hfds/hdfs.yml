@@ -1,0 +1,36 @@
+version: '3.5'
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.1.1-java8
+    container_name: namenode
+    networks:
+      - datalayer
+    volumes:
+      - hadoop_namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    ports:
+      - 9870:9870
+      - 9000:9000
+    env_file:
+      - ./hdfs.env
+    labels:
+      - traefik.docker.network=datalayer
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
+    container_name: datanode1
+    networks:
+      - datalayer
+    volumes:
+      - hadoop_datanode1:/hadoop/dfs/data
+    ports:
+      - 9864:9864
+    environment:
+      SERVICE_PRECONDITION: namenode:9870
+    env_file:
+      - ./hdfs.env
+    labels:
+      - traefik.docker.network=datalayer
+volumes:
+  hadoop_namenode:
+  hadoop_datanode1:

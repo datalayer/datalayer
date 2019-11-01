@@ -1,0 +1,16 @@
+Your Solr cluster has now been installed, and can be accessed in the following ways:
+
+  * Internally, within the kubernetes cluster on:
+
+{{ template "solr.service-name" . }}.{{ .Release.Namespace }}:{{ .Values.solr.port }}
+
+  * External to the kubernetes cluster:
+
+export SOLR_POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ template "solr.name" . }},app.kubernetes.io/component=server" -o jsonpath="{ .items[0].metadata.name }")
+echo "Visit http://127.0.0.1:{{ .Values.solr.port }} to access Solr"
+kubectl port-forward --namespace {{ .Release.Namespace }} $SOLR_POD_NAME {{ .Values.solr.port }}:{{ .Values.solr.port }}
+
+export ZK_POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app=zookeeper,component=server" -o jsonpath="{ .items[0].metadata.name }")
+kubectl port-forward --namespace {{ .Release.Namespace }} $ZK_POD_NAME 2181:2181
+
+dla dsp-solr-init

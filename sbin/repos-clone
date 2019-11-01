@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+source $DLASBIN/repos
+
+echo -e $BOLD$YELLOW"Cloning the Datalayer Repositories..."$NOCOLOR$NOBOLD
+echo
+
+for ((i=0; i<${#DLA_REPOS[@]}; i+=4)); do
+  echo -e $GREEN"--- cloning $BOLD${DLA_REPOS[i]}$NOBOLD ---"$NOCOLOR
+  echo
+  cd $DLAREPOS
+  git clone ${DLA_REPOS[i+1]} ${DLA_REPOS[i]} || true
+  cd $DLAHOME/repos/${DLA_REPOS[i]}
+  git remote rm origin || true
+  git remote add origin ${DLA_REPOS[i+1]}
+  git remote rm upstream || true
+  git remote add upstream ${DLA_REPOS[i+2]}
+  git push --set-upstream origin ${DLA_REPOS[i+3]}
+  git fetch origin
+  git remote -v
+  echo
+done

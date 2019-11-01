@@ -1,0 +1,7 @@
+{
+  "main": "16-4-release-blog-post/pointer-events-example.js",
+  "dependencies": {
+    "react-dom": "latest",
+    "react": "latest"
+  }
+}

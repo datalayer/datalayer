@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Installing Datalayer Environment"$NOCOLOR$NOBOLD
+echo
+
+# ------------------------------------
+
+linux_pre() {
+  echo
+  echo -e $WHITE_BCK"DSP PRE-INSTALL ON LINUX"$NOCOLOR
+  echo
+#     sudo apt -y install libcurl4-openssl-dev
+#     sudo apt -y install slapd ldap-utils
+#     sudo dpkg-reconfigure slapd
+#     sudo update-rc.d slapd enable
+#     mkdir $DLAOPT/docker-lib && ln -s $DLAOPT/docker-lib /var/lib/docker && sudo apt -y install docker.io
+#     sudo apt install -y nodejs
+#     sudo apt install -y npm
+#     npm install -g yarn
+}
+
+macos_pre() {
+  echo
+  echo -e $WHITE_BCK"DSP PRE-INSTALL ON MAC OSX"$NOCOLOR
+  echo
+}
+
+# case "${OS}" in
+#     LINUX)     linux_pre;;
+#     MACOS)     macos_pre;;
+#     *)         echo "Unsupported operating system ${OS}"
+# esac
+
+# ------------------------------------
+
+$DLAHOME/src/dev/install-dev-env.sh all

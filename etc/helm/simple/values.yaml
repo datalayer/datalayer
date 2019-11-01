@@ -1,0 +1,11 @@
+namespace: simple
+service:
+  name: simple-svc
+  type: LoadBalancer
+initSecretName: init-secret
+api:
+  secretName: simple-secret
+  secretNamespace: simple
+  address: simple-address
+  username: datalayer
+  password: simple

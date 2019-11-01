@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+DOCKER_VOLUME="
+  jupyterhub-data
+  jupyterhub-db-data
+"
+
+DOCKER_SERVICES_FILE_BASE="
+  DLA keycloak/keycloak.yml
+  DLA ldap/ldap.yml
+  DLA ldapadmin/ldapadmin.yml
+  DLA network/network.yml
+  DLA solr/solr.yml
+  DLA traefik/traefik.yml
+  DLA whoami/whoami.yml
+  DLA zookeeper/zookeeper.yml
+"
+
+DOCKER_SERVICES_FILE_DEV="
+  DLA apis/apis.yml
+  DLA keycloak/keycloak.yml
+  DLA ldap/ldap.yml
+  DLA ldapadmin/ldapadmin.yml
+  DLA network/network.yml
+  DLA solr/solr.yml
+  DLA swarm-viz/swarm-viz.yml
+  DLA traefik/traefik.yml
+  DLA whoami/whoami.yml
+  DLA zookeeper/zookeeper.yml
+"
+
+DOCKER_SERVICES_FILE="
+  DLA apis/apis.yml
+  DLA iam/iam.yml
+  DLA jupyterhub/jupyterhub.yml
+  DLA keycloak/keycloak.yml
+  DLA kuber/kuber.yml
+  DLA library/library.yml
+  DLA ldap/ldap.yml
+  DLA ldapadmin/ldapadmin.yml
+  DLA network/network.yml
+  DLA solr/solr.yml
+  DLA studio/studio.yml
+  DLA swarm-viz/swarm-viz.yml
+  DLA traefik/traefik.yml
+  DLA varnish/varnish.yml
+  DLA whoami/whoami.yml
+  DLA zookeeper/zookeeper.yml
+"
+
+# DOCKER_SERVICES_COMPOSE_BASE="${DOCKER_SERVICES_FILE_BASE//DLA/-f}"
+DOCKER_SERVICES_SWARM_BASE="${DOCKER_SERVICES_FILE_BASE//DLA/-c}"
+
+# DOCKER_SERVICES_COMPOSE_DEV="${DOCKER_SERVICES_FILE_DEV//DLA/-f}"
+DOCKER_SERVICES_SWARM_DEV="${DOCKER_SERVICES_FILE_DEV//DLA/-c}"
+
+# DOCKER_SERVICES_COMPOSE="${DOCKER_SERVICES_FILE//DLA/-f}"
+DOCKER_SERVICES_SWARM="${DOCKER_SERVICES_FILE//DLA/-c}"

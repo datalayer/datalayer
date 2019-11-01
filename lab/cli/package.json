@@ -1,0 +1,38 @@
+{
+  "name": "@datalayer/lab-cli",
+  "version": "0.0.3",
+  "description": "Datalayer Lab CLI",
+  "main": "./lib/index.js",
+  "author": "Datalayer",
+  "license": "Apache-2.0",
+  "bin": {
+    "dlactl": "./lib/index.js"
+  },
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "create": "npm run build && npm run install-local",
+    "build": "tsc -p .",
+    "install-local": "sudo npm i -g . && dlactl",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "keywords": [
+    "cli",
+    "datalayer",
+    "typescript",
+    "nodejs"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "commander": "^2.19.0",
+    "figlet": "^1.2.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.10",
+    "nodemon": "^1.18.7",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6"
+  }
+}

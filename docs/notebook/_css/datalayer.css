@@ -1,0 +1,16 @@
+figure {
+    margin: 1.5em 0px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 10px 6px -6px #777;
+    text-align: center;
+}
+
+figcaption {
+    clear: left;
+    margin: 0.75em 0px;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.5em;
+}

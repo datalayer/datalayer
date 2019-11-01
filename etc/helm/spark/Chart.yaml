@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Apache Spark is an open-source cluster-computing framework.
+name: spark
+version: ${DLAVERSION}
+appVersion: 2.2.0
+home: https://spark.apache.org
+sources:
+- https://github.com/apache/spark
+icon: https://spark.apache.org/images/spark-logo-trademark.png
+maintainers:
+- name: eric
+  email: eric@datalayer.io

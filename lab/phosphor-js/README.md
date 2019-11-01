@@ -1,0 +1,30 @@
+[![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
+
+# Datalayer Lab Phosphor.js
+
+Phosphor.js [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
+
++ http://phosphorjs.github.io/examples
++ https://github.com/phosphorjs/phosphor/tree/master/examples
+
+## Dockpanel
+
+[Dockpanel](./dockpanel) example.
+
+```bash
+cd $DLAHOME/lab/phosphor-js/dockpanel && \
+  yarn install && \
+  yarn build && \
+  http-server -o
+```
+
+## Datagrid
+
+[Datagrid](./datagrid) example.
+
+```bash
+cd $DLAHOME/lab/phosphor-js/datagrid && \
+  yarn install && \
+  yarn build && \
+    http-server -o
+```

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"LDAP Help"$NOCOLOR$NOBOLD
+echo
+
+echo "Check the following for LDAP status:"
+echo
+echo "  localhost port 10389"
+echo
+echo "    admin DN = uid=admin,ou=system"
+echo "    password = secret"
+echo
+echo "    ldapwhoami -h localhost -p 10389 -D \"uid=admin,ou=system\" -w secret"
+echo "    ldapmodify -h localhost -p 10389 -D \"uid=admin,ou=system\" -w secret -a -f apache-ds-tutorial.ldif"
+echo "    ldapsearch -h localhost -p 10389 -D \"uid=admin,ou=system\" -w secret -b \"o=sevenSeas\" -s sub \"(givenName=William)\" cn"
+echo "    ldapsearch -h localhost -p 10389 -b \"o=sevenSeas\" -D \"uid=admin,ou=system\" -w secret \"(objectClass=*)\""
+echo "    ldapsearch -h localhost -p 10389 -b \"o=sevenSeas\" -D \"uid=admin,ou=system\" -w secret -s sub \"(cn=James Hook)\" +"
+echo
+echo "    ldapwhoami -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass"
+echo "    ldapmodify -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass -a -f captain-hook.ldif"
+echo "    ldapmodify -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass -a -f captain-hook.ldif"
+echo "    ldapdelete -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass -f captain-hook-delete.ldif"
+echo

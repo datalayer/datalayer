@@ -1,0 +1,33 @@
+version: '3.5'
+services:
+  varnish:
+    image: eeacms/varnish:4.1-6.2
+    ports:
+      - 6081:6081
+      - 6085:6085
+    environment:
+      BACKENDS: studio
+#      COOKIES: "true"
+#      COOKIES_WHITELIST: "()"
+      BACKENDS_PORT: "9600"
+      DNS_ENABLED: "true"
+      BACKENDS_PROBE_INTERVAL: "3s"
+      BACKENDS_PROBE_TIMEOUT: "1s"
+      BACKENDS_PROBE_WINDOW: "3"
+      BACKENDS_PROBE_THRESHOLD: "2"
+      DASHBOARD_USER: admin
+      DASHBOARD_PASSWORD: ${DLA_VARNISH_PWD}
+      DASHBOARD_SERVERS: varnish
+      DASHBOARD_DNS_ENABLED: "true"
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST}
+      - traefik.docker.network=datalayer
+      - traefik.port=6081
+      - traefik.frontend.headers.customResponseHeaders=Strict-Transport-Security:15552000
+#      - traefik.frontend.headers.SSLRedirect=true
+#      - traefik.frontend.headers.SSLHost=${DLAHOST}
+#      - traefik.frontend.headers.STSSeconds=315360000
+#      - traefik.frontend.headers.STSIncludeSubdomains=true
+#      - traefik.frontend.headers.STSPreload=true
+#      - traefik.frontend.headers.frameDeny=true
+#      - traefik.frontend.headers.browserXSSFilter=true

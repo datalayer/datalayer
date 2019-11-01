@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="164px" height="33px" viewBox="0 0 164 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Datalayer</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2196F3" offset="0%"></stop>
+            <stop stop-color="#1375C2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(2.000000, -179.000000)">
+            <rect id="Rectangle" stroke="url(#linearGradient-1)" fill="url(#linearGradient-1)" x="0.5" y="180.5" width="161" height="30" rx="8"></rect>
+            <text id="Run-on-Datalayer" font-family="OpenSans-Bold, Open Sans" font-size="14" font-weight="bold" fill="#FFFFFF">
+                <tspan x="35.496582" y="201">Run on Datalayer</tspan>
+            </text>
+        </g>
+        <path d="M26.0075854,20.9983866 L23.9942086,19.0020589 L21.9953163,17.0045031 L19.9992053,15.0055385 L18.0018301,13.0078743 L19.9992053,10.9948588 L21.9953163,13.0078743 L23.9942086,15.0055385 L26.0075854,17.0045031 L28.0049245,19.0020589 L26.0075854,20.9983866 Z M19.9992053,23.0114383 L18.0018301,20.9983866 L15.9901149,19.0020589 L13.9911504,20.9983866 L11.9937029,19.0020589 L15.9901149,15.0055385 L18.0018301,17.0045031 L21.9953163,20.9983866 L19.9992053,23.0114383 Z M30.0026609,17.0045031 L26.0075854,13.0078743 L23.9942086,10.9948588 L21.9953163,8.99896454 L19.9992053,7 L18.0018301,8.99896454 L15.9901149,10.9948588 L13.9911504,13.0078743 L11.9937029,15.0055385 L8,19.0020589 L9.99611099,20.9983866 L11.9937029,23.0114383 L13.9911504,25.0086329 L15.9901149,23.0114383 L18.0018301,25.0086329 L19.9992053,27.0075974 L21.9953163,25.0086329 L23.9942086,23.0114383 L26.0075854,25.0086329 L28.0049245,23.0114383 L30.0026609,20.9983866 L32,19.0020589 L30.0026609,17.0045031 Z" id="WHITE" fill="#FFFFFE"></path>
+    </g>
+</svg>

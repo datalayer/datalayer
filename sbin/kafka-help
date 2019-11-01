@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Kafka Help"$NOCOLOR$NOBOLD
+echo
+
+echo -e $GREEN"Define a topic"$NOCOLOR
+echo
+echo -e "  $KAFKA_HOME/bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 1 --partitions 1"
+echo
+echo -e $GREEN"Produce messages"$NOCOLOR
+echo
+echo -e "  $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
+echo -e "    This is a message"
+echo -e "    This is another message"
+echo -e "    ..."
+echo -e "    Note: You have to type by yourself the messages via your keyboard..."
+echo -e "    Note: For HDP, use port 6667 instead of 9092"
+echo
+echo -e $GREEN"Consume messages with another process"$NOCOLOR
+echo
+echo -e "  $KAFKA_HOME/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning"
+echo -e "    This is a message"
+echo -e "    This is another message"
+echo -e "    ..."
+echo -e "    Note: The messages you just typed via your keyboard will be shown here..."
+echo

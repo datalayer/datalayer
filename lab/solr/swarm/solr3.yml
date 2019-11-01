@@ -1,0 +1,93 @@
+version: '3.5'
+services:
+  solr-1:
+    image: solr:7.7.0
+    container_name: solr-1
+    restart: always
+    networks:
+      - datalayer
+    ports:
+      - 8081:8081
+    volumes:
+      - solr-1-logs:/opt/solr/server/logs
+      - solr-1-store:/store/solr
+      - solr-1-docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      SOLR_PORT: 8081
+      SOLR_HOME: /opt/solr/server/solr
+      SOLR_CONF_DIR: /opt/solr/server/solr
+#      ZK_HOST: zoo-1:2181,zoo-2:2182,zoo-3:2183
+      ZK_HOST: zoo:2181
+      SOLR_LOGS_DIR: /opt/solr/server/logs
+      SOLR_HOST: solr-1
+      SOLR_HEAP:
+      SOLR_JAVA_MEM:
+    depends_on:
+      - zoo
+    labels:
+      - traefik.docker.network=datalayer
+  solr-2:
+    image: solr:7.7.0
+    container_name: solr-2
+    networks:
+      - datalayer
+    restart: always
+    ports:
+      - 8082:8082
+    volumes:
+      - solr-2-logs:/opt/solr/server/logs
+      - solr-2-store:/store/solr
+      - solr-2-docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      SOLR_PORT: 8082
+      SOLR_HOME: /opt/solr/server/solr
+      SOLR_CONF_DIR: /opt/solr/server/solr
+#      ZK_HOST: zoo-1:2181,zoo-2:2182,zoo-3:2183
+      ZK_HOST: zoo:2181
+      SOLR_LOGS_DIR: /opt/solr/server/logs
+      SOLR_HOST: solr-2
+      SOLR_HEAP:
+      SOLR_JAVA_MEM:
+    depends_on:
+      - zoo
+    labels:
+      - traefik.docker.network=datalayer
+  solr-3:
+    image: solr:7.7.0
+    container_name: solr-3
+    networks:
+      - datalayer
+    restart: always
+    ports:
+      - 8983:8983
+    volumes:
+      - solr-3-logs:/opt/solr/server/logs
+      - solr-3-store:/store/solr
+      - solr-3-docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      SOLR_PORT: 8983
+      SOLR_HOME: /opt/solr/server/solr
+      SOLR_CONF_DIR: /opt/solr/server/solr
+#      ZK_HOST: zoo-1:2181,zoo-2:2182,zoo-3:2183
+      ZK_HOST: zoo:2181
+      SOLR_LOGS_DIR: /opt/solr/server/logs
+      SOLR_HOST: solr-3
+      SOLR_HEAP:
+      SOLR_JAVA_MEM:
+    depends_on:
+      - zoo
+    labels:
+      - traefik.docker.network=datalayer
+volumes:
+  solr-1-logs:
+  solr-1-store:
+  solr-1-docker-entrypoint-initdb.d:
+  solr-1-data:
+  solr-2-logs:
+  solr-2-store:
+  solr-2-docker-entrypoint-initdb.d:
+  solr-2-data:
+  solr-3-logs:
+  solr-3-store:
+  solr-3-docker-entrypoint-initdb.d:
+  solr-3-data:

@@ -1,0 +1,12 @@
+env:
+  PHPLDAPADMIN_LDAP_HOSTS: "dla-ldap-openldap"
+  PHPLDAPADMIN_HTTPS: "false"
+  PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
+service:
+  type: ClusterIP
+ingress:
+  enabled: true
+  annotations: {}
+  path: /
+  hosts:
+    - ldapadmin.minikube.datalayer.io.local

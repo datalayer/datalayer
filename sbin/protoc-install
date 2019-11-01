@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+# FIX autogen.sh to avoid `Google Test not present.  Fetching gtest-1.5.0 from the web.` failing...
+# curl -L https://github.com/google/googletest/archive/release-1.5.0.tar.gz | tar zx
+# mv googletest-release-1.5.0 gtest
+
+# PROTOC_VERSION=3.6.1
+PROTOC_VERSION=2.5.0
+
+linux_req() {
+
+    echo Linux Requirements.
+
+}
+
+macos_req() {
+
+    echo MacOs Requirements.
+
+    brew install automake
+    brew install libtool
+
+}
+
+case "${OS}" in
+    LINUX)     linux_req;;
+    MACOS)     macos_req;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+cd $DLAOPT
+
+rm protobuf-$PROTOC_VERSION.tar.gz || true
+
+curl  -Lo protobuf-$PROTOC_VERSION.tar.gz https://github.com/protocolbuffers/protobuf/archive/v$PROTOC_VERSION.tar.gz && \
+  tar xvfz protobuf-$PROTOC_VERSION.tar.gz
+
+cd $DLAOPT/protobuf-$PROTOC_VERSION
+
+./autogen.sh && \
+  automake && \
+  ./configure && \
+  make && \
+  sudo make install
+sudo ldconfig
+
+echo
+echo '------------------------'
+echo
+protoc --version
+echo
+echo '------------------------'
+echo

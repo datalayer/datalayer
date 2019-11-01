@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Initialize Datalayer DSP LDAP"$NOCOLOR$NOBOLD
+echo
+
+ldapadd -x -D $DLA_LDAP_BIND -w $DLA_LDAP_BIND_PWD -H ldap:// -f $DLAHOME/etc/seed/ldap/ldap-seed.ldif
+
+dla dsp-ldap-help
+
+ldapsearch -x -D $DLA_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b "ou=users,dc=datalayer,dc=io" \
+  -s sub "(uid=*)"
+
+echo """
+ldapsearch -x -D $DLA_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b \"ou=users,dc=datalayer,dc=io\" \
+  -s sub \"(uid=*)\"
+"""

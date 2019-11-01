@@ -1,0 +1,22 @@
+{{/*
+Expand the name of the chart.
+*/}}
+{{- define "keycloak.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 24 chars because some keycloaknetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "keycloak.fullname" -}}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- printf "%s-%s" .Release.Name $name | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Define the name of the client service for keycloak.
+*/}}
+{{- define "keycloak.service-name" -}}
+{{- printf "%s-%s" (include "keycloak.fullname" .) "svc" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

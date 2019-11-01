@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  kuber:
+    image: datalayer/kuber:${DLAVERSION} 
+    networks:
+      - datalayer
+    ports:
+      - 9091:9091
+    environment:
+      APISERVER_HOST: http://localhost:8001
+#      KUBER_DATALAYERREST: https://${DLAHOST}
+#      DLA_KUBERREST: https://${DLAHOST}
+#      DLA_KUBERWS: wss://${DLAHOST}
+#      KUBER_TWITTERREDIRECT: https://${DLAHOST}/kuber/api/v1/twitter/callback
+    volumes:
+      - ~/.datalayer:/root/.datalayer
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/kuber
+      - traefik.port=9091
+      - traefik.docker.network=datalayer

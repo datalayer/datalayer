@@ -1,0 +1,18 @@
+version: 1
+
+dn: ou=users,dc=datalayer,dc=io
+objectclass: organizationalUnit
+objectclass: top
+ou: users
+
+dn: uid=eric,ou=users,dc=datalayer,dc=io
+uid: eric
+objectclass: top
+objectclass: inetOrgPerson
+objectclass: organizationalPerson
+objectclass: person
+cn: Eric
+sn: Charles
+mail: eric@datalayer.io
+# plain password for dummies is `123`
+userpassword: {MD5}ICy5YqxZB1uWSwcVLSNLcA==

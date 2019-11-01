@@ -1,0 +1,5 @@
+openldap:
+  env:
+    LDAP_ORGANISATION: "Datalayer Inc."
+    LDAP_DOMAIN: "datalayer.io"
+    LDAP_LOG_LEVEL: "256"

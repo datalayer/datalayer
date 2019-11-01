@@ -1,0 +1,11 @@
+studio:
+  image: datalayer/studio:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 9600
+  env:
+    DLAHOST: ""
+    DLA_STUDIO_INDEX_PAGE: ""
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"

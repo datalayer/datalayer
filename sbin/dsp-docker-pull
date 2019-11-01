@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Pulling Datalayer DSP Docker Images"$NOCOLOR$NOBOLD
+echo
+
+source dsp-docker-images
+
+for DOCKERIMAGE in "${DSP_DOCKER_IMAGES[@]}"
+do
+  echo
+  echo -e $BOLD"Pulling $DOCKERIMAGE..."$NOBOLD
+  docker pull $DOCKERIMAGE
+  echo
+done

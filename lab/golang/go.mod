@@ -1,0 +1,60 @@
+module github.com/datalayer/datalayer/lab/go
+
+require (
+	github.com/PuerkitoBio/purell v1.1.0
+	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
+	github.com/askcarter/io16 v0.0.0-20180503000739-69ca3f8437b2
+	github.com/cenkalti/backoff v2.0.0+incompatible
+	github.com/davecgh/go-spew v1.1.1
+	github.com/dghubble/go-twitter v0.0.0-20180817201112-a34e9059cd58
+	github.com/dghubble/sling v1.1.0
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/emicklei/go-restful v2.8.0+incompatible
+	github.com/emicklei/go-restful-openapi v1.0.0
+	github.com/emicklei/go-restful-swagger12 v0.0.0-20170208215640-dcef7f557305
+	github.com/gin-contrib/cors v0.0.0-20170318125340-cf4846e6a636
+	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7
+	github.com/gin-gonic/gin v1.3.0
+	github.com/go-openapi/jsonpointer v0.17.0
+	github.com/go-openapi/jsonreference v0.17.0
+	github.com/go-openapi/spec v0.17.0
+	github.com/go-openapi/swag v0.17.0
+	github.com/golang/protobuf v1.2.0
+	github.com/google/go-querystring v1.0.0
+	github.com/gorilla/mux v1.6.2
+	github.com/hashicorp/hcl v1.0.0
+	github.com/inconshreveable/mousetrap v1.0.0
+	github.com/joho/godotenv v1.3.0
+	github.com/json-iterator/go v1.1.5
+	github.com/kkamdooong/go-restful-api-example v0.0.0-20170414163541-89a1df358719
+	github.com/koding/websocketproxy v0.0.0-20180716164433-0fa3f994f6e7
+	github.com/konsorten/go-windows-terminal-sequences v0.0.0-20181004224146-5c8c8bd35d38
+	github.com/magiconair/properties v1.8.0
+	github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329
+	github.com/mattn/go-colorable v0.0.9
+	github.com/mattn/go-isatty v0.0.4 // indirect
+	github.com/mitchellh/go-homedir v1.0.0
+	github.com/mitchellh/mapstructure v1.1.2
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+	github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742
+	github.com/mrjones/oauth v0.0.0-20180629183705-f4e24b6d100c
+	github.com/pborman/uuid v0.0.0-20180906182336-adf5a7427709
+	github.com/pelletier/go-toml v1.2.0
+	github.com/pkg/errors v0.8.0
+	github.com/pmezard/go-difflib v1.0.0
+	github.com/sirupsen/logrus v1.1.1
+	github.com/spf13/cast v1.2.0
+	github.com/spf13/cobra v0.0.3
+	github.com/spf13/jwalterweatherman v1.0.0
+	github.com/spf13/viper v1.2.1
+	github.com/ugorji/go/codec v0.0.0-20181022190402-e5e69e061d4f // indirect
+	golang.org/x/crypto v0.0.0-20181009213950-7c1a557ab941
+	golang.org/x/net v0.0.0-20181005035420-146acd28ed58
+	golang.org/x/oauth2 v0.0.0-20181003184128-c57b0facaced
+	golang.org/x/sys v0.0.0-20181005133103-4497e2df6f9e
+	golang.org/x/text v0.3.0
+	gopkg.in/go-playground/validator.v8 v8.18.2
+	gopkg.in/square/go-jose.v2 v2.1.9
+	gopkg.in/vmihailenco/msgpack.v2 v2.9.1
+	gopkg.in/yaml.v2 v2.2.1
+)

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kuber-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1/$3
+spec:
+  rules:
+  - host: minikube.datalayer.io.local
+    http:
+      paths:
+      - path: /(kuber)(/|$)(.*)
+        backend:
+          serviceName: {{ .Release.Name }}-kuber-svc
+          servicePort: {{ .Values.kuber.port }}

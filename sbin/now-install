@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Installing Zeit Now.sh"$NOCOLOR$NOBOLD
+echo
+
+install_on_linux() {
+    (rm /usr/local/bin/now* || true) && \
+        NOW_VERSION=13.0.0-canary.17 && \
+        curl -Lo /usr/local/bin/now-linux.gz https://github.com/zeit/now-cli/releases/download/${NOW_VERSION}/now-linux.gz && \
+        gunzip /usr/local/bin/now-linux.gz && \
+        mv /usr/local/bin/now-linux /usr/local/bin/now
+        chmod +x /usr/local/bin/now
+    echo
+}
+
+install_on_macos() {
+    (rm /usr/local/bin/now* || true) && \
+        NOW_VERSION=13.0.0-canary.17 && \
+        curl -Lo /usr/local/bin/now-macos.gz https://github.com/zeit/now-cli/releases/download/${NOW_VERSION}/now-macos.gz && \
+        gunzip /usr/local/bin/now-macos.gz && \
+        mv /usr/local/bin/now-macos /usr/local/bin/now
+        chmod +x /usr/local/bin/now
+    echo
+}
+
+case "${OS}" in
+    LINUX)     install_on_linux;;
+    MACOS)     install_on_macos;;
+    *)         echo "Unsupported operating system ${OS}"
+esac

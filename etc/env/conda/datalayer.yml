@@ -1,0 +1,55 @@
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+name: datalayer
+channels:
+  - anaconda-nb-extensions
+  - conda-forge
+  - plotly
+#  - jupyterlab
+dependencies:
+  - altair
+  - awscli=1.16.96
+  - configurable-http-proxy
+  - flask
+  - geoviews
+  - gmaps
+  - holoviews
+  - ipympl
+  - jq
+  - jupyter
+  - ldap3
+  - networkx
+  - nb_conda
+  - nodejs=12.8.1
+  - notebook
+  - pandas
+  - pip
+  - plotly=3.7.1
+  - plotly-orca
+  - py4j=0.10.7
+  - pylint=1.9.2
+  - pyspark=2.4.0
+  - pytest=4.0.1
+  - python=3.7
+  - pyviz_comms
+  - requests
+  - seaborn
+#  - tornado=5.1.1
+  - vega_datasets
+  - voila
+  - xesmf
+  - yarn=1.17.3
+  - pip:
+#    - apache-airflow[crypto,celery,postgres,hive,jdbc,mysql]==1.10.0
+    - boto3==1.9.52
+    - botocore==1.12.86
+    - dynamodb-encryption-sdk
+    - findspark
+    - flask_oidc==1.4.0
+    - flask-cors
+    - opencv-python
+    - psycopg2==2.7.6.1
+    - pyqt5
+    - vdom

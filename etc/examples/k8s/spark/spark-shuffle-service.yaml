@@ -1,0 +1,38 @@
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    app: spark-shuffle-service
+    spark-version: 2.2.0
+  name: spark-shuffle-service
+spec:
+  template:
+    metadata:
+      labels:
+        app: spark-shuffle-service
+        spark-version: 2.2.0
+    spec:
+      volumes:
+        - name: temp-volume
+          hostPath:
+            path: '/tmp/spark-local' # change this path according to your cluster configuration.
+      containers:
+        - name: shuffle
+          image: datalayer/spark-shuffle-service:2.2.0
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: '/tmp/spark-local'
+              name: temp-volume
+              # more volumes can be mounted here.
+              # The spark job must be configured to use these
+              # mounts using the configuration:
+              #   spark.kubernetes.shuffle.dir=<mount-1>,<mount-2>,...
+          resources:
+             requests:
+               cpu: "1"
+             limits:
+               cpu: "1"

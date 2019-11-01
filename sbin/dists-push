@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Pushing Distribution Packages"$NOCOLOR$NOBOLD
+
+# . $DLAOPT/miniconda3/etc/profile.d/conda.sh
+# conda activate datalayer
+
+source dists
+
+for DIST in $DISTS; do
+
+  REMOTE_FOLDER="$(cut -d'|' -f1 <<<"$DIST")"
+  PACKAGE_FILE_NAME="$(cut -d'|' -f2 <<<"$DIST")"
+  LOCAL_FOLDER="$(cut -d'|' -f3 <<<"$DIST")"
+
+  REMOTE=s3://$REMOTE_FOLDER/$DLAVERSION/$PACKAGE_FILE_NAME
+  LOCAL=$LOCAL_FOLDER/$PACKAGE_FILE_NAME
+
+  echo
+  echo -e $BOLD"Pushing "$LOCAL" to "$REMOTE$NOBOLD
+  aws s3 cp $LOCAL $REMOTE
+  echo
+
+done

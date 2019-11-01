@@ -1,0 +1,94 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: {{ template "hdfs.fullname" . }}-hdfs-nn
+  annotations:
+    checksum/config: {{ include (print $.Template.BasePath "/hdfs-nn-configmap.yaml") . | sha256sum }}
+  labels:
+    app: {{ template "hdfs.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: hdfs-nn
+spec:
+  serviceName: {{ template "hdfs.fullname" . }}-hdfs-nn
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "hdfs.name" . }}
+        release: {{ .Release.Name }}
+        component: hdfs-nn
+    spec:
+      affinity:
+        podAntiAffinity:
+        {{- if eq .Values.antiAffinity "hard" }}
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: "kubernetes.io/hostname"
+            labelSelector:
+              matchLabels:
+                app:  {{ template "hdfs.name" . }}
+                release: {{ .Release.Name | quote }}
+                component: hdfs-nn
+        {{- else if eq .Values.antiAffinity "soft" }}
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 5
+            podAffinityTerm:
+              topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchLabels:
+                  app:  {{ template "hdfs.name" . }}
+                  release: {{ .Release.Name | quote }}
+                  component: hdfs-nn
+        {{- end }}
+      terminationGracePeriodSeconds: 0
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: datalayer-role
+                operator: {{ .Values.hdfs.nameNode.masterOperator }}
+                values:
+                - master
+      containers:
+      - name: hdfs-nn
+        image: {{ .Values.hdfs.nameNode.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        env:
+          - name: HDFS_CLUSTER_ID
+            value: {{ template "hdfs.fullname" . }}-cid
+        command:
+        - "/bin/bash"
+        - "/tmp/hdfs-config/bootstrap.sh"
+        - "-d"
+        resources:
+{{ toYaml .Values.hdfs.nameNode.resources | indent 10 }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 50070
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 50070
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+        volumeMounts:
+        - name: hdfs-config
+          mountPath: /tmp/hdfs-config
+        - name: dfs
+          mountPath: /root/hdfs/namenode
+      volumes:
+      - name: hdfs-config
+        configMap:
+          name: {{ template "hdfs.fullname" . }}-hdfs-nn
+      - name: dfs
+      {{- if .Values.persistence.nameNode.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ template "hdfs.fullname" . }}-hdfs-nn
+      {{- else }}        
+        emptyDir: {}
+      {{- end }}

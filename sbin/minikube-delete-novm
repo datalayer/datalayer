@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Stopping Minikube on Local Node"$NOCOLOR$NOBOLD
+echo
+
+DLA_SKIP_HEADER=true dla minikube-stop-novm "$@"
+
+sudo rm -fr /var/lib/localkube
+sudo rm -fr /var/lib/kubelet
+
+sudo mkdir /var/lib/localkube
+sudo chown -R datalayer:datalayer /var/lib/localkube
+
+sudo rm -fr /var/lib/etcd
+sudo rm -fr /etc/kubernetes
+
+sudo mkdir /etc/kubernetes
+sudo chown -R datalayer:datalayer /etc/kubernetes

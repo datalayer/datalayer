@@ -1,0 +1,42 @@
+#!/bin/bash
+
+rm -rf config
+mkdir -p config/aws_creds
+
+get_value () {
+    grep -o "$1\": \"[^,]\+" | awk -F: '{print $2}' | tr -d ' ",}'
+}
+
+arn="arn:aws:iam::${ACCOUNT}:role/${ROLE}"
+
+duration=3600 # minimum duration
+session="lambda"
+
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SECURITY_TOKEN  # this is used for packer
+unset AWS_SESSION_TOKEN   # this is used for the CLI
+
+# Lets hide the credentials from the log.
+TRACE_ON=
+set -o | grep -q -e 'xtrace\s\+on' && TRACE_ON=on
+[ -n "$TRACE_ON" ] && set +x || true
+
+json=$(aws sts assume-role --role-arn "${arn}" --role-session-name ${session} --duration-seconds ${duration})
+
+export AWS_ACCESS_KEY_ID=$(echo $json | get_value AccessKeyId)
+export AWS_SECRET_ACCESS_KEY=$(echo $json | get_value SecretAccessKey)
+export AWS_SESSION_TOKEN=$(echo $json | get_value SessionToken)
+export AWS_SECURITY_TOKEN=$AWS_SESSION_TOKEN
+
+echo -e "[default]
+aws_access_key_id = ${AWS_ACCESS_KEY_ID}
+aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+aws_session_token = ${AWS_SESSION_TOKEN}
+aws_security_token = ${AWS_SECURITY_TOKEN}" > config/aws_creds/credentials
+
+echo -e "[profile default]
+output = text
+region = us-east-1" > config/aws_creds/config
+
+[ -n "$TRACE_ON" ] && set -x || true

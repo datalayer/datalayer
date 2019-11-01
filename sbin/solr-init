@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $RED$BOLD"Existing Solr data will be lost forever!!!"$NOBOLD$NOCOLOR
+echo
+echo -e $YELLOW"Are you sure you want to remove $BOLD'$DLAHOME/var/solr'$NOBOLD (y/N)?"$NOCOLOR
+read REPLY
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo
+    echo "Removing Solr files $DLAHOME/var/solr..."
+    rm -fr $DLAHOME/var/solr
+    echo "Solr Shards and Replicas removed."
+    mkdir $DLAHOME/var/solr
+fi
+
+echo

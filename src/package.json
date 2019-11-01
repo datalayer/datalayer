@@ -1,0 +1,69 @@
+{
+  "name": "@datalayer/datalayer",
+  "private": true,
+  "scripts": {
+    "test": "FORCE_COLOR=true lerna run lint && CI=true FORCE_COLOR=true lerna run test -- --coverage",
+    "build": "FORCE_COLOR=true lerna run build",
+    "deploy": "FORCE_COLOR=true lerna run deploy",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "endpoints": "concurrently --kill-others \"./dev/portforward-zookeeper.sh\" \"./dev/portforward-solr.sh\" \"./dev/start-iam.sh\" \"./dev/start-library.sh\" \"./dev/start-kuber.sh\" \"./dev/start-jupyterhub.sh\" \"./dev/start-jupyterpool.sh\" \"./dev/start-studio.sh\" \"./dev/start-studio-dev.sh\" \"./dev/k8s-dashboard.sh\"",
+    "clean": "rimraf node_modules"
+  },
+  "workspaces": {
+    "packages": [
+      "databook",
+      "dctl",
+      "examples/*",
+      "iam",
+      "jctl",
+      "jupyterlab/*",
+      "jupyterpool",
+      "kuber",
+      "library",
+      "studio",
+      "common",
+      "components",
+      "widgets"
+    ],
+    "nohoist": [
+      "**/webpack-dev-server",
+      "**/babel-loader",
+      "**/babel-jest"
+    ]
+  },
+  "dependencies": {
+    "babel-eslint": "10.0.1",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-react-app": "^4.0.0",
+    "eslint-config-xo": "^0.26.0",
+    "eslint-config-xo-react": "^0.19.0",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0"
+  },
+  "devDependencies": {
+    "jest-prop-type-error": "^1.1.0",
+    "lerna": "^3.10.7",
+    "prettier": "^1.16.1",
+    "concurrently": "4.1.0",
+    "rimraf": "3.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/setupTests.{js,jsx}",
+      "!src/index.{js,jsx}",
+      "!src/serviceWorker.{js,jsx}",
+      "!src/**/*.(spec|test|stories).{js,jsx}"
+    ]
+  },
+  "resolutions": {
+    "**/@types/react": "16.9.11",
+    "**/@types/react-dom": "16.9.3"
+  }
+}

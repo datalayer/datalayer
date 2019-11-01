@@ -1,0 +1,239 @@
+[
+    {
+        "date": "2015-04-10T9:00:00Z",
+        "path": "1.blog-posts",
+        "_childDocuments_": [
+            {
+                "path": "2.blog-posts.body",
+                "2.blog-posts.body-id": "22913",
+                "id": "62910-74910",
+                "_childDocuments_": [
+                    {
+                        "2.blog-posts.body-id": "22913",
+                        "text": "Solr",
+                        "3.blog-posts.body.keywords-id": "22716",
+                        "path": "3.blog-posts.body.keywords",
+                        "type": "search engine",
+                        "id": "62910-12838"
+                    }
+                ],
+                "text": "Here I write how useful Solr is..."
+            },
+            {
+                "path": "2.blog-posts.title",
+                "_childDocuments_": [
+                    {
+                        "text": "Solr",
+                        "3.blog-posts.title.keywords-id": "14844",
+                        "2.blog-posts.title-id": "88227",
+                        "path": "3.blog-posts.title.keywords",
+                        "type": "search engine",
+                        "id": "62910-23476"
+                    },
+                    {
+                        "text": "Search Engine",
+                        "3.blog-posts.title.keywords-id": "22628",
+                        "2.blog-posts.title-id": "88227",
+                        "path": "3.blog-posts.title.keywords",
+                        "type": "entity",
+                        "id": "62910-28005"
+                    }
+                ],
+                "text": "My Post #1: About Solr and Other Search Engines",
+                "id": "62910-13737",
+                "2.blog-posts.title-id": "88227"
+            },
+            {
+                "sentiment": "positive",
+                "author": "Bob",
+                "text": "Great post about Solr",
+                "_childDocuments_": [
+                    {
+                        "text": "Solr",
+                        "2.blog-posts.comments-id": "26035",
+                        "path": "3.blog-posts.comments.keywords",
+                        "3.blog-posts.comments.keywords-id": "17418",
+                        "type": "search engine",
+                        "id": "62910-17099"
+                    },
+                    {
+                        "sentiment": "positive",
+                        "author": "Dave",
+                        "text": "Yeah, I like Solr too",
+                        "_childDocuments_": [
+                            {
+                                "text": "Solr",
+                                "4.blog-posts.comments.replies.keywords-id": "28125",
+                                "2.blog-posts.comments-id": "26035",
+                                "path": "4.blog-posts.comments.replies.keywords",
+                                "type": "search engine",
+                                "id": "62910-10895"
+                            }
+                        ],
+                        "2.blog-posts.comments-id": "26035",
+                        "3.blog-posts.comments.replies-id": "25645",
+                        "date": "2015-04-10T12:00:00Z",
+                        "path": "3.blog-posts.comments.replies",
+                        "id": "62910-21502"
+                    },
+                    {
+                        "sentiment": "negative",
+                        "author": "Sri",
+                        "text": "I disagree, I prefer Elasticsearch",
+                        "_childDocuments_": [
+                            {
+                                "text": "Elasticsearch",
+                                "4.blog-posts.comments.replies.keywords-id": "14520",
+                                "2.blog-posts.comments-id": "26035",
+                                "path": "4.blog-posts.comments.replies.keywords",
+                                "type": "search engine",
+                                "id": "62910-25382"
+                            }
+                        ],
+                        "2.blog-posts.comments-id": "26035",
+                        "3.blog-posts.comments.replies-id": "10423",
+                        "date": "2015-04-12T05:00:00Z",
+                        "path": "3.blog-posts.comments.replies",
+                        "id": "62910-14087"
+                    }
+                ],
+                "2.blog-posts.comments-id": "26035",
+                "date": "2015-04-10T11:30:00Z",
+                "path": "2.blog-posts.comments",
+                "id": "62910-19341"
+            }
+        ],
+        "id": "62910",
+        "author": "Alice"
+    },
+    {
+        "date": "2015-11-10T9:00:00Z",
+        "path": "1.blog-posts",
+        "_childDocuments_": [
+            {
+                "path": "2.blog-posts.body",
+                "2.blog-posts.body-id": "32789",
+                "id": "38335-45540",
+                "_childDocuments_": [
+                    {
+                        "2.blog-posts.body-id": "32789",
+                        "text": "Solr",
+                        "3.blog-posts.body.keywords-id": "16591",
+                        "path": "3.blog-posts.body.keywords",
+                        "type": "search engine",
+                        "id": "38335-21721"
+                    }
+                ],
+                "text": "Here I also write how useful Solr is..."
+            },
+            {
+                "path": "2.blog-posts.title",
+                "_childDocuments_": [
+                    {
+                        "text": "Solr",
+                        "3.blog-posts.title.keywords-id": "10383",
+                        "2.blog-posts.title-id": "27780",
+                        "path": "3.blog-posts.title.keywords",
+                        "type": "search engine",
+                        "id": "38335-26657"
+                    },
+                    {
+                        "text": "feature",
+                        "3.blog-posts.title.keywords-id": "31639",
+                        "2.blog-posts.title-id": "27780",
+                        "path": "3.blog-posts.title.keywords",
+                        "type": "entity",
+                        "id": "38335-24009"
+                    }
+                ],
+                "text": "About useful features of Solr",
+                "id": "38335-24862",
+                "2.blog-posts.title-id": "27780"
+            },
+            {
+                "sentiment": "negative",
+                "author": "Bob",
+                "text": "You forgot that useful Solr's feature!",
+                "_childDocuments_": [
+                    {
+                        "text": "Solr",
+                        "2.blog-posts.comments-id": "27136",
+                        "path": "3.blog-posts.comments.keywords",
+                        "3.blog-posts.comments.keywords-id": "92845",
+                        "type": "search engine",
+                        "id": "38335-25547"
+                    },
+                    {
+                        "text": "feature",
+                        "2.blog-posts.comments-id": "27136",
+                        "path": "3.blog-posts.comments.keywords",
+                        "3.blog-posts.comments.keywords-id": "27990",
+                        "type": "entity",
+                        "id": "38335-23958"
+                    },
+                    {
+                        "sentiment": "neutral",
+                        "author": "Dave",
+                        "text": "But it only appeared in Solr 5.5, after the post was written",
+                        "_childDocuments_": [
+                            {
+                                "text": "Solr",
+                                "4.blog-posts.comments.replies.keywords-id": "27479",
+                                "2.blog-posts.comments-id": "27136",
+                                "path": "4.blog-posts.comments.replies.keywords",
+                                "type": "search engine",
+                                "id": "38335-17799"
+                            },
+                            {
+                                "text": "Solr 5.5",
+                                "4.blog-posts.comments.replies.keywords-id": "70544",
+                                "2.blog-posts.comments-id": "27136",
+                                "path": "4.blog-posts.comments.replies.keywords",
+                                "type": "search engine",
+                                "id": "38335-17598"
+                            }
+                        ],
+                        "2.blog-posts.comments-id": "27136",
+                        "3.blog-posts.comments.replies-id": "17248",
+                        "date": "2016-04-10T12:00:00Z",
+                        "path": "3.blog-posts.comments.replies",
+                        "id": "38335-26441"
+                    }
+                ],
+                "2.blog-posts.comments-id": "27136",
+                "date": "2016-04-10T11:30:00Z",
+                "path": "2.blog-posts.comments",
+                "id": "38335-11329"
+            },
+            {
+                "sentiment": "negative",
+                "author": "Sri",
+                "text": "Elasticsearch had it earlier than Solr",
+                "_childDocuments_": [
+                    {
+                        "text": "Elasticsearch",
+                        "2.blog-posts.comments-id": "16381",
+                        "path": "3.blog-posts.comments.keywords",
+                        "3.blog-posts.comments.keywords-id": "90723",
+                        "type": "search engine",
+                        "id": "38335-21459"
+                    },
+                    {
+                        "text": "Solr",
+                        "2.blog-posts.comments-id": "16381",
+                        "path": "3.blog-posts.comments.keywords",
+                        "3.blog-posts.comments.keywords-id": "60632",
+                        "type": "search engine",
+                        "id": "38335-27404"
+                    }
+                ],
+                "2.blog-posts.comments-id": "16381",
+                "date": "2015-12-12T05:00:00Z",
+                "path": "2.blog-posts.comments",
+                "id": "38335-21687"
+            }
+        ],
+        "id": "38335",
+        "author": "Aadit"
+    }
+]

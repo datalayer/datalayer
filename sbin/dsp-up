@@ -1,0 +1,543 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Deploying Datalayer DSP on K8S"$NOCOLOR$NOBOLD
+echo
+
+function k8s-dashboard() {
+  export RELEASE=k8s-dashboard
+  export NAMESPACE=kube-system
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/k8s-dashboard \
+    --namespace $NAMESPACE \
+    --timeout 99999
+}
+
+function kuber() {
+  export RELEASE=dla-kuber
+  export NAMESPACE=dla-kuber
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/kuber \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/kuber/dsp-minikube.yaml \
+    --timeout 99999
+}
+
+function ldap() {
+  export RELEASE=dla-ldap
+  export NAMESPACE=dla-iam
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/ldap \
+    --namespace $NAMESPACE \
+    --timeout 99999 \
+    --values $DLAHOME/etc/helm/ldap/dsp-minikube.yaml \
+    --set openldap.adminPassword=${DLA_LDAP_BIND_PWD},openldap.configPassword=${DLA_LDAP_BIND_PWD}    
+}
+
+function ldapadmin() {
+  export RELEASE=dla-ldapadmin
+  export NAMESPACE=dla-iam
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/ldapadmin \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/ldapadmin/dsp-minikube.yaml \
+    --timeout 99999
+}
+
+function keycloak() {
+  export RELEASE=dla-keycloak
+  export NAMESPACE=dla-iam
+#    $DLAHOME/etc/helm/keycloak \
+  helm upgrade \
+    --install $RELEASE \
+    codecentric/keycloak \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/keycloak/dsp-minikube.yaml \
+    --timeout 99999
+}
+
+function iam() {
+  export RELEASE=dla-iam
+  export NAMESPACE=dla-iam
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/iam \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/iam/dsp-minikube.yaml \
+    --set iam.env.DLAHOST="minikube.datalayer.io.local" \
+    --set iam.env.DLA_IAM_AUTH_CALLBACK="http://minikube.datalayer.io.local/oidc_callback" \
+    --set iam.env.DLA_IAM_UI_REDIRECT="http://minikube.datalayer.io.local/home" \
+    --set iam.env.DLA_IAM_JOIN_SUCCESS="http://minikube.datalayer.io.local/join/welcome" \
+    --set iam.env.DLA_IAM_JOIN_ERROR="http://minikube.datalayer.io.local/join/error" \
+    --set iam.env.DLA_IAM_PASSWORD_SUCCESS="http://minikube.datalayer.io.local/forgotpassword/welcome" \
+    --set iam.env.DLA_IAM_PASSWORD_ERROR="http://minikube.datalayer.io.local/forgotpassword/error" \
+    --set iam.env.DLA_SMTP_HOST="${DLA_SMTP_HOST}" \
+    --set iam.env.DLA_SMTP_PORT="${DLA_SMTP_PORT}" \
+    --set iam.env.DLA_SMTP_USERNAME="${DLA_SMTP_USERNAME}" \
+    --set iam.env.DLA_SMTP_PASSWORD="${DLA_SMTP_PASSWORD}" \
+    --set iam.env.DLA_LDAP_HOST="dla-ldap-openldap" \
+    --set iam.env.DLA_LDAP_BIND="${DLA_LDAP_BIND}" \
+    --set iam.env.DLA_LDAP_BIND_PWD="${DLA_LDAP_BIND_PWD}" \
+    --set iam.env.DLA_KEYCLOAK_REALM_CLIENT_SECRET="${DLA_KEYCLOAK_REALM_CLIENT_SECRET}" \
+    --set iam.env.DLA_KEYCLOAK_SCHEME_HOST="http://dla-keycloak-http.dla-iam.svc.cluster.local" \
+#   -s auth.=
+    --timeout 99999
+}
+
+function solr() {
+  export RELEASE=dla-solr
+  export NAMESPACE=dla-library
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/solr \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/solr/dsp-minikube.yaml \
+    --set solr.image.tag=7.7.2,javaMem="-Xms1g -Xmx1g",solr.logLevel=INFO,solr.replicaCount=2 \
+    --set solr.livenessProbe.initialDelaySeconds=420,solr.exporter.readinessProbe.periodSeconds=30 \
+    --timeout 99999
+}
+
+function library() {
+  export RELEASE=dla-library
+  export NAMESPACE=dla-library
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/library \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/library/dsp-minikube.yaml \
+    --set library.env.DLAHOST="minikube.datalayer.io.local" \
+    --set library.env.DLA_IAM_AUTH_CALLBACK="http://minikube.datalayer.io.local/oidc_callback" \
+    --set library.env.DLA_SOLR_ZK_HOST="dla-solr-zookeeper" \
+    --set library.env.DLA_KEYCLOAK_REALM_CLIENT_SECRET="${DLA_KEYCLOAK_REALM_CLIENT_SECRET}" \
+    --set library.env.DLA_KEYCLOAK_SCHEME_HOST="http://dla-keycloak-http.dla-iam.svc.cluster.local" \
+    --timeout 99999
+}
+
+function jupyterhub() {
+  export RELEASE=dla-jupyterhub
+  export NAMESPACE=dla-jupyter
+  helm upgrade \
+    --install $RELEASE \
+    jupyterhub/jupyterhub  \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/jupyterhub/dsp-minikube.yaml \
+    --set hub.extraEnv.JUPYTERHUB_CRYPT_KEY=${JUPYTERHUB_CRYPT_KEY} \
+    --set hub.extraEnv.DLA_KEYCLOAK_SCHEME_HOST="http://dla-keycloak-http.dla-iam.svc.cluster.local" \
+    --set hub.extraEnv.DLA_KEYCLOAK_REALM_CLIENT_SECRET="${DLA_KEYCLOAK_REALM_CLIENT_SECRET}" \
+    --set hub.extraEnv.DLA_JUPYTERHUB_AUTH_CALLBACK="http://minikube.datalayer.io.local/jupyterhub/hub/oauth_callback" \
+    --set hub.extraEnv.DLA_TWITTER_CONSUMER_KEY=${DLA_TWITTER_CONSUMER_KEY} \
+    --set hub.extraEnv.DLA_TWITTER_CONSUMER_SECRET=${DLA_TWITTER_CONSUMER_SECRET} \
+    --set hub.extraEnv.DLA_TWITTER_OAUTH_CALLBACK_URL="http://minikube.datalayer.io.local/iam/twitter/callback" \
+    --set hub.extraEnv.DLA_TWITTER_OAUTH_REDIRECT="http://minikube.datalayer.io.local" \
+    --set hub.extraEnv.DLA_SOLR_ZK_HOST="dla-solr-zookeeper" \
+    --set singleuser.extraEnv.DLA_GITHUB_TOKEN=${DLA_GITHUB_TOKEN} \
+    --set singleuser.extraEnv.DLA_TWITTER_CONSUMER_KEY=${DLA_TWITTER_CONSUMER_KEY} \
+    --set singleuser.extraEnv.DLA_TWITTER_CONSUMER_SECRET=${DLA_TWITTER_CONSUMER_SECRET} \
+    --set singleuser.extraEnv.DLA_TWITTER_OAUTH_CALLBACK_URL="http://minikube.datalayer.io.local/iam/twitter/callback" \
+    --set singleuser.extraEnv.DLA_TWITTER_OAUTH_REDIRECT="http://minikube.datalayer.io.local" \
+    --set singleuser.extraEnv.DLA_SOLR_ZK_HOST="dla-solr-zookeeper.dla-library.svc.cluster.local:2181" \
+    --timeout 99999
+}
+
+function studio() {
+  export RELEASE=dla-studio
+  export NAMESPACE=dla-ui
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/studio \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/studio/dsp-minikube.yaml \
+    --set studio.env.DLAHOST="minikube.datalayer.io.local" \
+    --set studio.env.DLA_STUDIO_INDEX_PAGE=${DLA_STUDIO_INDEX_PAGE} \
+    --timeout 99999
+}
+
+function ingress() {
+  export RELEASE=dla-ingress
+  export NAMESPACE=dla-ingress
+  helm install ingress \
+    --install $RELEASE \
+    stable/nginx-ingress \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/ingress/dsp-minikube.yaml \
+    --timeout 99999
+}
+
+function commands() {
+  echo -e $YELLOW"💛  Valid commands: [ k8s-dashboard | kuber | ldap | ldapadmin | keycloak | iam | solr | library | jupyterhub | studio | ingress ]"$NOCOLOR 1>&2
+}
+
+CMDS="$1"
+
+if [ -z "$CMDS" ]; then
+  echo -e $RED$BOLD"💔  No command to execute has been provided."$NOCOLOR$NOBOLD 1>&2
+  echo
+  commands
+  echo
+  exit 1
+fi
+
+# TODO see https://stackoverflow.com/questions/33387263/invoke-function-whose-name-is-stored-in-a-variable-in-bash
+# TODO see https://stackoverflow.com/questions/17529220/why-should-eval-be-avoided-in-bash-and-what-should-i-use-instead/17529221#17529221
+function apply_cmd() {
+
+  echo -e $BOLD"🔥  Deploying service [$BLUE$1$NOCOLOR]."$NOBOLD
+  echo
+
+  case "$1" in
+
+    k8s-dashboard)
+      k8s-dashboard
+      ;;
+
+    kuber)
+      kuber
+      ;;
+
+    ldap)
+      ldap
+      ;;
+
+    ldapadmin)
+      ldapadmin
+      ;;
+
+    keycloak)
+      keycloak
+      ;;
+
+    iam)
+      iam
+      ;;
+
+    solr)
+      solr
+      ;;
+
+    library)
+      library
+      ;;
+
+    jupyterhub)
+      jupyterhub
+      ;;
+
+    studio)
+      studio
+      ;;
+
+    ingress)
+      ingress
+      ;;
+
+    *)
+      echo -e $RED$BOLD"💔  Unknown command: $1"$NOBOLD$NOCOLOR 1>&2
+      echo
+      commands
+      echo
+      exit 1
+
+  esac
+
+  echo
+  echo -e $BOLD"✅  Service [$BLUE$1$NOCOLOR] is deployed."$NOBOLD
+  echo
+
+}
+
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+for i in "${CMD_SPLITS[@]}"; do
+  apply_cmd $i
+done
+
+# -----------------------------------------------------------------------------
+
+function etcd() {
+  helm install \
+    etcd \
+    --set StorageClass=gp2 \
+    -n etcd
+}
+
+function hdfs() {
+  helm install \
+    hdfs \
+    --set imagePullPolicy=Always \
+    --set persistence.nameNode.enabled=true \
+    --set persistence.nameNode.storageClass=gp2 \
+    --set persistence.dataNode.enabled=true \
+    --set persistence.dataNode.storageClass=gp2 \
+    --set hdfs.dataNode.replicas=3 \
+    -n hdfs
+}
+
+function spark() {
+  helm install \
+    spark \
+    --set spark.imagePullPolicy=Always \
+    -n spark
+}
+
+function studio_tmp() {
+
+  helm install \
+    studio \
+    --set studio.hostNetwork=false \
+    --set studio.imagePullPolicy=Always \
+    --set studio.notebookRepo=https://github.com/datalayer/notebook-init.git \
+    -n studio
+
+  cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: studio-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: studio
+    release: studio
+EOF
+
+  cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: studio-spark-ui-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 4040
+  selector:
+    app: studio
+    release: studio
+EOF
+
+  echo """
+# Check HDFS
+  kubectl exec -it hdfs-hdfs-hdfs-nn-0 -- hdfs dfsadmin -report
+
+# Browse Studio
+  http://localhost:8001/api/v1/namespaces/default/services/http:studio-studio:8080/proxy
+"
+
+}
+
+function explorer() {
+
+  echo "
+# Before running the next step, check the LoadBalancer Ingress value for \`studio-lb\` (rerun in a few minutes if no hostname is shown)
+   kubectl describe services studio-lb | grep Ingress
+"
+  kubectl describe services studio-lb
+  echo
+  kubectl describe services studio-lb | grep Ingress
+  echo
+  echo "Please enter the hostname created for the studio-lb:"
+  read STUDIO_LB_HOSTNAME
+  echo
+  echo "You entered: $STUDIO_LB_HOSTNAME"
+  echo
+  echo "We will now deploy Explorer..."
+  echo
+
+  helm install \
+    --set explorer.hostNetwork=false \
+    --set explorer.imagePullPolicy="Always" \
+    --set google.apiKey="$DATALAYER_GOOGLE_API_KEY" \
+    --set google.clientId="$DATALAYER_GOOGLE_CLIENT_ID" \
+    --set google.redirect="" \
+    --set google.secret="$DATALAYER_GOOGLE_SECRET" \
+    --set google.scope="profile email https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/user.emails.read" \
+    --set hdfs="" \
+    --set kuber.insecureBindAddress="0.0.0.0" \
+    --set kuber.insecurePort="9091" \
+    --set kuber.manageReservations="true" \
+    --set kuber.rest="" \
+    --set kuber.ui="" \
+    --set kuber.ws="" \
+    --set microsoft.applicationId="$DATALAYER_MICROSOFT_APPLICATION_ID" \
+    --set microsoft.redirect="" \
+    --set microsoft.secret="$DATALAYER_MICROSOFT_SECRET" \
+    --set microsoft.scope="User.ReadBasic.All" \
+    --set studio.rest="http://$STUDIO_LB_HOSTNAME" \
+    --set studio.ws="ws://$STUDIO_LB_HOSTNAME" \
+    --set twitter.consumerKey="$DATALAYER_TWITTER_CONSUMER_KEY" \
+    --set twitter.consumerSecret="$DATALAYER_TWITTER_CONSUMER_SECRET" \
+    --set twitter.redirect="" \
+    explorer \
+    -n explorer
+
+  cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: explorer-lb
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: 3600
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 9091
+  selector:
+    app: explorer
+    release: explorer
+EOF
+
+  echo "
+# Check the LoadBalancer Ingress value for \`explorer-lb\` (rerun in a few minutes if no hostname is shown)
+   kubectl describe services explorer-lb | grep Ingress
+"
+  kubectl describe services explorer-lb
+  echo
+  kubectl describe services explorer-lb | grep Ingress
+  echo
+
+}
+
+function cert-manager() {
+
+  export COMMON_NAME=$COMMON_NAME
+  export DNS_NAME=$DNS_NAME
+
+  openssl genrsa -out ca.key 2048
+  openssl req -x509 -new -nodes -key ca.key -subj "/CN=${COMMON_NAME}" -days 3650 -out ca.crt
+  kubectl create secret tls issuer-key --cert=ca.crt --key=ca.key --namespace kube-system
+
+  helm install \
+    cert-manager \
+    --name cert-manager \
+    --namespace kube-system
+
+#  cat << EOF | kubectl apply -f -
+# apiVersion: certmanager.k8s.io/v1alpha1
+# kind: Issuer
+# metadata:
+#   name: ca-issuer
+#   namespace: default
+# spec:
+#   ca:
+#     secretName: issuer-key
+# EOF
+
+#   cat << EOF | kubectl apply -f -
+# apiVersion: certmanager.k8s.io/v1alpha1
+# kind: Certificate
+# metadata:
+#   name: explorer-ca-cert
+#   namespace: default
+# spec:
+#   secretName: explorer-ca-tls
+#   issuerRef:
+#     name: ca-issuer
+#     kind: Issuer
+#   commonName: "${COMMON_NAME}"
+#   dnsNames:
+#   - "${DNS_NAME}"
+# EOF
+
+#   kubectl get secret explorer-ca-tls -o yaml
+#   kubectl describe certificate explorer-ca-cert
+
+  cat << EOF | kubectl apply -f -
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: ClusterIssuer
+metadata: 
+  name: letsencrypt-clusterissuer
+  namespace: kube-system
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: eric@datalayer.io
+    privateKeySecretRef:
+      name: issuer-key
+    http01: {}
+#     dns01:
+#      providers:
+#       - name: route53
+#         route53:
+#           accessKeyID: xxx
+#           region: eu-central-1
+#           secretAccessKeySecretRef:
+#             name: route53-secret-key
+#             key: aws-id-secret
+EOF
+
+}
+
+function cert() {
+
+  export DNS_NAME=$DNS_NAME
+  export COMMON_NAME=$COMMON_NAME
+
+  cat << EOF | kubectl apply -f -
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: explorer-cert
+  namespace: default
+spec:
+  secretName: explorer-cert
+  issuerRef:
+    name: letsencrypt-clusterissuer
+    kind: ClusterIssuer
+  commonName: "${COMMON_NAME}"
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - "${DNS_NAME}"
+#    - dns01:
+#        provider: route53
+EOF
+
+  kubectl describe certificate explorer-cert
+  kubectl get secret explorer-cert -o yaml
+
+  cat << EOF | kubectl apply -f -
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: explorer
+  namespace: default
+  annotations:
+#     "certmanager.k8s.io/issuer": "letsencrypt-issuer"
+#     "certmanager.k8s.io/clusterissuer": "letsencrypt-clusterissuer"
+#     "certmanager.k8s.io/acme-challenge-type": "http01"
+spec:
+   tls:
+     - hosts:
+       - "${DNS_NAME}"
+       secretName: explorer-cert
+  rules:
+  - host: "${DNS_NAME}"
+    http:
+      paths:
+      - path: /studio
+        backend:
+          serviceName: studio-studio
+          servicePort: 8080
+      - path: /kuber
+        backend:
+          serviceName: explorer-explorer
+          servicePort: 9091
+      - path: /
+        backend:
+          serviceName: explorer-explorer
+          servicePort: 9091
+EOF
+
+}

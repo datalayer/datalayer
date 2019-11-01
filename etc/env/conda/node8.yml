@@ -1,0 +1,15 @@
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+name: node8
+channels:
+  - anaconda-nb-extensions
+  - conda-forge
+  - plotly
+#  - jupyterlab
+dependencies:
+  - nodejs=8.11.3
+  - yarn=1.17.3
+  - pip:
+#    - apache-airflow[crypto,celery,postgres,hive,jdbc,mysql]==1.10.0

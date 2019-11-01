@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Building Apache Hadoop..."$NOCOLOR$NOBOLD
+echo
+
+cd $DLAHOME/repos/hadoop
+
+mvn clean \
+    install \
+    -Dmaven.javadoc.skip=true \
+    -Pdist \
+    -Phdds \
+    -DskipTests && \
+  ls hadoop-dist/target/hadoop-*-SNAPSHOT.tar.gz
+
+rm -fr $HADOOP_HOME && \
+  cp hadoop-dist/target/hadoop-*-SNAPSHOT.tar.gz $DLAOPT && \
+  cd $DLAOPT && \
+  tar xvfz hadoop-*-SNAPSHOT.tar.gz && \
+  rm hadoop-*-SNAPSHOT.tar.gz
+
+rm $HADOOP_HOME || true
+
+ln -s $DLAOPT/hadoop-3.3.0-SNAPSHOT $HADOOP_HOME && \
+  cd $HADOOP_HOME/bin

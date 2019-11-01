@@ -1,0 +1,54 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-library
+  labels:
+    app: {{ template "library.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "library.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: library
+          image: {{ .Values.library.image }}
+          imagePullPolicy: {{ .Values.library.imagePullPolicy }}
+          env:
+          - name: DLAHOST
+            value: {{ .Values.library.env.DLAHOST }}
+          - name: DLA_IAM_AUTH_CALLBACK
+            value: {{ .Values.library.env.DLA_IAM_AUTH_CALLBACK }}
+          - name: DLA_IAM_UI_REDIRECT
+            value: {{ .Values.library.env.DLA_IAM_UI_REDIRECT }}
+          - name: DLA_SOLR_ZK_HOST
+            value: {{ .Values.library.env.DLA_SOLR_ZK_HOST }}
+          - name: DLA_KEYCLOAK_REALM_CLIENT_SECRET
+            value: {{ .Values.library.env.DLA_KEYCLOAK_REALM_CLIENT_SECRET }}
+          - name: DLA_KEYCLOAK_SCHEME_HOST
+            value: {{ .Values.library.env.DLA_KEYCLOAK_SCHEME_HOST }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.library.resources | indent 12 }} 
+        - name: library-sidecar
+          image: datalayer/k8s-sidecar:0.0.3
+          imagePullPolicy: IfNotPresent
+          args: ["proxy", "-p", "8001"]

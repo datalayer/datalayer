@@ -1,0 +1,23 @@
+version: '3.5'
+services:
+  studio:
+    image: datalayer/studio:${DLAVERSION} 
+    networks:
+      - datalayer
+    ports:
+      - 9600:9600
+    environment:
+      DLAHOST: ${DLAHOST}
+      DLA_STUDIO_INDEX_PAGE: ${DLA_STUDIO_INDEX_PAGE}
+#    labels:
+#      - traefik.frontend.rule=Host:${DLAHOST}
+#      - traefik.docker.network=datalayer
+#      - traefik.port=9600
+#      - traefik.frontend.headers.customResponseHeaders=Strict-Transport-Security:15552000
+#      - traefik.frontend.headers.SSLRedirect=true
+#      - traefik.frontend.headers.SSLHost=${DLAHOST}
+#      - traefik.frontend.headers.STSSeconds=315360000
+#      - traefik.frontend.headers.STSIncludeSubdomains=true
+#      - traefik.frontend.headers.STSPreload=true
+#      - traefik.frontend.headers.frameDeny=true
+#      - traefik.frontend.headers.browserXSSFilter=true

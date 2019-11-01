@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+DLA_SKIP_HEADER=true dla minikube-stop
+
+echo
+echo -e $BOLD$YELLOW"Removing Minikube..."$NOCOLOR$NOBOLD
+echo
+
+minikube delete || true
+
+delete_on_linux() {
+    virsh list
+    virsh shutdown minikube || true
+    virsh undefine minikube || true
+}
+
+delete_on_macos() {
+    echo
+}
+
+case "${OS}" in
+    LINUX)     delete_on_linux;;
+    MACOS)     delete_on_macos;;
+    *)         echo "Unkown machine ${MACHINE}"
+esac
+
+rm -fr ~/.kube
+rm -fr ~/.minikube
+
+# docker rm -f $(docker ps -a -q) || true
+
+# echo
+# DLA_SKIP_HEADER=true dla minikube-status "$@"

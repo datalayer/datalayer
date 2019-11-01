@@ -1,0 +1,80 @@
+{
+  "name": "@datalayer/ts-app",
+  "version": "0.0.3",
+  "description": "A nice greeter",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "watch": "concurrently --kill-others \"yarn tsc-watch\" \"yarn serve-watch\"",
+    "tsc-watch": "tsc --watch",
+    "serve-watch": "webpack-dev-server --open --watch",
+    "build": "tsc && webpack --env dev && webpack --env build",
+    "dev": "webpack --progress --colors --watch --env dev",
+    "start": "webpack-dev-server --open",
+    "start-watch": "webpack-dev-server --open --watch",
+    "clean": "rimraf lib dist",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caki0915/my-awesome-greeter.git"
+  },
+  "keywords": [
+    "Hello",
+    "Greeter"
+  ],
+  "author": "C-J",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caki0915/my-awesome-greeter/issues"
+  },
+  "homepage": "https://github.com/caki0915/my-awesome-greeter#readme",
+  "dependencies": {
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@types/jest": "^22.2.3",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
+    "@types/react-jss": "10.0.0",
+    "babel-loader": "^8.0.6",
+    "codecov": "^3.1.0",
+    "css-loader": "^3.2.0",
+    "concurrently": "5.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.13.2",
+    "rimraf": "3.0.0",
+    "react-jss": "10.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-jest": "24.1.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}

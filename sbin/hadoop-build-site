@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Building Apache Hadoop Site..."$NOCOLOR$NOBOLD
+echo
+
+cd $DLAHOME/repos/hadoop
+
+mvn site:site \
+    site:stage && \
+  echo open target/staging/hadoop-project/index.html

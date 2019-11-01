@@ -1,0 +1,15 @@
+spark:
+  imagePullPolicy: IfNotPresent
+  resources:
+    limits:
+      memory: "4096Mi"
+      cpu: "2000m"
+  driverMemory: 1g
+  executorMemory: 1g
+  numExecutors: 2
+  resourceStagingServer:
+    image: datalayer/spark-resource-staging-server:2.2.0
+    masterOperator: NotIn
+  shuffleService:
+    image: datalayer/spark-shuffle-service:2.2.0
+    masterOperator: NotIn

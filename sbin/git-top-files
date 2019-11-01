@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+if [ -z "$1" ]
+then
+  TOP_N=10
+else
+  TOP_N=$1
+fi
+
+echo -e $BOLD$YELLOW"Git Top $TOP_N files in size"$NOCOLOR$NOBOLD
+echo
+
+git ls-tree -r -t -l --full-name HEAD | sort -n -k 4 | tail -n $TOP_N

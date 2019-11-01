@@ -1,0 +1,22 @@
+export const catsContainerStyle = {
+    gridArea: "cats",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap" as "wrap",
+    fontSize: "2em"
+  };
+  
+export  const catStyle = {
+    width: "400px",
+    height: "400px",
+    objectFit: "contain" as "contain",
+    padding: "20px"
+  };
+  
+  export const layoutStyle = {
+    display: "grid",
+    gridTemplateAreas: `"button"
+      "cats"`,
+    gridGap: "10px"
+  };

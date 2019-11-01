@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: simple
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: simple
+    spec:
+      containers:
+        - name: simple
+          image: gcr.io/google-samples/node-app:2.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP

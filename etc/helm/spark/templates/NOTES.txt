@@ -1,0 +1,4 @@
+
+1. If you want to run a Spark job or debug the logs, network..., launch a shell in the resource staging server pod:
+
+   kubectl exec -n {{ .Release.Namespace }} -it $(kubectl get pod -n {{ .Release.Namespace }} --selector=spark-resource-staging-server-instance=default -o jsonpath='{.items...metadata.name}') -- bash

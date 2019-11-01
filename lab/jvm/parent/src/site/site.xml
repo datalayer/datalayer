@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ | Licensed to Datalayer (https://datalayer.io) under one or
+ | more contributor license agreements. See the NOTICE file
+ | distributed with this work for additional information
+ | regarding copyright ownership. Datalayer licenses this file
+ | to you under the Apache License, Version 2.0 (the 
+ | "License"); you may not use this file except in compliance
+ | with the License.  You may obtain a copy of the License at
+ |
+ |   http://www.apache.org/licenses/LICENSE-2.0
+ |
+ | Unless required by applicable law or agreed to in writing,
+ | software distributed under the License is distributed on an
+ | "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ | KIND, either express or implied. See the License for the
+ | specific language governing permissions and limitations
+ | under the License.
+-->
+<project xmlns="http://maven.apache.org/DECORATION/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd"
+  name="Datalayer">
+  <skin>
+    <groupId>lt.velykis.maven.skins</groupId>
+    <artifactId>reflow-maven-skin</artifactId>
+    <version>1.1.1</version>
+  </skin>
+  <googleAnalyticsAccountId>UA-21012230-20</googleAnalyticsAccountId>
+  <custom>
+<!--
+    <reflowSkin>
+      <bannerLeft>
+          <name><![CDATA[
+            <span class="color-highlight">Datalayer</span> Datalayer
+            ]]>
+          </name>
+          <href>https://datalayer.io/doc/platform</href>
+      </bannerLeft>
+      <brand>
+        <name>Datalayer</name>
+        <href>https://datalayer.io</href>
+      </brand>
+      <breadcrumbs>true</breadcrumbs>
+      <highlightJs>false</highlightJs>
+      <sidebar />
+      <skinAttribution>false</skinAttribution>
+      <smoothScroll>true</smoothScroll>
+      <theme>bootswatch-spacelab</theme>
+      <thumbs>3</thumbs>
+      <toc>top</toc>
+      <tocTopMax>6</tocTopMax>
+      <topNav>General|Modules|${project.name}</topNav>
+      <bottomNav maxSpan="9">
+        <column>Modules|General|Main|Tools</column>
+        <column>Download</column>
+        <column>More</column>
+        <column>reports</column>
+      </bottomNav>
+      <bottomDescription>
+        <![CDATA[
+          <span class="color-highlight">Datalayer</span> => Turn Big Data into Business Value
+        ]]>
+      </bottomDescription>
+      <pages>
+        <index project="reflow-parent">
+          <titleTemplate>Reflow Maven Skin</titleTemplate>
+          <breadcrumbs>true</breadcrumbs>
+          <toc>true</toc>
+          <markPageHeader>false</markPageHeader>
+          <sections>
+            <carousel />
+            <columns>2</columns>
+            <body />
+            <sidebar />
+          </sections>
+        </index>
+        <contribute>
+          <breadcrumbs>false</breadcrumbs>
+        </contribute>
+        <source-repository>
+          <highlightJs>false</highlightJs>
+        </source-repository>
+        <issue-tracking>
+          <highlightJs>false</highlightJs>
+          <toc>false</toc>
+        </issue-tracking>
+        <license>
+          <highlightJs>false</highlightJs>
+          <toc>false</toc>
+        </license>
+        <project-info>
+          <toc>false</toc>
+        </project-info>
+        <github-report>
+          <toc>false</toc>
+        </github-report>
+        <dependencies>
+          <tocTopMax>4</tocTopMax>
+        </dependencies>
+      </pages>
+    </reflowSkin>
+-->
+  </custom>
+  <body>
+    <!--
+        <links>
+          <item name="Competition" href="competition.html"/>
+    </links>
+    <menu name="Modules" inherit="top">
+      <item name="Algorithm" href="algorithm/algorithm.html"/>
+      <item name="Browser" href="browser"/>
+      <item name="Campaign" href="campaign"/>
+      <item name="Channel" href="channel"/>
+      <item name="Connector" href="connector"/>
+      <item name="DNA" href="dna"/>
+      <item name="Document" href="document"/>
+      <item name="Droids" href="droids"/>
+      <item name="Help" href="help"/>
+      <item name="Manager" href="manager"/>
+      <item name="Market" href="market"/>
+      <item name="Math" href="math"/>
+      <item name="Maven" href="maven"/>
+      <item name="Media" href="media"/>
+      <item name="Model" href="model"/>
+      <item name="Plot" href="plot"/>
+      <item name="Router" href="router"/>
+      <item name="Scalex" href="scalex"/>
+      <item name="School" href="school"/>
+      <item name="SDK" href="sdk"/>
+      <item name="Security" href="security"/>
+      <item name="Social" href="social"/>
+      <item name="SQLB" href="sqlb"/>
+      <item name="Store" href="store"/>
+      <item name="Studio" href="studio"/>
+      <item name="Util" href="util"/>
+    </menu>
+    <menu name="Download" inherit="top">
+      <item name="Github" href="https://github.com/datalayer"/>
+    </menu>
+    <menu name="More" inherit="top">
+      <item name="Datalayer WEB Site" href="https://datalayer.io"/>
+      <item name="Datalayer Blog" href="https://datalayer.io/blog"/>
+      <item name="Datalayer on Twitter" href="https://twitter.com/datalayerio"/>
+    </menu>
+    -->
+<!--
+    <menu ref="reports" />
+-->
+  </body>
+</project>

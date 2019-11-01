@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $RED$BOLD"Existing Kafka data will be lost forever!!!"$NOBOLD$NOCOLOR
+echo
+
+# read -p "Are you sure you want to remove all Kafka persisted files, they will be lost forever!!! (y/N)?" -n 1 -r
+
+echo -e $YELLOW"Are you sure you want to remove all Kafka persisted files, they will be lost forever!!! (y/N)?"$NOCOLOR
+read REPLY
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo
+    echo "Removing Kafka files..."
+    rm -fr /tmp/kafka-logs
+    echo "Kafka files are now removed."
+    echo
+    echo "You have to connect to zookeerp with dla zookeeper-cli and run the following commands:"
+    echo " rmr /controller_epoch"
+    echo " rmr /controller"
+    echo " rmr /brokers"
+    echo " rmr /admin"
+    echo " rmr /consumers"
+    echo " rmr /config"
+    echo
+    echo "Check with ls /"
+fi
+
+echo

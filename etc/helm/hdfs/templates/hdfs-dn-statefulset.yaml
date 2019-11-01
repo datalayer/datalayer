@@ -1,0 +1,116 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: {{ template "hdfs.fullname" . }}-hdfs-dn
+  annotations:
+    checksum/config: {{ include (print $.Template.BasePath "/hdfs-dn-configmap.yaml") . | sha256sum }}
+  labels:
+    app: {{ template "hdfs.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: hdfs-dn
+spec:
+  serviceName: {{ template "hdfs.fullname" . }}-hdfs-dn
+  replicas: {{ .Values.hdfs.dataNode.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "hdfs.name" . }}
+        release: {{ .Release.Name }}
+        component: hdfs-dn
+    spec:
+      affinity:
+        podAntiAffinity:
+        {{- if eq .Values.antiAffinity "hard" }}
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: "kubernetes.io/hostname"
+            labelSelector:
+              matchLabels:
+                app:  {{ template "hdfs.name" . }}
+                release: {{ .Release.Name | quote }}
+                component: hdfs-dn
+        {{- else if eq .Values.antiAffinity "soft" }}
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 5
+            podAffinityTerm:
+              topologyKey: "kubernetes.io/hostname"
+              labelSelector:
+                matchLabels:
+                  app:  {{ template "hdfs.name" . }}
+                  release: {{ .Release.Name | quote }}
+                  component: hdfs-dn
+        {{- end }}
+      terminationGracePeriodSeconds: 0
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: datalayer-role
+                operator: {{ .Values.hdfs.dataNode.masterOperator }}
+                values:
+                - master
+      containers:
+      - name: hdfs-dn
+        image: {{ .Values.hdfs.dataNode.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        env:
+          - name: HDFS_CLUSTER_ID
+            value: {{ template "hdfs.fullname" . }}-cid
+        command:
+           - "/bin/bash"
+           - "/tmp/hdfs-config/bootstrap.sh"
+           - "-d"
+        resources:       
+{{ toYaml .Values.hdfs.dataNode.resources | indent 10 }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 50075
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 50075
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+        volumeMounts:
+        - name: hdfs-config
+          mountPath: /tmp/hdfs-config
+        - name: dfs
+          mountPath: /root/hdfs/datanode
+      volumes:
+      - name: hdfs-config
+        configMap:
+          name: {{ template "hdfs.fullname" . }}-hdfs-dn
+      {{- if eq .Values.persistence.dataNode.enabled false}}
+      - name: dfs
+        emptyDir: {}
+      {{- end }}
+{{- if .Values.persistence.dataNode.enabled}}
+  volumeClaimTemplates:
+  - metadata:
+      name: dfs
+      labels:
+        app: {{ template "hdfs.name" . }}
+        chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        component: hdfs-dn
+    spec:
+      accessModes:
+        - {{ .Values.persistence.dataNode.accessMode | quote }}
+      resources:
+        requests:
+          # upstream recommended max is 700M
+          storage: {{ .Values.persistence.dataNode.size | quote }}
+    {{- if .Values.persistence.dataNode.storageClass }}
+    {{- if (eq "-" .Values.persistence.dataNode.storageClass) }}
+      storageClassName: ""
+    {{- else }}
+      storageClassName: "{{ .Values.persistence.dataNode.storageClass }}"
+    {{- end }}
+    {{- end }}
+{{- end -}}

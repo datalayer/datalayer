@@ -1,0 +1,23 @@
+version: '3.5'
+services:
+  library:
+    image: datalayer/library:${DLAVERSION} 
+    networks:
+      - datalayer
+    ports:
+      - 9800:9800
+    depends_on:
+      - solr
+    environment:
+      DLAHOST: ${DLAHOST}
+      DLA_IAM_AUTH_CALLBACK: ${DLA_IAM_AUTH_CALLBACK}
+      DLA_IAM_UI_REDIRECT: ${DLA_IAM_UI_REDIRECT}
+      DLA_SOLR_ZK_HOST: ${DLA_SOLR_ZK_HOST}
+      DLA_KEYCLOAK_REALM_CLIENT_SECRET: ${DLA_KEYCLOAK_REALM_CLIENT_SECRET}
+      DLA_KEYCLOAK_SCHEME_HOST: ${DLA_KEYCLOAK_SCHEME_HOST}
+    volumes:
+      - ~/.datalayer:/root/.datalayer
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/library
+      - traefik.port=9800
+      - traefik.docker.network=datalayer

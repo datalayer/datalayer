@@ -1,0 +1,22 @@
+{
+  "language": "python",
+  "display_name": "Python on Docker with Tensorflow with GPUs",
+  "metadata": {
+    "process_proxy": {
+      "class_name": "enterprise_gateway.services.processproxies.docker_swarm.DockerSwarmProcessProxy",
+      "config": {
+        "image_name": "elyra/kernel-tf-gpu-py:2.0.0rc1"
+      }
+    }
+  },
+  "env": {
+  },
+  "argv": [
+    "python",
+    "/usr/local/share/jupyter/kernels/python_tf_gpu_docker/scripts/launch_docker.py",
+    "--RemoteProcessProxy.kernel-id",
+    "{kernel_id}",
+    "--RemoteProcessProxy.response-address",
+    "{response_address}"
+  ]
+}

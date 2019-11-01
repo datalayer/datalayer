@@ -1,0 +1,13 @@
+diff --git a/images/hub/Dockerfile b/images/hub/Dockerfile
+index 0752d7f..d9f106b 100644
+--- a/images/hub/Dockerfile
++++ b/images/hub/Dockerfile
+@@ -30,7 +30,7 @@ ARG JUPYTERHUB_VERSION=0.8.*
+ 
+ ADD requirements.txt /tmp/requirements.txt
+ RUN pip3 install --no-cache-dir \
+-         jupyterhub==${JUPYTERHUB_VERSION} \
++         datalayerhub==${JUPYTERHUB_VERSION} \
+          -r /tmp/requirements.txt
+ 
+ ADD jupyterhub_config.py /srv/jupyterhub_config.py

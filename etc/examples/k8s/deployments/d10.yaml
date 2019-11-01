@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dla-deploy
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: dla
+    spec:
+      containers:
+      - name: dla
+        image: datalayer/simple:0.0.3
+        ports:
+        - containerPort: 9876
+        env:
+        - name: SIMPLE_SERVICE_VERSION
+          value: "1.0"

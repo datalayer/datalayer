@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Apache Spark Shell Spl"$NOCOLOR$NOBOLD
+
+echo """
+(1 to 100).toDS.map(_*2).collect
+
+(1 to 1000).toDS.map(i => {
+  println(org.apache.hadoop.hbase.HConstants.DEFAULT_MASTER_PORT)
+  org.apache.hadoop.hbase.HConstants.DEFAULT_MASTER_PORT
+  }).collect
+
+List(1,2,3).toDS.map(i => {
+  import org.apache.hadoop.hbase.FAKE
+  i*2
+  }).collect
+"""
+
+$DLAOPT/spark/bin/spark-shell \
+  --name "$APP_NAME" \
+  --conf spark.app.name=$APP_NAME \
+  --conf spark.master=k8s://"$APISERVER" \
+  --conf spark.submit.deployMode="$DEPLOY_MODE" \
+  --conf spark.executor.instances=2 \
+  --conf spark.sql.catalogImplementation=in-memory \
+  --conf spark.sql.warehouse.dir=/tmp/spark-warehouse \
+  --conf spark.kubernetes.resourceStagingServer.uri="$RESOURCESTAGINGSERVER_URI" \
+  --conf spark.kubernetes.namespace=default \
+  --conf spark.kubernetes.driver.pod.name="$DRIVER_POD_NAME" \
+  --conf spark.kubernetes.initcontainer.docker.image=datalayer/spark-init:2.2.0 \
+  --conf spark.kubernetes.driver.docker.image=datalayer/spark-driver:2.2.0 \
+  --conf spark.kubernetes.executor.docker.image=datalayer/spark-executor:2.2.0 \
+  --conf spark.kubernetes.driver.container.image=datalayer/spark:2.4.0 \
+  --conf spark.kubernetes.executor.container.image=datalayer/spark:2.4.0 \
+  --conf spark.kubernetes.container.image.pullPolicy=IfNotPresent \
+  --conf spark.kubernetes.docker.image.pullPolicy=IfNotPresent \
+  --conf spark.dynamicAllocation.enabled=false \
+  --conf spark.shuffle.service.enabled=false \
+  --conf spark.kubernetes.shuffle.namespace=default \
+  --conf spark.kubernetes.shuffle.labels="app=spark-shuffle-service,spark-version=2.2.0" \
+  --conf spark.local.dir=/tmp/spark-local \
+  --jars http://central.maven.org/maven2/org/apache/hbase/hbase-common/1.4.0/hbase-common-1.4.0.jar

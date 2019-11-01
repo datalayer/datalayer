@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Building Datalayer DSP Helm Charts"$NOCOLOR$NOBOLD
+echo
+
+function build() {
+  helm dependency build $DLAHOME/etc/helm/k8s-dashboard
+  helm dependency build $DLAHOME/etc/helm/ldap
+  helm dependency build $DLAHOME/etc/helm/keycloak
+  helm dependency build $DLAHOME/etc/helm/solr
+}
+
+build

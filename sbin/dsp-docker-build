@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Building Datalayer DSP Docker Images"$NOCOLOR$NOBOLD
+echo
+
+declare -a FILES=(
+  "apis"
+  "iam"
+  "k8s-sidecar"
+  "library"
+  "kuber"
+  "studio"
+  "keycloak"
+  "solr"
+  "whoami"
+  "jupyterhub"
+  "jupyterlab"
+  )
+
+build_more() {
+  # HDFS.
+  cd $DLAHOME/etc/docker/hdfs/base && \
+    make build && \
+    cd $DLAHOME/etc/docker/hdfs/dn && \
+    make build && \
+    cd $DLAHOME/etc/docker/hdfs/nn && \
+    make build
+  # Spark.
+  cd $DLAHOME/etc/docker/spark && \
+    make build
+  # Jupyter HTTP Proxy.
+  cd $DLAHOME/repos/jupyterhub-proxy-http && \
+    git checkout datalayer && \
+    docker build -t datalayer/jupyterhub-proxy-http:0.0.1 .
+}
+
+build() {
+  FILE=$1
+  echo -e $WHITE_BCK"Building docker image [$FILE]"$NOCOLOR
+  echo
+  cd $DLAHOME/etc/docker/$FILE && \
+    make build
+  if [ $? -eq 0 ]
+  then
+    echo
+    echo -e $BOLD$GREEN"Docker image [${FILE}] build SUCCESS."$NOCOLOR$NOBOLD
+  else
+    echo
+    echo -e $BOLD$RED"Docker image [${FILE}] build FAILURE..."$NOCOLOR$NOBOLD
+    echo
+    exit
+  fi
+  echo
+}
+
+if [ -z "$1" ]; then
+  for FILE in "${FILES[@]}"
+  do
+    build $FILE
+  done
+else
+  build $1
+fi

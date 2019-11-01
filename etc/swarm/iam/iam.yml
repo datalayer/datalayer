@@ -1,0 +1,32 @@
+version: '3.5'
+services:
+  iam:
+    image: datalayer/iam:${DLAVERSION}
+    networks:
+      - datalayer
+    ports:
+      - 9700:9700
+    environment:
+      DLAHOST: ${DLAHOST}
+      DLA_IAM_AUTH_CALLBACK: ${DLA_IAM_AUTH_CALLBACK}
+      DLA_IAM_UI_REDIRECT: ${DLA_IAM_UI_REDIRECT}
+      DLA_IAM_JOIN_SUCCESS: ${DLA_IAM_JOIN_SUCCESS}
+      DLA_IAM_JOIN_ERROR: ${DLA_IAM_JOIN_ERROR}
+      DLA_IAM_PASSWORD_SUCCESS: ${DLA_IAM_PASSWORD_SUCCESS}
+      DLA_IAM_PASSWORD_ERROR: ${DLA_IAM_PASSWORD_ERROR}
+      DLA_SMTP_HOST: ${DLA_SMTP_HOST}
+      DLA_SMTP_PORT: ${DLA_SMTP_PORT}
+      DLA_SMTP_USERNAME: ${DLA_SMTP_USERNAME}
+      DLA_SMTP_PASSWORD: ${DLA_SMTP_PASSWORD}
+      DLA_LDAP_HOST: ${DLA_LDAP_HOST}
+      DLA_LDAP_BIND: ${DLA_LDAP_BIND}
+      DLA_LDAP_BIND_PWD: ${DLA_LDAP_BIND_PWD}
+      DLA_KEYCLOAK_REALM_CLIENT_SECRET: ${DLA_KEYCLOAK_REALM_CLIENT_SECRET}
+      DLA_KEYCLOAK_SCHEME_HOST: ${DLA_KEYCLOAK_SCHEME_HOST}
+    volumes:
+      - ~/.datalayer:/root/.datalayer
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/iam,/oidc_callback
+      - traefik.frontend.priority=100
+      - traefik.port=9700
+      - traefik.docker.network=datalayer

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: simple
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure.include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: company-services
+  resource: simple
+  ssl-required: external
+  principal-attribute: preferred_username
+  use-resource-role-mappings: true

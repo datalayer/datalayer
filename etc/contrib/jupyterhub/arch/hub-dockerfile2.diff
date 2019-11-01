@@ -1,0 +1,24 @@
+diff --git a/images/hub/Dockerfile b/images/hub/Dockerfile
+index d9f106b..f03e1a6 100644
+--- a/images/hub/Dockerfile
++++ b/images/hub/Dockerfile
+@@ -26,12 +26,15 @@ RUN adduser --disabled-password \
+     --force-badname \
+     ${NB_USER}
+ 
+-ARG JUPYTERHUB_VERSION=0.8.*
+-
+ ADD requirements.txt /tmp/requirements.txt
+ RUN pip3 install --no-cache-dir \
+-         datalayerhub==${JUPYTERHUB_VERSION} \
+-         -r /tmp/requirements.txt
++        -r /tmp/requirements.txt
++
++RUN rm -fr /usr/local/lib/python3.6/dist-packages/jupyterhub
++
++ADD datalayerhub-0.9.1.dev0.tar.gz /tmp/datalayerhub-0.9.1.dev0.tar.gz
++RUN pip3 install --no-cache-dir \
++         /tmp/datalayerhub-0.9.1.dev0.tar.gz/datalayerhub-0.9.1.dev0
+ 
+ ADD jupyterhub_config.py /srv/jupyterhub_config.py
+ 

@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  # A container that exposes a simple API
+  whoami:
+#    container_name: whoami
+    image: datalayer/whoami:${DLAVERSION}   # A container that exposes an API to show its IP address
+    networks:
+      - datalayer
+    ports:
+      - 8076:80      # The HTTP port
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};Path:/whoami
+      - traefik.docker.network=datalayer
+      - traefik.frontend.passHostHeader=true

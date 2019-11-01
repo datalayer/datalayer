@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Kubectl Help"$NOCOLOR$NOBOLD
+echo
+
+kubectl --help
+
+echo -e $YELLOW"""
+kubectl version
+kubectl config get-contexts
+kubectl config use-context <CONTEXT-NAME>
+kubectl config set-context $(kubectl config current-context) --namespace=<YOUR-NAMESPACE>
+kubectl config current-context
+kubectl cluster-info
+$NOCOLOR"""

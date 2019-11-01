@@ -1,0 +1,25 @@
+{
+  "language": "R",
+  "display_name": "Spark - R (YARN Client Mode)",
+  "metadata": {
+    "process_proxy": {
+      "class_name": "enterprise_gateway.services.processproxies.distributed.DistributedProcessProxy"
+    }
+  },
+  "env": {
+    "SPARK_HOME": "/usr/hdp/current/spark2-client",
+    "SPARK_OPTS": "--master yarn --deploy-mode client --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --conf spark.sparkr.r.command=/opt/conda/lib/R/bin/Rscript ${KERNEL_EXTRA_SPARK_OPTS}",
+    "LAUNCH_OPTS": ""
+  },
+  "argv": [
+    "/usr/local/share/jupyter/kernels/spark_R_yarn_client/bin/run.sh",
+    "--RemoteProcessProxy.kernel-id",
+    "{kernel_id}",
+    "--RemoteProcessProxy.response-address",
+    "{response_address}",
+    "--RemoteProcessProxy.port-range",
+    "{port_range}",
+    "--RemoteProcessProxy.spark-context-initialization-mode",
+    "lazy"
+  ]
+}

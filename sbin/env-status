@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $YELLOW$BOLD"Status of the Datalayer Environment"$NOBOLD$NOCOLOR
+echo
+
+echo -e $WHITE_BCK"Java Version"$NOCOLOR
+echo
+java -version
+echo
+
+echo -e $WHITE_BCK"Maven Version"$NOCOLOR
+echo
+mvn -v
+echo
+
+echo -e $WHITE_BCK"Python Version"$NOCOLOR
+echo
+P=$(python -c 'import platform; print(platform.python_version())') \
+  && PV=$(cut -d '.' -f1 <<<${P}) \
+  && if [ $PV -ne "3" ]; then echo -e "You should have python version 3."; exit -1; fi
+echo Python version $PV is OK.
+echo
+
+echo -e $WHITE_BCK"Conda Envs"$NOCOLOR
+echo
+conda info --envs
+echo
+
+echo -e $WHITE_BCK"Python Libs"$NOCOLOR
+echo
+pip list
+echo
+
+echo -e $WHITE_BCK"Golang Version"$NOCOLOR
+echo
+G=$(go version) \
+  && GV=$(cut -d '.' -f2 <<<${G}) \
+  && if [ $GV -ne "11" ]; then echo 'You should have go version 1.11.'; exit -1; fi
+echo Golang version $GV is OK.
+echo
+
+echo -e $WHITE_BCK"Jupyter Server Extensions"$NOCOLOR
+echo
+jupyter serverextension list
+echo
+
+echo -e $WHITE_BCK"JupyterLab Extensions"$NOCOLOR
+echo
+jupyter labextension list
+echo

@@ -1,0 +1,22 @@
+{
+    "web": {
+        "auth_uri": "DLA_KEYCLOAK_SCHEME_HOST/auth/realms/datalayer/protocol/openid-connect/auth",
+        "client_id": "datalayer",
+        "client_secret": "DLA_KEYCLOAK_REALM_CLIENT_SECRET=",
+        "issuer": "DLA_KEYCLOAK_SCHEME_HOST/auth/realms/datalayer",
+        "redirect_uris": [
+            "https://datalayer.io/*",
+            "http://swarm.datalayer.io.local/*",
+            "http://minikube.datalayer.io.local/*",
+            "http://localhost:3000/*",
+            "http://localhost:4326/*",
+            "http://localhost:8000/*",
+            "http://localhost:8080/*",
+            "http://localhost:9600/*",
+            "http://localhost:9700/*"
+        ],
+        "token_introspection_uri": "DLA_KEYCLOAK_SCHEME_HOST/auth/realms/datalayer/protocol/openid-connect/token/introspect",
+        "token_uri": "DLA_KEYCLOAK_SCHEME_HOST/auth/realms/datalayer/protocol/openid-connect/token",
+        "userinfo_uri": "DLA_KEYCLOAK_SCHEME_HOST/auth/realms/datalayer/protocol/openid-connect/userinfo"
+    }
+}

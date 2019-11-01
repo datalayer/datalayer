@@ -1,0 +1,34 @@
+{
+  "name": "redux-react-hook-example",
+  "homepage": "https://ianobermiller.github.io/redux-react-hook",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.7.12",
+    "emotion": "^10.0.17",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.2.0",
+    "redux": "^4.0.4",
+    "redux-react-hook" : "3.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.6",
+    "@types/react-dom": "^16.9.2",
+    "typescript": "^3.6.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

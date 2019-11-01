@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Apache HBase Help"$NOCOLOR$NOBOLD
+echo
+
+echo -e $GREEN$BOLD"HBase Status"$NOBOLD$NOCOLOR
+echo
+echo -e $BOLD$GREEN"HBase Phoenix"$NOCOLOR$NOBOLD
+echo
+echo -e "Phoenix CLI                "$YELLOW"dla phoenix-cli"$NOCOLOR
+echo
+echo -e $GREEN$BOLD"HBase Commands"$NOCOLOR$NOBOLD$NOCOLOR
+echo
+echo -e "HBase CLI                  "$YELLOW"dla hbase-cli"$NOCOLOR
+echo
+echo -e $BOLD$GREEN"Command Examples"$NOCOLOR$NOBOLD
+echo
+echo "  help"
+echo "  list"
+echo "  create_namespace 'ns'"
+echo "  create 'ns:test', 'cf'"
+echo "  alter 'ns:test', 'cf2'"
+echo "  list 'ns:test'"
+echo "  put 'ns:test', 'row1', 'cf:a', 'value1'"
+echo "  put 'ns:test', 'row2', 'cf:b', 'value2'"
+echo "  put 'ns:test', 'row3', 'cf:c', 'value3'"
+echo "  scan 'ns:test'"
+echo "  get 'ns:test', 'row1'"
+echo "  disable 'ns:test'"
+echo "  drop 'ns:test'"
+echo "  exit"
+echo
+echo -e "HMaster WEB Interface      "$YELLOW"http://localhost:16010/master-status"$NOCOLOR
+echo -e "RegionServer WEB Interface "$YELLOW"http://localhost:16030/rs-status"$NOCOLOR
+echo
+
+# echo -e $GREEN$BOLD""HBase Setup"$NOBOLD$NOCOLOR
+# echo
+# dla hbase-setup

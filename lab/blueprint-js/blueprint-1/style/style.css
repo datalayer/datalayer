@@ -1,0 +1,10 @@
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+* {
+    font-family: "Sans-serif"
+}
+
+button {
+    font-size: large
+}

@@ -1,0 +1,13 @@
+kuber:
+  image: datalayer/kuber:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 9091
+  env:
+    DLA_IAMREST: ""
+    DLA_JUPYTERHUBUO: ""
+    DLA_KUBERWS: ""
+    DLA_LIBRARYREST: ""
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"

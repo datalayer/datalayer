@@ -1,0 +1,8 @@
+name: datalayer_readthedocs
+dependencies:
+- python==3.6
+- sphinx_rtd_theme
+- sphinx>=1.8.3
+- pip:
+    - recommonmark
+    - sphinx-markdown-tables

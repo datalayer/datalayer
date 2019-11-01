@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Building Apache HBase..."$NOCOLOR$NOBOLD
+echo
+
+function deploy() {
+  rm -fr $HBASE_HOME
+  cp hbase-assembly/target/hbase-*-bin.tar.gz $DLAOPT
+  cd $DLAOPT
+  tar xvfz $DLAOPT/hbase-*-bin.tar.gz -C $DLAOPT
+  ln -s $DLAOPT/hbase-2.0.0 $DLAOPT/hbase
+#  cd $HBASE_HOME/bin
+#  cp $DLAHOME/etc/hbase/conf/hbase-site.xml $HBASE_HOME/conf
+
+  echo -e $YELLOW
+  echo -e "Set JAVA_HOME in bin/hbase-config.sh and/or conf/hbase-env.sh - if this does not work, set it also in start-hbase.sh (to e.g. $DLAOPT/jdk)"
+  echo
+  echo -e "Copy the Apache Phoenix jars in $HBASE_HOME/lib"
+  echo
+  echo -e "sed -e 's@# export JAVA_HOME=/usr/java/jdk1.6.0/@export JAVA_HOME=$DLAOPT/jdk@' $HBASE_HOME/conf/hbase-env.sh > $HBASE_HOME/conf/hbase-env.sh-updated"
+  echo
+  echo -e "mv $HBASE_HOME/conf/hbase-env.sh-updated $HBASE_HOME/conf/hbase-env.sh"
+  echo -e $NOCOLOR
+}
+
+# protoc-2.5.0
+# source datalayer jdk-8
+
+cd $DLAHOME/repos/hbase
+
+#  -Dscala.binary.version=2.11 \
+#  -Dspark.version=2.1.0 \
+#  -Dscala.version=2.11.8 \
+#  -Pspark-2.0
+
+mvn \
+  clean
+
+mvn \
+  install \
+  assembly:single \
+  -Dhadoop.profile=3.0 \
+  -Dhadoop.version=3.0.0 \
+  -Dhadoop-three.version=3.0.0 \
+  -DskipTests
+
+echo
+echo -e $BOLD"=> Assembly should be @ $DLAHOME/repos/hbase/hbase-assembly/target/hbase-2.0.0-bin.tar.gz <="$NOBOLD
+echo
+
+cp $DLAHOME/repos/hbase/hbase-assembly/target/hbase-2.0.0-bin.tar.gz $DLAHOME/dist/hbase
+
+deploy

@@ -1,0 +1,38 @@
+{
+  "name": "@datalayer/webpack-js",
+  "version": "0.0.3",
+  "scripts": {
+    "build": "webpack --env dev && webpack --env build",
+    "clean": "rimraf dist",
+    "dev": "webpack --progress --colors --watch --env dev",
+    "start": "webpack-dev-server --open",
+    "watch": "webpack-dev-server --open --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "main": "index.js",
+  "babel":{
+      "presets" : [
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ]
+    },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
+}

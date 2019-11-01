@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: twocontainers
+spec:
+  containers:
+  - name: dla
+    image: datalayer/simple:0.0.3
+    ports:
+    - containerPort: 9876
+  - name: shell
+    image: centos:7
+    command:
+      - "bin/bash"
+      - "-c"
+      - "sleep 10000"

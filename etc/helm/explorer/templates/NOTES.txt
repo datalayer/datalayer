@@ -1,0 +1,8 @@
+
+1. Create a port-forward to the kuber pod and browse with your favorite browser http://localhost:8080:
+
+   kubectl port-forward -n {{ .Release.Namespace }} $(kubectl get pod -n {{ .Release.Namespace }} --selector=app={{ template "explorer.name" . }} -o jsonpath='{.items...metadata.name}') 9091:9091
+
+2. If you want to run a Spark job and debug kuber, launch a shell in the kuber pod:
+
+   kubectl exec -n {{ .Release.Namespace }} -it $(kubectl get pods -n {{ .Release.Namespace }} --selector=app={{ template "explorer.name" . }} -o jsonpath="{.items[0].metadata.name}") -c kuber -- bash

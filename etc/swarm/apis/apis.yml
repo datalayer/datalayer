@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  apis:
+    image: datalayer/apis:${DLAVERSION} 
+    networks:
+      - datalayer
+    ports:
+      - 8989:8989
+    labels:
+      - traefik.frontend.rule=Host:${DLAHOST};PathPrefix:/api
+      - traefik.port=8989
+      - traefik.docker.network=datalayer

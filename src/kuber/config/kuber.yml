@@ -1,0 +1,16 @@
+microsoftApplicationId: microsoft_application_id
+microsoftRedirect: http://localhost:4326
+microsoftScope: User.ReadBasic.All+Contacts.Read+Mail.Send+Files.ReadWrite+Notes.ReadWrite
+libraryRest: http://localhost:9600
+iamRest: http://localhost:9600
+jupyterhubUi: http://localhost:8000
+kuberRest: http://localhost:9091
+kuberWs: ws://localhost:9091
+hdfs: http://localhost:50070
+twitterRedirect: http://localhost:9091/kuber/api/v1/twitter/callback
+twitterConsumerKey: twitter_consumer_key
+twitterConsumerSecret: twitter_consumer_secret
+# server:
+#   port: 8080
+# database:
+#   connectionUri: "database connection uri"

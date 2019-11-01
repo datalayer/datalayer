@@ -1,0 +1,20 @@
+Your K8S Dashboard has now been installed, and can be accessed in the following ways:
+
+1. Connect via Cluster IP:
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ template "keycloak.name" . }}" -o jsonpath="{ .items[0].metadata.name }")
+
+  echo http://localhost:8080/auth/
+  echo http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/
+  kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME 8080:8080
+  # sudo kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME {{ .Values.keycloak.keycloak.service.port }}:{{ .Values.keycloak.keycloak.service.port }}
+  # username: { .Values.keycloak.keycloak.username }}
+  kubectl get secret --namespace {{ .Release.Namespace }} keycloak-keycloak-http -o jsonpath="{.data.password}" | base64 --decode; echo
+
+2. Initialize Keycloak:
+
+  dla dsp-keycloak-init
+
+3. Check user login
+
+  http://dla-keycloak-http.dla-iam.svc.cluster.local/auth/realms/datalayer/account # eric/123
