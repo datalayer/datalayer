@@ -69,7 +69,7 @@ author = u'Project Jupyter Team'
 _version_py = os.path.join('..', '..', '..', 'src', 'version.py')
 version_ns = {}
 
-jupywith open(_version_py, mode='r') as version_file:
+with open(_version_py, mode='r') as version_file:
     exec(version_file.read(), version_ns)
 
 # The short X.Y version.

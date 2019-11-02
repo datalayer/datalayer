@@ -98,8 +98,11 @@ Jupyter Server Compoments.
 Details on Kernels Management and Configuration.
 
 * [Kernels](/kernels/index.md)
+  * [Protocol](/kernels/protocol.md)
+  * [Management](/kernels/management.md)
   * [Magic](/kernels/magic.md)
-  * [Manager](/kernels/manager.md)
+  * [Parametrized](/kernels/parametrized.md)
+  * [Comms](/kernels/comms.md)
   * [Multi](/kernels/multi.md)
   * [Sharing](/kernels/sharing.md)
   * [IPython](/kernels/ipython.md)

@@ -1,8 +1,8 @@
 ---
-title: Jupyter Client
+title: [DEPRECATED] Jupyter Client
 ---
 
-# Jupyter Client
+# [DEPRECATED] Jupyter Client
 
 ```
 CLIENT --- KERNEL

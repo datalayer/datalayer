@@ -12,18 +12,18 @@
   },
   "workspaces": {
     "packages": [
+      "common",
+      "components",
       "databook",
-      "dctl",
+      "dlactl",
       "examples/*",
       "iam",
-      "jctl",
+      "jupyterctl",
       "jupyterlab/*",
       "jupyterpool",
       "kuber",
       "library",
       "studio",
-      "common",
-      "components",
       "widgets"
     ],
     "nohoist": [

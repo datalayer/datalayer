@@ -8,12 +8,11 @@ import requests
 import yaml
 import json
 from subprocess import call, STDOUT
-from kubernetes import config
+from kubernetes import client, config
 from kubernetes.client import Configuration, V1DeleteOptions
 from kubernetes.client.apis import core_v1_api
 from kubernetes.client.rest import ApiException
 from kubernetes.stream import stream
-from kubernetes import client, config
 from cerberus.client import CerberusClient
 
 logger = logging.getLogger(__name__)

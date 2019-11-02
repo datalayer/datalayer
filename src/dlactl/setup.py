@@ -11,7 +11,7 @@ setuptools.setup(
     long_description = open('README.md').read(),
     packages = find_packages(),
     package_data = {
-        'dctl': [
+        'dlactl': [
             '*',
         ],
     },
@@ -34,7 +34,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'dctl=dctl.__main__:main',
+            'dlactl=dlactl.__main__:main',
         ]
     }
 )

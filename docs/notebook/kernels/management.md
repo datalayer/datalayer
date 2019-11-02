@@ -1,10 +1,10 @@
 ---
-title: Kernel Manager
+title: Jupyter Kernel Management
 ---
 
-# Kernel Manager
+# Jupyter Kernel Management
 
-## Manager
+[Docs](https://jupyter-kernel-mgmt.readthedocs.io/en/latest).
 
 + [jupyter_kernel_mgmt](https://github.com/takluyver/jupyter_kernel_mgmt).
 + [jupyter_ssh_kernels](https://github.com/takluyver/jupyter_ssh_kernels).
@@ -19,5 +19,7 @@ title: Kernel Manager
 + [kubernetes_kernel_provider](https://github.com/gateway-experiments/kubernetes_kernel_provider).
 
 ## Manager in Notebook
+
++ https://github.com/gateway-experiments/notebook
 
 + [WIP: Use new kernel management APIs in notebook server](https://github.com/jupyter/notebook/pull/4170).

@@ -13,7 +13,11 @@ JupyterLab Extensions Development.
 + [State Database](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#state-database).
 + [Context Menu](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#context-menus).
 
-## Example
+## Tutorial
+
++ https://github.com/MMesch/labextension_tutorial
+
+## CookieCutter
 
 ```bash
 cookiecutter https://github.com/jupyterlab/extension-cookiecutter-ts
@@ -31,6 +35,14 @@ jupyter lab --watch
 # jupyter lab --dev-mode --watch
 # jupyter lab --core-mode
 ```
+
+## Other
+
++ https://github.com/AaronWatters/widget-cookiecutter
++ https://github.com/AaronWatters/jp_proxy_widget
++ https://github.com/AaronWatters/jp_doodle
+
+# Examples
 
 ```bash
 cd $DLAHOME/src/jupyterlab/twitter
@@ -81,8 +93,9 @@ yarn upgrade --latest --exact --scope @jupyterlab
 
 ## Dependencies
 
-https://github.com/vidartf/jupyterlab_discovery
-https://jupyterlab-discovery.readthedocs.io/en/stable/index.html
++ https://github.com/vidartf/jupyterlab_discovery
+
++ https://jupyterlab-discovery.readthedocs.io/en/stable/index.html
 
 ## Publish
 

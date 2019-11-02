@@ -118,8 +118,6 @@ github_issue_summarization/build/
 !.vscode
 !lab/medias/output/README.md
 !bin/dla
-!bin/dctl
-!bin/jctl
 !dist/README.md
 !opt/README.md
 !repos/README.md
