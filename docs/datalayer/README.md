@@ -2,6 +2,10 @@
 
 # Datalayer ReadTheDocs
 
+> :sparkles: :mega: Documentation for Datalayer Notebook. :lollipop:
+
+The content of this folder is deployed on the [Datalayer Readthedocs website](https://datalayer.readthedocs.io/en/latest).
+
 ```bash
 conda env create -n datalayer_readthedocs -f environment.yml && 
   conda activate datalayer_readthedocs && \
@@ -11,6 +15,7 @@ make clean && \
   open ./build/html/index.html
 open https://datalayer.readthedocs.io
 ```
+<!--
 
 ## Read Also
 
@@ -19,3 +24,5 @@ open https://datalayer.readthedocs.io
 + https://docs.readthedocs.io/en/stable/custom_installs/customization.html
 + https://docs.readthedocs.io/en/stable/config-file/v2.html
 + https://github.com/readthedocs/readthedocs.org/blob/master/docs/conf.py
+
+-->

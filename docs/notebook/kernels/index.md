@@ -6,7 +6,7 @@ title: Jupyter Kernels
 
 ## Install
 
-Install Kernels [Docs](https://jupyter.readthedocs.io/en/latest/install-kernel.html).
+Installation [Docs](https://jupyter.readthedocs.io/en/latest/install-kernel.html).
 
 ```bash
 # jupyter kernel install --name ipywidgets --display-name "ipywidgets" --sys-prefix
@@ -85,10 +85,13 @@ To see all available configurables, use `--help-all`
 + [Node.js](https://gist.github.com/Carreau/4279371)
 + [Go](https://github.com/takluyver/igo)
 
-+ https://hpc.guix.info/blog/2019/10/towards-reproducible-jupyter-notebooks
++ [Guix](https://hpc.guix.info/blog/2019/10/towards-reproducible-jupyter-notebooks)
+
+## Tests
+
++ [Jupyter Kernel Test](https://github.com/takluyver/jupyter_kernel_test).
 
 ## See Also
 
-+ [Callisto](https://github.com/colcarroll/callisto) - A command line utility to create kernels in Jupyter from virtual environments
-+ [Reactive Python](https://github.com/jupytercalpoly/reactivepy) - A reactive Python kernel. Whenever a variable value is changed, the kernel automatically executes its dependencies (any cells which use that variable) with the updated value. As of now, reactivepy can also support asynchronous functions
-+ [Xeus](https://github.com/quantstack/xeus)
++ [Callisto](https://github.com/colcarroll/callisto), a command line utility to create kernels in Jupyter from virtual environments
++ [Reactive Python](https://github.com/jupytercalpoly/reactivepy), a reactive Python kernel. Whenever a variable value is changed, the kernel automatically executes its dependencies (any cells which use that variable) with the updated value. As of now, reactivepy can also support asynchronous functions

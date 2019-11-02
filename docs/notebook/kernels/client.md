@@ -1,8 +1,8 @@
 ---
-title: [DEPRECATED] Jupyter Client
+title: DEPRECATED Jupyter Client
 ---
 
-# [DEPRECATED] Jupyter Client
+# DEPRECATED Jupyter Client
 
 ```
 CLIENT --- KERNEL
@@ -14,12 +14,9 @@ Client [Docs](https://jupyter-client.readthedocs.io/en/latest).
 
 Client [API Docs](https://jupyter-client.readthedocs.io/en/latest/api/client.html).
 
-## Async Client
+## Async
 
 + https://github.com/jupyter/jupyter_client/pull/428
-
-See also.
-
 + https://github.com/jupyter/jupyter_client/pull/471
 + https://github.com/jupyter/jupyter_client/pull/402
 + https://github.com/jupyter/jupyter_client/pull/308

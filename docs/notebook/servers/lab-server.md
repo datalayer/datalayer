@@ -5,7 +5,7 @@ title: Jupyter Lab Server
 # Jupyter Lab Server
 
 ```
-BROWSER --- LAB_SERVER --- NOTEBOOK_SERVER --- KERNEL
+BROWSER --- LAB_SERVER --- SERVER --- KERNEL
 ```
 
 JupyterLab Server [GitHub](https://github.com/jupyterlab/jupyterlab_server) repository.

@@ -77,27 +77,32 @@ JupyterHub, a multi-user version of the notebook designed for companies, classro
 
 {% content "servers" %}
 
-Jupyter Server Compoments.
+Servers.
 
 * [Servers](/servers/index.md)
-  * [IAM](/servers/iam.md)
-  * [Client](/servers/client.md)
-  * [Console](/servers/console.md)
-  * [QtConsole](/servers/qtconsole.md)
-  * [Notebook Server](/servers/server-notebook.md)
+  * [Notebook](/servers/notebook.md)
   * [Server](/servers/server.md)
-  * [Lab Server](/servers/server-lab.md)
-  * [JupyterHub](/servers/jupyterhub.md)
-  * [BinderHub](/servers/binderhub.md)
-  * [Server to Gateway](/servers/server-to-gateway.md)
-  * [Kernel Gateway](/servers/gateway-kernel.md)
-  * [Enterprise Gateway](/servers/gateway-enterprise.md)
-  * [Gateway Experiments](/servers/gateway-experiments.md).
-  * [Pixie Gateway](/servers/gateway-pixie.md)
+  * [Lab Server](/servers/lab-server.md)
+
+Gateways.
+
+* [Gateways](/gateway/index.md)
+  * [Server to Gateway](/gateway/server-to-gateway.md)
+  * [Kernel Gateway](/gateway/gateway-kernel.md)
+  * [Enterprise Gateway](/gateway/gateway-enterprise.md)
+  * [Gateway Experiments](/gateway/gateway-experiments.md)
+  * [Pixie Gateway](/gateway/gateway-pixie.md)
+
+Security.
+
+* [Security](/security/index.md)
 
 Details on Kernels Management and Configuration.
 
 * [Kernels](/kernels/index.md)
+  * [Client](/kernels/client.md)
+  * [Console](/kernels/console.md)
+  * [QtConsole](/kernels/qtconsole.md)
   * [Protocol](/kernels/protocol.md)
   * [Management](/kernels/management.md)
   * [Magic](/kernels/magic.md)

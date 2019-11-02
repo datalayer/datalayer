@@ -5,7 +5,7 @@ title: Jupyter Notebook
 # Jupyter Notebook
 
 ```
-BROWSER --- NOTEBOOK_SERVER --- KERNEL
+BROWSER --- NOTEBOOK --- KERNEL
 ```
 
 Notebook [GitHub](https://github.com/jupyter/notebook) repository.

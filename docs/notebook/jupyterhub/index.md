@@ -6,6 +6,14 @@ title: JupyterHub
 
 > With JupyterHub you can create a multi-user Hub which spawns, manages, and proxies multiple instances of the single-user Jupyter notebook server. Project Jupyter created JupyterHub to support many users. The Hub can offer notebook servers to a class of students, a corporate data science workgroup, a scientific research project, or a high performance computing group.
 
+```
+                          +--- AUTH
+                          |
+BROWSER --- JUPYTERHUB ---+--- SPAWNER --- SINGLE_USER_SERVER --- KERNEL
+                          |
+                          +--- SERVICES
+```
+
 JupyterHub [GitHub](https://github.com/jupyterhub/jupyterhub) repository.
 
 JupyterHub [Docs](https://jupyterhub.readthedocs.io).

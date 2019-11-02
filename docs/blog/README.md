@@ -2,7 +2,7 @@
 
 > 📣 Blog for Datalayer 🍭
 
-The content of this repository is deployed on the [Datalayer blog](https://blog.datalayer.io).
+The content of this folder is deployed on the [Datalayer blog](https://blog.datalayer.io).
 
 You are welcome to contribute to the content, media, theme... of this repository via [Pull Requests](https://github.com/datalayer/datalayer/pulls) or [Issues](https://github.com/datalayer/datalayer/issues).
 

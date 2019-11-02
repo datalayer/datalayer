@@ -1,8 +1,8 @@
 ---
-title: Jupyter IAM
+title: Jupyter Security
 ---
 
-# Jupyter IAM
+# Jupyter Security
 
 ## Identity
 
