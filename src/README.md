@@ -7,7 +7,7 @@
 + [Common](./common)
 + [Components](./components)
 + [DataBook](./databook)
-+ [Datalayer Controller](./dlactl)
++ [Datalayer Controller](./datalayerctl)
 + [IAM](./iam)
 + [Jupyter Controller](./jupyterctl)
 + [JupyterLab Extensions](./jupyterlab)

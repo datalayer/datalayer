@@ -15,7 +15,7 @@
       "common",
       "components",
       "databook",
-      "dlactl",
+      "datalayerctl",
       "examples/*",
       "iam",
       "jupyterctl",
