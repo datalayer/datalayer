@@ -47,12 +47,12 @@ if this is the most recent Jupyter kernel you have started.
 ```
 
 ```bash
-# Servers.
-python python/client-echo.py
+# Kernel Server.
+python python/echo-kernel.py
 ```
 
 ```bash
-# Clients.
+# Kernel Client.
 python python/client-1.py 217c09c0-44eb-48bd-ab50-3c5c42754d8c
 python python/client-2.py
 python python/client-3.py

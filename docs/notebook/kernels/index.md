@@ -12,28 +12,6 @@ Installation [Docs](https://jupyter.readthedocs.io/en/latest/install-kernel.html
 # jupyter kernel install --name ipywidgets --display-name "ipywidgets" --sys-prefix
 ```
 
-## Specs
-
-```bash
-jupyter kernelspec list
-jupyter kernelspec list --json
-```
-
-## Runtime
-
-```bash
-# Get runtime directory.
-jupyter --runtime-dir
-# List Kernel connection files.
-ls $(jupyter --runtime-dir) | grep json
-find `jupyter --runtime-dir` -mtime -5 | grep nbserver | xargs cat
-```
-
-```bash
-# ~/.local/share/jupyter/runtime/kernel-d785bbc8-c058-49d0-861c-97a39089c91e.json
-# ./run/user/1000/jupyter/kernel-772af73b-185b-4960-b0fb-a0532dc59e49.json
-```
-
 ## Start
 
 ```bash

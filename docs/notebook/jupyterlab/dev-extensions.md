@@ -13,6 +13,10 @@ JupyterLab Extensions Development.
 + [State Database](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#state-database).
 + [Context Menu](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#context-menus).
 
+## Build Enhancement
+
+[Extension Development Wishlist](https://github.com/jupyterlab/jupyterlab/issues/7468).
+
 ## Tutorial
 
 + https://github.com/MMesch/labextension_tutorial
