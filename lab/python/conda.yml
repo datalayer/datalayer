@@ -1,4 +1,4 @@
-name: dlab
+name: datalayer_lab
 channels:
   - conda-forge
 dependencies:

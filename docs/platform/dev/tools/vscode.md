@@ -7,6 +7,10 @@ title: Visual Studio Code
 + https://github.com/microsoft/vscode
 + https://code.visualstudio.com
 
+# Online
+
++ https://visualstudio.microsoft.com/services/visual-studio-online
+
 ## Inline
 
 + https://github.com/Microsoft/vscode/issues/3220

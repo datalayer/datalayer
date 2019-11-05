@@ -31,13 +31,17 @@
 **/*.log*
 **/*.mobi
 **/*.model
+**/*.pem
 **/*.pdf
 **/*.pid
 **/*.pyc
 **/*.scss.ts
 **/*.so
 **/*.sqlite
+**/*.tar
+**/*.tar.gz
 **/*.tgz
+**/*.whl
 **/*.zip
 **/__pycache__
 **/__snapshots__
@@ -61,7 +65,6 @@
 **/output/*
 **/package-lock.json
 **/private
-**/private.pem
 **/repos/*/
 **/parts/*
 **/sdist/*

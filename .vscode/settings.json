@@ -8,5 +8,6 @@
     "python.pythonPath": "${workspaceFolder}/opt/miniconda3/envs/datalayer/bin/python",
     "terminal.integrated.fontFamily": "Meslo LG S for Powerline",
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "restructuredtext.confPath": "${workspaceFolder}/repos/jupyter-kernel-provider-kubernetes/docs"
 }

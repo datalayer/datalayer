@@ -2,13 +2,13 @@
 
 # 👻 Datalayer Lab
 
-> ***Don't expect the content of this folder to be stable nor to be released.***
+> Don't expect the content of this folder to be stable nor to be released.
 
 Welcome to `Datalayer Lab`, a `place` to experiment with software to support data cases.
 
-To develop in this folder, you need on your `Linux` or `MacOsX` operating system, check you have the [needed prerequisited listed in this documentation](https://docs.datalayer.io/dev/requirements.html).
+Check you have the [needed prerequisites](https://docs.datalayer.io/dev/requirements.html).
 
-You are now ready to contribute code, ideas... via [pull requests](https://github.com/datalayer/datalab/pulls).
+You are now ready to contribute code, ideas... via [pull requests](https://github.com/datalayer/datalayer/pulls).
 
 **With great technologies comes great user benefits.**
 
@@ -18,45 +18,53 @@ You are now ready to contribute code, ideas... via [pull requests](https://githu
 
 Showcase user interface widget `toolkits` and `theming` with `react.js` and `typescript`.
 
-+ [React Boiler](./react-boilerplate) and [React Boiler Eject](./react-boilerplate-eject) based on `create-react-app`.
-+ [Code Split](./code-split) examples.
-+ [Fabric UI](./fabric-ui) widgets.
-+ [Blueprint.js](./blueprint-js) widgets.
-+ [Phosphor JS](./phosphor-js) widgets.
-+ [Semantic UI](./semantic-ui) widgets.
++ [Create React App](./react-boilerplate/embed)
++ [Create React App Eject](./react-boilerplate/eject)
++ [Fabric UI](./fabric-ui)
++ [Blueprint JS](./blueprint-js)
++ [Phosphor JS](./phosphor-js)
++ [Semantic UI](./semantic-ui)
 
-Some `transversal` useful topics.
+Other useful topics.
 
-+ [CSS-in-JS](./css-in-js) with react.js.
-+ [Medias](./medias) generation such as PNG, SVG...
-+ [State Management](./react-state) with react.js.
-+ [Styleguidist](./styleguidist).
-+ [Typedoc](./typedoc).
-+ [Webpack](./webpack) minimal configuration (with java/node.js interactions).
++ [CSS-in-JS](./css-in-js)
++ [Medias](./medias)
++ [React Split](./react-split)
++ [React State](./react-state)
++ [Styleguidist](./styleguidist)
++ [Typedoc](./typedoc)
++ [Webpack](./webpack)
+
+#### Jupyter
+
++ [Jupyter Kernel](./jupyter-kernel)
++ [Jupyter Kernel Management](./jupyter-kernel-mgmt)
++ [Jupyter Server](./jupyter-server)
 
 #### :passport_control: Authentication and Authorization
 
 Authenticate and authorize with various providers.
 
-+ OpenID Connect with [Keycloak](./keycloak).
-+ Twitter [Auth](./auth/twitter).
-+ Okta [Auth](./auth/okta).
-+ Tornado [Simple Authentication](./tornado-auth).
-+ Tornado [OpenID Connect](./tornado-oidc).
-+ JupyterHub [OpenID Connect](./jupyterhub-oidc).
++ Authentication with [Tornado]](./tornado-auth)
++ Authentication with [Twitter]](./auth/twitter)
++ Authentication with [Okta](./auth/okta)
++ OpenID Connect with [Keycloak](./keycloak)
++ OpenID Connect for [Tornado](./tornado-oidc)
++ OpenID Connect for [JupyterHub]](./jupyterhub-oidc)
 
 #### :moyai: Integration with External APIs
 
-+ [JupyterHub API](./jupyterhub-api) interactions.
-+ [Github CLA](./cla) bot for `Customer License Approval`.
-+ [Slack](./slack) application example.
-+ [MS-Teams](./ms-teams) application example.
++ [JupyterHub API](./jupyterhub-api)
++ [Box](./box)
++ [Slack](./slack)
++ [MS-Teams](./ms-teams)
++ [OpenAPI](./openapi) (aka `swagger`
 
 #### :tent: Others
 
-+ [OpenAPI](./openapi) (aka swagger) example.
-+ Serverless deployment with [Now.sh](./now-sh).
-+ [Microservices](./microservices) examples.
++ [Micro Services](./microservices) examples.
++ [Now.sh](./now-sh) for serverless deployment.
++ [Github CLA](./cla) bot (Customer License Approval).
 
 #### :panda_face: Golang
 
@@ -68,4 +76,4 @@ Authenticate and authorize with various providers.
 
 #### :coffee: JVM
 
-[Scala and Java examples](./jvm).
+[Scala and Java](./jvm) Lab.

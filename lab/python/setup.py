@@ -3,16 +3,16 @@ import setuptools
 VERSION = '0.0.1'
 
 setuptools.setup(
-    name = 'dlab',
+    name = 'datalayer_lab',
     version = VERSION,
-    description = 'Datalayer',
+    description = 'Datalayer Python Lab',
     long_description = open('README.md').read(),
 #    packages = setuptools.find_packages(),
     packages = [
-        'dlab',
+        'datalayer_lab',
     ],
     package_data = {
-        'dlab': [
+        'datalayer_lab': [
             '*',
         ],
     },

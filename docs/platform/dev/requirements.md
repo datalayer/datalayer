@@ -4,6 +4,10 @@ title: Requirements
 
 # Requirements
 
+## Operating Systems
+
+To develop with Datalayer, you need a `Linux` or `MacOs` operating system.
+
 ## Get the Source Repositories
 
 Use [Git](/dev/tools/git.md) to get the source repositories.

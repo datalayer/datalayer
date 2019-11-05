@@ -1,3 +1,0 @@
-digraph g {
-  A1 -> A2 [label=f];
-}

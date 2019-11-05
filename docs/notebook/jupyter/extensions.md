@@ -28,6 +28,23 @@ jupyter nbextension install --py pizzabutton --sys-prefix
 jupyter nbextension enable --py pizzabutton --sys-prefix
 ```
 
+## Sys Prefix
+
+```bash
+jupyter serverextension --help
+--sys-prefix
+    Use sys.prefix as the prefix for installing nbextensions (for environments, packaging)
+```
+
+```bash
+# https://docs.python.org/3/library/sys.html#sys.prefix
+sys.prefix
+
+    A string giving the site-specific directory prefix where the platform independent Python files are installed; by default, this is the string '/usr/local'. This can be set at build time with the --prefix argument to the configure script. The main collection of Python library modules is installed in the directory prefix/lib/pythonX.Y while the platform independent header files (all except pyconfig.h) are stored in prefix/include/pythonX.Y, where X.Y is the version number of Python, for example 3.2.
+
+    Note If a virtual environment is in effect, this value will be changed in site.py to point to the virtual environment. The value for the Python installation will still be available, via base_prefix.
+```
+
 ## Others
 
 + https://jupyter-contrib-nbextensions.readthedocs.io/en/latest

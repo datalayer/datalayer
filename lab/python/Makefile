@@ -14,4 +14,4 @@ publish:
 	python setup.py sdist bdist_egg bdist_wheel upload
 
 python:
-	PYTHONPATH=./dist/dlab-0.0.1-py3-none-any.whl python
+	PYTHONPATH=./dist/datalayer_lab-0.0.1-py3-none-any.whl python
