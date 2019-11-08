@@ -6,6 +6,15 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {Badge} from '@datalayer/widgets'
+import {HelloOne, HelloTwo} from '@datalayer/components';
+
+import { createBrowserHistory } from "history";
+import { Router } from "react-router-dom";
+
+// import "./assets/scss/material-kit-pro-react.scss?v=1.8.0";
+// import "./assets/scss/material-dashboard-pro-react.scss?v=1.8.0";
+
+var hist = createBrowserHistory();
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -15,7 +24,6 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
-
   return (
     <Typography
       component="div"
@@ -53,17 +61,38 @@ export default function SimpleTabs() {
   };
 
   return (
-    <div className={classes.root}>
-      <Badge/>
+    <Router history={hist}>
+      <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
+          <Tab label="Item One" {...a11yProps(0)} >
+          </Tab>
           <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item One
+        <div>Item One</div>
+        <Badge color="primary">primary</Badge>
+        <Badge color="info">info</Badge>
+        <Badge color="success">success</Badge>
+        <Badge color="warning">warning</Badge>
+        <Badge color="danger">danger</Badge>
+        <Badge color="rose">rose</Badge>
+        <HelloOne/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
+        <HelloTwo/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -72,5 +101,6 @@ export default function SimpleTabs() {
         Item Three
       </TabPanel>
     </div>
+    </Router>
   );
 }

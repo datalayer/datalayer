@@ -25,8 +25,8 @@ cat /etc/hosts
 ## Build the Docker Images
 
 ```bash
-eval $(minikube docker-env)
-dla dsp-docker-build
+eval $(minikube docker-env) && \
+  dla dsp-docker-build
 ```
 
 ## Prepare Helm

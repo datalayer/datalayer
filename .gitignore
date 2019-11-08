@@ -119,9 +119,10 @@ github_issue_summarization/build/
 !.env
 !.gitattributes
 !.vscode
-!lab/medias/output/README.md
 !bin/dla
+!docs/kuber/kuber
 !dist/README.md
+!lab/medias/output/README.md
 !opt/README.md
 !repos/README.md
 !sbin/build

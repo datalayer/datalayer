@@ -1,23 +1,9 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// react component for creating beautiful carousel
-import Carousel from "react-slick";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-// @material-ui/icons
-import Share from "@material-ui/icons/Share";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
-// core components
 import {Header} from "@datalayer/widgets";
 import {Button} from "@datalayer/widgets";
-import {GridContainer} from "@datalayer/widgets";
-import {GridItem} from "@datalayer/widgets";
-import {Card} from "@datalayer/widgets";
-import {CardBody} from "@datalayer/widgets";
-import {CustomInput} from "@datalayer/widgets";
 
 import headersStyle from "./../assets/jss/material-kit-pro-react/views/sectionsSections/headersStyle.js";
 

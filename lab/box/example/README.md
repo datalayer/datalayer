@@ -6,7 +6,7 @@ This folder contains source code and documentation to use Box as storage backend
 
 ```bash
 # https://github.com/box/box-python-sdk
-pip install --upgrade boxsdk boxsdk[jwt]
+pip install --upgrade boxsdk[jwt]
 ```
 
 ```bash

@@ -1,3 +1,4 @@
+{/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
@@ -14,15 +15,9 @@ var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
-{/*
-    <Switch>
-*/}
       <Route path="/" component={DlaPricing} />
       <Route path="/" component={DlaPreFooter} />
       <Route path="/" component={DlaFooter} />
-{/*
-    </Switch>
-*/}
   </Router>,
   document.getElementById("root")
 );
@@ -31,6 +26,11 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
+*/}
 export {default as HelloOne} from './example/HelloOne';
 export {default as HelloTwo} from './example/HelloTwo';
+export {default as DlaHeader} from './header/DlaHeader';
+export {default as DlaProfile} from './profile/DlaProfile';
+
+import "./assets/scss/material-kit-pro-react.scss?v=1.8.0";
+import "./assets/scss/material-dashboard-pro-react.scss?v=1.8.0";

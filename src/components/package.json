@@ -2,10 +2,21 @@
   "name": "@datalayer/components",
   "version": "0.0.3",
   "private": true,
-  "main": "src/index.tsx",
+  "main": "lib/index.js",
   "main:src": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "concurrently \"tsc\" \"gulp resources-to-lib\"",
+    "build-app": "react-scripts build",
+    "build-storybook": "build-storybook",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009",
+    "tsc": "tsc",
+    "lint": "eslint ./src/**/*.tsx --max-warnings=0 --format=codeframe"
+  },
   "dependencies": {
-    "@datalayer/widgets": "0.0.3",
+    "@datalayer/widgets": "/repos/datalayer/src/widgets",
     "@storybook/react": "5.2.1",
     "cross-env": "5.0.5",
     "enzyme": "^3.9.0",
@@ -25,19 +36,13 @@
     "@storybook/addon-links": "5.2.1",
     "@storybook/addon-actions": "5.2.1",
     "awesome-typescript-loader": "^5.2.1",
+    "concurrently": "5.0.0",
+    "gulp": "4.0.2",
+    "gulp-filter": "6.0.0",
     "react-docgen-typescript-loader": "^3.2.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "storybook-react-router": "1.0.7",
     "typescript": "3.7.1-rc"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook",
-    "lint": "eslint ./src/**/*.tsx --max-warnings=0 --format=codeframe"
   },
   "eslintConfig": {
     "extends": "react-app"

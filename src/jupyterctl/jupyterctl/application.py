@@ -13,7 +13,7 @@ class JupyterCtl(ExtensionApp):
     extension_name = "jupyterctl"
 
     # Te url that your extension will serve its homepage.
-    default_url = '/static/index.html'
+    default_url = '/'
 
     # Should your extension expose other server extensions when launched directly?
     load_other_extensions = True

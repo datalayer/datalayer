@@ -55,7 +55,7 @@ cd $DLAHOME/src && \
 ```
 
 ```bash
-# Run `iam`, `kuber`, `jupyterhub`, `library` and `studio` services.
+# Start following services: `iam`, `kuber`, `jupyterhub`, `library` and `studio`.
 # These will run on your `local` environment (aka `dev` mode) outside of Minikube.
 cd $DLAHOME/src && \
   make start-endpoints

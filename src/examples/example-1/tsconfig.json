@@ -2,5 +2,8 @@
   "include": [
     "src"
   ],
-  "extends": "./../../tsconfig-base.json"
+  "extends": "./../../tsconfig-base.json",
+  "compilerOptions": {
+    "noEmit": true
+  }
 }

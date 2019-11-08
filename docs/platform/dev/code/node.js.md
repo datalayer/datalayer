@@ -22,3 +22,7 @@ node server.js
 ## Registry
 
 + https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-npm-for-use-with-github-package-registry
+
+## Yarn
+
++ https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle

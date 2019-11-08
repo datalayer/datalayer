@@ -1,12 +1,12 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
-import HelloTwo from './HelloTwo';
 import HelloOne from './HelloOne';
+import HelloTwo from './HelloTwo';
 
 const hello1 = () => <HelloOne />
-storiesOf('Example', module)
+storiesOf('DlaExample', module)
   .add('hello1', hello1);
 
 const hello2 = () => <HelloTwo />
-storiesOf('Example', module)
+storiesOf('DlaExample', module)
   .add('hello2', hello2);

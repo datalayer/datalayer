@@ -21,7 +21,7 @@ def box_example():
         enterprise_id = data['enterpriseID'],
         rsa_private_key_passphrase = data['boxAppSettings']['appAuth']['passphrase'],
         rsa_private_key_data = rsa_private_key_data,
-        jwt_key_id =  data['boxAppSettings']['appAuth']['publicKeyID'],
+        jwt_key_id = data['boxAppSettings']['appAuth']['publicKeyID'],
         store_tokens = cache_tokens
     )
     client = Client(auth)

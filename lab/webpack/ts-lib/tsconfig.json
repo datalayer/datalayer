@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "commonjs",
-    "declaration": true,
+    "allowJs": true,
+    "declaration": false,
     "outDir": "./lib",
     "strict": true,
     "esModuleInterop": true,

@@ -36,7 +36,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@datalayer/widgets": "0.0.3",
+    "@datalayer/components": "/repos/datalayer/src/components",
     "@jupyterlab/application": "^2.0.0-alpha.1",
     "@jupyterlab/apputils": "^2.0.0-alpha.1",
     "@jupyterlab/cells": "^2.0.0-alpha.1",

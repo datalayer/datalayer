@@ -295,6 +295,14 @@ export default function Dashboard() {
         <DashGridItem xs={12} sm={12} md={4}>
           <DashCard chart className={classes.cardHover}>
             <DashCardHeader color="warning" className={classes.cardHeaderHover}>
+              <ChartistGraph
+                className="ct-chart-white-colors"
+                data={emailsSubscriptionChart.data}
+                type="Bar"
+                options={emailsSubscriptionChart.options}
+//                responsiveOptions={emailsSubscriptionChart.responsiveOptions}
+//                listener={emailsSubscriptionChart.animation}
+              />
             </DashCardHeader>
             <DashCardBody>
               <div className={classes.cardHoverUnder}>
