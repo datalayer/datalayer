@@ -2,6 +2,14 @@
   "name": "@datalayer/jupyterctl",
   "version": "0.0.3",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build-to-static": "gulp build-to-static",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"yarn start\" \"jupyter ctl\""
+  },
   "dependencies": {
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
@@ -40,11 +48,9 @@
     "react-jvectormap": "0.0.12",
     "react-table": "6.10.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "concurrently": "5.0.0",
+    "gulp": "4.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"

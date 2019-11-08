@@ -2,4 +2,4 @@
 
 # Datalayer Widgets
 
-Datalayer widgets.
+Datalayer Widgets.

@@ -8,6 +8,15 @@ title: Visual Studio Code
 
 + https://github.com/microsoft/vscode-icons
 
+## Web
+
++ https://visualstudio.microsoft.com/services/visual-studio-online
++ https://code.visualstudio.com/updates/v1_40#_run-vs-code-web-out-of-sources
+
+```bash
+yarn web
+```
+
 ## Python
 
 + [Blog](https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code).

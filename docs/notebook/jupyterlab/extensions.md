@@ -137,7 +137,7 @@ EOF
 + https://github.com/ktaletsk/cookiecutter-jupyterlab-extension-with-serverextension
 + https://github.com/fcollonval/jupyterlab_api_ext
 
-## Debug
+## Debugger
 
 + https://github.com/jupyterlab/debugger
 + https://github.com/jupyterlab/debugger/pull/36

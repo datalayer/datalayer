@@ -10,14 +10,14 @@
   Learn to 💚 Data
 </h4>
 
-+ You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
-+ You use real datasets and code to create and publish **Reproducible** analysis.
-+ You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
-
 <p>
   See it as a <b>GitHub for education</b> to <b>analyse data</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 </p>
   
++ You use real datasets and code to create and publish **Reproducible** analysis.
++ You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
++ You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
+
 ## 🎓 Learning Data
 
 Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities designed to be:

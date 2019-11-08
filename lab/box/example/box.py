@@ -51,7 +51,9 @@ def box_example():
     print('Cleaning test folder.')
     [i.delete() for i in test_folder.get_items(limit=10)]
     print('Uploading file to test folder.')
-    test_file_2 = test_folder.upload(file_path=('./file.txt'))
+    test_file_2 = test_folder.upload(
+        file_path='./file.txt',
+        upload_using_accelerator=True)
     print('Listing items.')
     """
     items = test_folder.get_items(limit=100, offset=0)

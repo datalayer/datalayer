@@ -29,7 +29,7 @@ jupyter_kernel_mgmt includes two kernel providers in its distribution.
 1. KernelSpecProvider handles the discovery and launch of most existing kernelspec-based kernels that exist today.
 2. IPykernelProvider handles the discover and launch of any IPython kernel that is located in the executing python’s interpreter. For example, if the application is running in a virtual Python environment, this provider identifies if any IPython kernel is local to that environment and may not be identified by the path algorithm used by KernelSpecProvider.
 
-## Kernel Runtime Directory
+## Runtime Directory
 
 ```bash
 # Get runtime directory.
@@ -45,29 +45,48 @@ ls $(jupyter --runtime-dir) | grep json
 find `jupyter --runtime-dir` -mtime -5 | grep nbserver | xargs cat
 ```
 
-## Providers
-
-+ [Remote Kernel Provider](https://github.com/gateway-experiments/remote_kernel_provider).
-+ [Kubernetes Kernel Provider](https://github.com/gateway-experiments/kubernetes_kernel_provider).
-
-## Other Providers
-
-+ [YARN Kernel Provider](https://github.com/gateway-experiments/yarn_kernel_provider).
-+ [SSH Kernel Provider](https://github.com/gateway-experiments/jupyter_ssh_kernels).
-+ [Docker Kernel Provider](https://github.com/gateway-experiments/jupyter_docker_kernels).
-
 ## Server
 
 + https://github.com/jupyter/jupyter_server/pull/112
 + https://github.com/kevin-bates/jupyter_server/tree/jupyter-kernel-mgmt
 
-## Notebook
+## Providers
 
-+ https://github.com/jupyter/notebook/pull/4837
-+ ([WIP: Use new kernel management APIs in notebook server](https://github.com/jupyter/notebook/pull/4170) is superseded)
-+ [notebook/jupyter-kernel-mgmt](https://github.com/takluyver/notebook/tree/jupyter-kernel-mgmt).
++ [Kubernetes Kernel Provider](https://github.com/gateway-experiments/kubernetes_kernel_provider).
+
+Needs.
+
++ [Remote Kernel Provider](https://github.com/gateway-experiments/remote_kernel_provider).
+
+## Other Providers
+
++ [YARN Kernel Provider](https://github.com/gateway-experiments/yarn_kernel_provider).
++ [Remote Docker Kernel Provider](https://github.com/gateway-experiments/jupyter_docker_kernels).
++ [Jupyter SSH Kernel Provider](https://github.com/gateway-experiments/jupyter_ssh_kernels).
++ [Jupyter Docker Kernel Provider](https://github.com/gateway-experiments/jupyter_docker_kernels).
 
 ## Nbconvert
 
 + [ExecutePreprocessor using jupyter_kernel_mgmt APIs](https://github.com/jupyter/nbconvert/pull/809).
 
+## Conda Kernels
+
++ https://github.com/anaconda-platform/nb_conda_kernels
+
+```json
+{
+  "NotebookApp": {
+    "nbserver_extensions": {
+      "nb_conda": true,
+      "jupyterlab_twitter": true
+    },
+    "kernel_spec_manager_class": "nb_conda_kernels.CondaKernelSpecManager"
+  }
+}
+```
+
+## [DEPRECATED] Notebook
+
++ [WIP: Use new kernel management APIs in notebook server 6.x](https://github.com/jupyter/notebook/pull/4837)
++ ([WIP: Use new kernel management APIs in notebook server](https://github.com/jupyter/notebook/pull/4170) is superseded)
++ [notebook/jupyter-kernel-mgmt](https://github.com/takluyver/notebook/tree/jupyter-kernel-mgmt).
