@@ -46,7 +46,6 @@ Create a [FREE account on the Datalayer Web Site](https://datalayer.io).
   * [Release Notes 0.0.2](/releases/notes/0.0.2.md)
   * [Release Notes 0.0.1](/releases/notes/0.0.1.md)
   * [Releases History](/releases/history/releases.md)
-  * [Sprints History](/releases/history/sprints.md)
 * [Glossary](/glossary.md)
 
 {% content "users" %}
