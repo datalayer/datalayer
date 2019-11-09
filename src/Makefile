@@ -21,7 +21,9 @@ deps-ui:
 	mv /tmp/webpack.config.js node_modules/@react-workspaces/react-scripts/config/webpack.config.js
 
 build-ui:
-	@exec yarn build
+	cd ${DLAHOME}/src/widgets && yarn build && \
+	    cd ${DLAHOME}/src/components && yarn build && \
+		cd ${DLAHOME}/src && yarn build
 
 clean:
 	@exec yarn clean

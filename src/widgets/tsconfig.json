@@ -1,4 +1,12 @@
 {
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules", 
+    "**/__tests__/*",
+    "src/**/*.d.ts"
+  ],
   "compilerOptions": {
     "target": "es2015",
     "module": "esnext",
@@ -14,11 +22,5 @@
       "esnext"
     ],
     "skipLibCheck": true
-  },
-  "include": ["src"],
-  "exclude": [
-    "node_modules", 
-    "**/__tests__/*",
-    "src/**/*.d.ts"
-  ]
+  }
 }

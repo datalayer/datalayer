@@ -1,4 +1,7 @@
 {
+  "include": [
+    "src"
+  ],
   "compilerOptions": {
     "declaration": true,
     "noImplicitAny": false,
@@ -17,6 +20,5 @@
     ],
     "types": [],
     "jsx": "react"
-  },
-  "include": ["src/*"]
+  }
 }

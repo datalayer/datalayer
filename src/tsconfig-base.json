@@ -1,4 +1,11 @@
 {
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules", 
+    "**/__tests__/*"
+  ],
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -8,7 +15,10 @@
     ],
     "module": "esnext",
     "moduleResolution": "node",
+    "outDir": "./lib",
+    "jsx": "preserve",
     "allowJs": true,
+    "noEmit": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -17,11 +27,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
-    "jsx": "preserve",
     "noImplicitReturns": false,
     "noImplicitThis": false,
-    "noImplicitAny": false,
-    "outDir": "./lib"
+    "noImplicitAny": false
   }
 }

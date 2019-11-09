@@ -1,6 +1,7 @@
 {
   "name": "@datalayer/kuber",
   "version": "0.0.3",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/kuber",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.18",

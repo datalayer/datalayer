@@ -1,6 +1,7 @@
 {
   "name": "@datalayer/jupyterctl",
   "version": "0.0.3",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/jupyterctl",
   "private": true,
   "scripts": {
     "start": "react-scripts start",

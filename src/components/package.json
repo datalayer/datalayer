@@ -1,6 +1,7 @@
 {
   "name": "@datalayer/components",
   "version": "0.0.3",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/components",
   "private": true,
   "main": "lib/index.js",
   "main:src": "src/index.tsx",
@@ -16,7 +17,7 @@
     "lint": "eslint ./src/**/*.tsx --max-warnings=0 --format=codeframe"
   },
   "dependencies": {
-    "@datalayer/widgets": "/repos/datalayer/src/widgets",
+    "@datalayer/widgets": "0.0.3",
     "@storybook/react": "5.2.1",
     "cross-env": "5.0.5",
     "enzyme": "^3.9.0",

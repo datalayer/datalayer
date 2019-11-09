@@ -1,8 +1,11 @@
 {
   "name": "@datalayer/example-2",
   "version": "0.0.3",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/example/example-2",
   "private": true,
   "dependencies": {
+    "@datalayer/components": "0.0.3",
+    "@datalayer/widgets": "0.0.3",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
     "@types/react": "16.9.11",
@@ -12,8 +15,6 @@
     "react-dom": "16.11.0",
     "@react-workspaces/react-scripts": "3.0.1-alpha-07",
     "typescript": "3.7.1-rc",
-    "@datalayer/components": "0.0.3",
-    "@datalayer/widgets": "0.0.3",
     "cross-env": "5.0.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",

@@ -1,6 +1,7 @@
 {
   "name": "@datalayer/common",
   "version": "0.0.3",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/common",
   "private": true,
   "dependencies": {
     "@datalayer/components": "0.0.3",

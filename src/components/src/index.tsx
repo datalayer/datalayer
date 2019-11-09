@@ -1,3 +1,6 @@
+import "./assets/scss/material-kit-pro-react.scss?v=1.8.0";
+import "./assets/scss/material-dashboard-pro-react.scss?v=1.8.0";
+
 {/*
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -31,6 +34,3 @@ export {default as HelloOne} from './example/HelloOne';
 export {default as HelloTwo} from './example/HelloTwo';
 export {default as DlaHeader} from './header/DlaHeader';
 export {default as DlaProfile} from './profile/DlaProfile';
-
-import "./assets/scss/material-kit-pro-react.scss?v=1.8.0";
-import "./assets/scss/material-dashboard-pro-react.scss?v=1.8.0";

@@ -2,7 +2,7 @@
 
 # Datalayer Source Code
 
-🔴🔥✅ This `place` contains the source code of the modules that build up the `Datalayer Science Platform`.
+🔴🔥✅ This is the source code of the `Datalayer Science Platform`.
 
 + [Common](./common)
 + [Components](./components)
@@ -17,7 +17,7 @@
 + [Studio](./studio)
 + [Widgets](./widgets)
 
-## Stack
+## Technical Stack
 
 + react.js
 + jupyterhub
@@ -28,6 +28,36 @@
 + jupyter-kernel-mgmt
 + kernelpool-provider
 + kubernetes
+
+## Pull Requests and Issues
+
+jupyter-server
+
++ [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
++ [Preparse subcommands in an extensionapps](https://github.com/jupyter/jupyter_server/pull/133)
++ [Make frontends discoverable and add a frontend alias](https://github.com/jupyter/jupyter_server/issues/121)
++ [Kernel providers](https://github.com/jupyter/jupyter_server/pull/112)
++ [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)
++ [Document jupyter_server](https://github.com/jupyter/jupyter_server/issues/131)
++ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
++ [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
++ Release jupyter_server with kernel_mgmt
+
+jupyerlab
+
++ [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
++ [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
++ [In-person dev meeting](https://github.com/jupyterlab/team-compass/issues/19)
+
+jupyter-kernel-mgmt
+
++ [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
++ Develop a nb_conda_kernel provider for kernel_mgmt
+
+others
+
++ [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)
++ [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
 
 ## Endpoints
 

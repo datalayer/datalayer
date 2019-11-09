@@ -1,6 +1,7 @@
 {
   "name": "@datalayer/widgets",
   "version": "0.0.3",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/widgets",
   "private": true,
   "main": "lib/index.js",
   "main:src": "src/index.js",
