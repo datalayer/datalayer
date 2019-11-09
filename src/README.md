@@ -6,7 +6,7 @@
 
 + [Common](./common)
 + [Components](./components)
-+ [DataBook](./databook)
++ [DataBook](./storybook-jupyter)
 + [Datalayer Controller](./datalayerctl)
 + [IAM](./iam)
 + [Jupyter Controller](./jupyterctl)

@@ -138,3 +138,16 @@ sourcefile_editmenu.png
 ```
 
 This will help us to keep track of the images as documentation content evolves.
+
+## Markdown Tips
+
+From https://github.com/takluyver/jupyter_kernel_mgmt/issues/31#issuecomment-552108950 (written by @kevin-bates)
+
+```md
+The twisty expansion stuff (can never remember the term) is performed using straight html that wraps the contained markdown in a "details/paragraph" thing. From above, here's the header...
+
+<details><summary>event loop: WindowsSelectorEventLoop (default)</summary><p>
+then regular markdown . Be sure there's a blank link between the header and the markdown. Then cap things off with the "footer".
+
+</p></details>
+```

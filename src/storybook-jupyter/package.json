@@ -1,7 +1,7 @@
 {
-  "name": "@datalayer/databook",
+  "name": "@datalayer/storybook-jupyter",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/databook",
+  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/storybook-jupyter",
   "private": false,
   "dependencies": {
     "@types/jest": "24.0.18",
