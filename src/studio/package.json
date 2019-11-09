@@ -5,7 +5,7 @@
   "description": "Datalayer",
   "license": "Apache-2.0",
   "author": "Datalayer <info@datalayer.io>",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",

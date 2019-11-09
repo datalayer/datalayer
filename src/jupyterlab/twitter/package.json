@@ -4,7 +4,7 @@
   "homepage": "https://github.com/datalayer/datalayer/tree/master/src/jupyterlab/twitter",
   "description": "JupyterLab Extension for Twitter",
   "license": "Apache-2.0",
-  "private": true,
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/datalayer/datalayer/tree/master/src/jupyterlab/twitter"
@@ -30,13 +30,23 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf lib",
-    "prepublish": "npm run build",
-    "watch": "tsc -w"
+    "clean": "yarn run clean:jupyter && yarn clean:packages && yarn clean:node",
+    "clean2": "rimraf lib",
+    "clean:jupyter": "yarn run uninstall:extensions && (lerna run --no-bail unlink || echo 'At least one unlink command failed, but continuing...') && jupyter lab clean",
+    "clean:node": "lerna clean --yes && rimraf node_modules",
+    "clean:packages": "lerna run clean",
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "yarn run build:dev",
+    "build:dev": "yarn install && yarn run link:packages && jupyter labextension list",
+    "build:jupyter": "(jupyter lab build || (yarn run build:jupyter:remediate && jupyter lab build)) && jupyter lab",
+    "build:jupyter:remediate": "curr_dir=$PWD && (cd $(jupyter lab path | head -n1 | sed s/Application\\ directory:\\ *//)/staging && echo $PWD && echo '\"@datalayer:registry\" \"http://localhost:4873\"' >> .yarnrc && cat .yarnrc && YARN_REGISTRY=http://localhost:4873 node ./yarn.js install --non-interactive && cd $curr_dir) || cd $curr_dir",
+    "build:jupyter:watch": "(jupyter lab build || (yarn run build:jupyter:remediate && jupyter lab build)) && jupyter lab --watch",
+    "build:watch": "tsc --build --watch --listEmittedFiles",
+    "link:packages": "jupyter labextension link . --no-build"
   },
   "dependencies": {
-    "@datalayer/components": "/repos/datalayer/src/components",
+    "@datalayer/components": "0.0.3",
     "@jupyterlab/application": "^2.0.0-alpha.1",
     "@jupyterlab/apputils": "^2.0.0-alpha.1",
     "@jupyterlab/cells": "^2.0.0-alpha.1",

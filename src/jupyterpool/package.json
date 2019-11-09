@@ -2,7 +2,7 @@
   "name": "@datalayer/jupyterpool",
   "version": "0.0.3",
   "homepage": "https://github.com/datalayer/datalayer/tree/master/src/jupyterpool",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",

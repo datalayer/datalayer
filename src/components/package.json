@@ -2,7 +2,7 @@
   "name": "@datalayer/components",
   "version": "0.0.3",
   "homepage": "https://github.com/datalayer/datalayer/tree/master/src/components",
-  "private": true,
+  "private": false,
   "main": "lib/index.js",
   "main:src": "src/index.tsx",
   "scripts": {

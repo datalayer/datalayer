@@ -8,7 +8,11 @@
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix",
     "endpoints": "concurrently --kill-others \"./dev/portforward-zookeeper.sh\" \"./dev/portforward-solr.sh\" \"./dev/start-iam.sh\" \"./dev/start-library.sh\" \"./dev/start-kuber.sh\" \"./dev/start-jupyterhub.sh\" \"./dev/start-jupyterpool.sh\" \"./dev/start-studio.sh\" \"./dev/start-studio-dev.sh\" \"./dev/k8s-dashboard.sh\"",
-    "clean": "rimraf node_modules"
+    "clean": "rimraf node_modules",
+    "registry": "verdaccio",
+    "registry:init": "yarn run registry:adduser && yarn run registry:register",
+    "registry:adduser": "node ./dev/registry.adduser.js",
+    "registry:register": "env NPM_USER=foo NPM_PASS=bar NPM_EMAIL=foo@bar.com NPM_REGISTRY=http://localhost:4873 NPM_SCOPE=@datalayer npm-cli-login && lerna exec --scope @datalayer/widgets --scope @datalayer/components -- npm publish --registry http://localhost:4873 && open http://localhost:4873"
   },
   "workspaces": {
     "packages": [
@@ -51,7 +55,10 @@
     "lerna": "^3.10.7",
     "prettier": "^1.16.1",
     "concurrently": "4.1.0",
-    "rimraf": "3.0.0"
+    "rimraf": "3.0.0",
+    "npm-cli-login": "0.1.1",
+    "npm-registry-client": "8.6.0",
+    "verdaccio": "4.3.4"
   },
   "jest": {
     "collectCoverageFrom": [

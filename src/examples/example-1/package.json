@@ -2,7 +2,7 @@
   "name": "@datalayer/example-1",
   "version": "0.0.3",
   "homepage": "https://github.com/datalayer/datalayer/tree/master/src/example/example-1",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@datalayer/components": "0.0.3",
     "@datalayer/widgets": "0.0.3",
