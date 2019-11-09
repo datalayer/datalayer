@@ -93,7 +93,6 @@ Create a [FREE account on the Datalayer Web Site](https://datalayer.io).
     * [Network](/dev/tools/network.md)
     * [Console](/dev/tools/console.md)
     * [Git](/dev/tools/git.md)
-    * [Visual Studio Code](/dev/tools/vscode.md)
     * [Static Sites](/dev/tools/static-site.md)
     * [Playground](/dev/tools/playground.md)
     * [Hosting](/dev/tools/hosting.md)

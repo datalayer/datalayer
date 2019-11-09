@@ -9,7 +9,6 @@ Some useful tools.
 + [Network](/dev/tools/network.md)
 + [Console](/dev/tools/console.md)
 + [Git](/dev/tools/git.md)
-+ [Visual Studio Code](/dev/tools/vscode.md)
 + [Static Sites](/dev/tools/static-site.md)
 + [Playground](/dev/tools/playground.md)
 + [CI CD](/dev/tools/ci-cd.md)

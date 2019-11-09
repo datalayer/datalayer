@@ -4,25 +4,35 @@ title: Visual Studio Code
 
 # Visual Studio Code
 
-## Icons
++ https://code.visualstudio.com
++ https://github.com/microsoft/vscode
 
-+ https://github.com/microsoft/vscode-icons
++ https://github.com/microsoft/vscode/wiki/How-to-Contribute
 
-## Web
+## Online
 
 + https://visualstudio.microsoft.com/services/visual-studio-online
 + https://code.visualstudio.com/updates/v1_40#_run-vs-code-web-out-of-sources
 
 ```bash
+yarn
+yarn watch
 yarn web
 ```
+
+## Inline
+
++ https://github.com/Microsoft/vscode/issues/3220
++ https://github.com/Microsoft/vscode/issues/10680
+
+## Icons
+
++ https://github.com/microsoft/vscode-icons
 
 ## Python
 
 + [Blog](https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code).
-
 + [Docs](https://code.visualstudio.com/docs/python/jupyter-support)
-
 + GitHub [repo](https://github.com/microsoft/vscode-python)
 
 # Jupyter
@@ -37,3 +47,9 @@ yarn web
 ## Hydrogen
 
 Nteract Hydrogen [VS Code Integration](https://github.com/nteract/hydrogen/issues/449).
+
+## Theia
+
++ https://www.theia-ide.org
++ https://github.com/theia-ide/theia
++ https://www.gitpod.io

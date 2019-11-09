@@ -17,7 +17,7 @@
     "lint": "eslint ./src/**/*.tsx --max-warnings=0 --format=codeframe"
   },
   "dependencies": {
-    "@datalayer/widgets": "0.0.3",
+    "@datalayer/widgets": "/repos/datalayer/src/widgets",
     "@storybook/react": "5.2.1",
     "cross-env": "5.0.5",
     "enzyme": "^3.9.0",

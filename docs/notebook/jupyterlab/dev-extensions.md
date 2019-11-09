@@ -4,6 +4,8 @@ title: JupyterLab Develop Extensions
 
 # JupyterLab Develop Extensions
 
+[Extension Development Wishlist](https://github.com/jupyterlab/jupyterlab/issues/7468).
+
 ## Docs
 
 JupyterLab Extensions Development.
@@ -12,10 +14,6 @@ JupyterLab Extensions Development.
 + [Companion Packages](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#companion-packages).
 + [State Database](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#state-database).
 + [Context Menu](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#context-menus).
-
-## Build Enhancement
-
-[Extension Development Wishlist](https://github.com/jupyterlab/jupyterlab/issues/7468).
 
 ## Tutorial
 

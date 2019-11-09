@@ -13,7 +13,7 @@ export default class HelloOne extends React.Component<any, any> {
 			<span role="img" aria-label="React Logo">
 				⚛️
 			</span>
-			  Hello Oneee
+			  Hello One
 			</h3>
 		</div>
 	  );
