@@ -29,11 +29,12 @@
 + kernelpool-provider
 + kubernetes
 
-## Pull Requests and Issues
+## Opened Pull Requests and Issues
 
 datalayer
 
 + [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
++ [Create JupyterLab Extension examples](https://github.com/datalayer/datalayer/issues/21)
 + [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
 + [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + [Index and Search Notes](https://github.com/datalayer/datalayer/issues/3)
@@ -128,9 +129,8 @@ The Datalayer UIs (User Interfaces) are built on `React.js` components.
 
 For development, ensure you fullfill the [requirements](https://docs.datalayer.io/dev/requirements.html).
 
-Launch Verdaccio
-
 ```bash
+# OPTIONAL - Launch Verdaccio.
 # in ~/.config/verdaccio/config.yaml
 # Set `max_body_size: 1Gb`
 yarn registry
