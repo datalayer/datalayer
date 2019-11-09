@@ -57,6 +57,7 @@ jupyterlab
 + [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
 + [Add sass-loader in the build](https://github.com/jupyterlab/jupyterlab/pull/7503)
 + [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
++ [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
 
 jupyter-kernel-mgmt
 
