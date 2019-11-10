@@ -28,7 +28,7 @@ Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** ca
 1. Scalable.
 1. Secured.
 
-## 🚀 Reproducible Data Papers
+## 🚀 Data Papers
 
 Others can understand, reuse and build on top of your papers.
 
