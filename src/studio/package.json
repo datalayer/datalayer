@@ -1,7 +1,6 @@
 {
   "name": "@datalayer/studio",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/studio",
   "description": "Datalayer",
   "license": "Apache-2.0",
   "author": "Datalayer <info@datalayer.io>",

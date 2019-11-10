@@ -1,7 +1,6 @@
 {
   "name": "@datalayer/example-2",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/example/example-2",
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {

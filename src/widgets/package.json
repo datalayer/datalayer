@@ -1,7 +1,6 @@
 {
   "name": "@datalayer/widgets",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/widgets",
   "license": "Apache-2.0",
   "private": false,
   "main": "lib/index.js",

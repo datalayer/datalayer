@@ -1,7 +1,6 @@
 {
   "name": "@datalayer/components",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/components",
   "private": false,
   "license": "Apache-2.0",
   "main": "lib/index.js",

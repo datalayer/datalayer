@@ -1,7 +1,6 @@
 {
   "name": "@datalayer/jupyter-storybook",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/jupyter-storybook",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {

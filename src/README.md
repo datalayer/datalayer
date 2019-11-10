@@ -20,7 +20,7 @@
 ## Legend
 
 | Mark | Description |
-| ------------- | ------------- |
+| -----| ----------- |
 | 🏃 | Work In Progress |
 | ✋ | Blocked Task |
 | 💪 | Stretch Goal for this Iteration |

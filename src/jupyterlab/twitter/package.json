@@ -1,7 +1,6 @@
 {
   "name": "@datalayer/jupyterlab-twitter",
   "version": "0.0.3",
-  "homepage": "https://github.com/datalayer/datalayer/tree/master/src/jupyterlab/twitter",
   "description": "JupyterLab Extension for Twitter",
   "license": "Apache-2.0",
   "private": false,
