@@ -21,12 +21,12 @@
 
 | Mark | Description |
 | ------------- | ------------- |
-| 🏃 | Work in progress |
-| ✋ | Blocked task |
-| 💪 | Stretch goal for this iteration |
-| 🔵 | More investigation required to remove uncertainty |
-| ⚫️ | Under discussion within the team |
-| 🔴 | Missing issue reference |
+| 🏃 | Work In Progress |
+| ✋ | Blocked Task |
+| 💪 | Stretch Goal for this Iteration |
+| 🔵 | More Investigation Required to Remove Uncertainty |
+| ⚫️ | Under Discussion within the Team |
+| 🔴 | Missing Issue Reference |
 
 ## Iteration Plan
 
@@ -44,11 +44,10 @@ Below is a summary of the top level plan items.
 ### Datalayer
 
 + 🏃 [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
-+ 💪 [Create JupyterLab Extension examples](https://github.com/datalayer/datalayer/issues/21)
-+ 🔵 [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
-+ 🔵 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
++ 🏃 [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
++ 🏃 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + 💪 [Index and Search Notes](https://github.com/datalayer/datalayer/issues/3)
-+ 💪 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
++ 🔵 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
 
 ### Jupyter Server
 
@@ -58,15 +57,16 @@ Below is a summary of the top level plan items.
 + 🔵 [Kernel Providers](https://github.com/jupyter/jupyter_server/pull/112)
 + 🔵 [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)
 + 🔵 [Document jupyter_server](https://github.com/jupyter/jupyter_server/issues/131)
-+ ✋ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
 + 💪 [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
-+ ✋ [Release jupyter_server 0.2.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
++ ✋ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
++ 🔵 [Release jupyter_server 0.2.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
 
 ### JupyterLab
 
-+ 🏃 [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
-+ 🏃 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
-+ 🏃 [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
++ 🏃 [Create JupyterLab Extension examples](https://github.com/datalayer/datalayer/issues/21)
++ 💪 [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
++ 💪 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
++ ⚫️ [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
 + ⚫️ [Create a `jupyterlab-extension-examples` repository](https://github.com/jupyterlab/jupyterlab/issues/7505)
 + ⚫️ [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
 
