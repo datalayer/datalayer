@@ -11,4 +11,4 @@
 + [Office](./office)
 + [Reactify](./reactify)
 + [Spark](./spark)
-+ [Xkdc, A webcomic of romance, sarcasm, math, and language](./xkdc)
++ [Xkcd, A webcomic of romance, sarcasm, math, and language](./xkcd)

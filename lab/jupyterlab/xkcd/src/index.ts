@@ -57,9 +57,16 @@ class XkcdWidget extends Widget {
    * Handle update requests for the widget.
    */
   onUpdateRequest(msg: Message): void {
-    fetch('https://egszlpbmle.execute-api.us-east-1.amazonaws.com/prod').then(response => {
+    fetch('https://xkcd.now.sh/?comic=latest', {
+      mode: 'cors',
+      headers: new Headers({
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      })
+    }).then(response => {
       return response.json();
     }).then(data => {
+      console.log(data)
       this.img.src = data.img;
       this.img.alt = data.title;
       this.img.title = data.alt;

@@ -21,12 +21,12 @@
 
 | Mark | Description |
 | -----| ----------- |
-| 🏃 | Work In Progress |
-| ✋ | Blocked Task |
-| 💪 | Stretch Goal for this Iteration |
-| 🔵 | Under Discussion within the Team |
-| ⚫️ | More Investigation Required to Remove Uncertainty |
-| 🔴 | Missing Issue Reference |
+| 🏃 | Work in progress |
+| ✋ | Blocked task |
+| 💪 | Stretch goal for this iteration |
+| 🔵 | Under discussion within the Team |
+| ⚫️ | More investigation required to remove uncertainty |
+| 🔴 | Missing issue reference |
 
 ## Endgame
 
