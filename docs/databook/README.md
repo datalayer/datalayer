@@ -2,7 +2,7 @@
 
 > :sparkles: :mega: Documentation for Datalayer Notebook. :lollipop:
 
-The content of this folder is deployed on the [Datalayer documentation website](https://docs.notebook.sh).
+The content of this folder is deployed on the [Datalayer documentation website](https://docs.databook.sh).
 
 ## Contribute to the Documentation
 
