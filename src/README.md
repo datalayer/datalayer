@@ -21,12 +21,12 @@
 
 | Mark | Description |
 | ------------- | ------------- |
-| 🏃 | work in progress |
-| ✋ | blocked task |
-| 💪 | stretch goal for this iteration |
-| 🔵 | more investigation required to remove uncertainty |
-| ⚫️ | under discussion within the team |
-| 🔴 | missing issue reference |
+| 🏃 | Work in progress |
+| ✋ | Blocked task |
+| 💪 | Stretch goal for this iteration |
+| 🔵 | More investigation required to remove uncertainty |
+| ⚫️ | Under discussion within the team |
+| 🔴 | Missing issue reference |
 
 ## Iteration Plan
 
@@ -67,8 +67,8 @@ Below is a summary of the top level plan items.
 + 🏃 [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
 + 🏃 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
 + 🏃 [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
-+ 💪 [Create a `jupyterlab-extension-examples` repository](https://github.com/jupyterlab/jupyterlab/issues/7505)
-+ 💪 [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
++ ⚫️ [Create a `jupyterlab-extension-examples` repository](https://github.com/jupyterlab/jupyterlab/issues/7505)
++ ⚫️ [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
 
 ### Jupyter Kernel Mgmt
 
