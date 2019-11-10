@@ -1,8 +1,8 @@
 {
     "gitbook": ">= 3.2.1",
-    "title": "Datalayer Notebook Documentation",
-    "description": "Datalayer Notebook Documentation",
-    "author": "Datalayer Notebook Authors",
+    "title": "Datalayer DataBook Documentation",
+    "description": "Datalayer DataBook Documentation",
+    "author": "Datalayer",
     "language": "en",
     "plugins": [
         "codegroup",
@@ -34,7 +34,7 @@
         },
         "insert-logo-link": {
             "src": "/logo/datalayer-25.svg",
-            "url": "https://docs.notebook.sh"
+            "url": "https://databook.datalayer.io"
         },
         "page-toc-button": {
 			"maxTocDepth": 2,
@@ -59,6 +59,6 @@
             "top": 36,
             "bottom": 36
         },
-        "footerTemplate": "Datalayer Notebook Documentation (c) Datalayer 2019"
+        "footerTemplate": "Datalayer DataBook Documentation (c) Datalayer 2019"
     }
 }

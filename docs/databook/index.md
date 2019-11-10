@@ -1,4 +1,4 @@
-# Datalayer Notebook Documentation
+# Datalayer DataBook Documentation
 
 > This site contains documentation on the Jupyter components used to build the [Datalayer Platform](https://datalayer.io).
 
