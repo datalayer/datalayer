@@ -12,7 +12,7 @@ title: Visual Studio Code
 ## Online
 
 + https://visualstudio.microsoft.com/services/visual-studio-online
-+ https://code.visualstudio.com/updates/v1_40#_run-vs-code-web-out-of-sources
++ https://code.visualstudio.com/updates/v1_40#_test-vs-code-running-in-a-browser
 
 ```bash
 # Terminal 1.

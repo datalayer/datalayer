@@ -23,7 +23,7 @@ make env install
 You are now ready to build and serve on http://localhost:4000.
 
 ```bash
-# Build and Serve the documentation content.
+# Build and serve the documentation content.
 make build serve
 ```
 

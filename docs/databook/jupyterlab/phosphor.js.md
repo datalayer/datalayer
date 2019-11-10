@@ -8,6 +8,8 @@ PhosphorJS on [GitHub](https://github.com/phosphorjs/phosphor).
 
 PhosphorJS [Docs](http://phosphorjs.github.io).
 
+[Absorb the Phosphor Project](https://github.com/jupyterlab/team-compass/issues/28)
+
 ## Examples
 
 Try the [examples](https://github.com/datalayer/datalayer/tree/master/lab/phosphor-js) in the Datalayer Lab.

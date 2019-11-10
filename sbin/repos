@@ -90,7 +90,8 @@ jupyterlab-cookiecutter-extension|https://github.com/datalayer-contrib/jupyterla
 jupyterlab-cookiecutter-mimerender|https://github.com/datalayer-contrib/jupyterlab-cookiecutter-mimerender.git|https://github.com/jupyterlab/mimerender-cookiecutter-ts.git|master \
 jupyterlab-data-explorer|https://github.com/datalayer-contrib/jupyterlab-data-explorer.git|https://github.com/jupyterlab/jupyterlab-data-explorer.git|master \
 jupyterlab-demo|https://github.com/datalayer-contrib/jupyterlab-demo.git|https://github.com/jupyterlab/jupyterlab-demo.git|master \
-jupyterlab-drawio|https://github.com/datalayer-contrib/jupyterlab-drawio.git|https://github.com/QuantStack/jupyterlab-drawio.git|master \
+jupyterlab-drawio|https://github.com/datalayer-contrib/jupyterlab-drawio.git|https://github.com/quantstack/jupyterlab-drawio.git|master \
+jupyterlab-extension-examples|https://github.com/datalayer-contrib/jupyterlab-extension-examples.git|https://github.com/jtpio/jupyterlab-extension-tutorial|master \
 jupyterlab-git|https://github.com/datalayer-contrib/jupyterlab-git.git|https://github.com/jupyterlab/jupyterlab-git.git|master \
 jupyterlab-github|https://github.com/datalayer-contrib/jupyterlab-github.git|https://github.com/jupyterlab/jupyterlab-github.git|master \
 jupyterlab-google-drive|https://github.com/datalayer-contrib/jupyterlab-google-drive.git|https://github.com/jupyterlab/jupyterlab-google-drive.git|master \

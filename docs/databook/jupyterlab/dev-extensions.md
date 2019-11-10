@@ -13,6 +13,7 @@ title: JupyterLab Develop Extensions
 
 ## Tutorial
 
++ https://github.com/jtpio/jupyterlab-extension-tutorial
 + https://github.com/mmesch/labextension_tutorial
 
 ## Wishlist
