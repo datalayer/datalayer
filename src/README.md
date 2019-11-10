@@ -24,8 +24,8 @@
 | 🏃 | Work In Progress |
 | ✋ | Blocked Task |
 | 💪 | Stretch Goal for this Iteration |
-| 🔵 | More Investigation Required to Remove Uncertainty |
-| ⚫️ | Under Discussion within the Team |
+| 🔵 | Under Discussion within the Team |
+| ⚫️ | More Investigation Required to Remove Uncertainty |
 | 🔴 | Missing Issue Reference |
 
 ## Endgame
@@ -70,17 +70,17 @@ Below is a summary of the top level play items.
 
 ### Jupyter Kernel Management
 
-+ ⚫️ [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
++ 🔵 [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
++ ⚫️ [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 + ✋ [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
-+ 🔵 [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 
 ### Jupyter Notebook
 
-+ ⚫️ [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)
++ 🔵 [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)
 
 ### Voila
 
-+ ⚫️ [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
++ 🔵 [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
 
 ## Endpoints
 
