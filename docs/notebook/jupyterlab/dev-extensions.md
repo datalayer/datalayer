@@ -4,11 +4,7 @@ title: JupyterLab Develop Extensions
 
 # JupyterLab Develop Extensions
 
-[Extension Development Wishlist](https://github.com/jupyterlab/jupyterlab/issues/7468).
-
 ## Docs
-
-JupyterLab Extensions Development.
 
 + [Docs](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html).
 + [Companion Packages](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#companion-packages).
@@ -17,7 +13,17 @@ JupyterLab Extensions Development.
 
 ## Tutorial
 
-+ https://github.com/MMesch/labextension_tutorial
++ https://github.com/mmesch/labextension_tutorial
+
+## Wishlist
+
+[Extension Development Wishlist](https://github.com/jupyterlab/jupyterlab/issues/7468).
+
+[Potential solutions without Webpack](https://github.com/jupyterlab/jupyterlab/issues/5672#issuecomment-526278264)
+
++ Be clearer about when we have sourcemaps on, make sure sourcemaps go all the way back to TypeScript.
++ Prebuild extensions and have them served without building
++ What about VSCodes model? They keep every plugin in a seperate process and just use message passing to communicate. We don't do that cause we wanna give extensions access to shared JS objects and the DOM.
 
 ## CookieCutter
 
@@ -47,39 +53,39 @@ jupyter lab --watch
 # Examples
 
 ```bash
-cd $DLAHOME/src/jupyterlab/twitter
-yarn install
-yarn run build
-jupyter labextension install
+cd $DLAHOME/src/jupyterlab/twitter && \
+  yarn install && \
+  yarn build && \
+  jupyter labextension install
 ```
 
 ```bash
-# Step 1
-cd $DLAHOME/src/jupyterlab/twitter
-jupyter labextension link
-yarn watch
-# Step 2
-cd $DLAHOME/repos/jupyterlab
-jupyter lab --watch
+# Terminal 1.
+cd $DLAHOME/src/jupyterlab/twitter && \
+  jupyter labextension link && \
+  yarn watch
+# Terminal 2.
+cd $DLAHOME/repos/jupyterlab && \
+  jupyter lab --watch
 ```
 
 ```bash
 # Installation and activation of Git handler.
 # Installation and activation for jupyterlab_git python handler package.
-cd $DLAHOME/repos/jupyterlab-git
-pip install .
-jupyter serverextension enable --py jupyterlab_git
-yarn install
-yarn run build
-jupyter labextension install
+cd $DLAHOME/repos/jupyterlab-git && \
+  pip install . && \
+  jupyter serverextension enable --py jupyterlab_git && \
+  yarn install && \
+  yarn run build && \
+  jupyter labextension install
 # Launch JupyterLab & you will see the new Git buttons on the left side of the window.
 jupyter lab
 ```
 
 ```bash
 # If you must install a extension into a development branch of JupyterLab, you have to graft it into the source tree of JupyterLab itself. In the JupyterLab root directory, where <path-or-url> refers either to an extension npm package on the local filesystem, or a URL to a git repository for an extension npm package.
-yarn run add:sibling $DLAHOME/src/jupyterlab/twitter
-jupyter lab --dev-mode --watch
+yarn run add:sibling $DLAHOME/src/jupyterlab/twitter && \
+  jupyter lab --dev-mode --watch
 # This operation may be subsequently reversed by running.
 yarn run remove:sibling $DLAHOME/src/jupyterlab/twitter
 ```
@@ -93,10 +99,9 @@ jupyter labextension update --all
 yarn upgrade --latest --exact --scope @jupyterlab
 ```
 
-## Dependencies
+## Discovery
 
 + https://github.com/vidartf/jupyterlab_discovery
-
 + https://jupyterlab-discovery.readthedocs.io/en/stable/index.html
 
 ## Publish

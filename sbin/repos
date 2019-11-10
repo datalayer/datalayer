@@ -103,7 +103,7 @@ jupyterlab-thebe|https://github.com/datalayer-contrib/jupyterlab-thebe.git|https
 jupyterlab-toastify|https://github.com/datalayer-contrib/jupyterlab-toastify.git|https://github.com/fcollonval/jupyterlab_toastify.git|master \
 jupyterlab-toc|https://github.com/datalayer-contrib/jupyterlab-toc.git|https://github.com/jupyterlab/jupyterlab-toc.git|master \
 jupyterlab-voyager|https://github.com/datalayer-contrib/jupyterlab-voyager.git|https://github.com/altair-viz/jupyterlab_voyager.git|master \
-jupyterlab-xkcd|https://github.com/datalayer-contrib/jupyterlab-xkcd.git|https://github.com/jupyterlab/jupyterlab_xkcd.git|0.32 \
+jupyterlab-xkcd|https://github.com/datalayer-contrib/jupyterlab-xkcd.git|https://github.com/jupyterlab/jupyterlab_xkcd.git|master \
 k8s-airflow-operator|https://github.com/datalayer-contrib/k8s-airflow-operator.git|https://github.com/GoogleCloudPlatform/airflow-operator.git|master \
 k8s-aws-authenticator|https://github.com/datalayer-contrib/k8s-aws-authenticator.git|https://github.com/kubernetes-sigs/aws-iam-authenticator.git|master \
 k8s-aws-quickstart|https://github.com/datalayer-contrib/k8s-aws-quickstart.git|https://github.com/heptio/aws-quickstart.git|master \

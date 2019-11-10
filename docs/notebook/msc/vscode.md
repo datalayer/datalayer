@@ -15,8 +15,10 @@ title: Visual Studio Code
 + https://code.visualstudio.com/updates/v1_40#_run-vs-code-web-out-of-sources
 
 ```bash
+# Terminal 1.
 yarn
 yarn watch
+# Terminal 2.
 yarn web
 ```
 

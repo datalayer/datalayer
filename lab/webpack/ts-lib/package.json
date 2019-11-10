@@ -1,39 +1,36 @@
 {
-  "name": "my-awesome-greeter",
-  "version": "1.0.2",
+  "name": "@datalyer/ts-lib",
+  "version": "0.0.1",
   "description": "A nice greeter",
+  "private": true,
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
+    "webpack": "tsc -p tsconfig.json && webpack",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "clean": "rimraf build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caki0915/my-awesome-greeter.git"
+    "url": "git+https://github.com/datalayer/datalayer.git"
   },
-  "keywords": [
-    "Hello",
-    "Greeter"
-  ],
-  "author": "C-J",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/caki0915/my-awesome-greeter/issues"
-  },
-  "homepage": "https://github.com/caki0915/my-awesome-greeter#readme",
   "dependencies": {
     "react": "16.11.0",
     "react-dom": "16.11.0"
   },
   "devDependencies": {
+    "rifraf": "2.0.3",
+    "webpack": "~4.29.6",
+    "webpack-cli": "^3.3.0",
+    "whatwg-fetch": "~2.0.3",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
     "@types/jest": "^22.2.3",
