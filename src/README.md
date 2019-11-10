@@ -28,16 +28,14 @@
 | ⚫️ | Under Discussion within the Team |
 | 🔴 | Missing Issue Reference |
 
-## Iteration Plan
-
-Endgame
+## Endgame
 
 + November 11th, 2019: Endgame begins.
 + November 17th, 2019: Endgame done.
 
 The endgame details for this iteration are tracked in the linked issues.
 
-## Plan Items
+## Items
 
 Below is a summary of the top level plan items.
 
@@ -70,15 +68,18 @@ Below is a summary of the top level plan items.
 + ⚫️ [Create a `jupyterlab-extension-examples` repository](https://github.com/jupyterlab/jupyterlab/issues/7505)
 + ⚫️ [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
 
-### Jupyter Kernel Mgmt
+### Jupyter Kernel Management
 
 + 🏃 [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
 + ✋ [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
 + 🔵 [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 
-### Others
+### Jupyter Notebook
 
 + ⚫️ [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)
+
+### Voila
+
 + ⚫️ [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
 
 ## Endpoints
