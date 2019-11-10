@@ -40,3 +40,4 @@ Create UI [Plugins](/viz/plugins.md).
 + https://github.com/hongru/canvas2image
 + https://github.com/tsayen/dom-to-image
 + https://github.com/ariya/phantomjs/blob/master/examples/rasterize.js
++ https://github.com/codesandbox/screenshotter

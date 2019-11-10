@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# SparkLab
+# JupyterLab Spark
 
 JupyterLab Extension for Apache Spark.
 

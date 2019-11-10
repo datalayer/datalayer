@@ -6,7 +6,9 @@ title: React.js
 
 ## Create App
 
-+ https://github.com/facebook/create-react-app
++ [create-react-app](https://github.com/facebook/create-react-app).
++ [react-app-rewired](https://github.com/timarney/react-app-rewired).
++ Datalayer [react-boilerplate](https://github.com/datalayer/datalayer/tree/master/lab/react-boilerplate).
 
 ## Create Library
 
@@ -79,12 +81,6 @@ Try the [examples](https://github.com/datalayer/datalayer/tree/master/lab) in th
 
 + [Preact](https://preactjs.com).
 + [Inferno](https://infernojs.org).
-
-## Create React App
-
-+ [create-react-app](https://github.com/facebook/create-react-app).
-+ [react-app-rewired](https://github.com/timarney/react-app-rewired).
-+ Datalayer [react-boilerplate](https://github.com/datalayer/datalayer/tree/master/lab/react-boilerplate).
 
 ## Other Resources
 

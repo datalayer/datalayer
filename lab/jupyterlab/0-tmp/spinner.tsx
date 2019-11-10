@@ -1,8 +1,5 @@
-import React from 'react'
-import {
-  ChasingDots, Circle, CubeGrid, DoubleBounce, FadingCircle, 
-  FoldingCube, Pulse, RotatingPlane, ThreeBounce, WanderingCubes, Wave
-} from 'better-react-spinkit'
+import * as React from 'react'
+import { ChasingDots, Circle, CubeGrid, DoubleBounce, FadingCircle, FoldingCube, Pulse, RotatingPlane, ThreeBounce, WanderingCubes, Wave } from 'better-react-spinkit'
 
 export default class Spinner extends React.Component<any, any> {
   private spinners = []

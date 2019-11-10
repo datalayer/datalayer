@@ -1,3 +1,5 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# JupyterLab Extension Examples
+# Datalayer Lab React Inject
+
+https://codesandbox.io/s/0m7qmmjvj0

@@ -46,8 +46,8 @@ Other useful topics.
 Authenticate and authorize with various providers.
 
 + Authentication with [Tornado]](./tornado-auth)
-+ Authentication with [Twitter]](./auth/twitter)
-+ Authentication with [Okta](./auth/okta)
++ Authentication with [Twitter]](./auth-twitter)
++ Authentication with [Okta](./auth-okta)
 + OpenID Connect with [Keycloak](./keycloak)
 + OpenID Connect for [Tornado](./tornado-oidc)
 + OpenID Connect for [JupyterHub]](./jupyterhub-oidc)

@@ -4,7 +4,7 @@
 
 :rocket: JupyterLab Extension for Datalayer.
 
-![JupyterLab Datalayer](https://raw.githubusercontent.com/datalayer/datalayer/mastersrc/jupyterlab/twitter/docs/jupyterlab-datalayer.gif "JupyterLab Datalayer")
+![JupyterLab Datalayer](https://raw.githubusercontent.com/datalayer/datalayer/master/src/jupyterlab/twitter/docs/jupyterlab-datalayer.gif "JupyterLab Datalayer")
 
 > Replace `$DLAHOME/libs` in the following commands with whatever your local env looks like.
 
@@ -69,8 +69,8 @@ jupyter notebook list
 In case of issue (version mismatch...), try.
 
 ```bash
-jupyter lab clean
-jupyter lab build
+jupyter lab clean && \
+  jupyter lab build
 ```
 
 <!--

@@ -35,9 +35,9 @@
     "clean:jupyter": "yarn run uninstall:extensions && (lerna run --no-bail unlink || echo 'At least one unlink command failed, but continuing...') && jupyter lab clean",
     "clean:node": "lerna clean --yes && rimraf node_modules",
     "clean:packages": "lerna run clean",
-    "tsc": "tsc",
+    "build": "tsc",
     "watch": "tsc -w",
-    "build": "yarn run build:dev",
+    "build2": "yarn run build:dev",
     "build:dev": "yarn install && yarn run link:packages && jupyter labextension list",
     "build:jupyter": "(jupyter lab build || (yarn run build:jupyter:remediate && jupyter lab build)) && jupyter lab",
     "build:jupyter:remediate": "curr_dir=$PWD && (cd $(jupyter lab path | head -n1 | sed s/Application\\ directory:\\ *//)/staging && echo $PWD && echo '\"@datalayer:registry\" \"http://localhost:4873\"' >> .yarnrc && cat .yarnrc && YARN_REGISTRY=http://localhost:4873 node ./yarn.js install --non-interactive && cd $curr_dir) || cd $curr_dir",
@@ -46,7 +46,8 @@
     "link:packages": "jupyter labextension link . --no-build"
   },
   "dependencies": {
-    "@datalayer/components": "/repos/datalayer/src/components",
+    "@material-ui/core": "4.5.1",
+    "@material-ui/icons": "4.5.1",
     "@jupyterlab/application": "^2.0.0-alpha.1",
     "@jupyterlab/apputils": "^2.0.0-alpha.1",
     "@jupyterlab/cells": "^2.0.0-alpha.1",

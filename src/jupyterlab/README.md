@@ -2,13 +2,6 @@
 
 # Datalayer JupyterLab Extensions
 
-JupyterLab Extensions by Datalayer:
+JupyterLab Extensions for the `Datalayer Science Platform`.
 
-+ [AirFlow](./airflow)
-+ [Kernels](./kernels)
-+ [KubeFlow](./kubeflow)
-+ [MLFlow](./mlflow)
-+ [Office](./office)
-+ [Reactify](./reactify)
-+ [Spark](./spark)
 + [Twitter](./twitter)
