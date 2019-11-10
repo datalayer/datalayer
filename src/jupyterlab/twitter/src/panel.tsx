@@ -11,9 +11,6 @@ import {HelloOne, HelloTwo} from '@datalayer/components';
 import { createBrowserHistory } from "history";
 import { Router } from "react-router-dom";
 
-// import "./assets/scss/material-kit-pro-react.scss?v=1.8.0";
-// import "./assets/scss/material-dashboard-pro-react.scss?v=1.8.0";
-
 var hist = createBrowserHistory();
 
 interface TabPanelProps {

@@ -18,7 +18,7 @@
     "packages": [
       "common",
       "components",
-      "storybook-jupyter",
+      "jupyter-storybook",
       "datalayerctl",
       "examples/*",
       "iam",

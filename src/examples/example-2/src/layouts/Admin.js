@@ -16,6 +16,8 @@ import {DashFixedPlugin} from "@datalayer/widgets";
 
 import routes from "./../routes.js";
 
+import "./../assets/css/material-dashboard-pro-react.css?v=1.8.0";
+
 import styles from "./../assets/jss/material-dashboard-pro-react/layouts/adminStyle.js";
 
 var ps;

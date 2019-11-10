@@ -3,7 +3,12 @@ const gap = require("gulp-append-prepend");
 const filter = require('gulp-filter');
 
 gulp.task("resources-to-lib", async function() {
-  const f = filter(['**', '!src/**/*.js']);
+  const f = filter([
+    '**',
+    '!src/github',
+    '!src/scss',
+    '!src/**/*.js'
+  ]);
   gulp.src('./src/**/*.*')
     .pipe(f)
     .pipe(gulp.dest('./lib/'));

@@ -6,9 +6,9 @@
 
 + [Common](./common)
 + [Components](./components)
-+ [DataBook](./storybook-jupyter)
 + [Datalayer Controller](./datalayerctl)
 + [IAM](./iam)
++ [Jupyter StoryBook Addon](./jupyter-storybook)
 + [Jupyter Controller](./jupyterctl)
 + [JupyterLab Extensions](./jupyterlab)
 + [JupyterPool](./jupyterpool)
@@ -29,18 +29,31 @@
 + kernelpool-provider
 + kubernetes
 
-## Opened Pull Requests and Issues
+# Legend of Annotations
 
-datalayer
+| Mark | Description |
+| ------------- | ------------- |
+| 🏃 | work in progress |
+| ✋ | blocked task |
+| 💪 | stretch goal for this iteration |
+| 🔴 | missing issue reference |
+| 🔵 | more investigation required to remove uncertainty |
+| ⚫️ | under discussion within the team |
 
-+ [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
-+ [Create JupyterLab Extension examples](https://github.com/datalayer/datalayer/issues/21)
+## Plan Items
+
+Below is a summary of the top level plan items.
+
+### Datalayer
+
++ 🏃[Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
++ 💪[Create JupyterLab Extension examples](https://github.com/datalayer/datalayer/issues/21)
 + [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
 + [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + [Index and Search Notes](https://github.com/datalayer/datalayer/issues/3)
 + [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
 
-jupyter-server
+### Jupyter Server
 
 + [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
 + [Preparse subcommands in an extensionapps](https://github.com/jupyter/jupyter_server/pull/133)
@@ -52,21 +65,21 @@ jupyter-server
 + [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
 + [Release jupyter_server 0.2.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
 
-jupyterlab
+### JupyterLab
 
 + [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
 + [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
-+ [Add sass-loader in the build](https://github.com/jupyterlab/jupyterlab/pull/7503)
++ [JupyterLab build fails with extensions having SCSS to be loaded](https://github.com/jupyterlab/jupyterlab/issues/7502)
 + [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
 + [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
 
-jupyter-kernel-mgmt
+### Jupyter Kernel Mgmt
 
 + [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
 + [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
 + [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 
-others
+### Others
 
 + [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)
 + [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)

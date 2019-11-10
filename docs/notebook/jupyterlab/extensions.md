@@ -6,15 +6,14 @@ title: JupyterLab Extensions
 
 JupyterLab Extensions [Docs](https://jupyterlab.readthedocs.io/en/latest/user/extensions.html).
 
-[TKP extensions](https://github.com/timkpaine/tkp_jupyterlab/blob/master/extensions.txt).
-
-## Repos Examples
+## Examples
 
 + [GitHub [1]](https://github.com/topics/jupyterlab-extension).
 + [GitHub [2]](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajupyterlab-extension&type=Repositories).
 + [GitHub [3]](https://github.com/SolarisYan?utf8=%E2%9C%93&tab=repositories&q=jupyterlab&type=&language=).
++ [TKP extensions](https://github.com/timkpaine/tkp_jupyterlab/blob/master/extensions.txt).
 
-## Examples
+## Catalog
 
 + [404](https://github.com/afshin/custom404-extension).
 + [autoversion](https://github.com/timkpaine/jupyterlab_autoversion).
@@ -36,6 +35,7 @@ JupyterLab Extensions [Docs](https://jupyterlab.readthedocs.io/en/latest/user/ex
 + [jupytext](https://github.com/mwouts/jupytext).
 + [kernelspy](https://github.com/vidartf/jupyterlab-kernelspy).
 + [latex](https://github.com/jupyterlab/jupyterlab-latex).
++ [monaco](https://github.com/jupyterlab/jupyterlab-monaco)
 + [nbresuse](https://github.com/yuvipanda/nbresuse).
 + [nglview](https://github.com/arose/nglview).
 + [python-file](https://github.com/jtpio/jupyterlab-python-file).

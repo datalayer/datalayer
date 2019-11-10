@@ -15,10 +15,16 @@ install-endpoints:
 start-endpoints:
 	@exec yarn endpoints
 
+clean-ui:
+	find . -name node_modules | xargs rm -fr {}
+	find . -name lib | xargs rm -fr {}
+	find . -name build | xargs rm -fr {}
+
 deps-ui:
 	@exec yarn install
 	sed 's|useEslintrc: false|useEslintrc: true|g' node_modules/@react-workspaces/react-scripts/config/webpack.config.js > /tmp/webpack.config.js
 	mv /tmp/webpack.config.js node_modules/@react-workspaces/react-scripts/config/webpack.config.js
+	rm -fr components/node_modules/@datalayer/widgets
 
 build-ui:
 	cd ${DLAHOME}/src/widgets && yarn build && \

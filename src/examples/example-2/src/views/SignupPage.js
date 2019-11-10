@@ -28,6 +28,8 @@ import {CardBody} from "@datalayer/widgets";
 import {InfoArea} from "@datalayer/widgets";
 import {CustomInput} from "@datalayer/widgets";
 
+import "./../assets/css/home.css?v=1.8.0";
+
 import signupPageStyle from "./../assets/jss/material-kit-pro-react/views/signupPageStyle.js";
 
 import image from "./../assets/img/bg7.jpg";

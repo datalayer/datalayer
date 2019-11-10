@@ -8,14 +8,14 @@
     "**/*.spec.ts"
   ],
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "outDir": "./lib",
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
     "allowJs": true,
     "skipLibCheck": true,

@@ -2,6 +2,7 @@
   "name": "@datalayer/common",
   "version": "0.0.3",
   "homepage": "https://github.com/datalayer/datalayer/tree/master/src/common",
+  "license": "Apache-2.0",
   "private": false,
   "dependencies": {
     "@datalayer/components": "0.0.3",
