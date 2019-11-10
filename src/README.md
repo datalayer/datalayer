@@ -35,15 +35,15 @@
 
 The endgame details for this iteration are tracked in the linked issues.
 
-## Items
+## Play Items
 
-Below is a summary of the top level plan items.
+Below is a summary of the top level play items.
 
 ### Datalayer
 
 + 🏃 [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
 + 🏃 [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
-+ 🏃 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
++ 💪 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + 💪 [Index and Search Notes](https://github.com/datalayer/datalayer/issues/3)
 + 🔵 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
 
@@ -61,7 +61,7 @@ Below is a summary of the top level plan items.
 
 ### JupyterLab
 
-+ 🏃 [Create JupyterLab Extension examples](https://github.com/datalayer/datalayer/issues/21)
++ 🏃 [Create JupyterLab Extension Examples](https://github.com/datalayer/datalayer/issues/21)
 + 💪 [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
 + 💪 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
 + ⚫️ [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
@@ -70,7 +70,7 @@ Below is a summary of the top level plan items.
 
 ### Jupyter Kernel Management
 
-+ 🏃 [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
++ ⚫️ [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
 + ✋ [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
 + 🔵 [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 

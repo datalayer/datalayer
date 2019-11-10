@@ -10,6 +10,10 @@
   Learn to 💚 Data
 </h4>
 
+<div align="center">
+  <a href="https://datalayer.io">Try Datalayer for FREE</a>
+</div>
+
 <p>
   See it as a <b>GitHub for education</b> to <b>analyse data</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 </p>
@@ -25,10 +29,6 @@ Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** ca
 1. Reproducible.
 1. Scalable.
 1. Secured.
-
-<div align="center">
-  <a href="https://datalayer.io">Try Datalayer for FREE</a>
-</div>
 
 ## 🚀 Reproducible Data Papers
 
