@@ -28,10 +28,10 @@ k get pods --all-namespaces --watch
 Test with a simple HTTP Headers echo.
 
 ```bash
-kubectl apply -f $DLAHOME/etc/examples/k8s/echo/echo.yaml
+kubectl apply -f $DLAHOME/lab/k8s/echo/echo.yaml
 minikube service echoheaders --url
 curl $(minikube service echoheaders --url)
-kubectl delete -f $DLAHOME/etc/examples/k8s/echo/echo.yaml
+kubectl delete -f $DLAHOME/lab/k8s/echo/echo.yaml
 ```
 
 # Addons
@@ -75,7 +75,7 @@ eval $(minikube docker-env -u)
 
 ```bash
 minikube addons enable registry
-kubectl create -f $DLAHOME/etc/examples/k8s/registry/kube-registry.yaml
+kubectl create -f $DLAHOME/lab/k8s/registry/kube-registry.yaml
 kubectl port-forward --namespace kube-system $(kubectl get po -n kube-system | grep kube-registry-v0 | awk '{print $1;}') 5000:5000
 ```
 

@@ -29,13 +29,13 @@ configurable-http-proxy --help
 Use the `<auth>`-`<spawner>-<<option>>` pattern to try various configuration.
 
 ```bash
-# $DLAHOME/etc/examples/jupyterhub/README.md for `<auth>`-`<spawner>` examples combo.
+# $DLAHOME/etc/conf/jupyterhub/README.md for `<auth>`-`<spawner>` examples combo.
 conda activate jupyterhub
 pip install oauthenticator oauthlib dockerspawner jupyterhub_oauth_spawner
 open http://127.0.0.1:8000
-jupyterhub -f $DLAHOME/etc/examples/jupyterhub/pam-local/jupyterhub_config.py
-jupyterhub -f $DLAHOME/etc/examples/jupyterhub/github-local/jupyterhub_config.py
-jupyterhub -f $DLAHOME/etc/examples/jupyterhub/github-docker/jupyterhub_config.py
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/pam-local/jupyterhub_config.py
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-local/jupyterhub_config.py
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-docker/jupyterhub_config.py
 ```
 
 ```bash

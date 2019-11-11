@@ -159,7 +159,7 @@ roleRef:
 **Kubectl from URL**
 
 ```bash
-curl https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/pods/pod.yaml \
+curl https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/pods/pod.yaml \
   | kubectl apply -f -
 ```
 
@@ -264,10 +264,10 @@ One interesting task, from a developer point of view, is to make Kubernetes sche
 kubectl label nodes 192.168.99.100 shouldrun=here
 ```
 
-Now we can create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/nodes/pod.yaml) that gets scheduled on the node with the label `shouldrun=here`.
+Now we can create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/nodes/pod.yaml) that gets scheduled on the node with the label `shouldrun=here`.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/nodes/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/nodes/pod.yaml
 kubectl get pods --output=wide
 ```
 
@@ -548,10 +548,10 @@ curl 172.17.0.3:9876/info
 
 Note that `kubectl run` creates a deployment, so in order to get rid of the pod you have to execute `kubectl delete deployment dla`.
 
-You can also create a pod from a specification file. In this case the [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/pods/pod.yaml) is running the already known `simple` image from above along with a generic `CentOS` container.
+You can also create a pod from a specification file. In this case the [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/pods/pod.yaml) is running the already known `simple` image from above along with a generic `CentOS` container.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/pods/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/pods/pod.yaml
 kubectl get pods | grep twocontainers
 ```
 
@@ -563,10 +563,10 @@ curl -s localhost:9876/info
 {"host": "localhost:9876", "version": "0.5.0", "from": "127.0.0.1"}
 ```
 
-Specify the `resources` field in the pod to influence how much CPU and/or RAM a container in a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/pods/constraint-pod.yaml) can use (here: `64MB` of RAM and `0.5` CPUs).
+Specify the `resources` field in the pod to influence how much CPU and/or RAM a container in a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/pods/constraint-pod.yaml) can use (here: `64MB` of RAM and `0.5` CPUs).
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/pods/constraint-pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/pods/constraint-pod.yaml
 kubectl describe pod constraintpod
 ```
 
@@ -641,17 +641,17 @@ You can learn more about a namespace using the `describe` verb, for example.
 kubectl describe ns default
 ```
 
-Let's now create a new [namespace](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/ns/ns.yaml) called `test` now.
+Let's now create a new [namespace](https://github.com/datalayer/datalayer/blob/master/lab/k8s/ns/ns.yaml) called `test` now.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/ns/ns.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/ns/ns.yaml
 kubectl get ns
 ```
 
-To launch a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/ns/pod.yaml) in the newly created namespace `test`, do.
+To launch a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/ns/pod.yaml) in the newly created namespace `test`, do.
 
 ```bash
-kubectl create --namespace=test -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/ns/pod.yaml
+kubectl create --namespace=test -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/ns/pod.yaml
 ```
 
 Note that using above method the namespace becomes a runtime property, that is, you can easily deploy the same pod or service, or RC, etc. into multiple namespaces (for example: `dev` and `prod`). If you however prefer to hard-code the namespace, you can define it directly in the `metadata` like so.
@@ -687,10 +687,10 @@ kubectl describe ns default
 
 Logging is one option to understand what is going on inside your applications and the cluster at large. Basic logging in Kubernetes makes the output a container produces available, which is a good use case for debugging. More advanced [setups](http://some.ops4devs.info/logging) consider logs across nodes and store them in a central place, either within the cluster or via a dedicated (cloud-based) service.
 
-Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/logging/pod.yaml) called `logme` that runs a container writing to `stdout` and `stderr`.
+Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/logging/pod.yaml) called `logme` that runs a container writing to `stdout` and `stderr`.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/logging/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/logging/pod.yaml
 ```
 
 To view the five most recent log lines of the `gen` container in the `logme` pod, execute.
@@ -707,10 +707,10 @@ kubectl logs -f --since=10s logme -c gen
 
 Note that if you wouldn't have specified `--since=10s` in the above command, you would have gotten all log lines from the start of the container.
 
-You can also view logs of pods that have already completed their lifecycle. For this we create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/logging/oneshotpod.yaml) called `oneshot` that counts down from 9 to 1 and then exits. Using the `-p` option you can print the logs for previous instances of the container in a pod.
+You can also view logs of pods that have already completed their lifecycle. For this we create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/logging/oneshotpod.yaml) called `oneshot` that counts down from 9 to 1 and then exits. Using the `-p` option you can print the logs for previous instances of the container in a pod.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/logging/oneshotpod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/logging/oneshotpod.yaml
 kubectl logs -p oneshot -c gen
 ```
 
@@ -730,10 +730,10 @@ In order to verify if a container in a pod is healthy and ready to serve traffic
 
 We will focus on HTTP health checks in the following. Note that it is the responsibility of the application developer to expose a URL that the kubelet can use to determine if the container is healthy (and potentially ready).
 
-Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/healthz/pod.yaml) that exposes an endpoint `/health`, responding with a HTTP `200` status code.
+Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/healthz/pod.yaml) that exposes an endpoint `/health`, responding with a HTTP `200` status code.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/healthz/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/healthz/pod.yaml
 ```
 
 In the pod specification we've defined the following.
@@ -755,10 +755,10 @@ If we now look at the pod we can see that it is considered healthy.
 kubectl describe pod hc
 ```
 
-Now we launch a [bad pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/healthz/badpod.yaml), that is, a pod that has a container that randomly (in the time range 1 to 4 sec) does not return a 200 code.
+Now we launch a [bad pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/healthz/badpod.yaml), that is, a pod that has a container that randomly (in the time range 1 to 4 sec) does not return a 200 code.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/healthz/badpod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/healthz/badpod.yaml
 ```
 
 Looking at the events of the bad pod, we can see that the health check failed:
@@ -777,10 +777,10 @@ From above you can see that the `badpod` had already been re-launched 4 times, s
 
 In addition to a `livenessProbe` you can also specify a `readinessProbe`, which can be configured in the same way but has a different use case and semantics: it's used to check the start-up phase of a container in the pod. Imagine a container that loads some data from external storage such as S3 or a database that needs to initialize some tables. In this case you want to signal when the container is ready to serve traffic.
 
-Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/healthz/ready.yaml) with a `readinessProbe` that kicks in after 10 seconds.
+Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/healthz/ready.yaml) with a `readinessProbe` that kicks in after 10 seconds.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/healthz/ready.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/healthz/ready.yaml
 ```
 
 Looking at the events of the pod, we can see that, eventually, the pod is ready to serve traffic:
@@ -803,10 +803,10 @@ A replication controller `RC` is a supervisor for long-running pods.
 
 An RC will launch a specified number of pods called `replicas` and makes sure that they keep running, for example when a node fails or something inside of a pod, that is, in one of its containers goes wrong.
 
-Let's create an [RC](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/rc/rc.yaml) that supervises a single replica of a pod.
+Let's create an [RC](https://github.com/datalayer/datalayer/blob/master/lab/k8s/rc/rc.yaml) that supervises a single replica of a pod.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/rc/rc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/rc/rc.yaml
 ```
 
 You can see the RC and the pod it looks after like so.
@@ -840,10 +840,10 @@ Note that, going forward, the RCs are called [replica sets](https://kubernetes.i
 
 A deployment is a supervisor for [pods](#pods) and [replica sets](#rcs), giving you fine-grained control over how and when a new pod version is rolled out as well as rolled back to a previous state.
 
-Let's create a [deployment](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/deployments/d09.yaml) called `dla-deploy` that supervises two replicas of a pod as well as a replica set.
+Let's create a [deployment](https://github.com/datalayer/datalayer/blob/master/lab/k8s/deployments/d09.yaml) called `dla-deploy` that supervises two replicas of a pod as well as a replica set.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/deployments/d09.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/deployments/d09.yaml
 ```
 
 You can see the deployment, the replica set and the pods it looks after like so.
@@ -863,10 +863,10 @@ curl 172.17.0.3:9876/info
 {"host": "172.17.0.3:9876", "version": "0.9", "from": "172.17.0.1"}
 ```
 
-Let's now see what happens if we change that version to `1.0` in an updated [deployment](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/deployments/d10.yaml).
+Let's now see what happens if we change that version to `1.0` in an updated [deployment](https://github.com/datalayer/datalayer/blob/master/lab/k8s/deployments/d10.yaml).
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/deployments/d10.yaml
+kubectl apply -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/deployments/d10.yaml
 ```
 
 Note that you could have used `kubectl edit deploy/dla-deploy` alternatively to achieve the same by manually editing the deployment.
@@ -958,12 +958,12 @@ Address 1: 40.114.91.190
 ```
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/dns/dns-cm.yaml
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/dns/dns-1.yaml
+kubectl apply -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/dns/dns-cm.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/dns/dns-1.yaml
 kubectl get pods dla-dns-test -w
 kubectl exec dla-dns-test cat /etc/resolv.conf
 kubectl exec -it dla-dns-test -- nslookup kubernetes.default
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/dns/dns-2.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/dns/dns-2.yaml
 kubectl get pods dla-dns-test-2 -w
 kubectl exec dla-dns-test-2 cat /etc/resolv.conf
 kubectl exec -it dla-dns-test-2 -- nslookup kubernetes.default
@@ -1005,11 +1005,11 @@ A service is an abstraction for pods, providing a stable, virtual IP (VIP) addre
 
 While pods may come and go, services allow clients to reliably connect to the containers running in the pods, using the VIP. The `virtual` in VIP means it’s not an actual IP address connected to a network interface but its purpose is purely to forward traffic to one or more pods. Keeping the mapping between the VIP and the pods up-to-date is the job of [kube-proxy](https://kubernetes.io/docs/admin/kube-proxy/), a process that runs on every node, which queries the API server to learn about new services in the cluster.
 
-Let's create a pod supervised by an [RC](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/services/rc.yaml) and a [service](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/services/svc.yaml) along with it.
+Let's create a pod supervised by an [RC](https://github.com/datalayer/datalayer/blob/master/lab/k8s/services/rc.yaml) and a [service](https://github.com/datalayer/datalayer/blob/master/lab/k8s/services/svc.yaml) along with it.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/services/rc.yaml
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/services/svc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/services/rc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/services/svc.yaml
 ```
 
 Now we have the supervised pod running.
@@ -1120,17 +1120,17 @@ The supported formats for the name segment of the URL are:
 
 While there is a service discovery option based on [environment variables](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#environment-variables) available, the DNS-based service discovery is preferable. Note that DNS is a [cluster add-on](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/README.md) so make sure your Kubernetes distribution provides for one or install it yourself.
 
-Let's create a [service](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/sd/svc.yaml) named `thesvc` and an [RC](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/sd/rc.yaml) supervising some pods along with it:
+Let's create a [service](https://github.com/datalayer/datalayer/blob/master/lab/k8s/sd/svc.yaml) named `thesvc` and an [RC](https://github.com/datalayer/datalayer/blob/master/lab/k8s/sd/rc.yaml) supervising some pods along with it:
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/sd/rc.yaml
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/sd/svc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/sd/rc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/sd/svc.yaml
 ```
 
-Now we want to connect to the `thesvc` service from within the cluster, say, from another service. To simulate this, we create a [jump pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/sd/jumpod.yaml) in the same namespace (`default`, since we didn't specify anything else).
+Now we want to connect to the `thesvc` service from within the cluster, say, from another service. To simulate this, we create a [jump pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/sd/jumpod.yaml) in the same namespace (`default`, since we didn't specify anything else).
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/sd/jumpod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/sd/jumpod.yaml
 ```
 
 The DNS add-on will make sure that our service `thesvc` is available via the FQDN `thesvc.default.svc.cluster.local` from other pods in the cluster. Let's try it out.
@@ -1152,16 +1152,16 @@ To access a service that is deployed in a different namespace than the one you'r
 
 Let's see how that works by creating.
 
-1. a [namespace](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/sd/other-ns.yaml) `other`.
-1. a [service](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/sd/other-svc.yaml) `thesvc` in namespace `other`.
-1. an [RC](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/sd/other-rc.yaml) supervising the pods, also in namespace `other`.
+1. a [namespace](https://github.com/datalayer/datalayer/blob/master/lab/k8s/sd/other-ns.yaml) `other`.
+1. a [service](https://github.com/datalayer/datalayer/blob/master/lab/k8s/sd/other-svc.yaml) `thesvc` in namespace `other`.
+1. an [RC](https://github.com/datalayer/datalayer/blob/master/lab/k8s/sd/other-rc.yaml) supervising the pods, also in namespace `other`.
 
 If you're not familiar with namespaces, check out the [namespace examples](#ns) first.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/sd/other-ns.yaml
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/sd/other-rc.yaml
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/sd/other-svc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/sd/other-ns.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/sd/other-rc.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/sd/other-svc.yaml
 ```
 
 We're now in the position to consume the service `thesvc` in namespace `other` from the `default` namespace (again via the jump pod).
@@ -1188,10 +1188,10 @@ Keep in mind that removing a namespace will destroy every resource inside.
 
 You can set environment variables for containers running in a pod and in addition, Kubernetes exposes certain runtime infos via environment variables automatically.
 
-Let's launch a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/envs/pod.yaml) that we pass an environment variable `SIMPLE_SERVICE_VERSION` with the value `1.0`.
+Let's launch a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/envs/pod.yaml) that we pass an environment variable `SIMPLE_SERVICE_VERSION` with the value `1.0`.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/envs/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/envs/pod.yaml
 kubectl describe pod envs | grep IP:
 ```
 
@@ -1267,10 +1267,10 @@ kubectl create secret generic apikey --from-file=./apikey.txt
 kubectl describe secrets/apikey
 ```
 
-Use the secret in a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/secrets/pod.yaml) via a [volume](#volumes):
+Use the secret in a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/secrets/pod.yaml) via a [volume](#volumes):
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/secrets/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/secrets/pod.yaml
 ```
 
 If we now exec into the container we see the secret mounted at `/tmp/apikey`.
@@ -1320,10 +1320,10 @@ Labels are the mechanism you use to organize Kubernetes objects. A label is a ke
 So you're free to choose labels as you see fit, for example, to express environments such as 'this pod is running in production' or ownership,
 like 'department X owns that pod'.
 
-Create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/labels/pod.yaml) that initially has one label (`env=development`).
+Create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/labels/pod.yaml) that initially has one label (`env=development`).
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/labels/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/labels/pod.yaml
 kubectl get pods --show-labels
 ```
 
@@ -1348,10 +1348,10 @@ The `--selector` option can be abbreviated to `-l`, so to select pods that are l
 kubectl get pods -l env=development
 ```
 
-Oftentimes, Kubernetes objects also support set-based selectors. Let's launch [another pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/labels/anotherpod.yaml) that has two labels (`env=production` and `owner=michael`).
+Oftentimes, Kubernetes objects also support set-based selectors. Let's launch [another pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/labels/anotherpod.yaml) that has two labels (`env=production` and `owner=michael`).
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/labels/anotherpod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/labels/anotherpod.yaml
 ```
 
 Now, let's list all pods that are either labelled with `env=development` or with `env=production`.
@@ -1386,10 +1386,10 @@ kubectl label nodes ip-10-0-100-40.eu-central-1.compute.internal kuber-role=node
 
 A job is a supervisor for pods carrying out batch processes, that is, a process that runs for a certain time to completion, for example a calculation or a backup operation.
 
-Let's create a [job](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/jobs/job.yaml) called `countdown` that supervises a pod counting from 9 down to 1.
+Let's create a [job](https://github.com/datalayer/datalayer/blob/master/lab/k8s/jobs/job.yaml) called `countdown` that supervises a pod counting from 9 down to 1.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/jobs/job.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/jobs/job.yaml
 ```
 
 You can see the job and the pod it looks after like so.
@@ -1688,10 +1688,10 @@ A Kubernetes volume is essentially a directory accessible to all containers runn
 
 A special type of volume is `PersistentVolume`, which we will cover elsewhere.
 
-Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/etc/examples/k8s/volumes/pod.yaml) with two containers that use an `emptyDir` volume to exchange data.
+Let's create a [pod](https://github.com/datalayer/datalayer/blob/master/lab/k8s/volumes/pod.yaml) with two containers that use an `emptyDir` volume to exchange data.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/etc/examples/k8s/volumes/pod.yaml
+kubectl create -f https://raw.githubusercontent.com/datalayer/datalayer/master/lab/k8s/volumes/pod.yaml
 kubectl describe pod sharevol
 ```
 

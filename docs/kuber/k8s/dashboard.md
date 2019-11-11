@@ -29,7 +29,7 @@ dla k8s-dashboard
 
 ```bash
 # kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
-kubectl create -f $DLAHOME/etc/examples/k8s/k8s-dashboard/1.10.1/recommended/kubernetes-dashboard.yaml
+kubectl create -f $DLAHOME/lab/k8s/k8s-dashboard/1.10.1/recommended/kubernetes-dashboard.yaml
 kubectl proxy --port=8001
 open http://localhost:8001/api/v1/namespakces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/login
 ```
@@ -37,7 +37,7 @@ open http://localhost:8001/api/v1/namespakces/kube-system/services/http:kubernet
 **Option 3 - Deploy a Spec with HTTPS**
 
 ```bash
-kubectl create -f $DLAHOME/etc/examples/k8s/k8s-dashboard/1.8.3/_dla/k8s-dashboard-ssl.yaml
+kubectl create -f $DLAHOME/lab/k8s/k8s-dashboard/1.8.3/_dla/k8s-dashboard-ssl.yaml
 kubectl proxy
 open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
 ```
@@ -45,7 +45,7 @@ open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernet
 **Option 4 - Deploy a Spec with HTTP and Authorization Header**
 
 ```bash
-kubectl create -f $DLAHOME/etc/examples/k8s/k8s-dashboard-auth-header.yaml
+kubectl create -f $DLAHOME/lab/k8s/k8s-dashboard-auth-header.yaml
 ```
 
 **Option 5 - Deploy a Helm Cahrt**

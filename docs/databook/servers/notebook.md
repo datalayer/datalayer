@@ -64,7 +64,7 @@ print(servers)
 
 ## Examples
 
-Try the Datalayer [Examples](https://github.com/datalayer/datalayer/tree/master/etc/examples/jupyter-notebook).
+Try the Datalayer [Examples](https://github.com/datalayer/datalayer/tree/master/etc/conf/jupyter-notebook).
 
 ```bash
 echo http://localhost:8010

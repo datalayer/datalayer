@@ -758,7 +758,6 @@
       "strictNullChecks": false,
       "target": 4,
       "types": [],
-      "watch": true,
       "configFilePath": "/Users/echar4/datalayer/lab/jupyterlab/xkcd/tsconfig.json"
     },
     "referencedMap": {
@@ -1590,569 +1589,217 @@
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/token.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/uuid.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/chain.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/src/index.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/empty.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/filter.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/find.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/map.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/range.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/reduce.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/repeat.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/retro.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/sort.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/stride.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/take.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/zip.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/array.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/chain.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/empty.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/filter.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/find.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/map.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/range.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/retro.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/sort.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/stride.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/string.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/take.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/zip.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/config/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablejson.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablestring.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablelist.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/undoablelist.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablelist.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablejson.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablestring.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/undoablelist.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablejson.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablelist.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablestring.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/undoablelist.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/contents/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/activitymonitor.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/router.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/dataconnector.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/nbformat.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/poll.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/ratelimiter.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/poll.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/restorablepool.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/settingregistry.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/settingregistry.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/statedb.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/url.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/activitymonitor.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/dataconnector.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/markdowncodeblocks.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/nbformat.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/pageconfig.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/path.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/poll.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/ratelimiter.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/restorablepool.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/settingregistry.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/statedb.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/text.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/time.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/url.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/messages.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/messages.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/manager.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/manager.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/messages.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/builder/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/session.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/manager.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/session.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/manager.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/session.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/setting/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/terminal.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/manager.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/terminal.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/manager.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/terminal.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/workspace/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/manager.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/builder/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/contents/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/setting/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/workspace/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/config/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/contents/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/manager.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/setting/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/workspace/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/builder/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/connectionlost.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/clientsession.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/connectionlost.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/lab.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/layoutrestorer.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/mimerenderers.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/router.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/status.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/mimerenderers.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/layoutrestorer.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/lab.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/status.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/status.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/application/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/application/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/registry.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/tokens.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/attachmentmodel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/factories.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/latex.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/outputmodel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/registry.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/renderers.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/tokens.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/widgets.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/mimedocument.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/default.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/context.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/default.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/mimedocument.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/default.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/tokens.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/outputmodel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/attachmentmodel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/clipboard.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menubar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/collapse.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/commandlinker.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/commandpalette.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/csstype/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/prop-types/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/global.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/widgettracker.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/context.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/dialog.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/widgettracker.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/iframe.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/inputdialog.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/dialog.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/vdom.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/toolbar.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/vdom.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/clientsession.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/tokens.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/factory.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/mimetype.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/printing.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/jsoneditor.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/widget.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/factory.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/mimetype.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/tokens.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/mainareawidget.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/widget.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/toolbar.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/printing.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/spinner.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/splash.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/tokens.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/thememanager.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/splash.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/tokens.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/factory.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/jsoneditor.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/widgets.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/renderers.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/factories.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
       ],
       "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/windowresolver.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
@@ -2181,220 +1828,572 @@
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/widgettracker.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/windowresolver.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/tokens.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/thememanager.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/splash.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/tokens.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/splash.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/toolbar.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/vdom.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/clientsession.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/mainareawidget.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/toolbar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/printing.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/commandpalette.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/commandlinker.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/spinner.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/printing.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/vdom.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/iframe.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/dialog.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/widgettracker.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/inputdialog.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/dialog.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/widgettracker.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/collapse.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/menu.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/clipboard.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/connectionlost.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/workspace/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/config/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/contents/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/manager.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/setting/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/workspace/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/builder/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/clientsession.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/manager.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/terminal.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/manager.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/terminal.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/manager.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/builder/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/contents/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/setting/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/workspace/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/terminal/terminal.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/session.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/manager.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/session.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/manager.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/session/session.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/jsoneditor.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/manager.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/manager.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/messages.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/messages.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/messages.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/kernel/kernel.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/contents/index.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/widget.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts"
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/config/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/factory.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts"
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/url.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/activitymonitor.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/dataconnector.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/markdowncodeblocks.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/nbformat.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/pageconfig.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/path.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/poll.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/ratelimiter.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/restorablepool.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/settingregistry.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/statedb.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/text.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/time.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/url.d.ts"
       ],
       "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/mimetype.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/tokens.d.ts": [
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/setting/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/statedb.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/factory.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/mimetype.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/editor.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/jsoneditor.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/widget.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/factory.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/mimetype.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/tokens.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/settingregistry.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/context.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/tokens.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/settingregistry.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/default.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/ratelimiter.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/codeeditor/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/poll.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/attachmentmodel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/nbformat.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/factories.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/outputmodel.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/tokens.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/registry.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/tokens.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/renderers.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/widgets.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/attachmentmodel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/factories.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/latex.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/mimemodel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/outputmodel.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/registry.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/renderers.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/tokens.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/widgets.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/mimedocument.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/default.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/context.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/default.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/mimedocument.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/registry.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/application/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/application/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/status.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/restorablepool.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/lab.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/status.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/layoutrestorer.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/mimerenderers.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/apputils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/docregistry/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/index.d.ts"
-      ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/router.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/poll.d.ts": [
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
         "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts"
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/index.d.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/connectionlost.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/frontend.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/lab.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/layoutrestorer.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/mimerenderers.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/router.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/shell.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/status.d.ts",
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/tokens.d.ts"
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/dataconnector.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/interfaces.d.ts"
       ],
-      "/users/echar4/datalayer/lab/jupyterlab/xkcd/src/index.ts": [
-        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/application/lib/index.d.ts"
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablejson.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablestring.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/undoablelist.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablejson.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablelist.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablestring.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/undoablelist.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablestring.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/modeldb.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablejson.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablemap.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/undoablelist.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablelist.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/commands/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/array.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/chain.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/empty.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/filter.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/find.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/map.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/range.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/retro.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/sort.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/stride.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/string.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/take.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/zip.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/observables/lib/observablelist.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/coreutils/lib/activitymonitor.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/zip.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/take.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/stride.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/sort.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/retro.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/repeat.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/reduce.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/range.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/map.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/find.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/filter.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/empty.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/chain.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/widgets/lib/title.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/nbconvert/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/builder/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@jupyterlab/services/lib/serverconnection.d.ts"
+      ],
+      "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/index.d.ts": [
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/csstype/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/prop-types/index.d.ts",
+        "/users/echar4/datalayer/lab/jupyterlab/xkcd/node_modules/@types/react/global.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
