@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: datalayer-{{ .Release.Name }}
+  name: {{ .Release.Name }}-explorer
   labels:
     app: {{ template "explorer.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -19,70 +19,30 @@ spec:
         release: {{ .Release.Name }}
     spec:
       terminationGracePeriodSeconds: 0
-      nodeSelector:
-        datalayer-role: master
-      hostNetwork: {{ .Values.explorer.hostNetwork }}
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
       containers:
         - name: explorer
           image: {{ .Values.explorer.image }}
           imagePullPolicy: {{ .Values.explorer.imagePullPolicy }}
-          ports:
-            - containerPort: 9091
-              name: web
           env:
-            - name: APISERVER_HOST
-              value: ""
-            - name: GOOGLE_API_KEY
-              value: "{{ .Values.google.apiKey }}"
-            - name: GOOGLE_CLIENT_ID
-              value: "{{ .Values.google.clientId }}"
-            - name: GOOGLE_REDIRECT
-              value: "{{ .Values.google.redirect }}"
-            - name: GOOGLE_SECRET
-              value: "{{ .Values.google.secret }}"
-            - name: GOOGLE_SCOPE
-              value: "{{ .Values.google.scope }}"
-            - name: HDFS
-              value: "{{ .Values.hdfs }}"
-            - name: KUBER_INSECURE_BIND_ADDRESS
-              value: "{{ .Values.kuber.insecureBindAddress }}"
-            - name: KUBER_INSECURE_PORT
-              value: "{{ .Values.kuber.insecurePort }}"
-            - name: KUBER_MANAGE_RESERVATIONS
-              value: "{{ .Values.kuber.manageReservations }}"
-            - name: DATALAYER_API_REST
-              value: "{{ .Values.kuber.rest }}"
-            - name: DATALAYER_UI
-              value: "{{ .Values.kuber.ui }}"
-            - name: DATALAYER_API_WS
-              value: "{{ .Values.kuber.ws }}"
-            - name: MICROSOFT_APPLICATION_ID
-              value: "{{ .Values.microsoft.applicationId }}"
-            - name: MICROSOFT_REDIRECT
-              value: "{{ .Values.microsoft.redirect }}"
-            - name: MICROSOFT_SECRET
-              value: "{{ .Values.microsoft.secret }}"
-            - name: MICROSOFT_SCOPE
-              value: "{{ .Values.microsoft.scope }}"
-            - name: ZEPPELIN_REST
-              value: "{{ .Values.zeppelin.rest }}"
-            - name: ZEPPELIN_WS
-              value: "{{ .Values.zeppelin.ws }}"
-            - name: TWITTER_CONSUMER_KEY
-              value: "{{ .Values.twitter.consumerKey }}"
-            - name: TWITTER_CONSUMER_SECRET
-              value: "{{ .Values.twitter.consumerSecret }}"
-            - name: TWITTER_REDIRECT
-              value: "{{ .Values.twitter.redirect }}"
+          - name: APISERVER_HOST
+            value: http://localhost:8001
+          - name: DLAHOST
+            value: {{ .Values.explorer.env.DLAHOST }}
+          - name: DLA_EXPLORER_INDEX_PAGE
+            value: {{ .Values.explorer.env.DLA_EXPLORER_INDEX_PAGE }}
+          volumeMounts:
           resources:
-{{ toYaml .Values.kuber.resources | indent 12 }} 
-          readinessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.kuber.insecurePort }}
-            initialDelaySeconds: 10
-            timeoutSeconds: 1
+{{ toYaml .Values.explorer.resources | indent 12 }} 
         - name: explorer-sidecar
-          image: datalayer/k8s-sidecar:1.8.2
+          image: datalayer/k8s-sidecar:0.0.3
           imagePullPolicy: IfNotPresent
           args: ["proxy", "-p", "8001"]

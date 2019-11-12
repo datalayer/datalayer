@@ -20,9 +20,10 @@ Showcase user interface widget `toolkits` and `theming` with `react.js` and `typ
 
 + [Create React App](./react-boilerplate/embed)
 + [Create React App Eject](./react-boilerplate/eject)
-+ [Fabric UI](./fabric-ui)
-+ [Blueprint JS](./blueprint-js)
++ [Material UI](./fabric-ui)
 + [Phosphor JS](./phosphor-js)
++ [Blueprint JS](./blueprint-js)
++ [Fabric UI](./fabric-ui)
 + [Semantic UI](./semantic-ui)
 
 Other useful topics.

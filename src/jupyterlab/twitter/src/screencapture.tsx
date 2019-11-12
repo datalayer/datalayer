@@ -1,5 +1,5 @@
 import React from 'react'
-import * as html2canvas from 'html2canvas'
+import html2canvas from 'html2canvas'
 export default class ScreenCapture extends React.Component<any, any> {
 
   static defaultProps = {
@@ -169,8 +169,8 @@ export default class ScreenCapture extends React.Component<any, any> {
   private handleClickTakeScreenShot() {
     let { windowWidth, windowHeight, cropPositionLeft, cropPositionTop, cropWidth, cropHeigth } = this.state
     const shot = document.querySelector('.jp-LabShell')
-//    let scale = window.devicePixelRatio
-    let scale = 1
+    let scale = window.devicePixelRatio
+//    let scale = 1
     html2canvas(shot, {
       width: windowWidth,
       height: windowHeight,

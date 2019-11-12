@@ -1,8 +1,10 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Lab Blueprint.jj
+# Datalayer Lab Blueprint.js
 
-[Blueprint.js](https://github.com/palantir/blueprint) showcase. See also the official [widgets](https://blueprintjs.com).
+[Blueprint.js](https://github.com/palantir/blueprint) showcase.
+
+See also the official [widgets](https://blueprintjs.com).
 
 ```bash
 yarn install && \

@@ -155,7 +155,7 @@ function studio() {
     --namespace $NAMESPACE \
     --values $DLAHOME/etc/helm/studio/dsp-minikube.yaml \
     --set studio.env.DLAHOST="minikube.datalayer.io.local" \
-    --set studio.env.DLA_STUDIO_INDEX_PAGE=${DLA_STUDIO_INDEX_PAGE} \
+    --set studio.env.DLA_EXPLORER_INDEX_PAGE=${DLA_EXPLORER_INDEX_PAGE} \
     --timeout 99999
 }
 
@@ -345,9 +345,9 @@ function explorer() {
   kubectl describe services studio-lb | grep Ingress
   echo
   echo "Please enter the hostname created for the studio-lb:"
-  read STUDIO_LB_HOSTNAME
+  read EXPLORER_LB_HOSTNAME
   echo
-  echo "You entered: $STUDIO_LB_HOSTNAME"
+  echo "You entered: $EXPLORER_LB_HOSTNAME"
   echo
   echo "We will now deploy Explorer..."
   echo
@@ -371,8 +371,8 @@ function explorer() {
     --set microsoft.redirect="" \
     --set microsoft.secret="$DATALAYER_MICROSOFT_SECRET" \
     --set microsoft.scope="User.ReadBasic.All" \
-    --set studio.rest="http://$STUDIO_LB_HOSTNAME" \
-    --set studio.ws="ws://$STUDIO_LB_HOSTNAME" \
+    --set studio.rest="http://$EXPLORER_LB_HOSTNAME" \
+    --set studio.ws="ws://$EXPLORER_LB_HOSTNAME" \
     --set twitter.consumerKey="$DATALAYER_TWITTER_CONSUMER_KEY" \
     --set twitter.consumerSecret="$DATALAYER_TWITTER_CONSUMER_SECRET" \
     --set twitter.redirect="" \

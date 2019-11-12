@@ -1,34 +1,11 @@
 explorer:
-  image: datalayer/explorer:${DLAVERSION}
+  image: datalayer/explorer:0.0.3
   imagePullPolicy: IfNotPresent
-  hostNetwork: false
-kuber:
-  manageReservations: "true"
-  board: http://localhost:4326
-  rest: http://localhost:4326
-  ws: ws://localhost:9091
-  insecureBindAddress: 0.0.0.0
-  insecurePort: 9091
-  resources:
-    limits:
-      memory: "4096Mi"
-      cpu: "2000m"
-google:
-  apiKey: ""
-  clientId: ""
-  redirect: http://localhost:4326
-  secret: ""
-  scope: ""
-hdfs: http://localhost:50070
-microsoft:
-  applicationId: ""
-  redirect: http://localhost:4326
-  secret: ""
-  scope: User.ReadBasic.All+Contacts.Read+Mail.Send+Files.ReadWrite+Notes.ReadWrite
-zeppelin:
-  rest: http://localhost:8091
-  ws: ws://localhost:8091
-twitter:
-  consumerKey: ""
-  consumerSecret: ""
-  redirect": http://datalayer-001:8081/twitter/maketoken
+  port: 9600
+  env:
+    DLAHOST: ""
+    DLA_EXPLORER_INDEX_PAGE: ""
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"

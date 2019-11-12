@@ -44,4 +44,4 @@ title: React.js in JupyterLab
 
 ## VDom
 
-[Add event handling support to vdom-extension](https://github.com/jupyterlab/jupyterlab/pull/5670)
++ [Add event handling support to vdom-extension](https://github.com/jupyterlab/jupyterlab/pull/5670)

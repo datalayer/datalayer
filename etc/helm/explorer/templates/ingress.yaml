@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: explorer-ingress
+  namespace: {{ .Release.Namespace }}
+#  annotations:
+#    nginx.ingress.explorernetes.io/rewrite-target: /$1/$2
+spec:
+  rules:
+  - host: minikube.datalayer.io.local
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: {{ .Release.Name }}-explorer-svc
+          servicePort: {{ .Values.explorer.port }}

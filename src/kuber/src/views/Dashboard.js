@@ -488,7 +488,7 @@ export default function Dashboard() {
               </div>
               <h4 className={classes.cardProductTitle}>
                 <a href="#datalayer" onClick={e => e.preventDefault()}>
-                  Office Studio
+                  Office Explorer
                 </a>
               </h4>
               <p className={classes.cardProductDesciprion}>

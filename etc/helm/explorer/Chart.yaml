@@ -1,12 +1,12 @@
 apiVersion: v1
-description: Web-based Data explorer that enables data-driven, interactive data analytics and collaborative documents.
+description: Studio.
 name: explorer
-version: ${DLAVERSION}
-appVersion: ${DLAVERSION}
+version: 0.0.3
+appVersion: 0.0.3
 home: https://datalayer.io
 sources:
-- https://github.com/datalayer/explorer
-icon: https://docs.datalayer.io/logo/datalayer-25.svg
+- https://github.com/datalayer/datalayer/tree/master/api/explorer
+icon: https://docs.datalayer.io/logo/datalayer-square.png
 maintainers:
 - name: eric
   email: eric@datalayer.io

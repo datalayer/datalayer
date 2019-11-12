@@ -16,7 +16,7 @@ The platform architecture is depicted here after.
 
 ```
 +---+-----------------------------------------------------+---+
-|   |              STUDIO EXPLORER                        |   |
+|   |              EXPLORER EXPLORER                        |   |
 +   +-----------------------------------------------------+   +
 |   |                      spaces                         |   |
 |   |                     channels                        |   |
@@ -53,7 +53,7 @@ The platform architecture is depicted here after.
 +---+-----------------------------------------------------+---+
 ```
 
-+ Layer 6 - UI - The collaborative studio that Big Data Scientists will use to `Collect`, `Explore`, `Model` and `Serve`. - explorer <- ui + auth
++ Layer 6 - UI - The collaborative user interface that Big Data Scientists will use to `Collect`, `Explore`, `Model` and `Serve`. - explorer <- ui + auth
 + Layer 5 - Interpreter - REST endpoints to invoke and interpeter commands from upper layers - spitfire <- interpreters
 + Layer 4 - Utils - Middelware toolings to complement common use case such as `Functions`, `Scheduled Batch`, `Queuing`...
 + Layer 3 - Store - Various store to fit common storage patterns - hbase / solr <- library / datasets

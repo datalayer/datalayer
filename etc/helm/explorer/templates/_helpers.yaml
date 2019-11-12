@@ -1,4 +1,3 @@
-{{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
 */}}
@@ -8,9 +7,16 @@ Expand the name of the chart.
 
 {{/*
 Create a default fully qualified app name.
-We truncate at 24 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+We truncate at 24 chars because some Studionetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "kuber.fullname" -}}
+{{- define "explorer.fullname" -}}
 {{- $name := default .Chart.Name .Values.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Define the name of the client service for explorer.
+*/}}
+{{- define "explorer.service-name" -}}
+{{- printf "%s-%s" (include "explorer.fullname" .) "svc" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}

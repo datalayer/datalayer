@@ -10,7 +10,7 @@ import {Provider}  from 'react-redux'
 import ReduxToastr from 'react-redux-toastr'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {reducer as toastrReducer} from 'react-redux-toastr'
-import SimpleTabs from './panel'
+import TabPanel from './panel'
 import '../style/index.css'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import thunk from 'redux-thunk';
@@ -347,10 +347,7 @@ class TwitterSessionNode extends React.Component<TwitterSessionNode.IProps, Twit
 
   render() {
     return (
-      <SimpleTabs/>
-/*
       <TabPanel notebookTracker={this.props.notebookTracker}/>
-*/
     )
   }
 

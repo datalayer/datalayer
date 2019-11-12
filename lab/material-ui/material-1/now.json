@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name": "datalab-blueprintjs",
+    "builds": [
+        { "src": "index.html", "use": "@now/static" },
+        { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
+    ],
+    "routes": [
+        { "src": "/", "dest": "/index.html" },
+        { "src": "/build/(.*)", "dest": "/$1" }
+    ]
+}

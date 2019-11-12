@@ -45,7 +45,7 @@
     "link:packages": "jupyter labextension link . --no-build"
   },
   "dependencies": {
-    "@material-ui/core": "4.5.1",
+    "@material-ui/core": "4.6.1",
     "@material-ui/icons": "4.5.1",
     "@jupyterlab/application": "^2.0.0-alpha.1",
     "@jupyterlab/apputils": "^2.0.0-alpha.1",

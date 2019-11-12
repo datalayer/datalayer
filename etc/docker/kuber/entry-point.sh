@@ -17,7 +17,7 @@ start_with_k8s() {
     --hdfs="$HDFS" \
     --insecure-bind-address="$KUBER_INSECURE_BIND_ADDRESS" \
     --insecure-port="$KUBER_INSECURE_PORT" \
-    --datalayer-studio="$DATALAYER_UI" \
+    --datalayer-explorer="$DATALAYER_UI" \
     --datalayer-rest="$DATALAYER_API_REST" \
     --datalayer-ws="$DATALAYER_API_WS" \
     --microsoft-application-id="$MICROSOFT_APPLICATION_ID" \

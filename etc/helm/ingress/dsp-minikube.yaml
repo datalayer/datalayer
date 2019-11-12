@@ -1,7 +1,7 @@
 defaultBackend:
   enabled: true
 controller:
-#  defaultBackendService: "default/studio-studio"
+#  defaultBackendService: "default/explorer-explorer"
 #  hostNetwork: false
 #  nodeSelector:
 #    dla-role: master
@@ -11,7 +11,7 @@ controller:
       ingress.kubernetes.io/ssl-redirect: true
       service.beta.kubernetes.io/aws-load-balancer-ssl-ports: ssl
       service.beta.kubernetes.io/aws-load-balancer-backend-protocol: ssl
-      service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: datalayer-role=studio,kuber-role=studio
+      service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: datalayer-role=explorer,kuber-role=explorer
 #      service.beta.kubernetes.io/aws-load-balancer-access-log-emit-interval: 60
 #      service.beta.kubernetes.io/aws-load-balancer-access-log-enabled: true
 #      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us...
@@ -23,4 +23,4 @@ controller:
 #      nginx.ingress.kubernetes.io/ssl-redirect: true
 #      nginx.ingress.kubernetes.io/force-ssl-redirect: true
 #  tcp:
-#   81: default/studio-studio:8080
+#   81: default/explorer-explorer:8080

@@ -165,14 +165,14 @@ open http://minikube.datalayer.io.local/jupyterhub
 
 ```bash
 # Deploy the Studio service.
-dla dsp-up studio
+dla dsp-up explorer
 open http://minikube.datalayer.io.local
 ```
 
 ## Tear Down the Services
 
 ```bash
-dla dsp-down studio,jupyterhub,library,solr,iam,keycloak,ldapadmin,ldap,kuber,k8s-dashboard
+dla dsp-down explorer,jupyterhub,library,solr,iam,keycloak,ldapadmin,ldap,kuber,k8s-dashboard
 ```
 <!--
 ```bash

@@ -15,7 +15,6 @@ To start or develop, you first have to build `jupyterlab`.
 cd $DLAHOME/repos/jupyterlab && \
   git checkout datalayer && \
   pip install -e . && \
-  jupyter serverextension enable --py jupyterlab --sys-prefix && \
   yarn install && \
 #  yarn clean && \
 #  yarn install && \
@@ -52,18 +51,17 @@ cd $DLAHOME/src/jupyterlab/twitter && \
 ```
 
 ```bash
-# shell #1 - watch the extension.
+# Shell #1 - watch the extension.
 cd $DLAHOME/src/jupyterlab/twitter && \
   make watch
-# shell #2 - run and watch jupyter lab.
-  # --dev-mode \
+# Shell #2 - run and watch jupyter lab.
+#    --dev-mode \
+#    --browser chromium-browser \
 cd $DLAHOME/src/jupyterlab/twitter && \
+  DLA_TWITTER_OAUTH_CALLBACK_URL=http://localhost:8888/twitter/auth/popup && \
   jupyter lab \
     --watch \
-    --browser chromium-browser \
     --config ./jupyter_notebook_config.py
-# shell #3 - list the notebooks.
-jupyter notebook list
 ```
 
 In case of issue (version mismatch...), try.

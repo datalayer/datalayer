@@ -6,6 +6,8 @@ title: Helm
 
 > [Helm](https://helm.sh) is the package manager for Kubernetes - A way to find, share, and use software built for Kubernetes.
 
+## Install
+
 Install the [binary Helm](https://github.com/helm/helm/blob/master/docs/install.md) on your local env.
 
 ```bash
@@ -31,6 +33,8 @@ Use Helm with CLI commands.
 helm version
 helm ls
 ```
+
+## Deploy
 
 Deploy a simple chart.
 
@@ -66,7 +70,7 @@ helm install --dry-run
 helm template
 ```
 
-# Helm Repository
+## Repository
 
 ```bash
 cd $DLAHOME/etc/helm
@@ -95,7 +99,7 @@ helm repo list
 helm ls -a
 ```
 
-## Helm Alternatives
+## Alternatives
 
 + [KsonNet](https://github.com/ksonnet/ksonnet), see also [official website](https://ksonnet.io).
 + [Flekszible](https://github.com/elek/flekszible).

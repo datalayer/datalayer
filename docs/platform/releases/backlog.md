@@ -10,6 +10,7 @@ Backlog features by alphabetical order.
 + `#dataset` Index, Search and Mount AWS Open Datasets
 + `#dataset` Index, Search and Mount Azure Open Datasets
 + `#dataset` Index, Search and Mount EU Ameco Datasets
++ `#explorer` Revisit `this.xxx = window['xxx']`
 + `#explorer` Activity View
 + `#explorer` Comment on Note View
 + `#explorer` Git Repository with README View
@@ -98,7 +99,6 @@ Backlog features by alphabetical order.
 + `#social` User Leaderboard
 + `#social` User Timeline View
 + `#social` User View with published Posts
-+ `#studio` Revisit `this.xxx = window['xxx']`
 + `#viz` Altair Vizualisation
 + `#viz` Bokeh Vizualisation
 + `#viz` Jupyter IpyWidgets Vizualisation

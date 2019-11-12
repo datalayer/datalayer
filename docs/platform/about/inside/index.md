@@ -8,13 +8,13 @@ title: Inside Datalayer
 
 Discover the [high level architecture](/about/inside/architecture.md).
 
-## Studio
-
-Business stakeholders use a [Studio](/about/inside/studio.md) to get the insights created by the Data Scientists.
-
 ## Explorer
 
 Data Scientists and Business use an [Explorer](/about/inside/explorer.md) to manage and share their insights.
+
+## Studio
+
+Business stakeholders use a [Studio](/about/inside/studio.md) to get the insights created by the Data Scientists.
 
 ## Library
 

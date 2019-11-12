@@ -7,6 +7,7 @@
 + [Common](./common)
 + [Components](./components)
 + [Datalayer Controller](./datalayerctl)
++ [Explorer](./explorer)
 + [IAM](./iam)
 + [Jupyter StoryBook Addon](./jupyter-storybook)
 + [Jupyter Controller](./jupyterctl)
@@ -14,19 +15,20 @@
 + [JupyterPool](./jupyterpool)
 + [Kuber](./kuber)
 + [Library](./library)
-+ [Studio](./studio)
 + [Widgets](./widgets)
 
 ## Legend
 
 | Mark | Description |
 | -----| ----------- |
+| 🚀 | Ready to be released in production |
 | 🏃 | Work in progress |
-| ✋ | Blocked task |
 | 💪 | Stretch goal for this iteration |
 | 🔵 | Under discussion within the Team |
 | ⚫️ | More investigation required to remove uncertainty |
 | 🔴 | Missing issue reference |
+| ✋ | Blocked task |
+| ⚪️ | Looking for help |
 
 ## Endgame
 
@@ -41,27 +43,28 @@ Below is a summary of the top level play items.
 
 ### Datalayer
 
-+ 🏃 [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
 + 🏃 [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
++ 💪 [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
 + 💪 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + 💪 [Index and Search Notes](https://github.com/datalayer/datalayer/issues/3)
 + 🔵 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
 
 ### Jupyter Server
 
-+ 🔵 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
++ 💪 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
 + 🔵 [Preparse subcommands in an extensionapps](https://github.com/jupyter/jupyter_server/pull/133)
 + 🔵 [Make frontends discoverable and add a frontend alias](https://github.com/jupyter/jupyter_server/issues/121)
 + 🔵 [Kernel Providers](https://github.com/jupyter/jupyter_server/pull/112)
 + 🔵 [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)
 + 🔵 [Document jupyter_server](https://github.com/jupyter/jupyter_server/issues/131)
-+ 💪 [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
++ 🔵 [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
 + ✋ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
 + 🔵 [Release jupyter_server 0.2.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
 
 ### JupyterLab
 
-+ 🏃 [Create JupyterLab Extension Examples](https://github.com/datalayer/datalayer/issues/21)
++ 💪 [POC Kernel Launch Parameters](https://github.com/datalayer/datalayer/issues/24)
++ 💪 [Create JupyterLab Extension Examples](https://github.com/datalayer/datalayer/issues/21)
 + 💪 [JupyterLab as Server Extension](https://github.com/jupyterlab/jupyterlab/pull/7416)
 + 💪 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
 + ⚫️ [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
@@ -99,7 +102,7 @@ Don't further deploy the other services as we will run them locally.
 
 ```bash
 # Ensure that services you will run locally are down.
-dla dsp-down iam,kuber,jupyterhub,library,studio
+dla dsp-down iam,kuber,jupyterhub,library,explorer
 ```
 
 ```bash
@@ -108,7 +111,7 @@ cd $DLAHOME/src && \
 ```
 
 ```bash
-# Start following services: `iam`, `kuber`, `jupyterhub`, `library` and `studio`.
+# Start following services: `iam`, `kuber`, `jupyterhub`, `library` and `explorer`.
 # These will run on your `local` environment (aka `dev` mode) outside of Minikube.
 cd $DLAHOME/src && \
   make start-endpoints
@@ -150,8 +153,9 @@ yarn registry:init
 ```
 
 ```bash
-# Install the yarn dependencies and build.
+# Clean, install the dependencies and build.
 cd $DLAHOME/src && \
+  make clean-ui && \
   make deps-ui && \
   make build-ui
 ```

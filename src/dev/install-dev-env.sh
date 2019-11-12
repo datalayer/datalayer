@@ -45,7 +45,7 @@ function install_endpoints() {
   declare -a ENDPOINTS=(
     "iam"
     "library"
-    "studio"
+    "explorer"
     "jupyterpool"
     )
 
@@ -91,13 +91,13 @@ function install_library() {
 
 # ------------------------------------
 
-function install_studio() {
+function install_explorer() {
 
   echo
-  echo -e $WHITE_BCK"INSTALLING STUDIO"$NOCOLOR
+  echo -e $WHITE_BCK"INSTALLING EXPLORER"$NOCOLOR
   echo
 
-  cd $DLAHOME/src/studio && \
+  cd $DLAHOME/src/explorer && \
     make py-clean && \
     make py-install && \
     make py-build
@@ -286,7 +286,7 @@ function apply_cmd() {
       install_endpoints
       install_iam
       install_library
-      install_studio
+      install_explorer
       install_jupyter
       install_jupyterhub
       install_jupyterlab
@@ -306,8 +306,8 @@ function apply_cmd() {
       install_library
       ;;
 
-    studio)
-      install_studio
+    explorer)
+      install_explorer
       ;;
 
     jupyter)

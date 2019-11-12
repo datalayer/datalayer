@@ -8,6 +8,8 @@ JupyterLab Development [Docs](https://jupyterlab.readthedocs.io/en/latest/develo
 
 Typescript [Docs](http://jupyterlab.github.io/jupyterlab/index.html).
 
+[TypeScript-Style-Guide](https://github.com/jupyterlab/jupyterlab/wiki/TypeScript-Style-Guide).
+
 ## Build
 
 Building consists of:

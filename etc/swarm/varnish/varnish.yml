@@ -6,7 +6,7 @@ services:
       - 6081:6081
       - 6085:6085
     environment:
-      BACKENDS: studio
+      BACKENDS: explorer
 #      COOKIES: "true"
 #      COOKIES_WHITELIST: "()"
       BACKENDS_PORT: "9600"
