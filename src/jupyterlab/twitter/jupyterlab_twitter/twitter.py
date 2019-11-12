@@ -174,7 +174,7 @@ class TwitterPostHandler(BaseHandler, tornado.auth.TwitterMixin):
             created_status = yield self.twitter_request(
                 "/statuses/update",
                 post_args = {
-                    'status': status['status'] + ' #datalayer',
+                    'status': status['status'] + ' #datalayerio',
                     'media_ids': ','.join([id_img])
                     },
                 access_token = access_token

@@ -251,25 +251,23 @@ export default function TabPanel(props) {
         aria-label="icon tabs example"
       >
         <Tab icon={<TwitterIcon />} aria-label="phone" className={classes.tab} />
-        <Tab icon={<AccountCircleIcon />} aria-label="favorite" className={classes.tab} />
-        <Tab icon={<TimelineIcon />} aria-label="person" className={classes.tab} />
+        <Tab icon={<TimelineIcon />} aria-label="favorite" className={classes.tab} />
+        <Tab icon={<AccountCircleIcon />} aria-label="person" className={classes.tab} />
       </Tabs>
 
       <SingleTabPanel value={value} index={0}>
         <form noValidate autoComplete="off">
-          <div>
-            <TextField
-             label="Tweet"
-              placeholder="Type your tweet"
-              margin="normal"
-              multiline={true}
-              rows={2}
-              value={tweetText}
-              className={classes.textField}
-              disabled={formDisabled}
-              onChange={onTweetTextChanged}
-              />
-          </div>
+          <TextField
+            label="Tweet"
+            placeholder="Type your tweet"
+            margin="normal"
+            multiline={true}
+            rows={2}
+            value={tweetText}
+            className={classes.textField}
+            disabled={formDisabled}
+            onChange={onTweetTextChanged}
+            />
         </form>
         {
           !formDisabled && 
@@ -279,6 +277,11 @@ export default function TabPanel(props) {
                 Tweet
               </Button>
             </div>
+            {/*
+            <div>
+              <button onClick={ e => { e.preventDefault(); logContent() }}>Log Content</button>
+            </div>
+            */}
             <ScreenCapture onEndCapture={handleScreenCapture}>
               {({ onStartCapture }) => (
                 <React.Fragment>
@@ -288,11 +291,6 @@ export default function TabPanel(props) {
                 </React.Fragment>
               )}
             </ScreenCapture>
-            {/*
-            <div>
-              <button onClick={ e => { e.preventDefault(); logContent() }}>Log Content</button>
-            </div>
-            */}
           </div>
         }
         <div>
@@ -307,11 +305,13 @@ export default function TabPanel(props) {
         </div>
         { (capture != '') && 
           <div>
+            { (! formDisabled) && 
             <div>
               <Button onClick={ e => { e.preventDefault(); removeCapture(); } } color="secondary" variant="contained" className={classes.button}>
                 REMOVE CAPTURE
               </Button>
             </div>
+            }
             <div>
               <img src={ capture } width={ captureWidth } height={ captureHeight } />
             </div>
@@ -333,20 +333,6 @@ export default function TabPanel(props) {
       </SingleTabPanel>
 
       <SingleTabPanel value={value} index={1}>
-        <div className="jp-TwitterLoginScreen">
-          <div className="jp-TwitterDrive-logo"></div>
-          <div className="jp-TwitterDrive-text">
-            Twitter
-          </div>
-          <button className="jp-Dialog-button jp-mod-styled jp-mod-accept" title="Log into your Twitter account"
-            onClick={ (e) => { e.preventDefault(); signout(setTwitterInfo); } }
-          >
-            SIGN OUT
-          </button>
-        </div>
-      </SingleTabPanel>
-
-      <SingleTabPanel value={value} index={2}>
         <div>
           <div style={{ maxWidth: "500px" }}>
             <Timeline
@@ -361,6 +347,20 @@ export default function TabPanel(props) {
               onLoad={() => console.log(`Timeline for @${twitterInfo.screen_name} is loaded!`)}
             />
           </div>
+        </div>
+      </SingleTabPanel>
+
+      <SingleTabPanel value={value} index={2}>
+        <div className="jp-TwitterLoginScreen">
+          <div className="jp-TwitterDrive-logo"></div>
+          <div className="jp-TwitterDrive-text">
+            Twitter
+          </div>
+          <button className="jp-Dialog-button jp-mod-styled jp-mod-accept" title="Log into your Twitter account"
+            onClick={ (e) => { e.preventDefault(); signout(setTwitterInfo); } }
+          >
+            SIGN OUT
+          </button>
         </div>
       </SingleTabPanel>
 

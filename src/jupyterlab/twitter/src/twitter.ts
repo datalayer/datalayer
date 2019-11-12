@@ -56,7 +56,6 @@ export class Twitter {
 			var val = await ServerRequest('/twitter/post', 'POST', tweet)
 			if (val.status !== 200) {
         		return val.text().then(data => {
-					console.log('---', data)
 					throw new ServerConnection.ResponseError(val, data)
 				})
 			}
