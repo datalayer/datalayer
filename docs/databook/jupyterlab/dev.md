@@ -6,9 +6,11 @@ title: JupyterLab Develop
 
 JupyterLab Development [Docs](https://jupyterlab.readthedocs.io/en/latest/developer/repo.html).
 
-Typescript [Docs](http://jupyterlab.github.io/jupyterlab/index.html).
+[TypeDoc](https://jupyterlab.github.io/jupyterlab/index.html).
 
-[TypeScript-Style-Guide](https://github.com/jupyterlab/jupyterlab/wiki/TypeScript-Style-Guide).
+[TypeScript Style Guide](https://github.com/jupyterlab/jupyterlab/wiki/TypeScript-Style-Guide).
+
+![JupyterLab Plugins](https://jupyterlab.readthedocs.io/en/latest/_images/dependency-graph.svg)
 
 ## Build
 

@@ -8,15 +8,19 @@ title: Playground
 
 + https://gist.github.com
 
-## Code
+## Build with React.js
 
 + https://codesandbox.io
++ https://github.com/codesandbox/codesandbox-client
+
+## Built with Visual Studio Code
+
 + https://stackblitz.com
++ https://github.com/stackblitz/core
+
+## Other
+
 + https://codepen.io
-
-## Visual Studio Code
-
-+ https://stackblitz.com
 
 ## Storybook
 

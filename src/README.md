@@ -6,11 +6,12 @@
 
 + [Common](./common)
 + [Components](./components)
-+ [Datalayer Controller](./datalayerctl)
++ [Data](./data)
 + [Explorer](./explorer)
 + [IAM](./iam)
 + [Jupyter StoryBook Addon](./jupyter-storybook)
-+ [Jupyter Controller](./jupyterctl)
++ [Jupyter Controller](./jupyterserver/ctl)
++ [Jupyter Visual Studio Code](./jupyterserver/vscode)
 + [JupyterLab Extensions](./jupyterlab)
 + [JupyterPool](./jupyterpool)
 + [Kuber](./kuber)
@@ -24,11 +25,11 @@
 | 🚀 | Ready to be released in production |
 | 🏃 | Work in progress |
 | 💪 | Stretch goal for this iteration |
-| 🔵 | Under discussion within the Team |
 | ⚫️ | More investigation required to remove uncertainty |
+| 🔵 | Under discussion within the Team |
 | 🔴 | Missing issue reference |
-| ✋ | Blocked task |
 | ⚪️ | Looking for help |
+| ✋ | Blocked task |
 
 ## Endgame
 
@@ -84,6 +85,10 @@ Below is a summary of the top level play items.
 ### Voila
 
 + 🔵 [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
+
+### VSCode
+
++ ⚪️ [yarn web should support extension search and display](https://github.com/microsoft/vscode/issues/84901)
 
 ## Endpoints
 

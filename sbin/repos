@@ -142,6 +142,9 @@ spark-solr|https://github.com/datalayer-contrib/spark-solr.git|https://github.co
 voila|https://github.com/datalayer-contrib/voila.git|https://github.com/voila-dashboards/voila.git|master \
 voila-gridstack|https://github.com/datalayer-contrib/voila-gridstack.git|https://github.com/quantstack/voila-gridstack.git|master \
 voila-vuetify|https://github.com/datalayer-contrib/voila-vuetify.git|https://github.com/quantstack/voila-vuetify.git|master \
+vscode|https://github.com/datalayer-contrib/vscode.git|https://github.com/microsoft/vscode.git|master \
+vscode-extension-samples|https://github.com/datalayer-contrib/vscode-extension-samples.git|https://github.com/microsoft/vscode-extension-samples.git|master \
+vscode-python|https://github.com/datalayer-contrib/vscode-python.git|https://github.com/microsoft/vscode-python.git|master \
 ";
 
 DLA_REPOS=()

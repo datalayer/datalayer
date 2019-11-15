@@ -24,7 +24,7 @@ title: JupyterLab Develop Extensions
 
 + Be clearer about when we have sourcemaps on, make sure sourcemaps go all the way back to TypeScript.
 + Prebuild extensions and have them served without building
-+ What about VSCodes model? They keep every plugin in a seperate process and just use message passing to communicate. We don't do that cause we wanna give extensions access to shared JS objects and the DOM.
++ What about VSCode model? They keep every plugin in a seperate process and just use message passing to communicate. We don't do that cause we wanna give extensions access to shared JS objects and the DOM.
 
 ## CookieCutter
 
@@ -100,7 +100,34 @@ jupyter labextension update --all
 yarn upgrade --latest --exact --scope @jupyterlab
 ```
 
-## Discovery
+# Disable
+
+```json
+#  "@jupyterlab/notebook-extension:tools",
+"uninstalled_core_extensions": [
+  "@jupyterlab/filebrowser-extension",
+  "@jupyterlab/terminal-extension",
+  "@jupyterlab/mainmenu-extension",
+  "@jupyterlab/settingeditor-extension",
+  "@jupyterlab/tabmanager-extension",
+  "@jupyterlab/statusbar-extension",
+  "@jupyterlab/running-extension"
+]
+
+"disabledExtensions": [
+  "@jupyterlab/toc"
+],
+```
+
+## Kernel
+
+The app serviceManager provides ways to access the server rest api, including starting kernels, etc.
+
+## Companion Packages
+
++ https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#companion-packages
+
+See Also.
 
 + https://github.com/vidartf/jupyterlab_discovery
 + https://jupyterlab-discovery.readthedocs.io/en/stable/index.html

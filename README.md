@@ -15,7 +15,7 @@
 <p/>
 <p/>
 See it as a <b>GitHub for education</b> to <b>analyse data</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
-  
+
 + You use real datasets and code to create and publish **Reproducible** analysis.
 + You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
 + You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
@@ -28,7 +28,7 @@ Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** ca
 1. Scalable.
 1. Secured.
 
-## 🚀 Data Papers
+## 📓 Data Papers
 
 Others can understand, reuse and build on top of your papers.
 

@@ -15,7 +15,7 @@ See also.
 + [NbAutoeval](https://github.com/parmentelat/nbautoeval)
 + [NbTutor 1](https://github.com/lgpage/nbtutor)
 + [NbTutor 2](https://github.com/jorisvandenbossche/nbtutor)
-+ [jupyter4edu](https://jupyter4edu.github.io/jupyter-edu-book/getting-going.html)
++ [jupyter4edu](https://jupyter4edu.github.io/jupyter-edu-book)
 
 ## Grader on JupyterLab
 

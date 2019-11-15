@@ -4,7 +4,6 @@ title: Others
 
 # Others
 
-+ [Visual Studio Code](/msc/vscode.md).
 + [Spyder](/msc/spyder.md).
 
 External Links.

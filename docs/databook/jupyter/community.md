@@ -24,6 +24,11 @@ GitHub accounts used by the Jupyter community.
 
 + [Search jupyter on GitHub](https://github.com/search?q=jupyter).
 
+## Workshops
+
++ https://blog.jupyter.org/jupyter-community-workshops-call-for-proposals-for-jan-aug-2020-710f687e30f4
++ https://blog.jupyter.org/teaching-and-learning-with-jupyter-c1d965f7b93a
+
 ## Subprojects
 
 + https://github.com/jupyter/governance/blob/master/newsubprojects.md

@@ -5,13 +5,13 @@ from setuptools import find_packages
 VERSION = '0.0.1'
 
 setuptools.setup(
-    name = 'datalayerctl',
+    name = 'datalayer_data',
     version = VERSION,
-    description = 'Datalayer Control',
+    description = 'Datalayer Data',
     long_description = open('README.md').read(),
     packages = find_packages(),
     package_data = {
-        'datalayerctl': [
+        'datalayer_data': [
             '*',
         ],
     },
@@ -34,7 +34,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'datalayerctl=datalayerctl.__main__:main',
+            'data=datalayer_data.__main__:main',
         ]
     }
 )

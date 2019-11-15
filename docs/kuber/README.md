@@ -2,7 +2,7 @@
 
 > :sparkles: :mega: Documentation for Kuber. :lollipop:
 
-The content of this folder is deployed on the Kuber documentation [website](https://docs.kuber.sh).
+The content of this folder is deployed on the Kuber documentation [website](https://kuber.datalayer.io).
 
 ## Contribute to the Documentation
 

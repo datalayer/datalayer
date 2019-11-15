@@ -49,6 +49,10 @@ JupyterLab is the next-generation web-based user interface for Project Jupyter.
   * [Extensions](/jupyterlab/extensions.md)
   * [Develop Extensions](/jupyterlab/dev-extensions.md)
 
+Visual Studio Code
+
+* [Visual Studio Code](/vscode/index.md)
+
 {% content "jupyterhub" %}
 
 JupyterHub, a multi-user version of the notebook designed for companies, classrooms and research labs.
@@ -182,7 +186,6 @@ Nteract, interactive computing suite.
 Other Jupyter components and projects from the overall ecosystem.
 
 * [Others](/msc/index.md)
-  * [Visual Studio Code](/msc/vscode.md)
   * [Spyder](/msc/spyder.md)
 
 {% endtabs %}

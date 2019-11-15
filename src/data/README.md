@@ -2,4 +2,4 @@
 
 # Datalayer Controller
 
-Datalayer Controller is an open source tool to create and manager the Datalayer Science Platform (DSP).
+Datalayer Controller is an open source tool to create and manage the Datalayer Science Platform (DSP).

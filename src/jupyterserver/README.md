@@ -1,10 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Jupyter Controller
-
-Jupyter Controller is an open source tool to create and manager the `Datalayer Science Platform`.
-
-## Build
+# Jupyter Server
 
 ```bash
 # jupyter-server
@@ -12,18 +8,27 @@ Jupyter Controller is an open source tool to create and manager the `Datalayer S
 https://github.com/datalayer-contrib/jupyter-server/tree/datalayer
 > https://github.com/kevin-bates/jupyter_server/tree/jupyter-kernel-mgmt
 > https://github.com/zsailer/jupyter_server/tree/subcommands
+```
+
+```bash
 # jupyter-notebook
 https://github.com/datalayer-contrib/notebook/tree/datalayer
 > https://github.com/zsailer/notebook/tree/notebook-ext
 # jupyter-notebook-nbclassic
 https://github.com/datalayer-contrib/nbclassic/tree/datalayer
 > https://github.com/zsailer/nbclassic/tree/master
+```
+
+```bash
 # jupyterlab-server
 https://github.com/datalayer-contrib/jupyterlab-server/tree/datalayer
 > https://github.com/datalayer-contrib/jupyterlab-server/tree/jupyter_server
 # jupyterlab
 https://github.com/datalayer-contrib/jupyterlab/tree/datalayer
 > https://github.com/datalayer-contrib/jupyterlab/tree/jupyter_server
+```
+
+```bash
 # jupyter-protocol
 https://github.com/datalayer-contrib/jupyterlab-protocol/tree/datalayer
 > https://github.com/gateway-experiments/jupyter_protocol/tree/split-docs
