@@ -2,7 +2,7 @@
 title: DEPRECATED Jupyter Client
 ---
 
-# DEPRECATED Jupyter Client
+# [DEPRECATED] Jupyter Client
 
 ```
 CLIENT --- KERNEL

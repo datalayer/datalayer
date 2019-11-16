@@ -1,25 +1,41 @@
 """
-Setup Module to setup Python Handlers for the JupyterLab Twitter Plugin.
+Setup Module to setup Python Handlers for the Jupyter Twitter Plugin.
 """
 import setuptools
 
 VERSION = '0.0.1'
 
+def get_data_files():
+    """Get the data files for the package.
+    """
+    data_files = [
+        ('etc/jupyter/jupyter_server_config.d', ['etc/jupyter/jupyter_server_config.d/jupyter_twitter.json']),
+    ]
+    def add_data_files(path):
+        for (dirpath, dirnames, filenames) in os.walk(path):
+            if filenames:
+                data_files.append((dirpath, [os.path.join(dirpath, filename) for filename in filenames]))
+    # Add all static and templates folders.
+    add_data_files('lib)
+    return data_files
+
 setuptools.setup(
-    name = 'jupyterlab_twitter',
+    name = 'jupyter_twitter',
     version = VERSION,
-    description = 'JupyterLab Twitter',
+    description = 'Jupyter Twitter',
     long_description = open('README.md').read(),
     packages = setuptools.find_packages(),
+    data_files = get_data_files(),
     package_data = {
-        'jupyterlab_twitter': [
+        'jupyter_twitter': [
             '*',
         ],
     },
     setup_requires = [
     ],
     install_requires = [
-        'notebook',
+        'nbclassic',
+        'jupyter_server @ git+https://github.com/Zsailer/jupyter_server/@master'
         'psutil',
         'tornado==5.1.1',
         'twitter',
@@ -31,4 +47,9 @@ setuptools.setup(
         'pytest-cov',
         'pylint',
     ],
+    entry_points = {
+        'console_scripts': [
+             'jupyter-twitter = jupyter_twitter.application:main',
+        ]
+    },
 )

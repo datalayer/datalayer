@@ -123,9 +123,9 @@ yarn upgrade --latest --exact --scope @jupyterlab
 
 The app serviceManager provides ways to access the server rest api, including starting kernels, etc.
 
-## Companion Packages
+## Discovey Metadata
 
-+ https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#companion-packages
+[Companion Packages](https://jupyterlab.readthedocs.io/en/latest/developer/extension_dev.html#companion-packages)
 
 See Also.
 

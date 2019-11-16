@@ -15,7 +15,7 @@
       "esnext"
     ],
     "outDir": "./lib",
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "node",
     "allowJs": true,
     "skipLibCheck": true,
@@ -26,10 +26,10 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
-    "jsx": "react",
+    "noEmit": true,
+    "jsx": "preserve",
     "noImplicitReturns": false,
     "noImplicitThis": false,
-    "noImplicitAny": false,
+    "noImplicitAny": false
   }
 }

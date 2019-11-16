@@ -35,7 +35,7 @@ cd $DLAHOME/src/jupyterlab/twitter && \
   jupyter lab build
 ```
 
-Start jupyterlab with the `jupyterlab-datalayer` extension enabled.
+Start jupyterlab with the `jupyter-twitter` extension enabled.
 
 ```bash
 DLA_TWITTER_OAUTH_CALLBACK_URL=http://localhost:8888/twitter/auth/popup && \

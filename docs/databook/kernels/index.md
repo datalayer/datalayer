@@ -21,14 +21,6 @@ jupyter kernel
 # [KernelApp] To connect a client: --existing kernel-e0bde3c0-00e8-46c0-9e47-d01c3b9d3618.json
 ```
 
-## Connect
-
-```bash
-# jupyter console --existing $(jupyter --runtime-dir)/kernel-....json
-jupyter console --existing kernel-....json
-jupyter qtconsole --existing kernel-....json
-```
-
 ## Options
 
 ```bash

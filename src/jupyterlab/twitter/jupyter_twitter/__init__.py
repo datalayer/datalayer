@@ -9,7 +9,7 @@ def _jupyter_server_extension_paths():
     Declare Jupyter Server Extension Paths.
     """
     return [{
-        'module': 'jupyterlab_twitter',
+        'module': 'jupyter_twitter',
     }]
 
 def _jupyter_nbextension_paths():
@@ -18,7 +18,7 @@ def _jupyter_nbextension_paths():
     """
     return [{
         "section": "notebook", 
-        "dest": "jupyterlab_twitter",
+        "dest": "jupyter_twitter",
     }]
 
 def load_jupyter_server_extension(app):

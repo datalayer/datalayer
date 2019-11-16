@@ -58,14 +58,14 @@ py-publish:
 	python setup.py sdist bdist_egg bdist_wheel upload
 
 py-repl:
-	PYTHONPATH=./dist/jupyterlab_twitter-0.0.1-py3-none-any.whl python
+	PYTHONPATH=./dist/jupyter_twitter-0.0.1-py3-none-any.whl python
 
 server-ext-enable: py-build
-	@exec jupyter serverextension enable --py jupyterlab_twitter --sys-prefix
+	@exec jupyter serverextension enable --py jupyter_twitter --sys-prefix
 	@exec jupyter serverextension list
 
 server-ext-disable:
-	@exec jupyter serverextension disable --py jupyterlab_twitter --sys-prefix
+	@exec jupyter serverextension disable --py jupyter_twitter --sys-prefix
 	@exec jupyter serverextension list
 
 lab-ext-enable: yarn-build

@@ -10,13 +10,18 @@
 + [Explorer](./explorer)
 + [IAM](./iam)
 + [Jupyter StoryBook Addon](./jupyter-storybook)
++ [JupyterLab Twitter Extension](./jupyterlab/twitter)
 + [Jupyter Controller](./jupyterserver/ctl)
 + [Jupyter Visual Studio Code](./jupyterserver/vscode)
-+ [JupyterLab Extensions](./jupyterlab)
 + [JupyterPool](./jupyterpool)
 + [Kuber](./kuber)
 + [Library](./library)
 + [Widgets](./widgets)
+
+You can also try the examples.
+
++ [Example 1](./examples/example-1)
++ [Example 2](./examples/example-2)
 
 ## Legend
 
@@ -33,8 +38,8 @@
 
 ## Endgame
 
-+ November 11th, 2019: Endgame begins.
-+ November 17th, 2019: Endgame done.
++ Monday November 18th, 2019: Endgame begins.
++ Sunday November 24th, 2019: Endgame done.
 
 The endgame details for this iteration are tracked in the linked issues.
 
@@ -53,7 +58,7 @@ Below is a summary of the top level play items.
 ### Jupyter Server
 
 + 💪 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
-+ 🔵 [Preparse subcommands in an extensionapps](https://github.com/jupyter/jupyter_server/pull/133)
++ 💪 [Flags and Aliases on Extensions are failing](https://github.com/jupyter/jupyter_server/pull/140)
 + 🔵 [Make frontends discoverable and add a frontend alias](https://github.com/jupyter/jupyter_server/issues/121)
 + 🔵 [Kernel Providers](https://github.com/jupyter/jupyter_server/pull/112)
 + 🔵 [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)
@@ -61,6 +66,10 @@ Below is a summary of the top level play items.
 + 🔵 [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
 + ✋ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
 + 🔵 [Release jupyter_server 0.2.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
+
+### Jupyter Notebook Classic
+
++ 🔵 [Flags and Aliases handling ](https://github.com/zsailer/nbclassic/issues/1)
 
 ### JupyterLab
 
@@ -86,7 +95,7 @@ Below is a summary of the top level play items.
 
 + 🔵 [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
 
-### VSCode
+### Visual Studio Code
 
 + ⚪️ [yarn web should support extension search and display](https://github.com/microsoft/vscode/issues/84901)
 
