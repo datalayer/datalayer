@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  <a href="https://datalayer.io">TRY DATALAYER FOR FREE</a>
+  <a href="https://datalayer.io">Try Datalayer Free Editionu</a>
 </h1>
 <h4 align="center">
   Learn to 💚 Data
