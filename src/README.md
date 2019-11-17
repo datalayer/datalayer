@@ -4,7 +4,7 @@
 
 🔴🔥✅ This is the source code of the `Datalayer Science Platform`.
 
-Read nore on the [current activities](./README_DEV.md) and the [development environement](./README_ENV.md).
+Read nore on the [current activities](./README_DEV.md) and the [development environment](./README_ENV.md).
 
 ## Building Blocks
 
