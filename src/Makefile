@@ -16,9 +16,12 @@ start-endpoints:
 	@exec yarn endpoints
 
 clean-ui:
-	find . -name node_modules | xargs rm -fr {}
-	find . -name lib | xargs rm -fr {}
-	find . -name build | xargs rm -fr {}
+	find . -name node_modules | xargs rm -fr {} || true
+	find . -name lib | xargs rm -fr {} || true
+	find . -name build | xargs rm -fr {} || true
+	find . -name yarn.lock | xargs rm {} || true
+	find . -name yarn-error.log | xargs rm {} || true
+	find . -name tsconfig.tsbuildinfo | xargs rm {} || true
 
 deps-ui:
 	@exec yarn install

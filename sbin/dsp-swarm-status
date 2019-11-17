@@ -37,9 +37,9 @@ echo
 docker stack services datalayer
 echo
 
-echo -e $WHITE_BCK"Docker Service PS datalayer_studio"$NOCOLOR
+echo -e $WHITE_BCK"Docker Service PS datalayer_explorer"$NOCOLOR
 echo
-docker service ps --no-trunc datalayer_studio
+docker service ps --no-trunc datalayer_explorer
 echo
 echo 'In case of issue: docker service ps --no-trunc <service>'
 echo

@@ -55,10 +55,7 @@
     "lerna": "^3.10.7",
     "prettier": "^1.16.1",
     "concurrently": "4.1.0",
-    "rimraf": "3.0.0",
-    "npm-cli-login": "0.1.1",
-    "npm-registry-client": "8.6.0",
-    "verdaccio": "4.3.4"
+    "rimraf": "3.0.0"
   },
   "jest": {
     "collectCoverageFrom": [

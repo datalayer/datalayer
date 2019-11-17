@@ -38,7 +38,7 @@ open https://viz.${DLAHOST}
 open http://localhost:8083
 open https://ldap.${DLAHOST}
 
-# studio
+# explorer
 open http://localhost:9600
 open https://${DLAHOST}
 """$NOCOLOR

@@ -53,7 +53,7 @@ function install_endpoints() {
   do
     cd $DLAHOME/src/$ENDPOINT && \
       echo && \
-      echo -e "\x1b[7mInstalling [${ENDPOINT}] ENDPOINT\x1b[0m" && \
+      echo -e "Installing \x1b[7m${ENDPOINT}\x1b[0m endpoint" && \
       echo && \
       pip install -e .
   done

@@ -40,7 +40,7 @@ jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-docker/jupyterhub_config.py
 
 ```bash
 # A typical configuration is `pam-docker`.
-cd pam-docker
+cd $DLAHOME/etc/conf/jupyterhub/pam-docker
 # Clean remaining DB.
 rm *.sqllite
 # Lanch jupyterhub.
@@ -48,4 +48,4 @@ echo http://localhost:8000
 jupyterhub
 ```
 
-The [generated](./generated) folder contains the default `generated` configuration obtained with `jupyterhub --generate-config`.
+The [jupyterhub_config_generated.py](./jupyterhub_config_generated.py) file contains the default `generated` configuration obtained with `jupyterhub --generate-config`.

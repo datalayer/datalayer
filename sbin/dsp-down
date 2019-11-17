@@ -52,13 +52,13 @@ function jupyterhub() {
   helm delete $RELEASE --purge
 }
 
-function studio() {
-  export RELEASE=dla-studio
+function explorer() {
+  export RELEASE=dla-explorer
   helm delete $RELEASE --purge
 }
 
 function commands() {
-  echo -e $YELLOW"💛  Valid commands: [ k8s-dashboard | kuber | ldap | ldapadmin | keycloak | iam | solr | library | jupyterhub | studio ]"$NOCOLOR 1>&2
+  echo -e $YELLOW"💛  Valid commands: [ k8s-dashboard | kuber | ldap | ldapadmin | keycloak | iam | solr | library | jupyterhub | explorer ]"$NOCOLOR 1>&2
 }
 
 CMDS="$1"
@@ -114,8 +114,8 @@ function apply_cmd() {
       jupyterhub
       ;;
 
-    studio)
-      studio
+    explorer)
+      explorer
       ;;
 
     *)

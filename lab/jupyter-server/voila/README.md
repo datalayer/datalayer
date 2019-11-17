@@ -17,6 +17,7 @@ conda create -y -n voila-server python=3.7 nodejs && \
   cd voila && pip install -e . && \
   voila notebooks/basics.ipynb
 ```
+
 ```bash
 jupyter server --ServerApp.jpserver_extensions="{'voila': True}"
 jupyter server --ServerApp.jpserver_extensions="{'notebook': True, 'voila': True}"

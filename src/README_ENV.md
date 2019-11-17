@@ -61,15 +61,6 @@ The Datalayer UIs (User Interfaces) are built on `React.js` components.
 For development, ensure you fullfill the [requirements](https://docs.datalayer.io/dev/requirements.html).
 
 ```bash
-# OPTIONAL - Launch Verdaccio.
-# in ~/.config/verdaccio/config.yaml
-# Set `max_body_size: 1Gb`
-yarn registry
-# In another terminal.
-yarn registry:init
-```
-
-```bash
 # Clean, install the dependencies and build.
 cd $DLAHOME/src && \
   make clean-ui && \
@@ -133,3 +124,17 @@ Story entity.
 |🔴| Tags |
 |🔴| Publication Date |
 |🔴| Claps |
+
+## Optional
+
+```bash
+#    "npm-cli-login": "0.1.1",
+#    "npm-registry-client": "8.6.0",
+#    "verdaccio": "4.3.4"
+# OPTIONAL - Launch Verdaccio.
+# in ~/.config/verdaccio/config.yaml
+# Set `max_body_size: 1Gb`
+yarn registry
+# In another terminal.
+yarn registry:init
+```

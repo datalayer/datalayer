@@ -44,7 +44,7 @@ DOCKER_SERVICES_FILE="
   DLA ldapadmin/ldapadmin.yml
   DLA network/network.yml
   DLA solr/solr.yml
-  DLA studio/studio.yml
+  DLA explorer/explorer.yml
   DLA swarm-viz/swarm-viz.yml
   DLA traefik/traefik.yml
   DLA varnish/varnish.yml

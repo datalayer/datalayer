@@ -13,7 +13,7 @@ declare -a FILES=(
   "k8s-sidecar"
   "library"
   "kuber"
-  "studio"
+  "explorer"
   "keycloak"
   "solr"
   "whoami"
