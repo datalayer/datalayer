@@ -136,3 +136,14 @@ def load_jupyter_server_extension(nbapp):
 pip install -e . && \
   jupyter serverextension enable --py jupyterlab --sys-prefix
 ```
+
+Server extension enable options.
+
+```
+--user
+    Perform the operation for the current user
+--system
+    Perform the operation system-wide
+--sys-prefix
+    Use sys.prefix as the prefix for installing server extensions
+```

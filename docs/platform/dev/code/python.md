@@ -115,6 +115,10 @@ python setup.py clean
 python setup.py build
 python setup.py develop
 python setup.py install
+python setup.py sdist
+python setup.py bdist
+python setup.py bdist_wheel
+python setup.py bdist_egg
 ```
 
 ```
@@ -218,6 +222,10 @@ twine upload dist/*
 # Upload to PyPI Live.
 python setup.py register -r pypi
 python setup.py sdist upload -r pypi
+```
+
+```bash
+python -m easy_install foo.egg
 ```
 
 ## HTTP Server

@@ -48,17 +48,18 @@ py-clean:
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-py-build:
-	python setup.py sdist bdist_egg bdist_wheel
+py-build: py-clean
+	python setup.py sdist bdist_wheel
 
-py-install:
-	python setup.py install --record files.txt
+py-install: py-build
+#	python setup.py install --record files.txt
+	pip install ./dist/*.whl
 
-py-publish:
-	python setup.py sdist bdist_egg bdist_wheel upload
+py-publish: py-build
+	python setup.py upload
 
 py-repl:
-	PYTHONPATH=./dist/jupyter_twitter-0.0.1-py3-none-any.whl python
+	PYTHONPATH=./dist/*.whl python
 
 server-ext-enable: py-build
 	@exec jupyter serverextension enable --py jupyter_twitter --sys-prefix
