@@ -3,9 +3,9 @@
     <img alt="Datalayer" src="https://docs.datalayer.io/logo/datalayer-square.png" width="60" />
   </a>
 </p>
-<h1 align="center">
-  <a href="https://datalayer.io">Try Datalayer Free Editionu</a>
-</h1>
+<h2 align="center">
+  <a href="https://datalayer.io">Try Datalayer Free Edition</a>
+</h2>
 <h4 align="center">
   Learn to 💚 Data
 </h4>
