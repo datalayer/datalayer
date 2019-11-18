@@ -8,12 +8,7 @@
 
 echo -e "\x1b[34m\x1b[43mStart JupyterHub\x1b[0m"
 
-start_dev() {
-  cd $DLAHOME/etc/dev/jupyterhub && \
-    make start
-}
-
-start_nodocker() {
+start_without_docker() {
   cd $DLAHOME/etc/docker/jupyterhub && \
     make start-nodocker
 }
@@ -25,13 +20,16 @@ start_local() {
 }
 
 start_with_docker() {
-#  docker-compose -f jupyterhub.yml up -d && \
-#  open http://minikube.datalayer.io.local:8000/jupyterhub
+  #  docker-compose -f jupyterhub.yml up -d && \
+  #    open http://minikube.datalayer.io.local:8000/jupyterhub
   cd $DLAHOME/etc/docker/jupyterhub && \
     docker-compose -f jupyterhub.yml up
-#  docker logs jupyterhub -f
-#  docker-compose -f jupyterhub.yml down
+  #  docker logs jupyterhub -f
 }
 
-# start_nodocker
+start_dev() {
+  cd $DLAHOME/src/dev/jupyterhub && \
+    make start
+}
+
 start_dev

@@ -36,4 +36,4 @@ Services [Authentication](https://jupyterhub.readthedocs.io/en/stable/api/servic
 
 ## Examples
 
-Try the JupyterHub Services Datalayer [Examples](https://github.com/datalayer/datalayer/tree/master/etc/jupyterhub/examples).
+Try the JupyterHub Services Datalayer [Examples](https://github.com/datalayer/datalayer/tree/master/src/dev/jupyterhub).
