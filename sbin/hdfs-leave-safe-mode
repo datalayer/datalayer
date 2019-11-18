@@ -7,7 +7,7 @@
 echo -e $BOLD$YELLOW"Starting Apache HDFS Safemode Leave..."$NOCOLOR$NOBOLD
 echo
 
-export DATALAYER_HADOOP=yarn
-export DATALAYER_HADOOP_STATUS=starting
+export DLA_HADOOP=yarn
+export DLA_HADOOP_STATUS=starting
 
 $HADOOP_HOME/bin/hdfs dfsadmin -safemode leave "$@"

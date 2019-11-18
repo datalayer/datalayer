@@ -8,13 +8,24 @@ echo -e $BOLD$YELLOW"Datalayer DSP LDAP Help"$NOCOLOR$NOBOLD
 echo
 
 echo """
-N_DAYS=1 && TIMESTAMP=$(date --date=\"-$N_DAYS days\" +'%Y%m%d'\"100000Z\")
-N_DAYS=1 && TIMESTAMP=$(gdate --date=\"-$N_DAYS days\" +'%Y%m%d'\"100000Z\") # for mac (with gdate frombrew install coreutils)
+
+ldapsearch -x -D $DLA_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b \"ou=users,dc=datalayer,dc=io\" \
+  -s sub \"(uid=*)\"
+
+# N_DAYS=100 && TIMESTAMP=$(date --date=\"-$N_DAYS days\" +'%Y%m%d'\"100000Z\")
+N_DAYS=100 && TIMESTAMP=$(gdate --date="-$N_DAYS days" +%Y%m%d100000Z) # for mac (with gdate frombrew install coreutils)
+
 ldapsearch -x -H ldap:// -b dc=datalayer,dc=io -D $DLA_LDAP_BIND -w $DLA_LDAP_BIND_PWD \"(&(objectclass=inetOrgPerson)(createTimestamp>=$TIMESTAMP))\" createTimestamp
 ldapsearch -x -H ldap:// -b dc=datalayer,dc=io -D $DLA_LDAP_BIND -w $DLA_LDAP_BIND_PWD \"(&(objectclass=inetOrgPerson)(modifyTimestamp>=$TIMESTAMP))\" modifyTimestamp
-"""
 
-echo -e """
+
+ldapsearch -x -D $DLA_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b \"cn=schema\" \
+  -s base \"(objectclass=subschema)\" objectclasses
+
 # https://www.surekhatech.com/blog/how-to-add-custom-attribute-entry-for-ldap
 cat <<EOF > schema.ldif
 dn: cn=schema
@@ -41,4 +52,20 @@ objectClasses: ( 2.25.128424792425578037463837247958458780603.3
 )
 EOF
 ldapadd -x -D $DLA_LDAP_BIND -w $DLA_LDAP_BIND_PWD -H ldap:// -f ./schema.ldif
+
+---
+
+# admin DN = uid=admin,ou=system
+# password = secret
+
+# ldapwhoami -h localhost -p 10389 -D \"uid=admin,ou=system\" -w secret
+# ldapmodify -h localhost -p 10389 -D \"uid=admin,ou=system\" -w secret -a -f apache-ds-tutorial.ldif
+# ldapsearch -h localhost -p 10389 -D \"uid=admin,ou=system\" -w secret -b \"o=sevenSeas\" -s sub \"(givenName=William)\" cn
+# ldapsearch -h localhost -p 10389 -b \"o=sevenSeas\" -D \"uid=admin,ou=system\" -w secret \"(objectClass=*)\"
+# ldapsearch -h localhost -p 10389 -b \"o=sevenSeas\" -D \"uid=admin,ou=system\" -w secret -s sub \"(cn=James Hook)\"
+
+# ldapwhoami -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass
+# ldapmodify -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass -a -f captain-hook.ldif
+# ldapmodify -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass -a -f captain-hook.ldif
+# ldapdelete -h localhost -p 10389 -D \"cn=Horatio Nelson,ou=people,o=sevenSeas\" -w pass -f captain-hook-delete.ldif
 """

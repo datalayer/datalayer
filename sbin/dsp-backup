@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+mkdir ~/backups &>/dev/null
+
+backup_ldap_users() {
+    echo -e $BOLD$YELLOW"Backup LDAP Users from Datalayer DSP"$NOCOLOR$NOBOLD
+    echo
+    ldapsearch -x -H ldap:// \
+      -b dc=datalayer,dc=io \
+      -D "$DLA_LDAP_BIND" \
+      -w $DLA_LDAP_BIND_PWD \
+      -z 3000 > ~/backups/users.ldif
+    ldapsearch -x -H ldap:// \
+      -b dc=datalayer,dc=io \
+      -D "$DLA_LDAP_BIND" \
+      -w $DLA_LDAP_BIND_PWD \
+      uid createTimestamp \
+      -z 3000 > ~/backups/users-creation.ldif
+    ls ~/backups/users*.ldif
+}
+
+backup_ldap_users

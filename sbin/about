@@ -4,50 +4,11 @@
 # Distributed under the terms of the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0.txt
 
-echo -e """Datalayer, a platform for Big Data Scientists.
-
-Write and Share Data Papers with a mix of Math, Code and Medias.
-
-Datalayer allows you to **Write and Share Data Papers** mixing **Math**, **Code** and **Medias**.
-
-You write and share in a **collaborative** way with real dataset and code to create **reproducible** papers. This means others can understand, reuse and build on top of your papers.
-
-## 🚀 Reproducible Data Papers
-
-See it as a **GitHub for Data Analysis** for business cases.
-
-1.  **Open Science.**
-
-    Make scientific research (including publications, datasets, and code) and its dissemination accessible to all levels of an inquiring society, amateur or professional.
-
-1.  **Data Storytelling.**
-
-    Communicate information, tailored to a specific audience, with a compelling narrative. It is the last ten feet of your data analysis and arguably one of the most important aspect.
-
-1.  **Data Journalism.**
-
-     Reflect the increased interaction between content producers (journalist) and several other fields such as design, computer science and statistics. Communicate information, tailored to a specific audience, with a compelling narrative. It is the last ten feet of your data analysis and arguably one of the most important aspect.
-
-1.  **and more...**
-
-    It is really on what you want to achieve with Data and Code.
-
-## 🎓 Learning Data
-
-Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities designed to be:
-
-1. Didactic.
-1. Reproducible.
-1. Extensible.
-
-## 💫 Deploy
-
-If you simply want to use the features and have fun with data, create a free account on  Datalayer (https://datalayer.io).
-
-Read more about Datalayer on https://docs.datalayer.io and check the latest blog posts (https://blog.datalayer.io). You can also follow us on Twitter (https://twitter.com/datalayerio).
-$GREEN
+echo -e """$GREEN
 + Simple, Collaborative, Extensible by Design.
 + Secured, Scalable, Multi Cloud by Default.
-$NOCOLOR """
+$NOCOLOR"""
 echo -e $YELLOW"Version  $DLAVERSION"$NOCOLOR
 echo -e $YELLOW"Home     $DLAHOME"$NOCOLOR
+
+open https://github.com/datalayer/datalayer/blob/master/README.md

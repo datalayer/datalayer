@@ -1,12 +1,27 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Docker LDAP Examples
+# Docker LDAP 
 
-+ [osixia](./osixia) example.
-+ [tiredofit](./tiredofit) example.
+```bash
+make build
+```
 
-For Kubernetes.
+```bash
+docker run \
+  -p 389:389 \
+  -p 636:636 \
+  --name openldap \
+  --hostname openldap \
+  --env LDAP_TLS_VERIFY_CLIENT=try \
+  --detach \
+  datalayer/openldap:0.0.3
+docker exec \
+  openldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w Adm1n!
+ldapsearch -x -H ldap:// -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w Adm1n!
+docker rm -f openldap
+```
 
-+ [Helm chart](https://github.com/helm/charts/tree/master/stable/openldap).
-+ [Helm chart K2](https://github.com/samsung-cnct/k2-charts/tree/master/openldap).
-+ [Helm chart IBM](https://github.com/ibm-cloud-architecture/icp-openldap).
+## Docker Examples
+
++ [osixia](./examples/osixia) example.
++ [tiredofit](./examples/tiredofit) example.

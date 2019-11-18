@@ -4,7 +4,7 @@
 
 🔴🔥✅ This is the source code of the `Datalayer Science Platform`.
 
-Read nore on the [current activities](./README_DEV.md) and the [development environment](./README_ENV.md).
+Read nore on the [current activities](./DEV.md) and the [development environment](./ENV.md).
 
 ## Building Blocks
 
@@ -13,11 +13,11 @@ Read nore on the [current activities](./README_DEV.md) and the [development envi
 + [Data](./data)
 + [Explorer](./explorer)
 + [IAM](./iam)
-+ [Jupyter StoryBook Addon](./jupyter-storybook)
-+ [JupyterLab Twitter Extension](./jupyterlab/twitter)
-+ [Jupyter Controller](./jupyterserver/ctl)
-+ [Jupyter Visual Studio Code](./jupyterserver/vscode)
-+ [JupyterPool](./jupyterpool)
++ [JupyterPool](./jupyter/pool)
++ [Jupyter StoryBook Addon](./jupyter/storybook)
++ [JupyterLab Twitter](./jupyterlab/twitter)
++ [Jupyter Server Controller](./jupyterserver/ctl)
++ [Jupyter Server Visual Studio Code](./jupyterserver/vscode)
 + [Kuber](./kuber)
 + [Library](./library)
 + [Widgets](./widgets)

@@ -96,12 +96,9 @@ Initialize Solr service.
 
 ```bash
 # Shell 1.
-export SOLR_POD_NAME=$(kubectl get pods -n dla-library -l "app.kubernetes.io/name=solr,app.kubernetes.io/component=server" -o jsonpath="{ .items[0].metadata.name }")
-echo http://127.0.0.1:8983
-kubectl port-forward -n dla-library $SOLR_POD_NAME 8983:8983
+$DLAHOME/src/dev/port-forward-solr.sh
 # Shell 2.
-export ZK_POD_NAME=$(kubectl get pods -n dla-library -l "app=zookeeper,component=server" -o jsonpath="{ .items[0].metadata.name }")
-kubectl port-forward -n dla-library $ZK_POD_NAME 2181:2181
+$DLAHOME/src/dev/port-forward-zookeeper.sh
 # Shell 3.
 dla dsp-solr-init
 open http://127.0.0.1:8983/solr/#/datalayer/collection-overview
@@ -124,8 +121,7 @@ Initialize LDAP service.
 
 ```bash
 # Shell 1.
-export POD_NAME=$(kubectl get pods --namespace dla-iam -l "app=openldap" -o jsonpath="{ .items[0].metadata.name }")
-sudo kubectl port-forward -n dla-iam $POD_NAME 389:389
+$DLAHOME/src/dev/port-forward-ldap.sh
 # Shell 2.
 dla dsp-ldap-init
 ```

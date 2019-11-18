@@ -355,10 +355,10 @@ function explorer() {
   helm install \
     --set explorer.hostNetwork=false \
     --set explorer.imagePullPolicy="Always" \
-    --set google.apiKey="$DATALAYER_GOOGLE_API_KEY" \
-    --set google.clientId="$DATALAYER_GOOGLE_CLIENT_ID" \
+    --set google.apiKey="$DLA_GOOGLE_API_KEY" \
+    --set google.clientId="$DLA_GOOGLE_CLIENT_ID" \
     --set google.redirect="" \
-    --set google.secret="$DATALAYER_GOOGLE_SECRET" \
+    --set google.secret="$DLA_GOOGLE_SECRET" \
     --set google.scope="profile email https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/user.emails.read" \
     --set hdfs="" \
     --set kuber.insecureBindAddress="0.0.0.0" \
@@ -367,14 +367,14 @@ function explorer() {
     --set kuber.rest="" \
     --set kuber.ui="" \
     --set kuber.ws="" \
-    --set microsoft.applicationId="$DATALAYER_MICROSOFT_APPLICATION_ID" \
+    --set microsoft.applicationId="$DLA_MICROSOFT_APPLICATION_ID" \
     --set microsoft.redirect="" \
-    --set microsoft.secret="$DATALAYER_MICROSOFT_SECRET" \
+    --set microsoft.secret="$DLA_MICROSOFT_SECRET" \
     --set microsoft.scope="User.ReadBasic.All" \
     --set explorer.rest="http://$EXPLORER_LB_HOSTNAME" \
     --set explorer.ws="ws://$EXPLORER_LB_HOSTNAME" \
-    --set twitter.consumerKey="$DATALAYER_TWITTER_CONSUMER_KEY" \
-    --set twitter.consumerSecret="$DATALAYER_TWITTER_CONSUMER_SECRET" \
+    --set twitter.consumerKey="$DLA_TWITTER_CONSUMER_KEY" \
+    --set twitter.consumerSecret="$DLA_TWITTER_CONSUMER_SECRET" \
     --set twitter.redirect="" \
     explorer \
     -n explorer

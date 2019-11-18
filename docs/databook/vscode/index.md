@@ -116,6 +116,11 @@ Jupyter.
 
 [DEPRECATED] Jupyter for Visual Studio Code [Extension](https://github.com/DonJayamanne/vscodejupyter).
 
+## Codesandbox
+
++ https://codesandbox.io
++ https://github.com/codesandbox/codesandbox-client
+
 ## See Also
 
 Theia

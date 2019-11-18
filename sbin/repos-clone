@@ -13,7 +13,7 @@ for ((i=0; i<${#DLA_REPOS[@]}; i+=4)); do
   echo -e $GREEN"--- cloning $BOLD${DLA_REPOS[i]}$NOBOLD ---"$NOCOLOR
   echo
   cd $DLAREPOS
-  git clone ${DLA_REPOS[i+1]} ${DLA_REPOS[i]} || true
+  git clone --recursive  --recurse-submodules ${DLA_REPOS[i+1]} ${DLA_REPOS[i]} || true
   cd $DLAHOME/repos/${DLA_REPOS[i]}
   git remote rm origin || true
   git remote add origin ${DLA_REPOS[i+1]}

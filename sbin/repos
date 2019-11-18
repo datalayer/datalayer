@@ -12,6 +12,7 @@ binderhub|https://github.com/datalayer-contrib/binderhub.git|https://github.com/
 binderhub-deploy|https://github.com/datalayer-contrib/binderhub-deploy.git|https://github.com/jupyterhub/mybinder.org-deploy.git|master \
 binderhub-docs|https://github.com/datalayer-contrib/binderhub-docs.git|https://github.com/jupyterhub/binder.git|master \
 blueprint-js|https://github.com/datalayer-contrib/blueprint-js.git|https://github.com/palantir/blueprint.git|develop \
+codesandbox|https://github.com/datalayer-contrib/codesandbox.git|https://github.com/codesandbox/codesandbox-client.git|master \
 data8-datascience|https://github.com/datalayer-contrib/data8-datascience.git|https://github.com/data-8/datascience.git|master \
 data8-course-2017|https://github.com/datalayer-contrib/data8-course-2017.git|https://github.com/data-8/materials-fa17.git|master \
 dex|https://github.com/datalayer-contrib/dex.git|https://github.com/dexidp/dex.git|master \

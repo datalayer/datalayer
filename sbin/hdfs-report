@@ -6,7 +6,7 @@
 
 echo -e $BOLD$YELLOW"Starting Apache HDFS Report"$NOCOLOR$NOBOLD
 
-export DATALAYER_HADOOP=yarn
-export DATALAYER_HADOOP_STATUS=starting
+export DLA_HADOOP=yarn
+export DLA_HADOOP_STATUS=starting
 
 $HADOOP_HOME/bin/hdfs dfsadmin --config $HADOOP_CONF_DIR -report "$@"

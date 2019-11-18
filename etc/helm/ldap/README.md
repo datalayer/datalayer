@@ -90,3 +90,9 @@ helm test $RELEASE
 # RUNNING: foolish-mouse-openldap-service-test-akmms
 # PASSED: foolish-mouse-openldap-service-test-akmms
 ```
+
+## Kubernetes Examples
+
++ [Helm Chart Stable](https://github.com/helm/charts/tree/master/stable/openldap).
++ [Helm Chart K2](https://github.com/samsung-cnct/k2-charts/tree/master/openldap).
++ [Helm Chart IBM](https://github.com/ibm-cloud-architecture/icp-openldap).

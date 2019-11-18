@@ -15,7 +15,7 @@ docker run \
   osixia/openldap:1.2.3
 docker exec \
   openldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
-ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
+ldapsearch -x -H ldap:// -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
 # ldapadd -H ldap://localhost -c -D "cn=admin,cn=config" -w config -f ./example.ldif
 ldapadd -H ldap://localhost -c -D "cn=admin,dc=example,dc=org" -w admin -f ./example.ldif
 docker rm -f openldap
@@ -128,3 +128,8 @@ docker run \
   osixia/openldap-backup:1.2.3 \
   --loglevel debug
 ```
+
+## Schema
+
+- https://guillaumemaka.com/2013/07/17/openldap-create-a-custom-ldap-schema.html
+- http://www.yolinux.com/TUTORIALS/LinuxTutorialLDAP-DefineObjectsAndAttributes.html

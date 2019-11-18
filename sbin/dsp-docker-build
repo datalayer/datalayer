@@ -11,6 +11,7 @@ declare -a FILES=(
   "apis"
   "iam"
   "k8s-sidecar"
+  "ldap"
   "library"
   "kuber"
   "explorer"
