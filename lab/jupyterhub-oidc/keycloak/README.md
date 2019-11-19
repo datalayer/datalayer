@@ -107,3 +107,27 @@ make keycloak-rm
   + https://github.com/matipp/oauthenticator/tree/keycloak_auth/oauthenticator
   + https://github.com/matipp/oauthenticator/tree/keycloak/oauthenticator
   + https://github.com/matipp/oauthenticator/commit/326d2617ce09749ca0c4d9a19e9651fe437e1755
+
++ https://github.com/ausecocloud/keycloakauthenticator
+
++ https://github.com/jupyterhub/zero-to-jupyterhub-k8s/blob/13087141aaa2a988d847dbffae7d7c73d945bd73/doc/source/authentication.rst#openid-connect
+
+```yaml
+hub:
+  extraEnv:
+    OAUTH2_AUTHORIZE_URL: https://${host}/auth/realms/${realm}/protocol/openid-connect/auth
+    OAUTH2_TOKEN_URL: https://${host}/auth/realms/${realm}/protocol/openid-connect/token
+auth:
+  type: custom
+  custom:
+    className: oauthenticator.generic.GenericOAuthenticator
+    config:
+      login_service: "keycloak"
+      client_id: "y0urc1logonc1ient1d"
+      client_secret: "an0ther1ongs3cretstr1ng"
+      token_url: https://${host}/auth/realms/${realm}/protocol/openid-connect/token
+      userdata_url: https://${host}/auth/realms/${realm}/protocol/openid-connect/userinfo
+      userdata_method: GET
+      userdata_params: {'state': 'state'}
+      username_key: preferred_username
+```

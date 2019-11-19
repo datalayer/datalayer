@@ -99,9 +99,13 @@ mylink = widgets.jslink((a, 'value'), (b, 'value'))
 + [pythreejs](https://github.com/jupyter-widgets/pythreejs).
 + [sidecar](https://github.com/jupyter-widgets/jupyterlab-sidecar).
 
-See also.
+## JupyterLab
 
-https://github.com/python-visualization/folium
+[IpyLab](https://github.com/jtpio/ipylab).
+
+## See Also
+
+[folium](https://github.com/python-visualization/folium).
 
 ## Bidirectional Communication between Javascript and Kernel
 

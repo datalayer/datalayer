@@ -96,7 +96,7 @@ OAuth Providers.
 
 ## OpenID Connect Authenticator
 
-[JupyterHub OIDC](https://github.com/datalayer/jupyterhub-oidc),
+[JupyterHub OIDC](https://github.com/datalayer/datalayer/tree/master/lab/jupyterhub-oidc),
 
 [OpenID Connect](https://openid.net/connect) is an identity layer on top of the OAuth 2.0 protocol, implemented by [various servers and services](https://openid.net/developers/certified/#OPServices).
 

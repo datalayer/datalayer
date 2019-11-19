@@ -22,9 +22,7 @@
       "examples/*",
       "explorer",
       "iam",
-      "jupyter/*",
-      "jupyterlab/*",
-      "jupyterserver/*",
+      "jupyter/*/*",
       "kuber",
       "library",
       "widgets"

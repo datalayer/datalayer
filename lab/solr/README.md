@@ -31,6 +31,7 @@ docker exec -it --user=solr solr solr delete -c demo
 # Create the `demo` collection.
 # docker cp $DLAHOME/etc/conf/solr/demo solr:/opt/solr/example
 docker exec solr solr create -c demo
+# With shards and replicationFactor.
 docker exec -it --user=solr solr bin/solr create_collection -c demo -shards 1 -replicationFactor 1
 # docker exec -it --user=solr solr bin/solr create_collection -c demo -shards 3 -replicationFactor 3
 docker exec -it --user=solr solr bin/post -c demo example/exampledocs/manufacturers.xml
@@ -44,7 +45,7 @@ docker exec -it --user=solr solr bin/solr create_collection -c datalayer -shards
 ```
 
 ```bash
-# View the UI.
+# Open the UI and check the content of the collections.
 open http://localhost:8983/solr
 ```
 

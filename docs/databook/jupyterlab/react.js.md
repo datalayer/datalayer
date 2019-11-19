@@ -4,7 +4,7 @@ title: React.js in JupyterLab
 
 # React.js in JupyterLab
 
-+ [Virtual DOM React](https://jupyterlab.readthedocs.io/en/latest/developer/virtualdom.html#react).
+[Virtual DOM React](https://jupyterlab.readthedocs.io/en/latest/developer/virtualdom.html#react).
 
 ## Pull Requests
 

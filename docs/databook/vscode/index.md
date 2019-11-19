@@ -8,6 +8,8 @@ GitHub [repo](https://github.com/microsoft/vscode) source code.
 
 [Download](https://code.visualstudio.com).
 
+[Wiki](https://github.com/microsoft/vscode/wiki)
+
 [Samples](https://github.com/microsoft/vscode-extension-samples).
 
 GitHub [Docs](https://github.com/microsoft/vscode-docs).

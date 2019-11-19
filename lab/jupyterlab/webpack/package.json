@@ -1,0 +1,32 @@
+{
+  "name": "webpack_extension",
+  "version": "1.0.0",
+  "description": "Sample for webpack build",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && webpack",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "link": "jupyter labextension link . --no-build",
+    "prepare": "jlpm run clean && jlpm run build",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "~1.2.1",
+    "@jupyterlab/apputils": "~1.2.1",
+    "@phosphor/widgets": "~1.9.3"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.2",
+    "prettier": "1.14.3",
+    "webpack": "4.22.0",
+    "webpack-cli": "3.1.2"
+  },
+  "jupyterlab": {
+    "extension": true
+  },
+  "files": [
+    "dist/*"
+  ]
+}

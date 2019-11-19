@@ -54,7 +54,7 @@ jupyter lab --watch
 # Examples
 
 ```bash
-cd $DLAHOME/src/jupyterlab/twitter && \
+cd $DLAHOME/src/jupyter/labtwitter && \
   yarn install && \
   yarn build && \
   jupyter labextension install
@@ -62,7 +62,7 @@ cd $DLAHOME/src/jupyterlab/twitter && \
 
 ```bash
 # Terminal 1.
-cd $DLAHOME/src/jupyterlab/twitter && \
+cd $DLAHOME/src/jupyter/labtwitter && \
   jupyter labextension link && \
   yarn watch
 # Terminal 2.
@@ -85,10 +85,10 @@ jupyter lab
 
 ```bash
 # If you must install a extension into a development branch of JupyterLab, you have to graft it into the source tree of JupyterLab itself. In the JupyterLab root directory, where <path-or-url> refers either to an extension npm package on the local filesystem, or a URL to a git repository for an extension npm package.
-yarn run add:sibling $DLAHOME/src/jupyterlab/twitter && \
+yarn run add:sibling $DLAHOME/src/jupyter/labtwitter && \
   jupyter lab --dev-mode --watch
 # This operation may be subsequently reversed by running.
-yarn run remove:sibling $DLAHOME/src/jupyterlab/twitter
+yarn run remove:sibling $DLAHOME/src/jupyter/labtwitter
 ```
 
 ## Versions
