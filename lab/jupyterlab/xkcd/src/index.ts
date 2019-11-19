@@ -74,7 +74,6 @@ class XkcdWidget extends Widget {
   }
 };
 
-
 /**
  * Activate the xckd widget extension.
  */
@@ -121,7 +120,6 @@ function activate(app: JupyterFrontEnd, palette: ICommandPalette, restorer: ILay
     name: () => 'xkcd'
   });
 };
-
 
 /**
  * Initialization data for the jupyterlab_xkcd extension.

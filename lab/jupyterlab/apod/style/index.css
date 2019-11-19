@@ -1,13 +1,13 @@
-    .jp-xkcdWidget {
-        display: flex;
-        flex-direction: column;
-        overflow: auto;
-    }
+.jp-apodWidget {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
 
-    .jp-xkcdCartoon {
-        margin: auto;
-    }
+.jp-apodCartoon {
+    margin: auto;
+}
 
-    .jp-xkcdAttribution {
-        margin: 20px auto;
-    }
+.jp-apodAttribution {
+    margin: 20px auto;
+}
