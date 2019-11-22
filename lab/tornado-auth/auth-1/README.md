@@ -4,5 +4,8 @@
 
 ```bash
 make install && \
-    make start
+  echo open http://localhost:8123 && \
+  echo username: demo && \
+  echo password: 123 && \
+  make start
 ```

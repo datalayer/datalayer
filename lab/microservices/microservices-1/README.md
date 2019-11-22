@@ -2,15 +2,8 @@
 
 # Datalayer Lab Microservices
 
-## Examples
-
-+ https://medium.com/@yzhong.cs/developing-microservices-with-minikube-81b31e5366ac
-
-+ https://github.com/yzhong52/microservices-demo (https://medium.com/@yzhong.cs/developing-microservices-with-minikube-81b31e5366ac)
-+ https://github.com/GoogleCloudPlatform/microservices-demo
-+ https://blog.apcelent.com/scaling-python-microservices-kubernetes.html
-+ https://dev.to/apcelent/scaling-python-microservices-with-kubernetes-b9m
-+ https://github.com/jastr945/flask_photoalbum
+> https://github.com/yzhong52/microservices-demo
+> https://medium.com/@yzhong.cs/developing-microservices-with-minikube-81b31e5366ac
 
 ## Build
 

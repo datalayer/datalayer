@@ -24,28 +24,33 @@ configurable-http-proxy --version
 configurable-http-proxy --help
 ```
 
-## Examples
+## Generated Configuration
 
-Use the `<auth>`-`<spawner>-<<option>>` pattern to try various configuration.
+The [jupyterhub_config_generated.py](./jupyterhub_config_generated.py) file contains the default `generated` configuration obtained with `jupyterhub --generate-config`.
+
+## Configuration Examples
+
+Use the `<auth>`-`<spawner>-(<option>)` pattern to try various configuration.
 
 ```bash
 # $DLAHOME/etc/conf/jupyterhub/README.md for `<auth>`-`<spawner>` examples combo.
 conda activate jupyterhub
 pip install oauthenticator oauthlib dockerspawner jupyterhub_oauth_spawner
-open http://127.0.0.1:8000
-jupyterhub -f $DLAHOME/etc/conf/jupyterhub/pam-local/jupyterhub_config.py
-jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-local/jupyterhub_config.py
-jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-docker/jupyterhub_config.py
 ```
 
 ```bash
 # A typical configuration is `pam-docker`.
-cd $DLAHOME/etc/conf/jupyterhub/pam-docker
+cd $DLAHOME/etc/conf/jupyterhub/
 # Clean remaining DB.
 rm *.sqllite
-# Lanch jupyterhub.
+# Launch jupyterhub.
 echo http://localhost:8000
-jupyterhub
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/pam-docker/jupyterhub_config.py
 ```
 
-The [jupyterhub_config_generated.py](./jupyterhub_config_generated.py) file contains the default `generated` configuration obtained with `jupyterhub --generate-config`.
+```bash
+echo open http://localhost:8000
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/pam-local/jupyterhub_config.py
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-local/jupyterhub_config.py
+jupyterhub -f $DLAHOME/etc/conf/jupyterhub/github-docker/jupyterhub_config.py
+```

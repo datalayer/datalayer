@@ -34,7 +34,7 @@ keycloak-logs:
 keycloak-rm: ## Remove any existing keycloak container.
 	docker rm -f keycloak || true
 
-start:
+start-jupyterhub:
 	@exec echo
 	@exec echo open http://localhost:8080/jupyterhub
 	@exec echo 

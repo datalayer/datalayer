@@ -34,9 +34,7 @@ The following allows you to start a Keycloak server in a Docker container and ge
 make keycloak-start
 ```
 
-Check the logs and ensure Keycloak server is correctly started (it can take 1 minute depending on your system).
-
-Upon successful start, the server should print a simmilar message.
+Check the logs and ensure `Keycloak server` is correctly started (it can take 1 minute depending on your system). Upon successful start, the server should print the following similar message.
 
 ```
 [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 6.0.1 (WildFly Core 8.0.0.Final) started in ...ms - Started 672 of 937 services (652 services are lazy, passive or on-demand)
@@ -54,7 +52,7 @@ Keycloak is now configured with a Realm `datalayer`, a Client `datalayer` and a 
 Check you can authenticate on the Keycloak server with username=`eric` and password=`123`.
 
 ```bash
-open http://localhost:8092/auth/realms/datalayer/account
+open http://localhost:8094/auth/realms/datalayer/account
 ```
 
 Copy the printed `export` variables and paste them in your terminal so that the JupyterHub can read them.
@@ -62,16 +60,16 @@ Copy the printed `export` variables and paste them in your terminal so that the 
 ```
 export OIDC_CLIENT_ID=datalayer
 export OIDC_SECRET=<secret>
-export OIDC_SERVER=http://localhost:8092
+export OIDC_SERVER=http://localhost:8094
 ```
 
 ## Start JupyterHub
 
-The following starts a JupyterHub server and allows you to authenticate with OIDC.
+The following starts a `JupyterHub server` and allows you to authenticate with `OIDC`.
 
 ```bash
 # open http://localhost:8080/jupyterhub
-make start
+make start-jupyterhub
 ```
 
 Open http://localhost:8080/jupyterhub in your favorite browser and authenticate with username `eric` (password `123`).

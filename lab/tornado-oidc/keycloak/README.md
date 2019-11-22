@@ -8,7 +8,7 @@ This folder contains an [OpenID Connect](https://openid.net/connect) (OIDC) auth
 
 If you face issue with another OIDC provider (Google...), please open an [issue](https://github.com/datalayer/datalayer/issues).
 
-## Env
+## Environment
 
 To develop on the source code, you will need [Python 3](https://www.python.org) with some additional libraries.
 
@@ -30,9 +30,7 @@ The following command starts a Keycloak server in a Docker container and get the
 make keycloak-start
 ```
 
-Check the logs and ensure Keycloak server is correctly started (it can take 1 minute depending on your system).
-
-Upon successful start, the server should print a simmilar message.
+Check the logs and ensure `Keycloak server` is correctly started (it can take 1 minute depending on your system). Upon successful start, the server should print the following similar message.
 
 ```
 [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 6.0.1 (WildFly Core 8.0.0.Final) started in ...ms - Started 672 of 937 services (652 services are lazy, passive or on-demand)
@@ -65,7 +63,7 @@ export OIDC_SERVER=http://localhost:8092
 
 ## Tornado
 
-You can now start a Tornado Web server and authenticate with OIDC.
+You can now start a `Tornado Web server` and authenticate with `OIDC`.
 
 ```bash
 # open http://localhost:8080

@@ -2,9 +2,9 @@
 
 # Datalayer Lab Material UI
 
-[Material UI Components](https://material-ui.com/components/box/) showcase.
+[Material UI Components](https://material-ui.com/components/box) showcase.
 
-See also the official [API](https://material-ui.com/api/app-bar/).
+See also the official [API](https://material-ui.com/api/app-bar).
 
 ```bash
 yarn install && \

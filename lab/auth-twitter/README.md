@@ -20,7 +20,7 @@ conda deactivate && \
 
 ```bash
 # Install the javascript libraries and build the UI.
-cd $DLAHOME/lab/oauth/twitter && \
+cd $DLAHOME/lab/auth-twitter && \
   yarn install && \
   yarn build
 ```
@@ -34,13 +34,12 @@ Set the callback URL to `http://localhost:8888/twitter/auth` and take note of th
 ## Start
 
 ```bash
-# Export your Twitter apps credentials.
-export DLA_TWITTER_CONSUMER_KEY=<your-twitter-consumer-key>
-export DLA_TWITTER_CONSUMER_SECRET=<your-twitter-consumer-secret>
-# Run the server.
-yarn watch
+# Export your Twitter apps credentials and run the server.
+DLA_TWITTER_CONSUMER_KEY=<your-twitter-consumer-key> && \
+  DLA_TWITTER_CONSUMER_SECRET=<your-twitter-consumer-secret> && \
+  yarn watch
 # Open the application in your favorite browser.
 open http://localhost:8888
 ```
 
-![Form](https://raw.githubusercontent.com/datalayer/datalayer/master/lab/oauth/twitter/docs/img/form.png "Form")
+![Form](https://raw.githubusercontent.com/datalayer/datalayer/master/lab/auth-twitter/docs/img/form.png "Form")
