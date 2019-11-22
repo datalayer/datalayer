@@ -74,6 +74,7 @@
 **/target/*
 **/temp/*
 **/tmp/*
+**/tsconfig.tsbuildinfo
 **/nosetests.xml
 **/pip-log.txt
 **/yarn-metadata.json
