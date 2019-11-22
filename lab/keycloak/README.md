@@ -35,7 +35,7 @@ until curl -X GET http://localhost:8080/auth; do echo "Waiting for entrypoint...
 
 # Configure
 
-Run the snipppets from `init/init-keycloak.sh` or follow the following manual steps.
+Run the snipppets from `./init/init-keycloak.sh` or follow the following manual steps.
 
 + Create a new Realm `datalayer`.
 + Create the client `datalayer` with Root URL `http://localhost:8080`.
@@ -60,16 +60,16 @@ docker-compose -f $DLAHOME/lab/keycloak/docker/keycloak.yml down
 
 ## URLs
 
-echo http://localhost:8080/auth/realms/datalayer
-echo http://localhost:8080/auth/realms/datalayer/.well-known/openid-configuration
-echo http://localhost:8080/auth/realms/datalayer/account
+open http://localhost:8080/auth/realms/datalayer
+open http://localhost:8080/auth/realms/datalayer/.well-known/openid-configuration
+open http://localhost:8080/auth/realms/datalayer/account
 
-## Login
+## Login Docs
 
 + https://www.keycloak.org/docs/3.2/server_admin/topics/login-settings.html
 + https://www.keycloak.org/docs/3.2/server_admin/topics/authentication.html
 
-## Theme
+## Theme Docs
 
 + https://www.keycloak.org/docs/3.2/server_development/topics/themes.html
 + https://github.com/keycloak/keycloak/tree/master/examples/themes
