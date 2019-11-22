@@ -115,7 +115,7 @@ export default function DlaOverview() {
                       <h4 className={classes.cardTitle}>Josh Murray</h4>
                       <p className={classes.cardDescription}>
                         {'"'}Great kit! Used this for a client already and he is
-                        over the moon. Keep up the good work Creative Tim! 10/10
+                        over the moon. Keep up the good work Datalayer! 10/10
                         for design, colours, and the feel of the kit.
                         {'"'}
                       </p>

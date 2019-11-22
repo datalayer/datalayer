@@ -81,7 +81,7 @@ export default function LandingPage({ ...rest }) {
                     target="_blank"
                     className={classes.block}
                   >
-                    Creative Tim
+                    Datalayer
                   </a>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
@@ -116,7 +116,7 @@ export default function LandingPage({ ...rest }) {
                 href="https://www.creative-tim.com/?ref=mkpr-landing"
                 target="_blank"
               >
-                Creative Tim
+                Datalayer
               </a>{" "}
               for a better web.
             </div>

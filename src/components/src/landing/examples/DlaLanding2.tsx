@@ -50,7 +50,7 @@ export default function DlaLanding({ ...rest }) {
       <div>
         <Header
           absolute
-          brand="Creative Tim"
+          brand="Datalayer"
           color="transparent"
           links={
             <div className={classes.collapse}>

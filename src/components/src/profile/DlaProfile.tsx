@@ -154,7 +154,7 @@ export default function DlaProfile() {
                     target="_blank"
                     className={classes.block}
                   >
-                    Creative Tim
+                    Datalayer
                   </a>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
@@ -189,7 +189,7 @@ export default function DlaProfile() {
                 href="https://www.creative-tim.com?ref=mkpr-profile"
                 target="_blank"
               >
-                Creative Tim
+                Datalayer
               </a>{" "}
               for a better web.
             </div>

@@ -307,7 +307,7 @@ const events = [
     color: "azure"
   },
   {
-    title: "Click for Creative Tim",
+    title: "Click for Datalayer",
     start: new Date(y, m, 21),
     end: new Date(y, m, 22),
     color: "orange"

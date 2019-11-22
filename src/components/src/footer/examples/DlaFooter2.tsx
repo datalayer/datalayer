@@ -44,7 +44,7 @@ export default function DlaFooter() {
                       target="_blank"
                       className={classes.block}
                     >
-                      Creative Tim
+                      Datalayer
                     </a>
                   </ListItem>
                   <ListItem className={classes.inlineBlock}>
@@ -83,7 +83,7 @@ export default function DlaFooter() {
                   target="_blank"
                   className={classes.aClasses}
                 >
-                  Creative Tim
+                  Datalayer
                 </a>{" "}
                 for a better web.
               </div>

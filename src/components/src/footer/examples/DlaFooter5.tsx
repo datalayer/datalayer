@@ -72,7 +72,7 @@ export default function DlaFooter() {
                   href="https://www.creative-tim.com?ref=mkpr-footer-components"
                   target="_blank"
                 >
-                  Creative Tim
+                  Datalayer
                 </a>{" "}
                 All Rights Reserved.
               </div>

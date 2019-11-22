@@ -55,7 +55,7 @@ export default function DlaFooter() {
                       target="_blank"
                       className={classes.block}
                     >
-                      Creative Tim
+                      Datalayer
                     </a>
                   </ListItem>
                   <ListItem className={classes.inlineBlock}>

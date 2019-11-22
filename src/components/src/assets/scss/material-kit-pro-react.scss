@@ -5,9 +5,9 @@
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/material-kit-pro-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Copyright 2019 Datalayer (https://www.creative-tim.com)
 
-* Coded by Creative Tim
+* Coded by Datalayer
 
 =========================================================
 

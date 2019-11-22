@@ -64,7 +64,7 @@ export default function DlaSignIn() {
                       target="_blank"
                       className={classes.block}
                     >
-                      Creative Tim
+                      Datalayer
                     </a>
                   </ListItem>
                   <ListItem className={classes.inlineBlock}>
@@ -102,7 +102,7 @@ export default function DlaSignIn() {
                   href="https://www.creative-tim.com?ref=mkpr-login"
                   target="_blank"
                 >
-                  Creative Tim
+                  Datalayer
                 </a>{" "}
                 for a better web
               </div>

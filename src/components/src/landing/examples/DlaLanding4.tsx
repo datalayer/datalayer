@@ -46,7 +46,7 @@ export default function DlaLanding({ ...rest }) {
       <div>
         <Header
           absolute
-          brand="Creative Tim"
+          brand="Datalayer"
           color="transparent"
           links={
             <List className={classes.list + " " + classes.mlAuto}>

@@ -93,7 +93,7 @@ export default function DlaFooter() {
                   target="_blank"
                   className={classes.aClasses}
                 >
-                  Creative Tim
+                  Datalayer
                 </a>{" "}
                 All Rights Reserved.
               </div>
@@ -104,7 +104,7 @@ export default function DlaFooter() {
             <GridItem xs={12} sm={4} md={4}>
               <h5>About Us</h5>
               <p>
-                Creative Tim is a startup that creates design tools that make
+                Datalayer is a startup that creates design tools that make
                 the web development process faster and easier.{" "}
               </p>
               <p>
