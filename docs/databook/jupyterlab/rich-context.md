@@ -26,6 +26,8 @@ Data Registry [Proposal](https://github.com/jupyterlab/jupyterlab/issues/5548).
 
 + https://github.com/jupyterlab/jupyterlab/issues/5382#issuecomment-532752990
 
++ https://github.com/quansight/jupyter-datastore
+
 ## Perspective
 
 + [Perspective](https://github.com/finos/perspective).

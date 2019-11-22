@@ -6,7 +6,7 @@
 
 CONDA_ENV=$1
 
-echo -e $YELLOW$BOLD"Activating Conda Env '$CONDA_ENV'"$NOBOLD$NOCOLOR
+echo -e $YELLOW$BOLD"Activating Conda Env [$GREEN$CONDA_ENV$YELLOW]"$NOBOLD$NOCOLOR
 echo
 
 . $DLAHOME/opt/miniconda3/etc/profile.d/conda.sh && \

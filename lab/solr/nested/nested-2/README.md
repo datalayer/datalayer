@@ -4,7 +4,7 @@
 
 ## Talk at Lucene/Solr Revolution 2016
 
-+ https://github.com/alisatl/solr-revolution-2016-nested-nested2
++ https://github.com/alisatl/solr-revolution-2016-nested-demo
 + https://www.slideshare.net/lucidworks/working-with-deeply-nested-documents-in-apache-solr-presented-by-anshum-gupta-alisa-zhila-ibm-watson
 + https://www.youtube.com/watch?v=qV0fIg-LGBE
 
@@ -12,7 +12,7 @@ Demo queries and command  that accompany the talk Working with Deeply Nested Doc
 
 ## Data Pre-processing
 
-All necessary data is provided in the ./data folder in all formats and with different pre-processing options.
+All necessary data is provided in the `./data` folder in all formats and with different pre-processing options.
 
 Example how to run a script:
 
@@ -24,7 +24,7 @@ python2 ./scripts/convert_data2solrjson -i ./data/example-data.json -o ./data/ex
 
 ```bash
 export SOLR_HOME=~/datalayer/opt/solr-7.6.0
-$SOLR_HOME/bin/solr create -c nested2 -p 8983
+$SOLR_HOME/bin/solr create -c nested2 -shards 1 -replicationFactor 1 -p 8983
 $SOLR_HOME/bin/post -c nested2 ./data/example-data-solr.json -format solr
 # $SOLR_HOME/bin/solr create -c nested2 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested2 -p 8983 -force
 # $SOLR_HOME/bin/post -c nested2 ./out/example-data-solr.json -format solr
@@ -42,12 +42,15 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 }' http://localhost:8983/solr/nested2/schema
 ```
 
-## Queries
+## Base Queries
 
-Query base.
-
-```
+```bash
 open http://localhost:8983/solr/nested2/query?q=*%3A*
+curl http://localhost:8983/solr/nested2/query -d '{
+  params : {
+    q: "*:*"
+  }
+}'
 ```
 
 ## "Flat queries"

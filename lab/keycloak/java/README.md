@@ -73,12 +73,12 @@ Configure users imported
 
 + Click on Users menu on the left.
 + Click on View all users. 3 users will be shown.
-+ Edit user bgates.
++ Edit user bjobs.
  + Go to Role Mappings tab.
  + Select `simple` on the combo-box Client Roles.
- + Add the role user to bgates.
-+ Do the same for the user sjobs.
-+ Let's leave mcuban without user role.
+ + Add the role user to bjobs.
++ Do the same for the user sgates.
++ Let's leave bfoo without user role.
 
 ```bash
 ./mvnw clean spring-boot:run
@@ -95,11 +95,11 @@ export SIMPLE_SERVICE_CLIENT_SECRET=$DLA_KEYCLOAK_REALM_CLIENT_SECRET
 ```
 
 ```bash
-# Run the command below to get an access token for bgates user.
+# Run the command below to get an access token for bjobs user.
 BGATES_ACCESS_TOKEN=$(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=bgates" \
+  -d "username=bjobs" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -114,15 +114,15 @@ It will return:
 ```
 HTTP/1.1 200
 ...
-bgates, it is private.
+bjobs, it is private.
 ```
 
 ```bash
-# Run the command below to get an access token for mcuban user.
+# Run the command below to get an access token for bfoo user.
 MCUBAN_ACCESS_TOKEN=$(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=mcuban" \
+  -d "username=bfoo" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -131,7 +131,7 @@ MCUBAN_ACCESS_TOKEN=$(curl -s -X POST \
 curl -i -H "Authorization: Bearer $MCUBAN_ACCESS_TOKEN" http://localhost:8080/api/private
 ```
 
-As mcuban doesn't have the user role, he cannot access this endpoint. The endpoint return will be:
+As bfoo doesn't have the user role, he cannot access this endpoint. The endpoint return will be:
 
 ```
 HTTP/1.1 403
@@ -146,14 +146,14 @@ HTTP/1.1 403
 ```
 
 ```bash
-# Go to Keycloak and add the role user to the mcuban user.
+# Go to Keycloak and add the role user to the bfoo user.
 open http://localhost:8080 # admin / admin
-# Run the command on step 7) again to get a new access token for mcuban user.
+# Run the command on step 7) again to get a new access token for bfoo user.
 # Call again the endpoint GET /api/private using the cURL command presented on step 8. 
 MCUBAN_ACCESS_TOKEN=$(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=mcuban" \
+  -d "username=bfoo" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -167,7 +167,7 @@ It will return:
 ```
 HTTP/1.1 200
 ...
-mcuban, it is private.
+bfoo, it is private.
 ```
 
 The access token default `expiration period` is 5 minutes. Wait for this time and, using the same access token, try to call the private endpoint. It will return:
@@ -250,7 +250,7 @@ In order to access the private endpoint, you need an access token. To get it, ru
 BGATES_ACCESS_TOKEN="Bearer $(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=bgates" \
+  -d "username=bjobs" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -267,7 +267,7 @@ Go to `GET /api/private`, click on Try it out and then on Execute button It will
 ```
 Code: 200
 ...
-Response Body: bgates, it is private.
+Response Body: bjobs, it is private.
 ```
 
 Add a new user in LDAP.

@@ -39,14 +39,14 @@ phpldapadmin-service   /container/tool/run              Up             0.0.0.0:6
 # Import OpenLDAP Users
 
 The LDIF file that we will use, `/springboot-keycloak-openldap/ldap/ldap-mycompany-com.ldif`, has already a pre-defined
-structure for mycompany.com. Basically, it has 2 groups (developers and admin) and 4 users (Bill Gates, Steve Jobs, Mark
-Cuban and Ivan Franchin). Besides, it is defined that Bill Gates, Steve Jobs and Mark Cuban belong to developers group
-and Ivan Franchin belongs to admin group.
+structure for mycompany.com. Basically, it has 2 groups (developers and admin) and 4 users (Bill Jobs, Steve Gates, Mark
+Cuban and Foo Bar). Besides, it is defined that Bill Jobs, Steve Gates and Bar Foo belong to developers group
+and Foo Bar belongs to admin group.
 ```
-Bill Gates > username: bgates, password: 123
-Steve Jobs > username: sjobs, password: 123
-Mark Cuban > username: mcuban, password: 123
-Ivan Franchin > username: ifranchin, password: 123
+Bill Jobs > username: bjobs, password: 123
+Steve Gates > username: sgates, password: 123
+Bar Foo > username: bfoo, password: 123
+Foo Bar > username: fbar, password: 123
 ```
 
 There are two ways to import those users: just running a script or through `phpldapadmin`
@@ -135,12 +135,12 @@ Password: admin
 6. Configure users imported
 - Click on `Users` menu on the left.
 - Click on `View all users`. 3 users will be shown.
-- Edit user `bgates`.
+- Edit user `bjobs`.
 - Go to `Role Mappings` tab.
 - Select `simple` on the combo-box `Client Roles`.
-- Add the role `user` to `bgates`.
-- Do the same for the user `sjobs`.
-- Let's leave `mcuban` without `user` role.
+- Add the role `user` to `bjobs`.
+- Do the same for the user `sgates`.
+- Let's leave `bfoo` without `user` role.
 
 # Run application
 
@@ -184,12 +184,12 @@ Here, the application is trying to redirect the request to an authentication lin
 export SIMPLE_SERVICE_CLIENT_SECRET=...
 ```
 
-5. Run the command bellow to get an access token for `bgates` user.
+5. Run the command bellow to get an access token for `bjobs` user.
 ```
 BGATES_ACCESS_TOKEN=$(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=bgates" \
+  -d "username=bjobs" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -204,15 +204,15 @@ curl -i -H "Authorization: Bearer $BGATES_ACCESS_TOKEN" http://localhost:8080/ap
 It will return:
 ```
 HTTP/1.1 200
-bgates, it is private.
+bjobs, it is private.
 ```
 
-7. Run the command bellow to get an access token for `mcuban` user.
+7. Run the command bellow to get an access token for `bfoo` user.
 ```
 MCUBAN_ACCESS_TOKEN=$(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=mcuban" \
+  -d "username=bfoo" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -224,7 +224,7 @@ MCUBAN_ACCESS_TOKEN=$(curl -s -X POST \
 curl -i -H "Authorization: Bearer $MCUBAN_ACCESS_TOKEN" http://localhost:8080/api/private
 ```
 
-As mcuban doesn't have the `user` role, he cannot access this endpoint. The endpoint return will be:
+As bfoo doesn't have the `user` role, he cannot access this endpoint. The endpoint return will be:
 ```
 HTTP/1.1 403
 {
@@ -236,15 +236,15 @@ HTTP/1.1 403
 }
 ```
 
-9. Go to `Keycloak` and add the role `user` to the `mcuban` user.
+9. Go to `Keycloak` and add the role `user` to the `bfoo` user.
 
-10. Run the command on `step 7)` again to get a new access token for `mcuban` user.
+10. Run the command on `step 7)` again to get a new access token for `bfoo` user.
 
 11. Call again the endpoint `GET /api/private` using the cURL command presented on `step 8`.
 It will return:
 ```
 HTTP/1.1 200
-mcuban, it is private.
+bfoo, it is private.
 ```
 
 12. The access token default expiration period is `5 minutes`. So, wait for this time and, using the same access token,
@@ -314,7 +314,7 @@ TypeError: Failed to fetch
 BGATES_ACCESS_TOKEN="Bearer $(curl -s -X POST \
   "http://localhost:8080/auth/realms/company-services/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=bgates" \
+  -d "username=bjobs" \
   -d "password=123" \
   -d "grant_type=password" \
   -d "client_secret=$SIMPLE_SERVICE_CLIENT_SECRET" \
@@ -331,7 +331,7 @@ echo $BGATES_ACCESS_TOKEN
 It will return:
 ```
 Code: 200
-Response Body: bgates, it is private.
+Response Body: bjobs, it is private.
 ```
 
 # Useful Links

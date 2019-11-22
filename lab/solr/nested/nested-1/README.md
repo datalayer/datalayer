@@ -13,15 +13,19 @@ python2 ./py/data2solr_json_faceting.py -i ./in/example-data.json -o ./out/examp
 ```bash
 export SOLR_HOME=~/datalayer/opt/solr-7.6.0
 $SOLR_HOME/bin/solr create -c nested1 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/demo -p 8983 -force
-$SOLR_HOME/bin/post -c nested1 ./out/example-data-solr.json -format solr
-$SOLR_HOME/bin/post -c nested1 ./out/example-data-solr-for-faceting.json -format solr
 ```
 
 ```bash
 open http://localhost:8983/solr
 ```
 
-## Queries
+## Index
+
+```bash
+$SOLR_HOME/bin/post -c nested1 ./out/example-data-solr.json -format solr
+```
+
+## Query
 
 ```bash
 # And now let the querying begin…
@@ -32,14 +36,14 @@ curl http://localhost:8983/solr/nested1/query -d '{
 }'
 # Example I.2.1.
 # Now, let’s try to get the top-level posts that received positive comments using the Block Join feature.
-# In the Block Join part: `{!parent which=”path:1.blog-posts”}` we query for all the parents of type "blog-post”, and in the main query, for the documents of type "comments” that express positive sentiment.
+# In the Block Join part: `{!parent which="path:1.blog-posts"}` we query for all the parents of type "blog-post", and in the main query, for the documents of type "comments" that express positive sentiment.
 curl http://localhost:8983/solr/nested1/query -d '{
   query : "{!parent which=\"path:1.blog-posts\"}+(path:2.blog-posts.comments AND sentiment:positive)" 
 }'
 # # Example I.2.2.
-# Now let’s see what replies the negative comments received (i.e., Children Block Join query from parent "comments” to children "replies”).
-# This is not the most straightforward syntax. We are querying for all children of a parent that is specified in the Block Join part `{!child%20of=”path:2.blog-posts.comments”}`, and it cannot be "lower” than the documents returned by the main query, `path:2.blog-posts.comments AND sentiment:negative`(that is, we cannot simply specify `{!child of=”path:3.blog-posts.comments.replies”}`). For our query the "comment” level is sufficient, we do not want to climb any higher otherwise we might bring "cousins” instead of direct descendants. Then, the children are filtered by their type for "reply” documents only in the filter query, `fq=path:3.blog-posts.comments.replies`, which brings us just what we asked for.
-# If we wanted to get all the comments that received negative replies, i.e., "reply” level in the main query and "comment” level in the Block Join query, we would use Parent Block Join instead.
+# Now let’s see what replies the negative comments received (i.e., Children Block Join query from parent "comments" to children "replies").
+# This is not the most straightforward syntax. We are querying for all children of a parent that is specified in the Block Join part `{!child%20of="path:2.blog-posts.comments"}`, and it cannot be "lower" than the documents returned by the main query, `path:2.blog-posts.comments AND sentiment:negative`(that is, we cannot simply specify `{!child of="path:3.blog-posts.comments.replies"}`). For our query the "comment" level is sufficient, we do not want to climb any higher otherwise we might bring "cousins" instead of direct descendants. Then, the children are filtered by their type for "reply" documents only in the filter query, `fq=path:3.blog-posts.comments.replies`, which brings us just what we asked for.
+# If we wanted to get all the comments that received negative replies, i.e., "reply" level in the main query and "comment" level in the Block Join query, we would use Parent Block Join instead.
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
     q : "{!parent which=\"path:2.blog-posts.comments\"}path:3.blog-posts.comments.replies AND sentiment:positive",
@@ -47,7 +51,7 @@ curl http://localhost:8983/solr/nested1/query -d '{
   }
 }'
 # Example I.3.1.
-# First, we are querying through Block Join query to return all comments (i.e., documents whose path is path:2.blog-posts.comments) that have replies with positive sentiment. Then, using ChildDocTransformerFactory in square brackets in the `fl` parameter, namely,`[child parentFilter=path:2.blog-posts.comments childFilter=path:3.blog-posts.comments.* limit=50]`, we specify that we would like to get a document tree starting from "comments” as top parents (`parentFilter=path:2.blog-posts.comments`) and get all their children of type "replies” (`childFilter=path:3.blog-posts.comments.replies`).
+# First, we are querying through Block Join query to return all comments (i.e., documents whose path is path:2.blog-posts.comments) that have replies with positive sentiment. Then, using ChildDocTransformerFactory in square brackets in the `fl` parameter, namely,`[child parentFilter=path:2.blog-posts.comments childFilter=path:3.blog-posts.comments.* limit=50]`, we specify that we would like to get a document tree starting from "comments" as top parents (`parentFilter=path:2.blog-posts.comments`) and get all their children of type "replies" (`childFilter=path:3.blog-posts.comments.replies`).
 # One peculiarity of ChildDocTransformerFactory is that you probably would like to set up a higher default limit for the number of returned nested documents (e.g., `limit=50` in the example) when working with real cases because its default value is 10 which is very restrictive.
 curl http://localhost:8983/solr/nested1/query -d '{ 
   params : {
@@ -57,7 +61,7 @@ curl http://localhost:8983/solr/nested1/query -d '{
 }'
 # Example I.3.2.
 # Another thing, which might be actually considered a drawback, is that ChildDocTransformerFactory flattens the descending structure. This means that any descendant, albeit a grandchild, a ‘niece’, a ‘great-grand-niece’, becomes direct child.
-# Here I restricted the descendants only by the "comments” branch (childFilter=path:*.blog-posts.comments.*) that includes comment keywords and replies on level 3, and reply keywords on level 4. Yet it can be seen that all the descendants are flattened under their common ancestor.
+# Here I restricted the descendants only by the "comments" branch (childFilter=path:*.blog-posts.comments.*) that includes comment keywords and replies on level 3, and reply keywords on level 4. Yet it can be seen that all the descendants are flattened under their common ancestor.
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
     q: "{!parent which=\"path:2.blog-posts.comments\"}path:3.blog-posts.comments.replies AND sentiment:positive",
@@ -65,17 +69,23 @@ curl http://localhost:8983/solr/nested1/query -d '{
   }
 }'
 # Example I.4.1.
-# One of the good applications of combining wildcards and path fields is to overcome the lack of binary logic for parent specification in Block Join Query. For example, the syntax does not support a Block Join query querying for parents either of type "body” or "title”:
-# ~q={!parent%20which=”path:2.blog-posts.body” OR "path:2.blog-posts.title”}path:3.blog-posts.*.keywords AND text:Solr~
-# The good news is that Block Join actually supports wildcards so we can query for ANY parent document from level 2 that has "Solr” as its keyword and then filter only those of the desired types through filter query `fq`:
-curl http://localhost:8983/solr/nested1/query -d '{ 
+# One of the good applications of combining wildcards and path fields is to overcome the lack of binary logic for parent specification in Block Join Query. For example, the syntax does not support a Block Join query querying for parents either of type "body" or "title":
+# ~q={!parent%20which="path:2.blog-posts.body" OR "path:2.blog-posts.title"}path:3.blog-posts.*.keywords AND text:Solr~
+# The good news is that Block Join actually supports wildcards so we can query for ANY parent document from level 2 that has "Solr" as its keyword and then filter only those of the desired types through filter query `fq`:
+curl http://localhost:8983/solr/nested1/query -d '{
   params : {
     q: "{!parent which=\"path:2.*\"}path:\"3.blog-posts.*.keywords\" AND text:Solr",
     fq: "path:2.blog-posts.title OR path:2.blog-posts.body",
   }
 }'
+curl http://localhost:8983/solr/nested1/query -d '{
+  params : {
+    q: "{!parent which=\"path:2*\"}path:*keywords AND text:Solr",
+    fq: "path:2.blog-posts.title OR path:2.blog-posts.body",
+  }
+}'
 # Example I.4.2.
-# Similar to Examples I.3.1 and I.3.2, we can specify the general level for documents to be returned (using ChildDocTransformerFactory). Let’s say we want to see all other keywords for the documents at level 2 that have "feature” as their keyword. Due to the structure of the example document hierarchy where each keyword is treated as an independent document with "text” and "type” fields, querying for the whole list of keywords at a certain level directly (q=path:3.*.keywords AND text:feature) will not bring the desired results. It will only return precisely the "keyword” document that contains text field "feature”. No other keywords will be returned.
+# Similar to Examples I.3.1 and I.3.2, we can specify the general level for documents to be returned (using ChildDocTransformerFactory). Let’s say we want to see all other keywords for the documents at level 2 that have "feature" as their keyword. Due to the structure of the example document hierarchy where each keyword is treated as an independent document with "text" and "type" fields, querying for the whole list of keywords at a certain level directly (q=path:3.*.keywords AND text:feature) will not bring the desired results. It will only return precisely the "keyword" document that contains text field "feature". No other keywords will be returned.
 # Therefore, ChildDocTransformerFactory with its childFilter again comes handy.
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
@@ -84,17 +94,31 @@ curl http://localhost:8983/solr/nested1/query -d '{
     fl: "text",
   }
 }'
+curl http://localhost:8983/solr/nested1/query -d '{
+  params : {
+    q: "{!parent which=\"path:2*\"}path:*keywords AND text:feature",
+    fl: "id,text,path,[child parentFilter=path:2* childFilter=path:*keywords",
+    fl: "text",
+  }
+}'
 # Example I.5.
-# If we are interested in more complex traversing of the document hierarchy, we can also use Block Join Query in filter query part. For example, we want to get all level 2 documents that contain keyword "Solr” and positive replies. "Keyword” documents are at the same level as "reply” documents, so they are "cousins”. Therefore, they cannot be specified in one main query as in:
-# ~q={!parent%20which=”path:2.*”}path:3.*.keywords%20AND%20text:Solr%20AND%20path:3.*.replies%20AND%20sentiment:positive~
-# which returns 0 documents because documents cannot be of type "keywords” (`path:3.*.keywords`) and "replies” (`path:3.*.replies`) at the same time.
+# If we are interested in more complex traversing of the document hierarchy, we can also use Block Join Query in filter query part. For example, we want to get all level 2 documents that contain keyword "Solr" and positive replies. "Keyword" documents are at the same level as "reply" documents, so they are "cousins". Therefore, they cannot be specified in one main query as in:
+# ~q={!parent%20which="path:2.*"}path:3.*.keywords%20AND%20text:Solr%20AND%20path:3.*.replies%20AND%20sentiment:positive~
+# which returns 0 documents because documents cannot be of type "keywords" (`path:3.*.keywords`) and "replies" (`path:3.*.replies`) at the same time.
 # The correct way would be to use a filter query with corresponding Block Join query:
 # Here I am also returning the substructure via ChildDocTransformerFactory to verify the results.
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
-    q: "{!parent which=”path:2.*”}path:3.blog-posts.*.keywords AND text:Solr",
-    fq: "{!parent which=”path:2.*”}path:3.blog-posts.*.replies AND sentiment:positive",
-    fl: "*,[child parentFilter=”path:2.*” childFilter=”path:3.*”]",
+    q: "{!parent which="path:2.*"}path:3.blog-posts.*.keywords AND text:Solr",
+    fq: "{!parent which="path:2.*"}path:3.blog-posts.*.replies AND sentiment:positive",
+    fl: "*,[child parentFilter="path:2.*" childFilter="path:3.*"]",
+  }
+}'
+curl http://localhost:8983/solr/nested1/query -d '{
+  params : {
+    q: "{!parent which=\"path:2*\"}path:*keywords AND text:Solr",
+    fq: "{!parent which=\"path:2*\"}path:*replies AND sentiment:positive",
+    fl: "*,[child parentFilter=\"path:2*\" childFilter=\"path:3*\"]",
   }
 }'
 # I.6 Nested Document Querying Summary
@@ -103,7 +127,13 @@ curl http://localhost:8983/solr/nested1/query -d '{
 # Now that we have looked through various options of querying nested documents, let’s move on to faceting.
 ```
 
-## Facets
+## Index Facets
+
+```bash
+$SOLR_HOME/bin/post -c nested1 ./out/example-data-solr-for-faceting.json -format solr
+```
+
+## Query Facets
 
 ```bash
 # Nested document faceting has been introduced right in Solr 5.3 in the JSON Faceting syntax variant. The Block Join Faceting has been introduced in Solr 5.5 and is an experimental functionality (see further).
@@ -189,7 +219,7 @@ curl http://localhost:8983/solr/nested1/query -d "q=path:2.blog-posts.comments&r
 # My only concern for this faceting technique is that it requires quite a bit of pre-processing of the original data (in Section 
 ```
 
-# Pre-processing
+# Block Join Faceting
 
 ```bash
 # you can see how much the data changed with all these additional auxiliary fields) and somewhat "user-not-friendly" syntax.

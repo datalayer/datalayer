@@ -17,6 +17,32 @@ IpyWidget [Examples](https://github.com/jupyter-widgets/ipywidgets/tree/master/d
 + [Authoring Custom Jupyter Widgets](https://blog.jupyter.org/authoring-custom-jupyter-widgets-2884a462e724).
 + [Interactive Controls for Jupyter Notebooks](https://towardsdatascience.com/interactive-controls-for-jupyter-notebooks-f5c94829aee6).
 
+## Comms
+
+[Comms](./kernels/comms.md)
+
+## JupyterLab
+
+[IpyLab](https://github.com/jtpio/ipylab).
+
+## Widgets
+
++ [bqplot](https://github.com/bloomberg/bqplot).
++ [d3-slider](https://gitlab.com/oscar6echo/jupyter-widget-d3-slider).
++ [drawing-pad](https://github.com/ocoudray/jupyter-drawing-pad).
++ [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet).
++ [ipymaterialui](https://github.com/maartenbreddels/ipymaterialui).
++ [ipypivot](https://github.com/pierremarion23/ipypivot).
++ [ipyplotly](https://github.com/jonmmease/ipyplotly).
++ [ipyresuse](https://github.com/jtpio/ipyresuse).
++ [ipyscales](https://github.com/vidartf/ipyscales).
++ [ipysheet](https://github.com/quantstack/ipysheet).
++ [ipyvolume](https://github.com/maartenbreddels/ipyvolume).
++ [ipywebrtc](https://github.com/maartenbreddels/ipywebrtc).
++ [nglview](https://github.com/arose/nglview).
++ [pythreejs](https://github.com/jupyter-widgets/pythreejs).
++ [sidecar](https://github.com/jupyter-widgets/jupyterlab-sidecar).
+
 ## Example
 
 ![WidgetModelView](https://ipywidgets.readthedocs.io/en/latest/_images/WidgetModelView.png)
@@ -81,50 +107,6 @@ mylink = widgets.jslink((a, 'value'), (b, 'value'))
 # mylink.unlink()
 ```
 
-## Widgets
-
-+ [bqplot](https://github.com/bloomberg/bqplot).
-+ [d3-slider](https://gitlab.com/oscar6echo/jupyter-widget-d3-slider).
-+ [drawing-pad](https://github.com/ocoudray/jupyter-drawing-pad).
-+ [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet).
-+ [ipymaterialui](https://github.com/maartenbreddels/ipymaterialui).
-+ [ipypivot](https://github.com/pierremarion23/ipypivot).
-+ [ipyplotly](https://github.com/jonmmease/ipyplotly).
-+ [ipyresuse](https://github.com/jtpio/ipyresuse).
-+ [ipyscales](https://github.com/vidartf/ipyscales).
-+ [ipysheet](https://github.com/quantstack/ipysheet).
-+ [ipyvolume](https://github.com/maartenbreddels/ipyvolume).
-+ [ipywebrtc](https://github.com/maartenbreddels/ipywebrtc).
-+ [nglview](https://github.com/arose/nglview).
-+ [pythreejs](https://github.com/jupyter-widgets/pythreejs).
-+ [sidecar](https://github.com/jupyter-widgets/jupyterlab-sidecar).
-
-## JupyterLab
-
-[IpyLab](https://github.com/jtpio/ipylab).
-
-## See Also
-
-[folium](https://github.com/python-visualization/folium).
-
-## Bidirectional Communication between Javascript and Kernel
-
-+ [Notebook Comms](https://jupyter-notebook.readthedocs.io/en/latest/comms.html) allow custom messages between the frontend and the kernel. They are used, for instance, in ipywidgets to update widget state.
-+ [Low Level Widget Tutorial](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Low%20Level.html).
-+ [Jupyter Client Custom Messages](https://jupyter-client.readthedocs.io/en/latest/messaging.html#custom-messages).
-+ [JupyterLab Kernel Message](http://jupyterlab.github.io/jupyterlab/services/modules/kernelmessage.html).
-
-![Comm](https://raw.githubusercontent.com/jupyter-widgets/ipywidgets/master/docs/source/examples/images/WidgetArch.png)
-
-![Comm](https://ipywidgets.readthedocs.io/en/latest/_images/display.svg)
-
-# Classic Notebook
-
-+ [Building a Custom Widget](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Custom.html).
-+ [Javascript Error: define is not defined](https://github.com/jupyter-widgets/ipywidgets/issues/2379).
-+ [Jupyter Widget Hello World](https://github.com/pierremarion23/jupyter-widget-hello-world-binder).
-+ [First Widget](https://github.com/ocoudray/first-widget).
-
 ## Widget Cookie Cutter
 
 Widget Cookie Cutter [GitHub](https://github.com/jupyter-widgets/widget-cookiecutter) repository.
@@ -158,3 +140,14 @@ Outdated.
 + [IpyVuetify](https://github.com/mariobuikhuizen/ipyvuetify).
 + [IpyVuetify Example](https://files.gitter.im/jupyter-widgets/Lobby/bzWa/ipyvuetifyExample.gif).
 + [IpyVuetify Examples](https://github.com/mariobuikhuizen/ipyvuetify/blob/master/examples/Examples.ipynb).
+
+## See Also
+
+[folium](https://github.com/python-visualization/folium).
+
+# [DEPRECATED] Classic Notebook
+
++ [Building a Custom Widget](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Custom.html).
++ [Javascript Error: define is not defined](https://github.com/jupyter-widgets/ipywidgets/issues/2379).
++ [Jupyter Widget Hello World](https://github.com/pierremarion23/jupyter-widget-hello-world-binder).
++ [First Widget](https://github.com/ocoudray/first-widget).

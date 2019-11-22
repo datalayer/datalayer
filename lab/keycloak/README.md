@@ -14,8 +14,8 @@
 
 ```bash
 cd $DLAHOME/lab/keycloak && \
-  docker-compose -f $DLAHOME/lab/keycloak/keycloak.yml up -d && \
-  docker-compose -f $DLAHOME/lab/keycloak/keycloak.yml ps && \
+  docker-compose -f $DLAHOME/lab/keycloak/docker/keycloak.yml up -d && \
+  docker-compose -f $DLAHOME/lab/keycloak/docker/keycloak.yml ps && \
   sleep 3s && \
   ldapadd -x -D "cn=admin,dc=datalayer,dc=io" -w admin -H ldap:// -f $DLAHOME/lab/keycloak/ldap/entries.ldif && \
   ldapsearch -x -D "cn=admin,dc=datalayer,dc=io" \
@@ -55,7 +55,7 @@ Run the snipppets from `init/init-keycloak.sh` or follow the following manual st
 ## Teardown
 
 ```bash
-docker-compose -f $DLAHOME/lab/keycloak/keycloak.yml down
+docker-compose -f $DLAHOME/lab/keycloak/docker/keycloak.yml down
 ```
 
 ## URLs

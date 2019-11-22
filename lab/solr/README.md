@@ -9,7 +9,7 @@ Read the official [Solr Tutorial](https://lucene.apache.org/solr/guide/8_2/solr-
 
 ## Setup
 
-Follow the below steps to start your Solr server.
+Follow the below steps to start a Solr server.
 
 ```bash
 # Start.
@@ -54,19 +54,39 @@ open http://localhost:8983/solr
 docker-compose -f $DLAHOME/lab/solr/swarm/solr.yml down
 ```
 
-## More Info
+## JSON Request API
 
-+ https://blog.quiltdata.com/find-your-jupyter-notebooks-with-elasticsearch-1fe300c1cd0f #elasticsearch
-+ https://github.com/quiltdata/examples/tree/master/JupyterSearch #elasticsearch
+https://lucene.apache.org/solr/guide/8_2/json-request-api.html
 
-+ https://github.com/abranubhav/Search-using-SOLR
-+ https://github.com/pkiraly/solr-and-elasticsearch
+Query parameters	JSON field equivalent
+q	query
+fq	filter
+start	offset
+rows	limit
+fl	fields
+sort	sort
+json.facet	facet
+json.<param_name>	<param_name>
 
-## Reset
+## Clean
 
 ```bash
 # Ensure you start clean...
-curl http://localhost:8983/solr/demo/update?commitWithin=3000 -d '{delete:{query:"*:*"}}'
+curl http://localhost:8983/solr/demo/update?commitWithin=3000 -d '
+{ 
+  delete: {
+    query: "*:*"
+  }
+}'
+```
+
+## Delete
+
+```bash
+# curl does not work...
+curl -X GET -G http://localhost:8983/solr/admin/collections \
+  -d action=DELETE \
+  -d name=demo
 ```
 
 ## Index
@@ -80,7 +100,15 @@ curl http://localhost:8983/solr/demo/update?commitWithin=5000 -d '
   "author_s" : "Brandon Sanderson"
  }
 ]'
-# {"responseHeader":{"status":0,"QTime":40}}
+```
+
+```json
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 40
+  }
+}
 ```
 
 ## Get
@@ -141,7 +169,7 @@ Let’s update book1 and add cat_s, a category field, a publication year, and an
 curl http://localhost:8983/solr/demo/update -d '
 [
  {"id"         : "book1",
-  "title_t"    : { "set" : ""The Way of Kings 2" },
+  "title_t"    : { "set" : "The Way of Kings 2" },
   "cat_s"      : { "add" : "fantasy" },
   "pubyear_i"  : { "add" : 2010 },
   "ISBN_s"     : { "add" : "978-0-7653-2635-5" }
@@ -188,7 +216,7 @@ The Lucene library that Solr uses for full-text search works off of point-in-tim
 
 Note that although we often use JSON in our examples, Solr is actually data format agnostic – you’re not artificially tied to any particular transfer-syntax or serialization format such as JSON or XML.
 
-## Search Request
+## Search
 
 Now let’s query our book collection! For example, we can find all books with “black” in the title field:
 
@@ -719,6 +747,7 @@ json.facet=
 
 An example response would look like the following:
 
+```json
 [...]
   "facets":{
     "top_genres":{
@@ -746,9 +775,11 @@ An example response would look like the following:
           "val":"Science Fiction",  // the next genre bucket
           "count":4188,
 [...]
+```
 
 All the reporting and sorting was done using document count (i.e. number of books). If instead, we wanted to find top authors by total revenue (assuming we had a “sales” field), then we could simply change the author facet from the previous example as follows:
 
+```json
 top_authors:{ 
   type: terms,
   field: author,
@@ -758,6 +789,7 @@ top_authors:{
     revenue: "sum(sales)"
   }
 }
+```
 
 ## Backup and Restore
 
@@ -781,3 +813,11 @@ name=solr_demo_backup&
 collection=demo&
 location=/tmp'
 ```
+
+## See Also
+
++ https://blog.quiltdata.com/find-your-jupyter-notebooks-with-elasticsearch-1fe300c1cd0f #elasticsearch
++ https://github.com/quiltdata/examples/tree/master/JupyterSearch #elasticsearch
+
++ https://github.com/abranubhav/Search-using-SOLR
++ https://github.com/pkiraly/solr-and-elasticsearch

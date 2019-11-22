@@ -20,7 +20,6 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 ### Jupyter Server
 
 + 💪 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
-+ 💪 [Flags and Aliases on Extensions are failing](https://github.com/jupyter/jupyter_server/pull/140)
 + 🔵 [Make frontends discoverable and add a frontend alias](https://github.com/jupyter/jupyter_server/issues/121)
 + 🔵 [Kernel Providers](https://github.com/jupyter/jupyter_server/pull/112)
 + 🔵 [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)

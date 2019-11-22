@@ -27,7 +27,7 @@ echo
 
 echo -e $YELLOW$BOLD"Deleting Orphaned Docker Images..."$NOBOLD$NOCOLOR
 echo
-docker rmi -f --no-prune=false $(docker imadoges | awk '/^<none>/ {print $3}')
+docker rmi -f --no-prune=false $(docker images | awk '/^<none>/ {print $3}')
 echo
 
 # echo -e $YELLOW$BOLD"Deleting all images"$NOBOLD$NOCOLOR
@@ -37,5 +37,6 @@ echo
 
 echo -e $YELLOW$BOLD"Deleting Unused Docker Volumes..."$NOBOLD$NOCOLOR
 echo
+docker volume ls
 docker volume prune
 echo

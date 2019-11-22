@@ -131,7 +131,7 @@ solr.delete(id=['doc_1', 'doc_2'])
 solr.delete(q='*:*', commit=True)
 ```
 
-## Other Python Clients
+## See Also
 
 + https://github.com/solrcloudpy/solrcloudpy
 + https://github.com/tow/sunburnt
