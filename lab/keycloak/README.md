@@ -4,10 +4,10 @@
 
 > Federation with Keycloak, a `OAuth 2.0` and `OpenID Connect` provider.
 
-+ [Python](./python).
 + [React.js](./react.js).
-+ [Go](./go).
 + [Node.js](./node.js).
++ [Python](./python).
++ [Go](./go).
 + [Java](./java).
 
 ## Setup

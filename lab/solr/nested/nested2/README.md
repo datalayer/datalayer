@@ -25,10 +25,11 @@ python2 ./scripts/convert_data2solrjson -i ./data/example-data.json -o ./data/ex
 ```bash
 export SOLR_HOME=~/datalayer/opt/solr-7.6.0
 $SOLR_HOME/bin/solr create -c nested2 -shards 1 -replicationFactor 1 -p 8983
-$SOLR_HOME/bin/post -c nested2 ./data/example-data-solr.json -format solr
+$SOLR_HOME/bin/post -c nested2 $DLAHOME/lab/solr/nested/nested2/data/example-data-solr.json -format solr
+curl http://localhost:8983/solr/nested2/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 # $SOLR_HOME/bin/solr create -c nested2 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested2 -p 8983 -force
-# $SOLR_HOME/bin/post -c nested2 ./out/example-data-solr.json -format solr
-# $SOLR_HOME/bin/post -c nested2 ./out/example-data-solr-for-faceting.json -format solr
+# $SOLR_HOME/bin/post -c nested2 $DLAHOME/lab/solr/nested/nested2/out/example-data-solr.json -format solr
+# $SOLR_HOME/bin/post -c nested2 $DLAHOME/lab/solr/nested/nested2/out/example-data-solr-for-faceting.json -format solr
 ```
 
 ## Schema Modification
@@ -65,7 +66,7 @@ curl http://localhost:8983/solr/nested2/query -d '{
 ```bash
 # Find all documents at level 2 that mention Hillary.
 curl http://localhost:8983/solr/nested2/query -d '{
-  query : "path:2.* AND (text:Hillary OR Clinton)" 
+  query : "path:2* AND (text:Hillary OR Clinton)" 
 }'
 ```
 

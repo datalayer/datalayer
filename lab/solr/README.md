@@ -14,23 +14,19 @@ Follow the below steps to start a Solr server.
 ```bash
 # Start.
 docker-compose -f $DLAHOME/lab/solr/swarm/solr.yml up -d && \
-  dla solr-help && \
-  sleep 3s && \
-  docker-compose -f $DLAHOME/lab/solr/swarm/solr.yml ps && \
+  dla solr-help
+```
+
+```bash
+docker-compose -f $DLAHOME/lab/solr/swarm/solr.yml ps && \
   docker-compose -f $DLAHOME/lab/solr/swarm/solr.yml logs -f solr
 open http://localhost:8983
 ```
 
 ```bash
-# Delete the `demo` collection.
-curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=demo'
-docker exec -it --user=solr solr solr delete -c demo
-```
-
-```bash
 # Create the `demo` collection.
 # docker cp $DLAHOME/etc/conf/solr/demo solr:/opt/solr/example
-docker exec solr solr create -c demo
+# docker exec solr solr create -c demo
 # With shards and replicationFactor.
 docker exec -it --user=solr solr bin/solr create_collection -c demo -shards 1 -replicationFactor 1
 # docker exec -it --user=solr solr bin/solr create_collection -c demo -shards 3 -replicationFactor 3
@@ -50,6 +46,27 @@ open http://localhost:8983/solr
 ```
 
 ```bash
+# Clean the collection.
+curl http://localhost:8983/solr/demo/update?commitWithin=500 -d '
+{ 
+  delete: {
+    query: "*:*"
+  }
+}'
+```
+
+```bash
+# Delete the `demo` collection.
+# open http://localhost:8983/solr/admin/collections?action=DELETE&name=demo
+curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=demo'
+curl -X GET -G http://localhost:8983/solr/admin/collections \
+  -d action=DELETE \
+  -d name=demo
+```
+
+```bash
+# Remove Docker container.
+# docker exec -it --user=solr solr solr delete -c demo
 # Teardown.
 docker-compose -f $DLAHOME/lab/solr/swarm/solr.yml down
 ```
@@ -68,31 +85,10 @@ sort	sort
 json.facet	facet
 json.<param_name>	<param_name>
 
-## Clean
-
-```bash
-# Ensure you start clean...
-curl http://localhost:8983/solr/demo/update?commitWithin=3000 -d '
-{ 
-  delete: {
-    query: "*:*"
-  }
-}'
-```
-
-## Delete
-
-```bash
-# curl does not work...
-curl -X GET -G http://localhost:8983/solr/admin/collections \
-  -d action=DELETE \
-  -d name=demo
-```
-
 ## Index
 
 ```bash
-curl http://localhost:8983/solr/demo/update?commitWithin=5000 -d '
+curl http://localhost:8983/solr/demo/update?commitWithin=500 -d '
 [
  {
   "id" : "book1",
@@ -196,7 +192,7 @@ First, lets add a few more documents so we have something to search for.
 This time we’ll demonstrate indexing documents in CSV (comma separated values) format:
 
 ```bash
-curl http://localhost:8983/solr/demo/update?commitWithin=5000 -H 'Content-type:text/csv' -d '
+curl http://localhost:8983/solr/demo/update?commitWithin=500 -H 'Content-type:text/csv' -d '
 id,cat_s,pubyear_i,title_t,author_s,series_s,sequence_i,publisher_s
 book1,fantasy,2010,The Way of Kings,Brandon Sanderson,The Stormlight Archive,1,Tor
 book2,fantasy,1996,A Game of Thrones,George R.R. Martin,A Song of Ice and Fire,1,Bantam
@@ -210,7 +206,7 @@ book9,fantasy,1965,The Black Cauldron,Lloyd Alexander,The Chronicles of Prydain,
 book10,fantasy,2001,American Gods,Neil Gaiman,,,Harper'
 ```
 
-We added the `commitWithin=5000` parameter to indicate that we would like our updates to be visible within 5000 milliseconds (5 seconds).
+We added the `commitWithin=500` parameter to indicate that we would like our updates to be visible within 5000 milliseconds (5 seconds).
 
 The Lucene library that Solr uses for full-text search works off of point-in-time snapshots that must be periodically refreshed in order for queries to see new changes.
 

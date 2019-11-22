@@ -5,7 +5,7 @@
 > https://medium.com/@pablocastelnovo/nesting-documents-in-apache-solr-12ef44ea2901
 
 ```bash
-curl http://localhost:8983/solr/nested4/update?commitWithin=5000 -d '
+curl http://localhost:8983/solr/nested4/update?commitWithin=500 -d '
 [
   {
     "id":"profile_1",
@@ -46,7 +46,7 @@ curl http://localhost:8983/solr/nested4/update?commitWithin=5000 -d '
 # Retrieving the parents of the matching documents.
 curl http://localhost:8983/solr/nested4/query -d '
 {
-  "query" : "{!parent which=\"nodeType: profile\"} nodeType: comment AND content: term1",
+  "query" : "{!parent which='nodeType: profile'} nodeType: comment AND content: term1",
 }'
 ```
 
@@ -56,7 +56,7 @@ curl http://localhost:8983/solr/nested4/query -d '
 {
   params: {
     q : "*: *",
-    fl : "*, [child parentFilter=\"nodeType: profile\" childFilter=\"nodeType: comment AND content: term1\"]",
+    fl : "*, [child parentFilter='nodeType: profile' childFilter='nodeType: comment AND content: term1']",
   }
 }'
 ```

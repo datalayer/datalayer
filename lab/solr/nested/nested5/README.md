@@ -3,7 +3,7 @@
 # Solr Nested Example 5
 
 ```bash
-curl http://localhost:8983/solr/nested5/update?commitWithin=5000 -d '
+curl http://localhost:8983/solr/nested5/update?commitWithin=500 -d '
 [
   {
     "id":"Project 1",

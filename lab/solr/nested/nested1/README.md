@@ -13,6 +13,7 @@ python2 ./py/data2solr_json_faceting.py -i ./in/example-data.json -o ./out/examp
 ```bash
 export SOLR_HOME=~/datalayer/opt/solr-7.6.0
 $SOLR_HOME/bin/solr create -c nested1 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/demo -p 8983 -force
+curl http://localhost:8983/solr/nested1/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 ```
 
 ```bash
@@ -22,7 +23,7 @@ open http://localhost:8983/solr
 ## Index
 
 ```bash
-$SOLR_HOME/bin/post -c nested1 ./out/example-data-solr.json -format solr
+$SOLR_HOME/bin/post -c nested1 $DLAHOME/lab/solr/nested/nested1/out/example-data-solr.json -format solr
 ```
 
 ## Query
@@ -72,12 +73,12 @@ curl http://localhost:8983/solr/nested1/query -d '{
 # One of the good applications of combining wildcards and path fields is to overcome the lack of binary logic for parent specification in Block Join Query. For example, the syntax does not support a Block Join query querying for parents either of type "body" or "title":
 # ~q={!parent%20which="path:2.blog-posts.body" OR "path:2.blog-posts.title"}path:3.blog-posts.*.keywords AND text:Solr~
 # The good news is that Block Join actually supports wildcards so we can query for ANY parent document from level 2 that has "Solr" as its keyword and then filter only those of the desired types through filter query `fq`:
-curl http://localhost:8983/solr/nested1/query -d '{
-  params : {
-    q: "{!parent which=\"path:2.*\"}path:\"3.blog-posts.*.keywords\" AND text:Solr",
-    fq: "path:2.blog-posts.title OR path:2.blog-posts.body",
-  }
-}'
+# curl http://localhost:8983/solr/nested1/query -d '{
+#   params : {
+#     q: "{!parent which=\"path:2.*\"}path:\"3.blog-posts.*.keywords\" AND text:Solr",
+#     fq: "path:2.blog-posts.title OR path:2.blog-posts.body",
+#   }
+# }'
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
     q: "{!parent which=\"path:2*\"}path:*keywords AND text:Solr",
@@ -87,13 +88,13 @@ curl http://localhost:8983/solr/nested1/query -d '{
 # Example I.4.2.
 # Similar to Examples I.3.1 and I.3.2, we can specify the general level for documents to be returned (using ChildDocTransformerFactory). Let’s say we want to see all other keywords for the documents at level 2 that have "feature" as their keyword. Due to the structure of the example document hierarchy where each keyword is treated as an independent document with "text" and "type" fields, querying for the whole list of keywords at a certain level directly (q=path:3.*.keywords AND text:feature) will not bring the desired results. It will only return precisely the "keyword" document that contains text field "feature". No other keywords will be returned.
 # Therefore, ChildDocTransformerFactory with its childFilter again comes handy.
-curl http://localhost:8983/solr/nested1/query -d '{
-  params : {
-    q: "{!parent which=\"path:2.*\"}path:3.*.keywords AND text:feature",
-    fl: "id,text,path,[child parentFilter=path:2.* childFilter=path:3.*.keywords",
-    fl: "text",
-  }
-}'
+# curl http://localhost:8983/solr/nested1/query -d '{
+#   params : {
+#     q: "{!parent which=\"path:2.*\"}path:3.*.keywords AND text:feature",
+#     fl: "id,text,path,[child parentFilter=path:2.* childFilter=path:3.*.keywords",
+#     fl: "text",
+#   }
+# }'
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
     q: "{!parent which=\"path:2*\"}path:*keywords AND text:feature",
@@ -107,13 +108,13 @@ curl http://localhost:8983/solr/nested1/query -d '{
 # which returns 0 documents because documents cannot be of type "keywords" (`path:3.*.keywords`) and "replies" (`path:3.*.replies`) at the same time.
 # The correct way would be to use a filter query with corresponding Block Join query:
 # Here I am also returning the substructure via ChildDocTransformerFactory to verify the results.
-curl http://localhost:8983/solr/nested1/query -d '{
-  params : {
-    q: "{!parent which="path:2.*"}path:3.blog-posts.*.keywords AND text:Solr",
-    fq: "{!parent which="path:2.*"}path:3.blog-posts.*.replies AND sentiment:positive",
-    fl: "*,[child parentFilter="path:2.*" childFilter="path:3.*"]",
-  }
-}'
+# curl http://localhost:8983/solr/nested1/query -d '{
+#   params : {
+#     q: "{!parent which="path:2.*"}path:3.blog-posts.*.keywords AND text:Solr",
+#     fq: "{!parent which="path:2.*"}path:3.blog-posts.*.replies AND sentiment:positive",
+#     fl: "*,[child parentFilter="path:2.*" childFilter="path:3.*"]",
+#   }
+# }'
 curl http://localhost:8983/solr/nested1/query -d '{
   params : {
     q: "{!parent which=\"path:2*\"}path:*keywords AND text:Solr",
@@ -130,7 +131,8 @@ curl http://localhost:8983/solr/nested1/query -d '{
 ## Index Facets
 
 ```bash
-$SOLR_HOME/bin/post -c nested1 ./out/example-data-solr-for-faceting.json -format solr
+curl http://localhost:8983/solr/demo/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
+$SOLR_HOME/bin/post -c nested1 $DLAHOME/lab/solr/nested/nested1/out/example-data-solr-for-faceting.json -format solr
 ```
 
 ## Query Facets
@@ -182,12 +184,12 @@ json.facet={
 # We see that the syntax becomes more complex. In the main query we specify just all documents of the type that interests us, `q=path:1.blog-posts`. We set `row=0` because we do not want to print all the blog-post documents returned by the main query. Further, we elaborate on JSON faceting query. First, we need to define the type of descendant documents we are interested in by specifying a facet query in "filter_by_child_type" faceting, `q:"path:2.blog-posts.comments"`. Then again we have to switch the domain indicating that we are interested in children of the documents of the type we want to facet by, namely, `domain: { blockChildren : "path:1.blog-posts" }`. Then we go further and define the field we want to facet on, i.e., `field:"sentiment"` in the "comment_sentiments" faceting. Yet if we leave faceting definition at this stage, we will get counts only by the descendant documents (by "comments" in this case) and not by the parent documents as we want. Consequently, we have to specify an additional statistical faceting level "counts_by_blog-posts" on the pre-defined unique field `_root_`, `facet: {counts_by_blog-posts: "unique(_root_)"}` and then sort our "comment_sentiments" results by its counts, `sort: "counts_by_blog-posts desc"`. In the results, "count" gives us the total count of the sentiment occurrence whereas "counts_by_blog-posts" provides us counts of the top-level blog-post documents that received positive comments.
 # II.1.2.2 Faceting on descendants with wildcards and level numbering
 # Now let’s go a few levels deeper and figure out the distribution of keywords in reader’s reaction, namely, in comments and replies on levels 3 and 4 respectively, by the top-level posts.
-currl http://localhost:8983/solr/nested1/query -d "q=path:1.blog-posts&rows=0&
-json.facet={
- filter_by_child_type :{
+curl http://localhost:8983/solr/nested1/query -d "q=path:1.blog-posts&rows=0&
+json.facet = {
+ filter_by_child_type : {
    type:query,
    q: 'path:*comments*keywords',
-   domain: { blockChildren : "path:1.blog-posts" },
+   domain: { blockChildren : \"path:1.blog-posts\" },
    facet:{
      top_keywords : {
        type: terms,
@@ -200,7 +202,7 @@ json.facet={
 # Here comes an edit of the previous version of the post after consulting with the Solr mailing list (thanks to Yonik Seeley and Mikhail Khludnev in particular).
 # Fortunately, it turns out that faceting by intermediate levels actually can be done with JSON faceting API…if you torture the data "long enough". It is for this case, why we introduced those ugly "unique sub-branch identifier" fields like "2.blog-posts.body-id": "50224".
 # In Example II.1.2.2.b we facet keywords by comments, i.e., documents of a particular type from the 2nd level.
-# Example II.1.2.2.b: JSON API faceting on intermediate levels  
+# Example II.1.2.2.b: JSON API faceting on intermediate levels
 curl http://localhost:8983/solr/nested1/query -d "q=path:2.blog-posts.comments&rows=0&json.facet={
    filter_by_child_type :{
      type:query,
@@ -217,12 +219,12 @@ curl http://localhost:8983/solr/nested1/query -d "q=path:2.blog-posts.comments&r
 }}}}}"
 # As it can be seen, I replaced the `counts_by_blog-posts: "unique(_root_)"` faceting by `counts_by_comments: "unique(2.blog-posts.comments-id)"` where the most significant replacement is of course our introduced unique sub-branch identifying field "2.blog-posts.comments-id". And we see that the results are different: a total of 3 comments have "Solr" as their keyword.
 # My only concern for this faceting technique is that it requires quite a bit of pre-processing of the original data (in Section 
+# you can see how much the data changed with all these additional auxiliary fields) and somewhat "user-not-friendly" syntax.
 ```
 
 # Block Join Faceting
 
 ```bash
-# you can see how much the data changed with all these additional auxiliary fields) and somewhat "user-not-friendly" syntax.
 # II.2 Block Join Faceting (Solr 5.5 and up)
 # Block Join Faceting is the whole new approach to nested document faceting introduced in Solr 5.5 and is parallel to JSON Facet API. It is an experimental functionality and at the moment it has less controls than the more developed JSON Facet API. In particular, there is no "limit" or "mincount" parameters to limit the number of the top terms. Also, there is no way to set a sorting order. By default, the facets are returned in index (alphabetical) order rather than ordered by count. That is why it becomes very inconvenient in scenarios when you have hundreds of keywords and you cannot get the top 10 most frequent of them.
 # One of the possible reasons for its existence is its "inline" syntax that allows querying directly from browser or other Web API endpoints. Another good point is that its syntax is way more compact and readable compared to the JSON Facet API. And I assume that the main reason of pursuing this alternative is that it can actually handle faceting by intermediate level documents that failed for JSON Facet API (Example II.1.2.2.b).

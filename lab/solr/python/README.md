@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Solr with Python
+# Solr Python
 
 + https://www.zylk.net/en/web-2-0/blog/-/blogs/solr-client-apis
 + https://medium.com/@avremelk/solr-gottchas-a-tutorial-a953c8b3e775

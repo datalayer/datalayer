@@ -21,7 +21,7 @@ WHERE outer_id IN (SELECT inner_id FROM collection1 where zzz = "vvv")
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/update?commitWithin=5000 -H 'Content-type:text/csv' -d '
+curl http://localhost:8983/solr/demo/update?commitWithin=500 -H 'Content-type:text/csv' -d '
 id,region_s,sales_i
 1,east,100000
 2,west,200000
@@ -31,7 +31,7 @@ id,region_s,sales_i
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/update?commitWithin=5000 -H 'Content-type:text/csv' -d '
+curl http://localhost:8983/solr/demo/update?commitWithin=500 -H 'Content-type:text/csv' -d '
 id,name_s,loc_region_s,salary_i,mgr_s
 5,chris,east,100000,yes
 6,jen,west,200000,yes

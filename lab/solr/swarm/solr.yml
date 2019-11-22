@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   solr:
-    image: solr:8.2.0
+    image: solr:8.3.0
     container_name: solr
     restart: always
     networks:
