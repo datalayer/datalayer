@@ -22,26 +22,26 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
     "ID": "1",
     "title": "Cooking Recommendations",
     "tags": ["cooking", "meetup"],
-    "_nest_path_": "cook",
+    "nest_path": "cook",
     "posts": [{
         "ID": "2",
         "title": "Cookies",
-        "_nest_path_": "recom/post",
+        "nest_path": "recom/post",
         "comments": [{
             "ID": "3",
-            "_nest_path_": "recom/post/comment",
+            "nest_path": "recom/post/comment",
             "content": "Lovely recipe"
           },
           {
             "ID": "4",
-            "_nest_path_": "recom/post/comment",
+            "nest_path": "recom/post/comment",
             "content": "A-"
           }
         ]
       },
       {
         "ID": "5",
-        "_nest_path_": "cook/post",
+        "nest_path": "cook/post",
         "title": "Cakes"
       }
     ]
@@ -50,26 +50,26 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
     "ID": "6",
     "title": "For Hire",
     "tags": ["professional", "jobs"],
-    "_nest_path_": "cook",
+    "nest_path": "cook",
     "posts": [{
         "ID": "7",
         "title": "Search Engineer",
-        "_nest_path_": "cook/post",
+        "nest_path": "cook/post",
         "comments": [{
            "ID": "8",
-           "_nest_path_": "cook/post/comment",
+           "nest_path": "cook/post/comment",
            "content": "I am interested"
          },
          {
            "ID": "9",
-           "_nest_path_": "cook/post/comment",
+           "nest_path": "cook/post/comment",
            "content": "How large is the team?"
          }
         ]
       },
       {
         "ID": "10",
-        "_nest_path_": "cook/post",
+        "nest_path": "cook/post",
         "title": "Low level Engineer"
       }
     ]
@@ -145,7 +145,7 @@ curl http://localhost:8983/solr/nested3/query -d '{
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q: "{!child of=_nest_path_:/posts}title:'Search Engineer'"
+    q: "{!child of=nest_path:/posts}title:'Search Engineer'"
   }
 }'
 ```
@@ -153,7 +153,7 @@ curl http://localhost:8983/solr/nested3/query -d '{
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q: "{!parent which='-_nest_path_:* *:*'}title:"Search Engineer"
+    q: "{!parent which='-nest_path:* *:*'}title:"Search Engineer"
   }
 }'
 ```
@@ -161,7 +161,7 @@ curl http://localhost:8983/solr/nested3/query -d '{
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q: "+{!child of='-__nest_path__:* *:*'}+tags:"jobs",
+    q: "+{!child of='-_nest_path_:* *:*'}+tags:"jobs",
     fl: "*,[child]"
   }
 }'

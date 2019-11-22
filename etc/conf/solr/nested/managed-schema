@@ -118,8 +118,8 @@
 
 
     <field name="_root_" type="string" indexed="true" stored="true" docValues="false" />
-    <fieldType name="_nest_path_" class="solr.NestPathField" />
-    <field name="_nest_path_" type="_nest_path_" />
+    <fieldType name="nest_path" class="solr.NestPathField" />
+    <field name="nest_path" type="nest_path" />
 
 
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
