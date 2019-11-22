@@ -99,8 +99,6 @@ function solr() {
     $DLAHOME/etc/helm/solr \
     --namespace $NAMESPACE \
     --values $DLAHOME/etc/helm/solr/dsp-minikube.yaml \
-    --set solr.image.tag=7.7.2,javaMem="-Xms1g -Xmx1g",solr.logLevel=INFO,solr.replicaCount=2 \
-    --set solr.livenessProbe.initialDelaySeconds=420,solr.exporter.readinessProbe.periodSeconds=30 \
     --timeout 99999
 }
 

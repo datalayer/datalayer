@@ -1,0 +1,13 @@
+image:
+#    repository: _/solr
+  tag: 8.3.0
+  pullPolicy: IfNotPresent
+#  zookeeper-service-name: ""
+javaMem: "-Xms1g -Xmx1g"
+logLevel: "INFO"
+replicaCount: 2
+# livenessProbe:
+#   initialDelaySeconds: 420
+# exporter:
+#    readinessProbe:
+#     periodSeconds: 30

@@ -3,8 +3,8 @@
 # Solr Nested Example 3
 
 ```bash
-docker cp $DLAHOME/etc/conf/solr/nested solr:/opt/solr/example
-docker exec -it --user=solr solr bin/solr create_collection -c nested3 -shards 1 -replicationFactor 1 -d /opt/solr/example/nested
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0
+$SOLR_HOME/bin/solr create -c nested3 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
 curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested3'
 ```
@@ -15,28 +15,33 @@ curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested3
 
 See also https://issues.apache.org/jira/browse/SOLR-12638
 
-```bash
+```json
 curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 [
   {
     "ID": "1",
     "title": "Cooking Recommendations",
     "tags": ["cooking", "meetup"],
+    "nest_path": "cook",
     "posts": [{
         "ID": "2",
         "title": "Cookies",
+        "nest_path": "recom/post",
         "comments": [{
             "ID": "3",
+            "nest_path": "recom/post/comment",
             "content": "Lovely recipe"
           },
           {
             "ID": "4",
+            "nest_path": "recom/post/comment",
             "content": "A-"
           }
         ]
       },
       {
         "ID": "5",
+        "nest_path": "cook/post",
         "title": "Cakes"
       }
     ]
@@ -45,21 +50,26 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
     "ID": "6",
     "title": "For Hire",
     "tags": ["professional", "jobs"],
+    "nest_path": "cook",
     "posts": [{
         "ID": "7",
         "title": "Search Engineer",
+        "nest_path": "cook/post",
         "comments": [{
            "ID": "8",
+           "nest_path": "cook/post/comment",
            "content": "I am interested"
          },
          {
            "ID": "9",
+           "nest_path": "cook/post/comment",
            "content": "How large is the team?"
          }
         ]
       },
       {
         "ID": "10",
+        "nest_path": "cook/post",
         "title": "Low level Engineer"
       }
     ]

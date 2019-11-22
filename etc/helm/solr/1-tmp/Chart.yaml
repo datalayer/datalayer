@@ -1,0 +1,9 @@
+
+name: solr
+version: 0.3.0
+appVersion: 8.3.0
+description: Solr, Search engine.
+keywords:
+  - solr
+  - search
+  - index

@@ -7,11 +7,19 @@
 echo -e $BOLD$YELLOW"Building Datalayer DSP Helm Charts"$NOCOLOR$NOBOLD
 echo
 
-function build() {
-  helm dependency build $DLAHOME/etc/helm/k8s-dashboard
-  helm dependency build $DLAHOME/etc/helm/ldap
-  helm dependency build $DLAHOME/etc/helm/keycloak
-  helm dependency build $DLAHOME/etc/helm/solr
+function build_chart() {
+  echo -e $YELLOW"Building Datalayer DSP Helm Charts "$1$NOCOLOR
+  helm dependency build $DLAHOME/etc/helm/$1
 }
 
-build
+CMDS="$1"
+
+if [ -z "$CMDS" ]; then
+  CMDS='k8s-dashboard,ldap,keycloak,solr'
+fi
+
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+for i in "${CMD_SPLITS[@]}"; do
+  build_chart $i
+  echo
+done

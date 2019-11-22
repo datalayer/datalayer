@@ -5,8 +5,10 @@
 > http://yonik.com/solr-nested-objects
 
 ```bash
-docker cp $DLAHOME/etc/conf/solr/nested solr:/opt/solr/example
-docker exec -it --user=solr solr bin/solr create_collection -c nested6 -shards 1 -replicationFactor 1 -d /opt/solr/example/nested
+# docker cp $DLAHOME/etc/conf/solr/nested solr:/opt/solr/example && \
+#   docker exec -it --user=solr solr bin/solr create_collection -c nested6 -shards 1 -replicationFactor 1 -d /opt/solr/example/nested
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0
+$SOLR_HOME/bin/solr create -c nested6 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
 curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested6'
 ```
@@ -89,7 +91,59 @@ curl http://localhost:8983/solr/nested6/query -d 'q=id:book2'
 ```
 
 ```bash
+curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
+[
+ {
+   id : book2, 
+   nest_path:book, 
+   title_t : "Snow Crash", 
+   author_s : "Neal Stephenson",
+   cat_s:sci-fi, 
+   pubyear_i:1992, 
+   publisher_s:Bantam,
+   _childDocuments_ : [
+    { id: book2_c4, 
+      nest_path:book/review,
+      review_dt:"2013-03-15T12:00:00Z",
+      stars_i:2, 
+      author_s:dan2,
+      comment_t:"This book was good."
+    }
+  ]
+ }
+]'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
+[
+ {
+   id : book2, 
+   nest_path:book, 
+   title_t : "Snow Crash", 
+   author_s : "Neal Stephenson",
+   cat_s:sci-fi, 
+   pubyear_i:1992, 
+   publisher_s:Bantam,
+   comments : [
+    { id: book_c5, 
+      nest_path:book/review,
+      review_dt:"2013-03-15T12:00:00Z",
+      stars_i:2, 
+      author_s:dan2,
+      comment_t:"This book was good."
+    }
+  ]
+ }
+]'
+```
+
+```bash
 curl http://localhost:8983/solr/nested6/query -d 'q=id:book2_c3'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book2_c4'
 ```
 
 ```bash
