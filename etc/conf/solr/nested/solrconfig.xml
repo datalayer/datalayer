@@ -29,7 +29,8 @@
        have your own custom plugins.
     -->
 
-  <!-- Controls what version of Lucene various components of Solr
+
+    <!-- Controls what version of Lucene various components of Solr
        adhere to.  Generally, you want to use the latest version to
        get all bug fixes and improvements. It is highly recommended
        that you fully re-index after changing this setting as it can
@@ -843,7 +844,7 @@
 
      -->
 
-  <!-- Spell Check
+    <!-- Spell Check
 
        The spell check component can return a list of alternative spelling
        suggestions.
@@ -930,6 +931,18 @@
     </arr>
   </requestHandler>
 
+  <searchComponent name="bjqFacetComponent" class="org.apache.solr.search.join.BlockJoinDocSetFacetComponent"/>
+
+  <requestHandler name="/bjqfacet" class="org.apache.solr.handler.component.SearchHandler">
+    <lst name="defaults">
+      <str name="shards.qt">/bjqfacet</str>
+    </lst>
+    <arr name="last-components">
+      <str>bjqFacetComponent</str>
+    </arr>
+  </requestHandler>
+  
+  
   <!-- Term Vector Component
 
        http://wiki.apache.org/solr/TermVectorComponent

@@ -15,61 +15,53 @@ curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested3
 
 See also https://issues.apache.org/jira/browse/SOLR-12638
 
-```json
+```bash
 curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 [
   {
-    "ID": "1",
+    "id": "1",
     "title": "Cooking Recommendations",
     "tags": ["cooking", "meetup"],
-    "nest_path": "cook",
     "posts": [{
-        "ID": "2",
+        "id": "2",
         "title": "Cookies",
-        "nest_path": "recom/post",
-        "comments": [{
-            "ID": "3",
-            "nest_path": "recom/post/comment",
-            "content": "Lovely recipe"
+        "comments": [
+          {
+            "id": "3",
+            "content_t": "Lovely recipe"
           },
           {
-            "ID": "4",
-            "nest_path": "recom/post/comment",
-            "content": "A-"
+            "id": "4",
+            "content_t": "A-"
           }
         ]
       },
       {
-        "ID": "5",
-        "nest_path": "cook/post",
+        "id": "5",
         "title": "Cakes"
       }
     ]
   },
   {
-    "ID": "6",
+    "id": "6",
     "title": "For Hire",
     "tags": ["professional", "jobs"],
-    "nest_path": "cook",
     "posts": [{
-        "ID": "7",
+        "id": "7",
         "title": "Search Engineer",
-        "nest_path": "cook/post",
-        "comments": [{
-           "ID": "8",
-           "nest_path": "cook/post/comment",
-           "content": "I am interested"
+        "comments": [
+          {
+           "id": "8",
+           "content_t": "I am interested"
          },
          {
-           "ID": "9",
-           "nest_path": "cook/post/comment",
-           "content": "How large is the team?"
+           "id": "9",
+           "content_t": "How large is the team?"
          }
         ]
       },
       {
-        "ID": "10",
-        "nest_path": "cook/post",
+        "id": "10",
         "title": "Low level Engineer"
       }
     ]
@@ -78,37 +70,42 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 '
 ```
 
+## Update
+
+```bash
+curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
+  [ {"id": "1", "tags": {"set": ["fun"]}} ]
+'
+curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
+  [ {"id": "1", "tags": {"add": ["fun2"]}} ]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
+  [ {"id": "5", "title": {"set": ["cooking", "meetup", "fun"]}} ]
+'
+```
+
 ```bash
 curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 [
   {
-    "id": "1",
-    "title": "Solr adds block join support",
-    "content_type": "parentDocument",
-    "_childDocuments_": [
+  "id":"1",
+  "posts": {
+    "add":
       {
-        "id": "2",
-        "comments": "SolrCloud supports it too!"
-      },
-      {
-        "id": "3",
-        "comments": "New filter syntax"
+        "id": "99",
+        "title": "Search Engineer"
       }
-    ]
-  },
-  {
-    "id": "4",
-    "title": "New Lucene and Solr release is out",
-    "content_type": "parentDocument",
-    "_childDocuments_": [
-      {
-        "id": "5",
-        "comments": "Lots of new features"
-      }
-    ]
+    }
   }
 ]
 '
+```
+
+```bash
+curl http://localhost:8983/solr/demo/get?id=5
 ```
 
 ## Search
@@ -118,51 +115,56 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q : "ID: 1",
-    fl : "ID,[child parentFilter='title:cookie']" 
+    q : "id: 5",
   }
-}'
+}
+'
 ```
 
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q : "ID: 1",
-    fl : "ID, [child parentFilter='title:cookie' childFilter='/comments/ID:33']" 
+    q : "id: 1",
+    fl : "*,[child]"
   }
-}'
+}
+'
 ```
 
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q : "ID: 1",
-    fl : "ID, [child parentFilter='title:cookie' childFilter='/comments/content:recipe']" 
+    q : "id: 1",
+    fl : "*,[child childFilter='/posts/comments/content_t:recipe']" 
   }
-}'
+}
+'
 ```
 
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q: "{!child of=nest_path:/posts}title:'Search Engineer'"
+    q: "{!child of=_nest_path_:\\/posts}title:\"Search Engineer\""
   }
-}'
+}
+'
 ```
 
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q: "{!parent which='-nest_path:* *:*'}title:"Search Engineer"
+    q: "{!parent which=\"-_nest_path_:* *:*\"}title:\"Search Engineer\""
   }
-}'
+}
+'
 ```
 
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q: "+{!child of='-_nest_path_:* *:*'}+tags:"jobs",
+    q: "+{!child of=\"-_nest_path_:* *:*\"}+tags:\"jobs\"",
     fl: "*,[child]"
   }
-}'
+}
+'
 ```

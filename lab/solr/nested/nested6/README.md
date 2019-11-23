@@ -18,22 +18,19 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
 [
  {
    id : book1, 
-   nest_path:book, 
    title_t : "The Way of Kings", 
    author_s : "Brandon Sanderson",
    cat_s:fantasy, 
    pubyear_i:2010, 
    publisher_s:Tor,
-   _childDocuments_ : [
+   comments : [
     { id: book1_c1, 
-      nest_path:book/review,
       review_dt:"2015-01-03T14:30:00Z",
       stars_i:5, 
       author_s:yonik,
       comment_t:"A great start to what looks like an epic series!"
     },
     { id: book1_c2, 
-      nest_path:book/review,
       review_dt:"2014-03-15T12:00:00Z",
       stars_i:3, 
       author_s:dan,
@@ -41,7 +38,29 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
     }
   ]
  }
-]'
+]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/query -d 'q=*:*&fl=id'
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book1&fl=id,[child parentFilter=nest_path:book childFilter=nest_path:book/review]'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
+[
+ {
+   id : book1, 
+   nest_path:book, 
+   title_t : "The Way of Kings", 
+   author_s : "Brandon Sanderson",
+   cat_s:fantasy2, 
+   pubyear_i:2010, 
+   publisher_s:Tor
+ }
+]
+'
 ```
 
 ```bash
@@ -53,29 +72,25 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
 [
  {
    id : book2, 
-   nest_path:book, 
    title_t : "Snow Crash", 
    author_s : "Neal Stephenson",
    cat_s:sci-fi, 
    pubyear_i:1992, 
    publisher_s:Bantam,
-   _childDocuments_ : [
+   comments : [
     { id: book2_c1, 
-      nest_path:book/review, 
       review_dt:"2015-01-03T14:30:00Z",
       stars_i:5, 
       author_s:yonik,
       comment_t:"Ahead of its time... I wonder if it helped inspire The Matrix?"
     },
     { id: book2_c2, 
-      nest_path:book/review, 
       review_dt:"2015-04-10T9:00:00Z",
       stars_i:2, 
       author_s:dan,
       comment_t:"A pizza boy for the Mafia franchise? Really?"
     },
     { id: book2_c3, 
-      nest_path:book/review, 
       review_dt:"2015-06-02T00:00:00Z",
       stars_i:4, 
       author_s:mary,
@@ -95,15 +110,13 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
 [
  {
    id : book2, 
-   nest_path:book, 
    title_t : "Snow Crash", 
    author_s : "Neal Stephenson",
    cat_s:sci-fi, 
    pubyear_i:1992, 
    publisher_s:Bantam,
-   _childDocuments_ : [
+   comments : [
     { id: book2_c4, 
-      nest_path:book/review,
       review_dt:"2013-03-15T12:00:00Z",
       stars_i:2, 
       author_s:dan2,
@@ -111,7 +124,12 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
     }
   ]
  }
-]'
+]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book2&fl=*,[child]'
 ```
 
 ```bash
@@ -119,7 +137,6 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
 [
  {
    id : book2, 
-   nest_path:book, 
    title_t : "Snow Crash", 
    author_s : "Neal Stephenson",
    cat_s:sci-fi, 
@@ -127,7 +144,6 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
    publisher_s:Bantam,
    comments : [
     { id: book2_c5, 
-      nest_path:book/review,
       review_dt:"2013-03-15T12:00:00Z",
       stars_i:2, 
       author_s:dan2,
@@ -135,7 +151,55 @@ curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
     }
   ]
  }
-]'
+]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
+[
+ {
+   id : book2, 
+   title_t : {"set": "Snow Crashhhhh" }
+ }
+]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
+[
+ {
+  id: book2_c5, 
+  stars_i: { set: 33 }
+ }
+]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '
+[
+ {
+   id : book2, 
+   comments : {
+    "add":
+      { 
+        id: book2_c11, 
+        review_dt:"2013-03-15T12:00:00Z",
+        stars_i:2, 
+        author_s:dan2,
+        comment_t:"This book was good."
+      }
+    }
+  }
+]
+'
+```
+
+```bash
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book2'
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book2&fl=*,[child]'
 ```
 
 ```bash
@@ -143,19 +207,20 @@ curl http://localhost:8983/solr/nested6/query -d 'q=id:book2_c3'
 ```
 
 ```bash
-curl http://localhost:8983/solr/nested6/query -d 'q=id:book2_c4'
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book2_c5'
 ```
 
 ```bash
-curl http://localhost:8983/solr/nested6/query -d 'q=cat_s:(fantasy OR sci-fi)&fl=id,[child parentFilter=nest_path:book]'
+curl http://localhost:8983/solr/nested6/query -d 'q=cat_s:(fantasy OR sci-fi)&fl=*,[child]'
 ```
 
 ```bash
-curl http://localhost:8983/solr/nested6/query -d 'q=cat_s:(fantasy OR sci-fi)&fl=id,[child parentFilter=nest_path:book childFilter=author_s:mary]'
+curl http://localhost:8983/solr/nested6/query -d 'q=cat_s:(fantasy OR sci-fi)&fl=*,[child childFilter=author_s:mary]'
+curl http://localhost:8983/solr/nested6/query -d 'q=cat_s:(fantasy OR sci-fi)&fl=*,[child childFilter=author_s:dan2]'
 ```
 
 ```bash
-curl http://localhost:8983/solr/nested6/query -d 'q=id:book2&fl=id,[child parentFilter=nest_path:book childFilter=comment_t:time]'
+curl http://localhost:8983/solr/nested6/query -d 'q=id:book2&fl=*,[child childFilter=comment_t:time]'
 ```
 
 ```bash
@@ -166,7 +231,7 @@ json.facet={
   genres : {
     type: terms,
     field: cat_s,
-    domain: { blockParent : "nest_path:book" } 
+    domain: { blockParent : "_nest_path_:comments" } 
   }
 }'
 ```
