@@ -1,0 +1,10 @@
+{
+    "name": "@datalayer/env",
+    "description": "Datalayer Environment",
+    "datasets": {
+        "iris": "0.1.0"
+    },
+    "libs": {
+        "pip:scikit-learn": "0.1.0"
+    }
+}
