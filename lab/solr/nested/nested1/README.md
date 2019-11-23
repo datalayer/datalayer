@@ -14,6 +14,7 @@ python2 ./py/data2solr_json_faceting.py -i ./in/example-data.json -o ./out/examp
 export SOLR_HOME=~/datalayer/opt/solr-7.6.0
 $SOLR_HOME/bin/solr create -c nested1 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
 curl http://localhost:8983/solr/nested1/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
+curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested1'
 ```
 
 ```bash

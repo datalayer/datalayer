@@ -2,6 +2,13 @@
 
 # Solr Join
 
+```bash
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0
+$SOLR_HOME/bin/solr create -c join -shards 1 -replicationFactor 1 -p 8983 -force
+curl http://localhost:8983/solr/join/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
+curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=join'
+```
+
 For people who are used to SQL, it's important to note that Joins in Solr are not really equivalent to SQL Joins because no information about the table being joined "from" is carried forward into the final result. 
 
 A more appropriate SQL analogy would be an "inner query".
@@ -21,7 +28,7 @@ WHERE outer_id IN (SELECT inner_id FROM collection1 where zzz = "vvv")
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/update?commitWithin=500 -H 'Content-type:text/csv' -d '
+curl http://localhost:8983/solr/join/update?commitWithin=500 -H 'Content-type:text/csv' -d '
 id,region_s,sales_i
 1,east,100000
 2,west,200000
@@ -31,7 +38,7 @@ id,region_s,sales_i
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/update?commitWithin=500 -H 'Content-type:text/csv' -d '
+curl http://localhost:8983/solr/join/update?commitWithin=500 -H 'Content-type:text/csv' -d '
 id,name_s,loc_region_s,salary_i,mgr_s
 5,chris,east,100000,yes
 6,jen,west,200000,yes
@@ -42,7 +49,7 @@ id,name_s,loc_region_s,salary_i,mgr_s
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/query -d '
+curl http://localhost:8983/solr/join/query -d '
 {
   params: {
     q : "{!join from=loc_region_s to=region_s fromIndex=demo}mgr_s:yes",
@@ -51,7 +58,7 @@ curl http://localhost:8983/solr/demo/query -d '
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/query -d '
+curl http://localhost:8983/solr/join/query -d '
 {
   params: {
     q : "{!join from=loc_region_s to=region_s fromIndex=demo}salary_i:[120000 TO 120000]",
