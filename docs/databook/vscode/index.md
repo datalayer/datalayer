@@ -88,12 +88,54 @@ yarn web
 + https://github.com/microsoft/vscode/issues/84485
 + https://github.com/microsoft/vscode/pull/82569
 
+## Code Server
+
+[Code Server](https://github.com/cdr/code-server).
+
+```bash
+git clone https://github.com/cdr/code-server && \
+  cd code-server
+export vscodeVersion=1.39.2
+export codeServerVersion=0.0.1
+export OUT=~/Destkop/vscode-output/build          # Optional if only building. Required if also developing.
+yarn build ${vscodeVersion} ${codeServerVersion}  # See travis.yml for the VS Code version to use.
+                                                  # The code-server version can be anything you want.
+node /path/to/output/build/out/vs/server/main.js  # You can run the built JavaScript with Node.
+yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a binary.
+```
+
+```bash
+export vscodeVersion=1.39.2
+git clone https://github.com/microsoft/vscode
+cd vscode
+git checkout ${vscodeVersion} # See travis.yml for the version to use.
+yarn
+git clone https://github.com/cdr/code-server src/vs/server
+cd src/vs/server
+yarn
+yarn patch:apply
+yarn watch
+# Wait for the initial compilation to complete (it will say "Finished compilation").
+# Run the next command in another shell.
+yarn start
+# Visit http://localhost:8080
+```
+
+
+## Monaco
+
++ https://database.blog/integrating-monaco-editor
+
 ## Online
 
 [Visual Studio Online](https://visualstudio.microsoft.com/services/visual-studio-online).
 
 + https://code.visualstudio.com/docs/remote/vsonline
 + https://docs.microsoft.com/en-gb/visualstudio/online
+
+## Extension Pack
+
+https://dev.to/thegeoffstevens/how-to-create-your-own-vs-code-extension-pack-nab
 
 ## Icons
 
@@ -123,14 +165,12 @@ Jupyter.
 + https://codesandbox.io
 + https://github.com/codesandbox/codesandbox-client
 
-## See Also
-
-Theia
+## Theia
 
 + https://www.theia-ide.org
 + https://github.com/theia-ide/theia
 + https://www.gitpod.io
 
-Hydrogen
+## Hydrogen
 
 Nteract Hydrogen [VS Code Integration](https://github.com/nteract/hydrogen/issues/449).

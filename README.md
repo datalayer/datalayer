@@ -11,7 +11,9 @@
 </h4>
 <p/>
 <p/>
-See it as a <b>GitHub for education</b> to <b>analyse data</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
+See it as a <b>GitHub for education</b> or <b>Google Docs for datasets</b>.
+
+You <b>analyse data</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 
 + You use real datasets and code to create and publish **Reproducible** analysis.
 + You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
