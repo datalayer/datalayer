@@ -115,12 +115,6 @@
     <field name="_version_" type="plong" indexed="false" stored="false"/>
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
 
-<!--
-    <field name="_root_" type="string" indexed="true" stored="true" docValues="false" />
-    <fieldType name="nest_path" class="solr.NestPathField" />
-    <field name="nest_path" type="nest_path" />
--->
-
     <field name="_root_" type="string" indexed="true" stored="true" docValues="false" />
     <!-- for nested documents (relationship tracking) -->
     <field name="_nest_path_" type="_nest_path_" />

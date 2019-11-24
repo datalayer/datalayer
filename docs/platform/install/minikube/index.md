@@ -17,7 +17,8 @@ dla minikube-start
 ## Configure Host File
 
 ```bash
-sudo echo "127.0.0.1 dla-solr-zookeeper-headless dla-solr-0.dla-solr-headless"  | sudo tee -a /etc/hosts
+# This is needed if you want to invoke the Minikube services from your local dev environement.
+sudo echo "127.0.0.1 dla-solr-zookeeper-headless dla-solr-0.dla-solr-headless dla-solr-1.dla-solr-headless.dla-library"  | sudo tee -a /etc/hosts
 sudo echo "$(minikube ip) minikube.datalayer.io.local ldapadmin.minikube.datalayer.io.local dla-keycloak-http.dla-iam.svc.cluster.local"  | sudo tee -a /etc/hosts
 cat /etc/hosts
 ```

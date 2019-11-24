@@ -34,9 +34,18 @@ docker exec -it --user=solr solr bin/post -c demo example/exampledocs/manufactur
 ```
 
 ```bash
-export SOLR_HOME=~/datalayer/opt/solr-7.6.0
-$SOLR_HOME/bin/solr create -c demo -shards 1 -replicationFactor 1 -p 8983 -d $DLAHOME/etc/conf/solr/demo -force
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0 && \
+  $SOLR_HOME/bin/solr create -c demo -shards 1 -replicationFactor 1 -p 8983 -d $DLAHOME/etc/conf/solr/demo -force
+```
+
+```bash
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0 && \
+  $SOLR_HOME/bin/solr create -c demo -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/demo -p 8983 -force
+```
+
+```bash
 curl http://localhost:8983/solr/demo/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
+curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=demo'
 ```
 
 ```bash

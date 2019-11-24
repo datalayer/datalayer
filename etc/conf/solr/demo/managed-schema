@@ -110,11 +110,16 @@
          If you don't need it, consider removing it and the corresponding copyField directive.
     -->
 
-    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" docValues="false" />
     <!-- docValues are enabled by default for long type so we don't need to index the version field  -->
     <field name="_version_" type="plong" indexed="false" stored="false"/>
-    <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
+
+    <field name="_root_" type="string" indexed="true" stored="true" docValues="false" />
+    <!-- for nested documents (relationship tracking) -->
+    <field name="_nest_path_" type="_nest_path_" />
+    <fieldType name="_nest_path_" class="solr.NestPathField" />
+    <field name="_nest_parent_" type="string" indexed="true" stored="true"/>
 
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->

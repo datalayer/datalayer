@@ -8,7 +8,7 @@ import ldap3, os
 from ldap3 import Server, Connection, ALL, MODIFY_REPLACE, HASHED_SALTED_SHA, ALL_ATTRIBUTES, ALL_OPERATIONAL_ATTRIBUTES
 from ldap3.utils.hashed import hashed
 
-print('Connecting to LDAP server {0}'.format(os.environ['DLA_LDAP_HOST']))
+# print('Connecting to LDAP server {0}'.format(os.environ['DLA_LDAP_HOST']))
 server = Server(
     os.environ['DLA_LDAP_HOST'], 
     get_info=ALL,
@@ -26,15 +26,21 @@ u = conn.search(
     attributes = [ALL_ATTRIBUTES, ALL_OPERATIONAL_ATTRIBUTES],
     get_operational_attributes=True,
     )
+print('uid,common_name,surname,mail,create_timestamp')
 for entry in conn.entries:
 #    print(entry)
 #    print('    {}'.format(entry.uid))
 #    print('    {}'.format(ldap3.utils.conv.to_unicode(entry.userPassword.value)))
 #    print('{},{}'.format(entry.uid, entry.createTimestamp.strftime("%Y/%m/%d, %H:%M:%S")))
-    print('{},{}'.format(entry.uid, entry.createTimestamp.value.strftime('%Y/%m/%d')))
+    print('{},{},{},{},{}'.format(
+        entry.uid, 
+        entry.cn, 
+        entry.sn, 
+        entry.mail, 
+        entry.createTimestamp.value.strftime('%Y-%m-%d %H:%M:%S'))
+    )
 
 # https://stackoverflow.com/questions/37646962/querying-ldap-by-date
-
 def convert_datetime_to_generalized_time(dt):
     """Convert datetime object to generalized time format."""
     dt = dt.timetuple()

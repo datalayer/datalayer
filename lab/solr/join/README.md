@@ -3,23 +3,24 @@
 # Solr Join
 
 ```bash
-export SOLR_HOME=~/datalayer/opt/solr-7.6.0
-$SOLR_HOME/bin/solr create -c join -shards 1 -replicationFactor 1 -p 8983 -force
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0 && \
+  $SOLR_HOME/bin/solr create -c join -shards 1 -replicationFactor 1 -p 8983 -force
+```
+
+```bash
 curl http://localhost:8983/solr/join/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=join'
 ```
 
-For people who are used to SQL, it's important to note that Joins in Solr are not really equivalent to SQL Joins because no information about the table being joined "from" is carried forward into the final result. 
-
-A more appropriate SQL analogy would be an "inner query".
+For people who are used to SQL, it's important to note that Joins in Solr are not really equivalent to SQL Joins because no information about the table being joined "from" is carried forward into the final result.  A more appropriate SQL analogy would be an "inner query".
 
 This Solr request...
 
-```
+```bash
 /solr/collection1/select ? fl=xxx,yyy & q={!join from=inner_id to=outer_id}zzz:vvv
 ```
 
-Is comparable to this SQL statement...
+...iss comparable to this SQL statement...
 
 ```sql
 SELECT xxx, yyy
@@ -52,16 +53,18 @@ id,name_s,loc_region_s,salary_i,mgr_s
 curl http://localhost:8983/solr/join/query -d '
 {
   params: {
-    q : "{!join from=loc_region_s to=region_s fromIndex=demo}mgr_s:yes",
+    q : "{!join from=loc_region_s to=region_s fromIndex=join}mgr_s:yes",
   }
-}'
+}
+'
 ```
 
 ```bash
 curl http://localhost:8983/solr/join/query -d '
 {
   params: {
-    q : "{!join from=loc_region_s to=region_s fromIndex=demo}salary_i:[120000 TO 120000]",
+    q : "{!join from=loc_region_s to=region_s fromIndex=join}salary_i:[120000 TO 120000]",
   }
-}'
+}
+'
 ```

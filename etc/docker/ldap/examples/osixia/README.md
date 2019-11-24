@@ -16,8 +16,8 @@ docker run \
 docker exec \
   openldap ldapsearch -x -H ldap://localhost -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
 ldapsearch -x -H ldap:// -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin
-# ldapadd -H ldap://localhost -c -D "cn=admin,cn=config" -w config -f ./example.ldif
-ldapadd -H ldap://localhost -c -D "cn=admin,dc=example,dc=org" -w admin -f ./example.ldif
+# ldapadd -H ldap://localhost -c -D "cn=admin,cn=config" -w config -f ./ldif/example.ldif
+ldapadd -H ldap://localhost -c -D "cn=admin,dc=example,dc=org" -w admin -f ./ldif/example.ldif
 docker rm -f openldap
 ```
 
@@ -107,29 +107,3 @@ docker logs phpldapadmin -f
 docker stop phpldapadmin openldap
 docker rm phpldapadmin openldap
 ```
-
-## Docker Compose
-
-+ https://github.com/osixia/docker-openldap/blob/stable/example/docker-compose.yml
-+ https://github.com/osixia/docker-openldap/issues/60
-+ https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/tests/openldap
-+ https://github.com/italia/daf-recipes/tree/master/jupyterhub
-
-## Backup
-
-[OpenLDAP Backup](https://github.com/osixia/docker-openldap-backup).
-
-```bash
-docker run \
-  --env LDAP_BACKUP_CONFIG_CRON_EXP="0 5 * * *" \
-  --env LDAP_BACKUP_TTL=15 \
-  --volume /data/openldap/backup:/data/backup \
-  --detach 
-  osixia/openldap-backup:1.2.3 \
-  --loglevel debug
-```
-
-## Schema
-
-- https://guillaumemaka.com/2013/07/17/openldap-create-a-custom-ldap-schema.html
-- http://www.yolinux.com/TUTORIALS/LinuxTutorialLDAP-DefineObjectsAndAttributes.html

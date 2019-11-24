@@ -2,6 +2,9 @@
 
 # Solr Nested
 
+- [nested3](./nested3)
+- [nested6](./nested6)
+
 + https://issues.apache.org/jira/browse/SOLR-12298
 + https://issues.apache.org/jira/browse/SOLR-12638
 + https://issues.apache.org/jira/browse/SOLR-6096

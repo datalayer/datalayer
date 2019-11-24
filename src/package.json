@@ -8,7 +8,7 @@
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix",
     "endpoints": "concurrently --kill-others \"./dev/port-forward-zookeeper.sh\" \"./dev/port-forward-solr.sh\" \"./dev/start-iam.sh\" \"./dev/start-library.sh\" \"./dev/start-kuber.sh\" \"./dev/start-jupyterhub.sh\" \"./dev/start-jupyterpool.sh\" \"./dev/start-explorer.sh\" \"./dev/k8s-dashboard.sh\"",
-    "k8s-forward": "concurrently --kill-others \"./dev/port-forward-zookeeper.sh\" \"./dev/port-forward-solr.sh\" \"./dev/k8s-dashboard.sh\"",
+    "port-forward": "concurrently --kill-others \"./dev/port-forward-zookeeper.sh\" \"./dev/port-forward-solr.sh\" \"./dev/port-forward-ldap.sh\" \"./dev/k8s-dashboard.sh\"",
     "clean": "rimraf node_modules",
     "registry": "verdaccio",
     "registry:init": "yarn run registry:adduser && yarn run registry:register",

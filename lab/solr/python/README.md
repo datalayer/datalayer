@@ -2,16 +2,23 @@
 
 # Solr Python
 
++ https://github.com/django-haystack/pysolr
++ https://github.com/solrcloudpy/solrcloudpy
++ https://github.com/avremel/Solr-Python-Tutorial
++ https://github.com/tow/sunburnt
++ https://github.com/moonlitesolutions/SolrClient
++ https://github.com/swistakm/solrq
++ https://github.com/avremel/Solr-Python-Tutorial
 + https://www.zylk.net/en/web-2-0/blog/-/blogs/solr-client-apis
 + https://medium.com/@avremelk/solr-gottchas-a-tutorial-a953c8b3e775
-+ https://github.com/avremel/Solr-Python-Tutorial
 + https://lucidworks.com/2013/06/13/indexing-web-sites-in-solr-with-python
++ https://lucene.apache.org/solr/guide/7_1/using-python.html
 
 ## PySolr
 
 ```bash
 # https://github.com/django-haystack/pysolr
-pip install pysolr kazoo simplejson
+pip install git+https://github.com/django-haystack/pysolr@master kazoo simplejson
 ```
 
 ```bash
@@ -24,13 +31,13 @@ import pysolr
 # collection = 'datalayer'
 collection = 'demo'
 pysolr.ZooKeeper.CLUSTER_STATE = '/collections/{}/state.json'.format(collection)
-zookeeper = pysolr.ZooKeeper("zookeeper:2181")
+zookeeper = pysolr.ZooKeeper("localhost:2181")
 solr = pysolr.SolrCloud(zookeeper, collection, always_commit=True)
 # solr = pysolr.SolrCloud(zookeeper, "datalayer", always_commit=True)
 # Setup a Solr instance. The timeout is optional.
 # solr = pysolr.Solr('http://localhost:8983/solr/', timeout=10)
 # Do a health check.
-solr.ping() # In dev source code.
+solr.ping() # In master code.
 # How you'd index data.
 solr.add(
     [{
@@ -48,7 +55,7 @@ solr.add(
         "tweet_id": "asdf",
         "tweet_text": "asdf",
         "tweet_capture_bin": "dGVzdA==",
-        "_childDocuments_": [
+        "tweets": [
             { 
                 "id": "child_doc_1", 
                 "title": "peel",
@@ -108,14 +115,14 @@ similar = solr.more_like_this(q='id:doc_2', mltfl='text')
 
 from io import StringIO
 html = StringIO("""
-    <html>
-        <head>
-            <meta charset="utf-8">
-            <meta name="haystack-test" content="test 1234">
-            <title>Test Title ☃&#x2603;</title>
-        </head>
-            <body>foobar</body>
-    </html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="haystack-test" content="test 1234">
+        <title>Test Title ☃&#x2603;</title>
+    </head>
+        <body>foobar</body>
+</html>
 """)
 html.name = "test.html"
 extracted = solr.extract(html, extractOnly=False)
@@ -130,12 +137,3 @@ solr.delete(id=['doc_1', 'doc_2'])
 # ...or all documents.
 solr.delete(q='*:*', commit=True)
 ```
-
-## See Also
-
-+ https://github.com/solrcloudpy/solrcloudpy
-+ https://github.com/tow/sunburnt
-+ https://github.com/moonlitesolutions/SolrClient
-+ https://github.com/swistakm/solrq
-+ https://github.com/avremel/Solr-Python-Tutorial
-+ https://lucene.apache.org/solr/guide/7_1/using-python.html

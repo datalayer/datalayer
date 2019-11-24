@@ -3,8 +3,11 @@
 # Solr Nested Example 3
 
 ```bash
-export SOLR_HOME=~/datalayer/opt/solr-7.6.0
-$SOLR_HOME/bin/solr create -c nested3 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0 && \
+  $SOLR_HOME/bin/solr create -c nested3 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
+```
+
+```bash
 curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested3'
 ```
@@ -72,18 +75,33 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 
 ## Update
 
-```bash
-curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
-  [ {"id": "1", "tags": {"set": ["fun"]}} ]
-'
-curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
-  [ {"id": "1", "tags": {"add": ["fun2"]}} ]
-'
-```
+> https://lucene.apache.org/solr/guide/8_1/updating-parts-of-documents.html
+> https://lucene.apache.org/solr/guide/8_0/searching-nested-documents.html#searching-nested-documents
 
 ```bash
 curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
-  [ {"id": "5", "title": {"set": ["cooking", "meetup", "fun"]}} ]
+[ 
+  {
+    "id": "1", 
+    "tags": {"set": ["fun"]}
+  } 
+]
+'
+curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
+[ 
+  {
+    "id": "1", 
+    "tags": {"add": ["fun2"]}
+  } 
+]
+'
+curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
+[ 
+  {
+    "id": "5", 
+    "title": {"set": ["Cakes 1", "Cakes 2", "Cakes 3"]}
+  } 
+]
 '
 ```
 
@@ -105,7 +123,7 @@ curl http://localhost:8983/solr/nested3/update?commitWithin=500 -d '
 ```
 
 ```bash
-curl http://localhost:8983/solr/demo/get?id=5
+curl http://localhost:8983/solr/nested3/get?id=5
 ```
 
 ## Search
@@ -115,7 +133,7 @@ curl http://localhost:8983/solr/demo/get?id=5
 ```bash
 curl http://localhost:8983/solr/nested3/query -d '{
   params : {
-    q : "id: 5",
+    q : "id: 5"
   }
 }
 '

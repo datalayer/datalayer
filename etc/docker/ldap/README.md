@@ -21,7 +21,14 @@ ldapsearch -x -H ldap:// -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w
 docker rm -f openldap
 ```
 
-## Docker Examples
+## Examples
 
 + [osixia](./examples/osixia) example.
 + [tiredofit](./examples/tiredofit) example.
+
+## See Also
+
++ https://github.com/osixia/docker-openldap/blob/stable/example/docker-compose.yml
++ https://github.com/osixia/docker-openldap/issues/60
++ https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/tests/openldap
++ https://github.com/italia/daf-recipes/tree/master/jupyterhub

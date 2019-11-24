@@ -7,8 +7,11 @@
 ```bash
 # docker cp $DLAHOME/etc/conf/solr/nested solr:/opt/solr/example && \
 #   docker exec -it --user=solr solr bin/solr create_collection -c nested6 -shards 1 -replicationFactor 1 -d /opt/solr/example/nested
-export SOLR_HOME=~/datalayer/opt/solr-7.6.0
-$SOLR_HOME/bin/solr create -c nested6 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
+export SOLR_HOME=~/datalayer/opt/solr-7.6.0 && \
+  $SOLR_HOME/bin/solr create -c nested6 -shards 1 -replicationFactor 1 -d $DLAHOME/etc/conf/solr/nested -p 8983 -force
+```
+
+```bash
 curl http://localhost:8983/solr/nested6/update?commitWithin=500 -d '{ delete: { query: "*:*" } }'
 curl http://localhost:8983/solr/admin/collections?action=DELETE -d 'name=nested6'
 ```

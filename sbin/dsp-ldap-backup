@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer https://datalayer.io
+# Distributed under the terms of the Apache License, Version 2.0
+# https://www.apache.org/licenses/LICENSE-2.0.txt
+
+echo -e $BOLD$YELLOW"Datalayer DSP LDAP Backup"$NOCOLOR$NOBOLD
+echo
+
+EXPORT_LDIF=~/backups/dsp-ldap.ldif
+EXPORT_CSV=~/backups/dsp-ldap.csv
+
+echo -e $YELLOW"Exporting to $EXPORT_LDIF"$NOCOLOR
+echo
+
+ldapsearch -x -D $DLA_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b "ou=users,dc=datalayer,dc=io" \
+  -s sub "(uid=*)" > $EXPORT_LDIF
+
+cat $EXPORT_LDIF
+echo
+
+echo -e $YELLOW"Exporting to $EXPORT_CSV"$NOCOLOR
+echo
+
+python $DLAHOME/sbin/dsp-ldap-backup.py > $EXPORT_CSV
+
+cat $EXPORT_CSV
+echo
