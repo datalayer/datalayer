@@ -97,10 +97,10 @@ git clone https://github.com/cdr/code-server && \
   cd code-server
 export vscodeVersion=1.39.2
 export codeServerVersion=0.0.1
-export OUT=~/Destkop/vscode-output/build          # Optional if only building. Required if also developing.
+export OUT=~/Desktop/vscode          # Optional if only building. Required if also developing.
 yarn build ${vscodeVersion} ${codeServerVersion}  # See travis.yml for the VS Code version to use.
                                                   # The code-server version can be anything you want.
-node /path/to/output/build/out/vs/server/main.js  # You can run the built JavaScript with Node.
+PASSWORD=pass node $OUT/build/code-server0.0.1-vsc1.39.2-darwin-x86_64-built/out/vs/server/main.js  # You can run the built JavaScript with Node.
 yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a binary.
 ```
 
