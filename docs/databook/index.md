@@ -41,7 +41,7 @@ JupyterLab is the next-generation web-based user interface for Project Jupyter.
   * [Rich Context](/jupyterlab/rich-context.md)
   * [Real Time Collaboration](/jupyterlab/rtc.md)
   * [Slides](/jupyterlab/slides.md)
-  * [Phosphor.js](/jupyterlab/phosphor.js.md)
+  * [Lumino](/jupyterlab/lumino.md)
   * [IpyWidget](/jupyterlab/ipywidget.md)
   * [React.js](/jupyterlab/react.js.md)
   * [Develop](/jupyterlab/dev.md)

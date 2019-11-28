@@ -1,8 +1,8 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Lab Phosphor.js
+# Datalayer Lab Lumino
 
-Phosphor.js [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
+Lumino [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
 
 + http://phosphorjs.github.io/examples
 + https://github.com/phosphorjs/phosphor/tree/master/examples

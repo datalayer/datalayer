@@ -21,7 +21,7 @@ Showcase user interface widget `toolkits` and `theming` with `react.js` and `typ
 + [Create React App](./react-boilerplate/embed)
 + [Create React App Eject](./react-boilerplate/eject)
 + [Material UI](./fabric-ui)
-+ [Phosphor JS](./phosphor-js)
++ [Lumino](./lumino)
 + [Blueprint JS](./blueprint-js)
 + [Fabric UI](./fabric-ui)
 + [Semantic UI](./semantic-ui)
@@ -63,6 +63,7 @@ Authenticate and authorize with various providers.
 
 #### :tent: Others
 
++ [Node.js](./node-js).
 + [Micro Services](./microservices) examples.
 + [Now.sh](./now-sh) for serverless deployment.
 + [Github CLA](./cla) bot (Customer License Approval).

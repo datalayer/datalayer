@@ -17,6 +17,7 @@ ENV=datalayer && \
     nodejs=10.16.3 \
     yarn=1.19.1 \
     jupyterlab=1.2.3
+#    nodejs=8.10.0 \
 #    nodejs=10.16.3 \
 #    nodejs=11.14.0 \
 #    nodejs=12.3.0 \

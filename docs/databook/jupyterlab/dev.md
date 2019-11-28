@@ -30,6 +30,8 @@ See also Add webpack-visualizer-plugin to dev_mode webpack config [#5722](https:
 # Set yarn cache dir.
 yarn cache dir
 yarn config set cache-folder ~/.yarn-cache
+# yarn cache clean
+# rm -fr ~/.node-gyp 
 ```
 
 ```bash

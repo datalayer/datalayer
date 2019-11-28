@@ -1,14 +1,18 @@
 ---
-title: Phosphor.js
+title: Lumino
 ---
 
-# Phosphor.js
+# Lumino
+
+[Lumino](https://github.com/jupyterlab/lumino).
+
+## Phosphor.js
+
+[Absorb the Phosphor Project](https://github.com/jupyterlab/team-compass/issues/28)
 
 PhosphorJS on [GitHub](https://github.com/phosphorjs/phosphor).
 
 PhosphorJS [Docs](http://phosphorjs.github.io).
-
-[Absorb the Phosphor Project](https://github.com/jupyterlab/team-compass/issues/28)
 
 [TypeDoc](https://phosphorjs.github.io/phosphor/api/widgets).
 
