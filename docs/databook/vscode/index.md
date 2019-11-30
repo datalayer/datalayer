@@ -42,17 +42,12 @@ GitHub [Docs](https://github.com/microsoft/vscode-docs) repository.
 [Contribute](https://github.com/microsoft/vscode/blob/master/CONTRIBUTING.md).
 
 ```bash
-#    nodejs=8.10.0 \
-#    nodejs=10.16.3 \
-#    nodejs=11.14.0 \
-#    nodejs=12.3.0 \
-#    nodejs=13.0.0 \
 ENV=vscode && \
   conda deactivate && \
   conda remove -n $ENV -y --all && \
   conda create -y -n $ENV \
     python=2.7 \
-    nodejs=10.16.3 \
+    nodejs=12.3.0 \
     yarn=1.19.2 && \
   conda activate $ENV && \
   export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
@@ -294,9 +289,21 @@ Ohter configurations.
 - Use the `--disable-telemetry` flag to completely disable telemetry.
 - To disable password use `--auth none`.
 
+```
+ENV=codeserver && \
+  conda deactivate && \
+  conda remove -n $ENV -y --all && \
+  conda create -y -n $ENV \
+    python=2.7 \
+    nodejs=10.16.3 \
+    yarn=1.19.2 && \
+  conda activate $ENV && \
+  export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
+```
 **Build Mode 1**
 
 ```bash
+conda activate codeserver
 cd ~/vscode && \
   git clone https://github.com/cdr/code-server && \
   cd code-server && \
@@ -319,7 +326,7 @@ yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a
 **Build Mode 2**
 
 ```bash
-conda activate vscode
+conda activate codeserver
 # See travis.yml for the version to use.
 export vscodeVersion=1.39.2
 # export vscodeVersion=master
