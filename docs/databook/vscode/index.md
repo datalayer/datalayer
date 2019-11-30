@@ -8,6 +8,8 @@ GitHub [repo](https://github.com/microsoft/vscode) source code.
 
 [Download](https://code.visualstudio.com).
 
+[Download Insiders](https://code.visualstudio.com/insiders).
+
 ## Docs
 
 GitHub [Docs](https://github.com/microsoft/vscode-docs) repository.

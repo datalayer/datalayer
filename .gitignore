@@ -84,6 +84,7 @@ lab/styleguidist/styleguide/
 docs/blog/public
 opt/*/
 opt/spark*
+repos/datalayer
 var/*/*
 var/srv/certs/*
 var/srv/jupyterhub/*
@@ -91,7 +92,7 @@ github_issue_summarization/build/
 
 **/github_issue_summarization/hp-tune/vendor
 
-# Terraform.
+# Exclude Terraform.
 **/aws_credentials.tf
 **/rds_credentials.tf
 **/*.tfstate
@@ -103,7 +104,7 @@ github_issue_summarization/build/
 **/*.tfstate*
 **/examples/asg-service-dynamic/bin
 
-# Vim.
+# Excluse Vim.
 **/[._]*.s[a-v][a-z]
 **/[._]*.sw[a-p]
 **/[._]s[a-rt-v][a-z]
