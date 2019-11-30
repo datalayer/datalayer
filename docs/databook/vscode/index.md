@@ -347,10 +347,11 @@ cd ~/vscode && \
 ```bash
 # Run the next command in another shell.
 # https://github.com/cdr/code-server/issues/348
+# nodemon --watch ../../../out --verbose ../../../out/vs/server/main.js
+# node ../../../out/vs/server/main.js --auth none
 echo http://localhost:8080
 conda activate codeserver && \
   cd ~/vscode/vscode-src/src/vs/server && \
-  conda activate vscode && \
   PASSWORD=pass && \
   yarn start
 open http://localhost:8080

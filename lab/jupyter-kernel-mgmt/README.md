@@ -35,7 +35,13 @@ conda deactivate && \
   cd jupyter_server && python setup.py develop && cd .. && \
   git clone https://github.com/zsailer/notebook.git --branch notebook-ext --single-branch --depth 1 && \
   cd notebook && python setup.py develop && cd .. && \
-  jupyter notebook
+```
+
+## Start
+
+```bash
+jupyter notebook
+jupyter server --ServerApp.jpserver_extensions="{'notebook': True}"
 open http://localhost:8888/tree
 ```
 

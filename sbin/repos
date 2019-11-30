@@ -12,9 +12,9 @@ binderhub|https://github.com/datalayer-contrib/binderhub.git|https://github.com/
 binderhub-deploy|https://github.com/datalayer-contrib/binderhub-deploy.git|https://github.com/jupyterhub/mybinder.org-deploy.git|master \
 binderhub-docs|https://github.com/datalayer-contrib/binderhub-docs.git|https://github.com/jupyterhub/binder.git|master \
 codesandbox|https://github.com/datalayer-contrib/codesandbox.git|https://github.com/codesandbox/codesandbox-client.git|master \
-data8-datascience|https://github.com/datalayer-contrib/data8-datascience.git|https://github.com/data-8/datascience.git|master \
-data8-course-2017|https://github.com/datalayer-contrib/data8-course-2017.git|https://github.com/data-8/materials-fa17.git|master \
 dex|https://github.com/datalayer-contrib/dex.git|https://github.com/dexidp/dex.git|master \
+edu-data8-2017|https://github.com/datalayer-contrib/edu-data8-2017.git|https://github.com/data-8/materials-fa17.git|master \
+edu-data8-datascience|https://github.com/datalayer-contrib/edu-data8-datascience.git|https://github.com/data-8/datascience.git|master \
 edu-spacy|https://github.com/datalayer-contrib/edu-spacy.git|https://github.com/ines/spacy-course.git|master \
 edu-starter-python|https://github.com/datalayer-contrib/edu-starter-python.git|https://github.com/ines/course-starter-python.git|master \
 edu-starter-R|https://github.com/datalayer-contrib/edu-starter-R.git|https://github.com/ines/course-starter-r.git|master \

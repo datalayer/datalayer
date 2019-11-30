@@ -29,13 +29,13 @@ cd $DLAHOME/lab/jupyter-server/notebook && \
   git clone https://github.com/jupyter/jupyter_server.git --branch master --single-branch --depth 1 && \
   cd jupyter_server && python setup.py develop && cd .. && \
   git clone https://github.com/zsailer/notebook.git --branch notebook-ext --single-branch --depth 1 && \
-  cd notebook && python setup.py develop && cd .. && \
-  jupyter notebook
-open http://localhost:8888/tree
+  cd notebook && python setup.py develop && cd ..
 ```
 
 ## Start
 
 ```bash
+jupyter notebook
 jupyter server --ServerApp.jpserver_extensions="{'notebook': True}"
+open http://localhost:8888/tree
 ```
