@@ -8,11 +8,33 @@ Datalayer runs `Kubernetes` as distributed orchestrator.
 
 Datalayer solutions help you create and manage your cluster in the cloud and deploy applications for your `Big Data Science` projects. We support [AWS](https://aws.amazon.com), the Amazon Cloud. Read our [Release Plan](/releases/plan.md) to know more on other cloud support. 
 
-The platform architecture is depicted here after.
+## Functional Architecture
 
-![Architecture](/_images/what/architecture.svg)
+The functional architecture is depicted here after.
+
+![Functional Architecture](/_images/what/architecture-functional.svg)
+
+## Technical Architecture
+
+The technical architecture is depicted here after.
+
+![Technical Architecture](/_images/what/architecture-technical.svg)
+
+The building blocks are:
+
++ React.js
++ JupyterHub
++ OIDC Authenticator
++ Server Pool Spawner
++ JupyterLab
++ Jupyter Server
++ Jupyter Kernel Management
++ Kernel Pool Provider
++ Kubernetes
 
 <!--
+
+## Layers
 
 ```
 +---+-----------------------------------------------------+---+
