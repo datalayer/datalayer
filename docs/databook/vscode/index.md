@@ -42,6 +42,11 @@ GitHub [Docs](https://github.com/microsoft/vscode-docs) repository.
 [Contribute](https://github.com/microsoft/vscode/blob/master/CONTRIBUTING.md).
 
 ```bash
+#    nodejs=8.10.0 \
+#    nodejs=10.16.3 \
+#    nodejs=11.14.0 \
+#    nodejs=12.3.0 \
+#    nodejs=13.0.0 \
 ENV=vscode && \
   conda deactivate && \
   conda remove -n $ENV -y --all && \
@@ -297,13 +302,16 @@ cd ~/vscode && \
   cd code-server && \
   yarn
 # https://github.com/cdr/code-server/issues/1094
+# See travis.yml for the VS Code version to use - The code-server version can be anything you want.
+# OUT env var is optional if only building. Required if also developing.
 export vscodeVersion=1.39.2 && \
   export codeServerVersion=development && \
-  export OUT=~/vscode/code-server-out               # Optional if only building. Required if also developing.
-yarn build ${vscodeVersion} ${codeServerVersion}  # See travis.yml for the VS Code version to use - The code-server version can be anything you want.
+  export OUT=~/vscode/code-server-out
+yarn build ${vscodeVersion} ${codeServerVersion}
 echo http://localhost:8080
-PASSWORD=pass && \
-  node $OUT/build/code-serverdevelopment-vsc1.39.2-darwin-x86_64-built/out/vs/server/main.js  # You can run the built JavaScript with Node.
+# You can run the built JavaScript with Node.
+# PASSWORD=pass && \
+node $OUT/build/code-serverdevelopment-vsc1.39.2-darwin-x86_64-built/out/vs/server/main.js --auth none
 open http://localhost:8080
 yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a binary.
 ```
@@ -311,14 +319,16 @@ yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a
 **Build Mode 2**
 
 ```bash
-export vscodeVersion=1.39.2 # See travis.yml for the version to use.
+conda activate vscode
+# See travis.yml for the version to use.
+export vscodeVersion=1.39.2
 # export vscodeVersion=master
 cd ~/vscode && \
   git clone https://github.com/microsoft/vscode vscode-src && \
   cd vscode-src && \
   git checkout ${vscodeVersion} && \
-  yarn
-git clone https://github.com/cdr/code-server src/vs/server && \
+  yarn && \
+  git clone https://github.com/cdr/code-server src/vs/server && \
   cd src/vs/server && \
   yarn && \
   yarn patch:apply && \
@@ -327,6 +337,7 @@ git clone https://github.com/cdr/code-server src/vs/server && \
 # Run the next command in another shell.
 echo http://localhost:8080
 cd ~/vscode/vscode-src/src/vs/server && \
+  conda activate vscode && \
   PASSWORD=pass && \
   yarn start
 open http://localhost:8080
