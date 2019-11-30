@@ -16,6 +16,10 @@ conda create -y -n voila-server python=3.7 nodejs && \
   git clone https://github.com/zsailer/voila.git --branch extensionapp --single-branch --depth 1 && \
   cd voila && pip install -e . && \
   voila notebooks/basics.ipynb
+#  git clone https://github.com/zsailer/voila.git --branch  --single-branch --depth 1 && \
+#  git clone https://github.com/zsailer/voila.git --branch extensionapp --single-branch --depth 1 && \ 
+#  cd voila && python setup.py develop && cd .. && \
+#  voila voila/notebooks/basics.ipynb
 ```
 
 ```bash

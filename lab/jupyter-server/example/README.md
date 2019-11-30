@@ -3,8 +3,11 @@
 # Datalayer Lab Jupyter Server 1
 
 ```bash
-python setup.py develop
+pip install -e .
 jupyter server-1
+```
+
+```bash
 open http://localhost:8888
 open http://localhost:8888/favicon.ico
 open http://localhost:8888/static/server_1/favicon.ico
@@ -20,7 +23,7 @@ Configurable server extension applications [#48](https://github.com/jupyter/jupy
 
 **What?**
 
-This PR introduces the `ExtensionApp` to the Jupyter server, a base class for creating configurable, front-end client applications as extensions of the jupyter server.
+The `ExtensionApp` is a base class for creating configurable, front-end client applications as extensions of the jupyter server.
 
 **Details**
 

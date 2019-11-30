@@ -29,15 +29,3 @@ You can also try the examples.
 
 + [Example 1](./examples/example-1)
 + [Example 2](./examples/example-2)
-
-## Technical Stack
-
-+ React.js
-+ JupyterHub
-+ OIDC Authenticator
-+ Serverpool Spawner
-+ JupyterLab
-+ Jupyter Server
-+ Jupyter Kernel Management
-+ Kernelpool Provider
-+ Kubernetes

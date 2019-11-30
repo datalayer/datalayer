@@ -45,12 +45,6 @@ jupyter lab --watch
 # jupyter lab --core-mode
 ```
 
-## Other
-
-+ https://github.com/AaronWatters/widget-cookiecutter
-+ https://github.com/AaronWatters/jp_proxy_widget
-+ https://github.com/AaronWatters/jp_doodle
-
 # Examples
 
 ```bash

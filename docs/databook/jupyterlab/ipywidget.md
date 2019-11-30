@@ -21,6 +21,26 @@ IpyWidget [Examples](https://github.com/jupyter-widgets/ipywidgets/tree/master/d
 
 [Comms](./kernels/comms.md)
 
+The button widget sends a custom comm message:
+
+- Nandling from the python side: https://github.com/jupyter-widgets/ipywidgets/blob/master/ipywidgets/widgets/widget_button.py#L96-L105 and https://github.com/jupyter-widgets/ipywidgets/blob/master/ipywidgets/widgets/widget_button.py#L63
+- Sending from the python side: https://github.com/jupyter-widgets/ipywidgets/blob/master/ipywidgets/widgets/widget.py#L547-L557
+- Sending from the js side: https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/controls/src/widget_button.ts#L124
+
+More generally: https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/base/src/widget.ts#L158-L166
+
+Receiving on the js side: https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/base/src/widget.ts#L233-L235
+
+See also.
+
+- https://github.com/blois/jupyterlab-comms
+- https://github.com/googlecolab/colabtools/blob/master/packages/outputframe/lib/index.d.ts
+- https://github.com/googlecolab/colabtools
+- https://github.com/googlecolab/colabtools/blob/095f304ca7d20961cd526858d153691d89714f6b/packages/outputframe/lib/index.d.ts#L2-L16
+- https://colab.research.google.com/notebooks/snippets/advanced_outputs.ipynb#scrollTo=MprPsZJa3AQF
+- https://colab.research.google.com/gist/blois/9ca9c4556b14f0cdb84d7fe1e5aee691/data-explorer.ipynb
+- https://colab.research.google.com/notebooks/snippets/advanced_outputs.ipynb#scrollTo=9OyC1_bSEccg&line=7&uniqifier=1
+
 ## JupyterLab
 
 [IpyLab](https://github.com/jtpio/ipylab).
@@ -140,6 +160,12 @@ Outdated.
 + [IpyVuetify](https://github.com/mariobuikhuizen/ipyvuetify).
 + [IpyVuetify Example](https://files.gitter.im/jupyter-widgets/Lobby/bzWa/ipyvuetifyExample.gif).
 + [IpyVuetify Examples](https://github.com/mariobuikhuizen/ipyvuetify/blob/master/examples/Examples.ipynb).
+
+## jp_proxy_widget
+
++ https://github.com/AaronWatters/jp_proxy_widget
++ https://github.com/AaronWatters/jp_doodle
++ https://github.com/AaronWatters/widget-cookiecutter
 
 ## See Also
 

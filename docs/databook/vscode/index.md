@@ -340,10 +340,16 @@ cd ~/vscode && \
   yarn && \
   yarn patch:apply && \
   yarn watch
-# Wait for the initial compilation to complete (it will say "Finished compilation").
+# Wait for the initial compilation to complete.
+# 👉 It will say "Finished compilation".
+```
+
+```bash
 # Run the next command in another shell.
+# https://github.com/cdr/code-server/issues/348
 echo http://localhost:8080
-cd ~/vscode/vscode-src/src/vs/server && \
+conda activate codeserver && \
+  cd ~/vscode/vscode-src/src/vs/server && \
   conda activate vscode && \
   PASSWORD=pass && \
   yarn start

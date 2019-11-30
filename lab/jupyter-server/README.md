@@ -2,6 +2,8 @@
 
 # Datalayer Lab Jupyter Server
 
+## Start
+
 ```bash
 jupyter server --ServerApp.jpserver_extensions="{ \
   'jupyterlab': True, \
