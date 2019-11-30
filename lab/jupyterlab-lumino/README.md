@@ -1,8 +1,8 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Lab Lumino
+# Datalayer Lab JupyterLab Lumino
 
-Lumino [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
+Lumino [Docs](https://databook.datalayer.io/jupyterlab/lumino.html).
 
 + http://phosphorjs.github.io/examples
 + https://github.com/phosphorjs/phosphor/tree/master/examples
@@ -12,7 +12,7 @@ Lumino [Docs](https://docs.notebook.sh/jupyterlab/phosphor.js.html).
 [Dockpanel](./dockpanel) example.
 
 ```bash
-cd $DLAHOME/lab/phosphor-js/dockpanel && \
+cd $DLAHOME/lab/jupyterlab-lumino/dockpanel && \
   yarn install && \
   yarn build && \
   http-server -o
@@ -23,7 +23,7 @@ cd $DLAHOME/lab/phosphor-js/dockpanel && \
 [Datagrid](./datagrid) example.
 
 ```bash
-cd $DLAHOME/lab/phosphor-js/datagrid && \
+cd $DLAHOME/lab/jupyterlab-lumino/datagrid && \
   yarn install && \
   yarn build && \
     http-server -o

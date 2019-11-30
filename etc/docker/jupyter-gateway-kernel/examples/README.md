@@ -2,4 +2,4 @@
 
 # Jupyter Kernel Gateway
 
-Read the [Docs](https://docs.notebook.sh/jupyterpool/gateway-kernel.html).
+Read the [Docs](https://databook.datalayer.io/jupyterpool/gateway-kernel.html).

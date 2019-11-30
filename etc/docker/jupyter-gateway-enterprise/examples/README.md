@@ -2,4 +2,4 @@
 
 # Jupyter Enterprise Gateway
 
-Read the [Docs](https://docs.notebook.sh/jupyterpool/gateway-enterprise.html).
+Read the [Docs](https://databook.datalayer.io/jupyterpool/gateway-enterprise.html).

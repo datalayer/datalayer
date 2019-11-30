@@ -10,7 +10,7 @@ Check you have the [needed prerequisites](https://docs.datalayer.io/dev/requirem
 
 You are now ready to contribute code, ideas... via [pull requests](https://github.com/datalayer/datalayer/pulls).
 
-**With great technologies comes great user benefits.**
+**With great technology comes great value for the user.**
 
 #### :ghost: Applications
 
@@ -20,10 +20,10 @@ Showcase user interface widget `toolkits` and `theming` with `react.js` and `typ
 
 + [Create React App](./react-boilerplate/embed)
 + [Create React App Eject](./react-boilerplate/eject)
-+ [Material UI](./fabric-ui)
-+ [Lumino](./lumino)
-+ [Blueprint JS](./blueprint-js)
-+ [Fabric UI](./fabric-ui)
++ [JupyterLab Lumino](./jupyterlab-lumino)
++ [React Blueprint JS](./react-blueprint-js)
++ [React Fabric UI](./react-fabric-ui)
++ [React Material UI](./react-material-ui)
 + [Semantic UI](./semantic-ui)
 
 Other useful topics.

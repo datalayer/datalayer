@@ -35,5 +35,4 @@ conda deactivate && \
 
 + WIP: Use new kernel management APIs in notebook server 6.x [#4837](https://github.com/jupyter/notebook/pull/4837).
 + WIP: Use new kernel management APIs in notebook server [#4170](https://github.com/jupyter/notebook/pull/4170) is superseded by #4837.
-
 + Add support for async kernel management [#4479](https://github.com/jupyter/notebook/pull/4479).

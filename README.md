@@ -11,7 +11,6 @@
 </h4>
 <p/>
 <p/>
-See it as a <b>GitHub for education</b> or <b>Google Docs for datasets</b>.
 
 Level up you Data knowledge through interactive exercises and examples.
 
@@ -21,9 +20,13 @@ Level up you Data knowledge through interactive exercises and examples.
 + You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
 + You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
 
+See it as a <b>GitHub for education</b> or <b>Google Docs for datasets</b>.
+
 ## 🎓 Learning Data
 
-Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities designed to be:
+Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities.
+
+Those norebooks are:
 
 1. Reproducible.
 1. Scalable.

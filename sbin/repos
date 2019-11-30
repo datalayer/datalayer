@@ -11,7 +11,6 @@ ansible-kubernetes-cluster|https://github.com/datalayer-contrib/ansible-kubernet
 binderhub|https://github.com/datalayer-contrib/binderhub.git|https://github.com/jupyterhub/binderhub.git|master \
 binderhub-deploy|https://github.com/datalayer-contrib/binderhub-deploy.git|https://github.com/jupyterhub/mybinder.org-deploy.git|master \
 binderhub-docs|https://github.com/datalayer-contrib/binderhub-docs.git|https://github.com/jupyterhub/binder.git|master \
-blueprint-js|https://github.com/datalayer-contrib/blueprint-js.git|https://github.com/palantir/blueprint.git|develop \
 codesandbox|https://github.com/datalayer-contrib/codesandbox.git|https://github.com/codesandbox/codesandbox-client.git|master \
 data8-datascience|https://github.com/datalayer-contrib/data8-datascience.git|https://github.com/data-8/datascience.git|master \
 data8-course-2017|https://github.com/datalayer-contrib/data8-course-2017.git|https://github.com/data-8/materials-fa17.git|master \
@@ -19,7 +18,6 @@ dex|https://github.com/datalayer-contrib/dex.git|https://github.com/dexidp/dex.g
 edu-spacy|https://github.com/datalayer-contrib/edu-spacy.git|https://github.com/ines/spacy-course.git|master \
 edu-starter-python|https://github.com/datalayer-contrib/edu-starter-python.git|https://github.com/ines/course-starter-python.git|master \
 edu-starter-R|https://github.com/datalayer-contrib/edu-starter-R.git|https://github.com/ines/course-starter-r.git|master \
-fabric-ui|https://github.com/datalayer-contrib/fabric-ui.git|https://github.com/officedev/office-ui-fabric-react.git|master \
 hadoop|https://github.com/datalayer-contrib/hadoop.git|https://github.com/apache/hadoop.git|trunk \
 hbase|https://github.com/datalayer-contrib/hbase.git|https://github.com/apache/hbase.git|master \
 hbase-indexer|https://github.com/datalayer-contrib/hbase-indexer.git|https://github.com/NGDATA/hbase-indexer.git|master \
@@ -98,6 +96,8 @@ jupyterlab-github|https://github.com/datalayer-contrib/jupyterlab-github.git|htt
 jupyterlab-google-drive|https://github.com/datalayer-contrib/jupyterlab-google-drive.git|https://github.com/jupyterlab/jupyterlab-google-drive.git|master \
 jupyterlab-hub|https://github.com/datalayer-contrib/jupyterlab-hub.git|https://github.com/jupyterhub/jupyterlab-hub.git|master \
 jupyterlab-latex|https://github.com/datalayer-contrib/jupyterlab-latex.git|https://github.com/jupyterlab/jupyterlab-latex.git|master \
+jupyterlab-lumino|https://github.com/datalayer-contrib/jupyterlab-lumino.git|https://github.com/jupyterlab/lumino.git|master \
+jupyterlab-phoila|https://github.com/datalayer-contrib/jupyterlab-phoila.git|https://github.com/vidartf/phoila.git|master \
 jupyterlab-pixiedust|https://github.com/datalayer-contrib/jupyterlab-pixiedust.git|https://github.com/pixiedust/pixiedust.git|master \
 jupyterlab-renderers|https://github.com/datalayer-contrib/jupyterlab-renderers.git|https://github.com/jupyterlab/jupyter-renderers.git|master \
 jupyterlab-server|https://github.com/datalayer-contrib/jupyterlab-server.git|https://github.com/jupyterlab/jupyterlab_server.git|master \
@@ -134,8 +134,6 @@ papermill|https://github.com/datalayer-contrib/papermill.git|https://github.com/
 papermill-bookstore|https://github.com/datalayer-contrib/papermill-bookstore.git|https://github.com/nteract/bookstore.git|master \
 papermill-paperboy|https://github.com/datalayer-contrib/papermill-paperboy.git|https://github.com/timkpaine/paperboy.git|master \
 papermill-scrapbook|https://github.com/datalayer-contrib/papermill-scrapbook.git|https://github.com/nteract/scrapbook.git|master \
-phoila|https://github.com/datalayer-contrib/phoila.git|https://github.com/vidartf/phoila.git|master \
-phosphor|https://github.com/datalayer-contrib/phosphor.git|https://github.com/phosphorjs/phosphor.git|master \
 spark|https://github.com/datalayer-contrib/spark.git|https://github.com/apache/spark.git|master \
 spark-hbase|https://github.com/datalayer-contrib/spark-hbase-connector.git|https://github.com/hortonworks-spark/shc.git|master \
 spark-kafka|https://github.com/datalayer-contrib/spark-kafka-connector.git|https://github.com/hortonworks-spark/skc.git|master \

@@ -117,9 +117,9 @@ github_issue_summarization/build/
 !**/.*config
 !**/.github
 !**/.storybook
+!**/.vscode
 !.env
 !.gitattributes
-!.vscode
 !bin/dla
 !docs/kuber/kuber
 !dist/README.md

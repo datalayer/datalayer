@@ -69,7 +69,7 @@ JupyterLab Extensions [Docs](https://jupyterlab.readthedocs.io/en/latest/user/ex
 
 ## Autocomplete
 
-https://github.com/krassowski/jupyterlab-lsp
+[jupyterlab-lsp](https://github.com/krassowski/jupyterlab-lsp).
 
 ## Commands
 

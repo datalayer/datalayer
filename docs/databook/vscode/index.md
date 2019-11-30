@@ -20,8 +20,8 @@ GitHub [Docs](https://github.com/microsoft/vscode-docs) repository.
 
 ## Command Palette
 
-+ CTRL+P CMD+P
-+ CTRL+SHIFT+P CMD+SHIFT+P
++ `CTRL+P` - `CMD+P` on Mac
++ `CTRL+SHIFT+P` - `CMD+SHIFT+P` on Mac
 
 ## Workspace
 
@@ -31,33 +31,46 @@ GitHub [Docs](https://github.com/microsoft/vscode-docs) repository.
 
 [Source Code Organization](https://github.com/microsoft/vscode/wiki/Source-Code-Organization).
 
+[Coding Guidelines](https://github.com/microsoft/vscode/wiki/Coding-Guidelines).
+
 ## Build
 
 [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute).
 
 [Contribute](https://github.com/microsoft/vscode/blob/master/CONTRIBUTING.md).
 
-[Coding Guidelines](https://github.com/microsoft/vscode/wiki/Coding-Guidelines).
+```bash
+ENV=vscode && \
+  conda deactivate && \
+  conda remove -n $ENV -y --all && \
+  conda create -y -n $ENV \
+    python=2.7 \
+    nodejs=10.16.3 \
+    yarn=1.19.2 && \
+  conda activate $ENV && \
+  export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
+```
 
 ```bash
 git clone https://github.com/microsoft/vscode --depth 1 && \
-  cd vscode && \
-  conda activate py2
+  cd vscode
 ```
 
 ```bash
 # Terminal 1.
-yarn &&
-  yarn watch
+yarn && yarn watch
 # Terminal 2.
 ./scripts/code.sh
 ```
 
-👉 Tip! You don't need to stop and restart the development version of VS Code after each change. You can just execute Reload Window from the command palette. We like to assign the keyboard shortcut CMD+R (CTRL+R on Windows, Linux) to this command.
+👉 Tip!
+You don't need to stop and restart the development version of VS Code after each change.
+You can just execute Reload Window from the command palette. 
+We like to assign the keyboard shortcut CMD+R (CTRL+R on Windows, Linux) to this command.
 
-## Build with Extensions
+## Run a Build with Extensions
 
-To enable extension search: in the root of the source, update `product.json`.
+In the root of the source, update `product.json`.
 
 ```json
   "extensionsGallery": {
@@ -67,51 +80,58 @@ To enable extension search: in the root of the source, update `product.json`.
   }
 ```
 
-For license, see also.
+Regarding marketplace license, read the following.
 
 + https://stackoverflow.com/questions/37143536/no-extensions-found-when-running-visual-studio-code-from-source
 + https://github.com/microsoft/vscode/issues/31168
 + https://github.com/microsoft/vscode/issues/1557
 + https://github.com/microsoft/vscode/issues/39205
 
-## Build CI
-
-[Build Master](https://github.com/microsoft/vscode/wiki/Build-Master).
-
 ## Debug
 
-VS Code has a multi-process architecture and your code is executed in different processes. The render process runs the UI code inside the Shell window. To debug code running in the render you can either use VS Code or the Chrome Developer Tools.
+VS Code has a multi-process architecture and your code is executed in different processes.
 
-Using VS Code
+**The render process runs the UI code inside the Shell window.**
 
-- Install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension. This extension will let you attach to and debug client side code running in Chrome.
-- Open the vscode repository folder
-- Choose the Launch VS Code launch configuration from the launch dropdown in the Debug viewlet and press F5.
+To debug code running in the render you can either use [1] VS Code or the [2] Chrome Developer Tools.
 
-Using the Chrome Developer Tools
+[1] Using VS Code
+
+- Install the [VSCode Debugger for Chrome](https://github.com/microsoft/vscode-chrome-debug) ([Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)) extension.
+- This extension will let you attach to and debug client side code running in Chrome.
+- Open the vscode repository folder.
+- Choose the `Launch VS Code` launch configuration from the launch dropdown in the Debug viewlet and press F5.
+
+```bash
+# Launch Chrome with a debugging port.
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
+[2] Using the Chrome Developer Tools
 
 - Run the `Developer: Toggle Developer Tools` command from the Command Palette in your development instance of VS Code to launch the Chrome tools.
 - It's also possible to debug the released versions of VS Code, since the sources link to sourcemaps hosted online.
 
-The extension host process runs code implemented by a plugin. To debug extensions (including those packaged with VS Code) which run in the extension host process, you can use VS Code itself. Switch to the Debug viewlet, choose the `Attach to Extension Host` configuration, and press F5.
+**The extension host process runs code implemented by a plugin.**
 
-The search process can be debugged, but must first be started. Before attempting to attach, start a search by pressing CMD+P (CTRL+P on Windows), otherwise attaching will fail and time out.
+- To debug extensions (including those packaged with VS Code) which run in the extension host process, you can use VS Code itself.
+- Switch to the Debug viewlet, choose the `Attach to Extension Host` configuration, and press F5.
 
-[VSCode Chrome Debug](https://github.com/microsoft/vscode-chrome-debug).
+**Search uses a separated process**
 
-```bash
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
-```
+- The search process can be debugged, but must first be started.
+- Before attempting to attach, start a search by pressing CMD+P (CTRL+P on Windows), otherwise attaching will fail and time out.
 
-## Web
+## Build for Web
 
 ```bash
 # Terminal 1.
-yarn &&
-  yarn watch
+yarn && yarn watch
 # Terminal 2.
 yarn web
 ```
+
+Extensions.
 
 + [Web: Support Extensions when running yarn web](https://github.com/microsoft/vscode/issues/84901).
 + [Web Hosted Version](https://vscode-web-test-playground.azurewebsites.net).
@@ -119,19 +139,32 @@ yarn web
 + https://github.com/microsoft/vscode/issues/84485
 + https://github.com/microsoft/vscode/pull/82569
 
-## Online
-
 [Visual Studio Online](https://visualstudio.microsoft.com/services/visual-studio-online).
 
 + https://code.visualstudio.com/docs/remote/vsonline
 + https://docs.microsoft.com/en-gb/visualstudio/online
 
-## Packaging
+## Continuous Integration
 
-VS Code can be packaged for the following platforms: win32-ia32 | win32-x64 | darwin | linux-ia32 | linux-x64 | linux-arm. These gulp tasks are available:
+[Build Master](https://github.com/microsoft/vscode/wiki/Build-Master).
+
+## Package
+
+VS Code can be [packaged](https://github.com/microsoft/vscode/wiki/How-to-Contribute#packaging) for the following platforms:
+
+- win32-ia32
+- win32-x64
+- darwin
+- linux-ia32
+- linux-x64
+- linux-arm
+
+These gulp tasks are available:
 
 - vscode-[platform]: Builds a packaged version for [platform].
 - vscode-[platform]-min: Builds a packaged and minified version for [platform].
+
+See also [Cross Compiling for Debian Based Linux](https://github.com/Microsoft/vscode/wiki/Cross-Compiling-for-Debian-Based-Linux).
 
 [Release Process](https://github.com/microsoft/vscode/wiki/Release-Process).
 
@@ -149,18 +182,22 @@ VS Code can be packaged for the following platforms: win32-ia32 | win32-x64 | da
 
 Here are the Extensions view filters:
 
-@builtin - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
-@disabled - Show disabled installed extensions.
-@installed - Show installed extensions.
-@outdated - Show outdated installed extensions. A newer version is available on the Marketplace.
-@enabled - Show enabled installed extensions. Extensions can be individually enabled/disabled.
-@recommended - Show recommended extensions. Grouped as Workspace specific or general use.
-@category - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type @category and follow the options in the suggestion list:
-@category:themes
-@category:formatters
-@category:linters
-@category:snippets
-These filters can be combined as well. Fo
+- @builtin - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
+- @disabled - Show disabled installed extensions.
+- @installed - Show installed extensions.
+- @outdated - Show outdated installed extensions. A newer version is available on the Marketplace.
+- @enabled - Show enabled installed extensions. Extensions can be individually enabled/disabled.
+- @recommended - Show recommended extensions. Grouped as Workspace specific or general use.
+- @category - Show extensions belonging to specified category. Below are a few of supported categories.
+
+For a complete list, type - @category and follow the options in the suggestion list:
+
+- @category:themes
+- @category:formatters
+- @category:linters
+- @category:snippets
+
+These filters can be combined as well.
 
 Search for `@builtin` or `@sort:installs`.
 
@@ -169,25 +206,21 @@ Search for `@builtin` or `@sort:installs`.
 [Command Line Extension Management](https://code.visualstudio.com/docs/editor/extension-gallery#_command-line-extension-management).
 
 ```bash
-code --extensions-dir <dir>
-    Set the root path for extensions.
-code --list-extensions
-    List the installed extensions.
-code --show-versions
-    Show versions of installed extensions, when using --list-extension.
-code --install-extension (<extension-id> | <extension-vsix-path>)
-    Installs an extension.
-code --uninstall-extension (<extension-id> | <extension-vsix-path>)
-    Uninstalls an extension.
-code --enable-proposed-api (<extension-id>)
-    Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
+code --extensions-dir <dir> # Set the root path for extensions.
+code --list-extensions # List the installed extensions.
+code --show-versions # Show versions of installed extensions, when using --list-extension.
+code --install-extension (<extension-id> | <extension-vsix-path>) # Installs an extension.
+code --uninstall-extension (<extension-id> | <extension-vsix-path>) # Uninstalls an extension.
+code --enable-proposed-api (<extension-id>) # Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
 ```
 
 ## Extensions Dev
 
-[API](https://code.visualstudio.com/api/references/vscode-api).
-
 [API](https://code.visualstudio.com/api).
+
+[API Reference](https://code.visualstudio.com/api/references/vscode-api).
+
+[Extension API guidelines](https://github.com/microsoft/vscode/wiki/Extension-API-guidelines).
 
 [Extension Capabilities](https://code.visualstudio.com/api/extension-capabilities/overview).
 
@@ -199,7 +232,7 @@ code --enable-proposed-api (<extension-id>)
 
 ## Extension Pack
 
-+ https://dev.to/thegeoffstevens/how-to-create-your-own-vs-code-extension-pack-nab
+[Create your own VS Code Extension Pack](https://dev.to/thegeoffstevens/how-to-create-your-own-vs-code-extension-pack-nab).
 
 ## Python Extension
 
@@ -232,40 +265,6 @@ Jupyter.
 
 [Code Server](https://github.com/cdr/code-server).
 
-```bash
-git clone https://github.com/cdr/code-server && \
-  cd code-server
-export vscodeVersion=1.39.2
-export codeServerVersion=development
-export OUT=~/Desktop/code-server-vscode            # Optional if only building. Required if also developing.
-yarn build ${vscodeVersion} ${codeServerVersion}  # See travis.yml for the VS Code version to use.
-                                                  # The code-server version can be anything you want.
-PASSWORD=pass node $OUT/build/code-serverdevelopment-vsc1.39.2-darwin-x86_64-built/out/vs/server/main.js  # You can run the built JavaScript with Node.
-yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a binary.
-```
-
-```bash
-export vscodeVersion=1.39.2
-# export vscodeVersion=master
-git clone https://github.com/microsoft/vscode
-cd vscode
-git checkout ${vscodeVersion} # See travis.yml for the version to use.
-yarn
-git clone https://github.com/cdr/code-server src/vs/server
-cd src/vs/server
-yarn
-yarn patch:apply
-yarn watch
-# Wait for the initial compilation to complete (it will say "Finished compilation").
-# Run the next command in another shell.
-PASSWORD=pass yarn start
-# Visit http://localhost:8080
-```
-
-If you have your own custom marketplace, it is possible to point code-server to it by setting the `SERVICE_URL` and `ITEM_URL` environment variables.
-
-Use the `--disable-telemetry` flag to completely disable telemetry.
-
 The patch includes:
 
 - Allow multiple extension directories (both user and built-in).
@@ -277,6 +276,59 @@ The patch includes:
 - Make extensions work in the browser.
 - Fix getting permanently disconnected when you sleep or hibernate for a while.
 - Make it possible to automatically update the binary.
+
+If you have your own custom marketplace, it is possible to point code-server to it by setting the following environment variables:
+
+- `SERVICE_URL`
+- `ITEM_URL`
+
+Ohter configurations.
+
+- Use the `--disable-telemetry` flag to completely disable telemetry.
+- To disable password use `--auth none`.
+
+**Build Mode 1**
+
+```bash
+cd ~/vscode && \
+  git clone https://github.com/cdr/code-server && \
+  cd code-server && \
+  yarn
+# https://github.com/cdr/code-server/issues/1094
+export vscodeVersion=1.39.2 && \
+  export codeServerVersion=development && \
+  export OUT=~/vscode/code-server-out               # Optional if only building. Required if also developing.
+yarn build ${vscodeVersion} ${codeServerVersion}  # See travis.yml for the VS Code version to use - The code-server version can be anything you want.
+echo http://localhost:8080
+PASSWORD=pass && \
+  node $OUT/build/code-serverdevelopment-vsc1.39.2-darwin-x86_64-built/out/vs/server/main.js  # You can run the built JavaScript with Node.
+open http://localhost:8080
+yarn binary ${vscodeVersion} ${codeServerVersion} # Or you can package it into a binary.
+```
+
+**Build Mode 2**
+
+```bash
+export vscodeVersion=1.39.2 # See travis.yml for the version to use.
+# export vscodeVersion=master
+cd ~/vscode && \
+  git clone https://github.com/microsoft/vscode vscode-src && \
+  cd vscode-src && \
+  git checkout ${vscodeVersion} && \
+  yarn
+git clone https://github.com/cdr/code-server src/vs/server && \
+  cd src/vs/server && \
+  yarn && \
+  yarn patch:apply && \
+  yarn watch
+# Wait for the initial compilation to complete (it will say "Finished compilation").
+# Run the next command in another shell.
+echo http://localhost:8080
+cd ~/vscode/vscode-src/src/vs/server && \
+  PASSWORD=pass && \
+  yarn start
+open http://localhost:8080
+```
 
 ## Codesandbox
 
