@@ -4,11 +4,16 @@ title: JupyterLab Real Time Collaboration
 
 ## Real Time Collaboration
 
-Moving full data models between phosphor and component.
+## Data Store
 
-The big thing there is that we are working on a new data store that will bring real time collaboration to lab.
+Moving full data models between lumino and component.
 
-The plan is to move most of our models over to that It is a very generic data store.
+A new data store that will bring real time collaboration to lab.
+
+The plan is to move most of our models over to that generic data store.
+
++ https://github.com/jupyterlab/jupyterlab/issues/5382#issuecomment-532752990
++ https://github.com/quansight/jupyter-datastore
 
 + [Real Time Collaboration](https://github.com/jupyterlab/jupyterlab/issues/5382).
 + [ellisonbg/jupyterlab-rtc](https://github.com/ellisonbg/jupyterlab-rtc).
@@ -18,6 +23,14 @@ The plan is to move most of our models over to that It is a very generic data st
 + [Collaborative Notebooks using Automerge library?](https://github.com/jupyterlab/jupyterlab/issues/3824) - [Automerge](https://github.com/automerge/automerge).
 + [Implement Datastore class](https://github.com/phosphorjs/phosphor/pull/371).
 + [vidartf/phosphor/feature-tables3-extras](https://github.com/vidartf/phosphor/commits/feature-tables3-extras).
+
+## WebRTC
+
++ https://www.webrtc-experiment.com
++ https://github.com/PolymerElements/app-media
++ https://webrtc.github.io/samples https://github.com/webrtc/samples
++ https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture
++ https://codepen.io/alx-khovansky/pen/OeYmRG
 
 ## See Also
 

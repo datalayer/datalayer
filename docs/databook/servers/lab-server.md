@@ -23,3 +23,10 @@ jupyter lab
 ```
 
 JupyterLab Rework kernel and session architecture [#7252](https://github.com/jupyterlab/jupyterlab/pull/7252).
+
+## Tests
+
+```bash
+cd $DLAHOME/repos/jupyterlab-server && \
+  pytest
+```

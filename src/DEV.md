@@ -11,7 +11,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 
 ### Datalayer
 
-+ 🏃 [Port DSP on MaterialUI](https://github.com/datalayer/datalayer/issues/2)
++ 🏃 [Port DSP on Material UI](https://github.com/datalayer/datalayer/issues/2)
 + 💪 [Jupyter Controller UI Mock](https://github.com/datalayer/datalayer/issues/19)
 + 💪 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + 💪 [Index and Search Notes](https://github.com/datalayer/datalayer/issues/3)

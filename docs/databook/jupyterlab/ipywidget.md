@@ -173,9 +173,16 @@ Outdated.
 + https://github.com/AaronWatters/jp_doodle
 + https://github.com/AaronWatters/widget-cookiecutter
 
-## See Also
+## Perspective
 
-[folium](https://github.com/python-visualization/folium).
++ [Perspective](https://github.com/finos/perspective).
++ [Perspective JupyterLab Extension](https://github.com/finos/perspective/tree/master/packages/perspective-jupyterlab).
++ [Perspective Python](https://github.com/timkpaine/perspective-python).
++ [Example](https://perspective.finos.org).
+
+## Folium
+
+[Folium](https://github.com/python-visualization/folium).
 
 # [DEPRECATED] Classic Notebook
 

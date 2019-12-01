@@ -5,6 +5,11 @@ title: JupyterLab Test
 # JupyterLab Test
 
 ```bash
+cd $DLAHOME/repos/jupyterlab && \
+  pytest
+```
+
+```bash
 # Run all tests.
 cd $DLAHOME/repos/jupyterlab && \
   yarn build:test && \
