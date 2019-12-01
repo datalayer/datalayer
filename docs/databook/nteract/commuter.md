@@ -27,7 +27,7 @@ COMMUTER_BUCKET=sweet-notebooks commuter
 ```
 
 ```bash
-# General Environment Variables
+# General Environment Variables.
 # Environment Variable	Description	Default
 COMMUTER_STORAGE_BACKEND	local or s3	local
 COMMUTER_DISCOVERY_BACKEND	either elasticsearch or none	"none"
@@ -37,7 +37,7 @@ COMMUTER_ES_HOST	ElasticSearch Host	""
 ```
 
 ```bash
-# Environment Variables for S3 Storage
+# Environment Variables for S3 Storage.
 # Environment Variable	Description	Default
 COMMUTER_S3_BASE_PREFIX	prefix on the bucket, similar to base directory	""
 COMMUTER_S3_PATH_DELIMITER	separator for "paths"	"/"

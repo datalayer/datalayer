@@ -13,8 +13,8 @@ Nteract Jupyter Extension on [Binder](https://mybinder.org/v2/gh/nteract/vdom/ma
 ```bash
 pip install nteract_on_jupyter && \
   jupyter serverextension enable nteract_on_jupyter && \
-  jupyter serverextension list
-jupyter nteract
+  jupyter serverextension list && \
+  jupyter nteract
 ```
 
 ## Build
@@ -25,8 +25,7 @@ cd $DLAHOME/repos/nteract/applications/jupyter-extension && \
   pip install -e . && \
   jupyter serverextension enable nteract_on_jupyter && \
   jupyter serverextension list && \
-  jupyter nteract # wait a bit for compilation...
-#  jupyter nteract --dev
+  jupyter nteract --dev # Wait a bit for compilation...
 #  jupyter nteract --dev --watch
 ```
 
@@ -34,5 +33,5 @@ cd $DLAHOME/repos/nteract/applications/jupyter-extension && \
 echo http://localhost:8080
 cd $DLAHOME/repos/nteract && \
   yarn && \
-  yarn app:jupyter-extension # wait a bit for compilation...
+  yarn app:jupyter-extension # Wait a bit for compilation...
 ```

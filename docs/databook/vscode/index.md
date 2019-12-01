@@ -136,10 +136,15 @@ yarn web
 Extensions.
 
 + [Web: Support Extensions when running yarn web](https://github.com/microsoft/vscode/issues/84901).
-+ [Web Hosted Version](https://vscode-web-test-playground.azurewebsites.net).
 + https://code.visualstudio.com/updates/v1_40#_test-vs-code-running-in-a-browser
 + https://github.com/microsoft/vscode/issues/84485
 + https://github.com/microsoft/vscode/pull/82569
+
+## Web Hosted Version
+
+[Web Hosted Version](https://vscode-web-test-playground.azurewebsites.net).
+
+## Visual Studio Online
 
 [Visual Studio Online](https://visualstudio.microsoft.com/services/visual-studio-online).
 
@@ -149,6 +154,8 @@ Extensions.
 ## Continuous Integration
 
 [Build Master](https://github.com/microsoft/vscode/wiki/Build-Master).
+
+[CI Pipeline](https://dev.azure.com/vscode/VSCode).
 
 ## Package
 
@@ -165,6 +172,18 @@ These gulp tasks are available:
 
 - vscode-[platform]: Builds a packaged version for [platform].
 - vscode-[platform]-min: Builds a packaged and minified version for [platform].
+
+```bash
+# Wll create the distribution in $DLAHOME/repos
+cd $DLAHOME/repos/vscode && \
+  yarn gulp vscode-darwin
+```
+
+```bash
+yarn gulp vscode-web
+yarn gulp vscode-web-min
+yarn gulp minify-vscode-web
+```
 
 See also [Cross Compiling for Debian Based Linux](https://github.com/Microsoft/vscode/wiki/Cross-Compiling-for-Debian-Based-Linux).
 
@@ -228,9 +247,15 @@ code --enable-proposed-api (<extension-id>) # Enables proposed API features for 
 
 [Contribution Points](https://code.visualstudio.com/api/references/contribution-points).
 
-## Extension Samples
+## Extension Examples
+
+[Your First Extension](https://code.visualstudio.com/api/get-started/your-first-extension).
 
 [Extension Samples](https://github.com/microsoft/vscode-extension-samples).
+
+[Extension Samples Guide](https://code.visualstudio.com/api/extension-guides/overview).
+
+[Theme Extension Example](https://dev.to/thegeoffstevens/launch-a-product-in-the-vs-code-marketplace-in-30-minutes-or-less-16oa).
 
 ## Extension Pack
 
@@ -253,7 +278,18 @@ Jupyter.
 + https://github.com/microsoft/vscode-python/blob/master/src/datascience-ui/interactive-common/editor.tsx
 + https://github.com/microsoft/vscode-python/blob/5c1d2bcc83599f1964f18bd557e900e85484336c/src/client/datascience/jupyter/jupyterServer.ts#L28
 
+[Embed a more feature-complete REPL-like experience](https://github.com/microsoft/vscode-python/issues/727)
+
 [DEPRECATED] Jupyter for Visual Studio Code [Extension](https://github.com/DonJayamanne/vscodejupyter).
+
+## Live Share
+
+[Introducing Visual Studio Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share).
+
++ https://docs.microsoft.com/en-us/visualstudio/liveshare
++ https://visualstudio.microsoft.com/services/live-share
++ https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode
++ https://docs.microsoft.com/en-gb/visualstudio/liveshare/faq
 
 ## Electron
 
@@ -300,6 +336,7 @@ ENV=codeserver && \
   conda activate $ENV && \
   export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
 ```
+
 **Build Mode 1**
 
 ```bash

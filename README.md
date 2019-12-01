@@ -3,16 +3,14 @@
     <img alt="Datalayer" src="https://docs.datalayer.io/logo/datalayer-square.png" width="60" />
   </a>
 </p>
-<h2 align="center">
-  <a href="https://datalayer.io">Try Datalayer free edition</a>
-</h2>
-<h4 align="center">
+<h3 align="center">
   Learn to 💚 Data
+</h3>
+<h4 align="center">
+  <a href="https://datalayer.io">Try Datalayer for free</a>
 </h4>
 <p/>
 <p/>
-
-Level up you Data knowledge through interactive exercises and examples.
 
 <b>Learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 
@@ -20,13 +18,15 @@ Level up you Data knowledge through interactive exercises and examples.
 + You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
 + You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
 
-See it as a <b>GitHub for education</b> or <b>Google Docs for datasets</b>.
+See it as a <b>GitHub for education</b> or a <b>Google Docs for datasets</b>.
 
-## 🎓 Learning Data
+## 🎓 Learn Data
+
+Level up you Data knowledge through interactive exercises and examples.
 
 Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities.
 
-Those norebooks are:
+The user notebooks are:
 
 1. Reproducible.
 1. Scalable.

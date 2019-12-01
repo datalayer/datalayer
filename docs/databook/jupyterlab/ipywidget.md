@@ -12,6 +12,8 @@ IpyWidget [Tutorial](https://github.com/jupyter-widgets/tutorial).
 
 IpyWidget [Examples](https://github.com/jupyter-widgets/ipywidgets/tree/master/docs/source/examples).
 
+[IpyWidget JupyterLab Manager](https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager).
+
 ## Articles
 
 + [Authoring Custom Jupyter Widgets](https://blog.jupyter.org/authoring-custom-jupyter-widgets-2884a462e724).
@@ -31,7 +33,11 @@ More generally: https://github.com/jupyter-widgets/ipywidgets/blob/master/packag
 
 Receiving on the js side: https://github.com/jupyter-widgets/ipywidgets/blob/master/packages/base/src/widget.ts#L233-L235
 
-See also.
+## Nteract
+
++ https://github.com/nteract/nteract/issues/1385
+
+## Colab
 
 - https://github.com/blois/jupyterlab-comms
 - https://github.com/googlecolab/colabtools/blob/master/packages/outputframe/lib/index.d.ts
