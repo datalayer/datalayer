@@ -4,7 +4,7 @@
   </a>
 </p>
 <h3 align="center">
-  Datalayer, Learn to 💚 Data
+  Learn to 💚 Data with Datalayer
 </h3>
 <hr/>
 <p/>
