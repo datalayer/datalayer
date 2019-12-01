@@ -41,14 +41,13 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 + 💪 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
 + ⚫️ [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
 + ⚫️ [Create a `jupyterlab-extension-examples` repository](https://github.com/jupyterlab/jupyterlab/issues/7505)
-+ ⚫️ [In-person Dev Meeting](https://github.com/jupyterlab/team-compass/issues/19)
 
 ### Jupyter Kernel Management
 
 + 🔵 [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
 + ⚫️ [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 + ✋ [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
-abtwitter
+
 ### Jupyter Notebook
 
 + 🔵 [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)

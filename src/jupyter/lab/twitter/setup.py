@@ -37,7 +37,7 @@ setuptools.setup(
     ],
     install_requires = [
         'nbclassic',
-        'jupyter_server @ git+https://github.com/Zsailer/jupyter_server/@master'
+        'jupyter_server @ git+https://github.com/zsailer/jupyter_server/@master',
         'psutil',
         'tornado==5.1.1',
         'twitter',
