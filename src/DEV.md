@@ -48,7 +48,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 + 🔵 [Enrich Docs with Usage](https://github.com/takluyver/jupyter_kernel_mgmt/pull/28)
 + ⚫️ [conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
 + ✋ [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
-
+abtwitter
 ### Jupyter Notebook
 
 + 🔵 [Notebook as a jupyter server extension](https://github.com/jupyter/notebook/pull/4653)

@@ -232,7 +232,7 @@ function install_jupyterlab() {
 #      jupyterlab-chart-editor \
 #      --no-build
 
-    cd $DLAHOME/src/jupyter/labtwitter && \
+    cd $DLAHOME/src/jupyter/lab/twitter && \
       make install && \
       make build && \
       make ext-enable

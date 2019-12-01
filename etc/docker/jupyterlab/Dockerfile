@@ -79,7 +79,7 @@ RUN cd $REPOS_FOLDER && \
   git clone --depth 1 https://github.com/datalayer/datalayer.git && \
   cd $REPOS_FOLDER/datalayer/src/library && \
   make install && \
-  cd $REPOS_FOLDER/datalayer/src/jupyter/labtwitter && \
+  cd $REPOS_FOLDER/datalayer/src/jupyter/lab/twitter && \
   make install && \
   make build && \
   make ext-enable

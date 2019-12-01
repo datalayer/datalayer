@@ -4,7 +4,7 @@
 
 :rocket: JupyterLab Extension for Datalayer.
 
-![JupyterLab Datalayer](https://raw.githubusercontent.com/datalayer/datalayer/master/src/jupyter/labtwitter/docs/jupyterlab-datalayer.gif "JupyterLab Datalayer")
+![JupyterLab Datalayer](https://raw.githubusercontent.com/datalayer/datalayer/master/src/jupyter/lab/twitter/docs/jupyterlab-datalayer.gif "JupyterLab Datalayer")
 
 > Replace `$DLAHOME/libs` in the following commands with whatever your local env looks like.
 
@@ -28,7 +28,7 @@ You also have to build `@datalayer/jupyterlab-twitter` extension and enable the 
 
 ```bash
 # build and enable `jupyterlab-datalayer` extension.
-cd $DLAHOME/src/jupyter/labtwitter && \
+cd $DLAHOME/src/jupyter/lab/twitter && \
   make build && \
   make install && \
   make ext-enable && \
@@ -46,18 +46,18 @@ DLA_TWITTER_OAUTH_CALLBACK_URL=http://localhost:8888/twitter/auth/popup && \
 
 ```bash
 # prerequisite: install development version of the ui server.
-cd $DLAHOME/src/jupyter/labtwitter && \
+cd $DLAHOME/src/jupyter/lab/twitter && \
   pip install -e .
 ```
 
 ```bash
 # Shell #1 - watch the extension.
-cd $DLAHOME/src/jupyter/labtwitter && \
+cd $DLAHOME/src/jupyter/lab/twitter && \
   make watch
 # Shell #2 - run and watch jupyter lab.
 #    --dev-mode \
 #    --browser chromium-browser \
-cd $DLAHOME/src/jupyter/labtwitter && \
+cd $DLAHOME/src/jupyter/lab/twitter && \
   DLA_TWITTER_OAUTH_CALLBACK_URL=http://localhost:8888/twitter/auth/popup && \
   jupyter lab \
     --watch \
