@@ -15,7 +15,7 @@ ENV=datalayer && \
   conda create -y -n $ENV \
     python=3.7 \
     nodejs=10.16.3 \
-    yarn=1.19.1 \
+    yarn=1.19.2 \
     jupyterlab=1.2.3
 #    nodejs=8.10.0 \
 #    nodejs=10.16.3 \

@@ -38,7 +38,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 ### Jupyter Notebook Classic
 
 + 🏃 [Flags and Aliases handling](https://github.com/zsailer/nbclassic/issues/1)
-+ ⚫️ [Kernel name is not displayed with Kernel Manager](https://github.com/zsailer/nbclassic/issues/2)
++ 💪 [Kernel name is not displayed with Kernel Manager](https://github.com/zsailer/nbclassic/issues/2)
 
 ### JupyterLab
 
@@ -46,7 +46,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 + 🏃 [JupyterLab Server as Server Extension](https://github.com/jupyterlab/jupyterlab_server/pull/79)
 + 💪 [Create JupyterLab Extension Examples](https://github.com/datalayer/datalayer/issues/21)
 + 💪 [POC Kernel Launch Parameters](https://github.com/datalayer/datalayer/issues/24)
-+ ⚫️ [Upgrade to react to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
++ ⚫️ [Upgrade to React to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
 
 ### Jupyter Notebook
 
@@ -58,7 +58,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 
 ### Visual Studio Code
 
-+ ⚪️ [`yarn web` should support extension](https://github.com/microsoft/vscode/issues/84901)
++ ⚪️ [yarn web should support extension](https://github.com/microsoft/vscode/issues/84901)
 
 ## Legend
 
