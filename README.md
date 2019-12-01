@@ -52,11 +52,11 @@ Others can understand, reuse and build on top of your papers.
 
 [![Join the chat at https://gitter.im/datalayer/datalayer](https://badges.gitter.im/datalayer/datalayer.svg)](https://gitter.im/datalayer/datalayer)
 
-This **Monorepo** builds up the `Datalayer Science Plaform`. You will find here the source code, docs, scripts, configuration, issues, boards... under an open source license.
+This **monorepo** builds up the `Datalayer Science Plaform`. You will find here the source code, docs, scripts, configuration, issues, boards... under an open source license.
 
-The Datalayer Science Platform is **Secured** and **Scalable**. It brings better [Kubernetes](https://kubernetes.io) and [Jupyter](https://jupyter.org) operations on [Amazon AWS](https://aws.amazon.com). We are planning **Multi Cloud** in a future.
+The Datalayer Science Platform is **secured** and **scalable**. It brings better [Kubernetes](https://kubernetes.io) and [Jupyter](https://jupyter.org) operations on [Amazon AWS](https://aws.amazon.com). We are planning **Multi Cloud** in a future.
 
-The sources are available in the [client](./client) and [server](./server) folders under a Open Source license.
+The [sources](./src) are available under a open source [license](LICENSE).
 
 We welcome you to contribute to this repository. For this, [setup your local environment](https://docs.datalayer.io/dev).
 
