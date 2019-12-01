@@ -6,7 +6,6 @@
 <h3 align="center">
   Learn to 💚 Data with Datalayer
 </h3>
-<hr/>
 <p/>
 
 <a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
