@@ -3,10 +3,10 @@
     <img alt="Datalayer" src="https://docs.datalayer.io/logo/datalayer-square.png" width="60" />
   </a>
 </p>
+<hr/>
 <h4 align="center">
   Learn to 💚 Data
 </h4>
-<hr/>
 <p/>
 
 <a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
