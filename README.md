@@ -10,9 +10,9 @@
 
 <a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 
-+ You use real datasets and code to create and publish **reproducible** analysis.
-+ You **write and share data papers** with a mix of **math**, **code** and **medias** in a **collaborative** way.
-+ You also access a searchable online **library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
++ You use real datasets and code to create and publish __reproducible__ analysis.
++ You __write and share data papers__ with a mix of __math__, __code__ and __medias__ in a __collaborative__ way.
++ You also access a searchable online __library__ with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
 
 See it as a <b>GitHub for Education</b> or a <b>Google Docs for Datasets</b>.
 
@@ -20,31 +20,25 @@ See it as a <b>GitHub for Education</b> or a <b>Google Docs for Datasets</b>.
 
 Level up you Data knowledge through interactive exercises and examples.
 
-Users get online **Jupyter Notebooks** with **Collaboration** and **Sharing** capabilities.
-
-The user notebooks are:
-
-1. Reproducible.
-1. Scalable.
-1. Secured.
+Users get online __Jupyter notebooks__ with __collaboration__ and __sharing__ capabilities. The user notebooks are __reproducible__, __scalable__ and __secured__.
 
 ## 📓 Data Papers
 
 Others can understand, reuse and build on top of your papers.
 
-1.  **Open Science.**
+1.  __Open Science.__
 
     Make scientific research (including publications, datasets, and code) and its dissemination accessible to all levels of an inquiring society, amateur or professional.
 
-1.  **Data Storytelling.**
+1.  __Data Storytelling.__
 
     Communicate information, tailored to a specific audience, with a compelling narrative. It is the last ten feet of your data analysis and arguably one of the most important aspect.
 
-1.  **Data Journalism.**
+1.  __Data Journalism.__
 
      Reflect the increased interaction between content producers (journalist) and several other fields such as design, computer science and statistics. Communicate information, tailored to a specific audience, with a compelling narrative. It is the last ten feet of your data analysis and arguably one of the most important aspect.
 
-1.  **and more...**
+1.  __and more...__
 
     It is really on what you want to achieve with Data and Code.
 
@@ -52,9 +46,9 @@ Others can understand, reuse and build on top of your papers.
 
 [![Join the chat at https://gitter.im/datalayer/datalayer](https://badges.gitter.im/datalayer/datalayer.svg)](https://gitter.im/datalayer/datalayer)
 
-This **monorepo** builds up the `Datalayer Science Plaform`. You will find here the source code, docs, scripts, configuration, issues, boards... under an open source license.
+This __monorepo__ builds up the `Datalayer Science Plaform`. You will find here the source code, docs, scripts, configuration, issues, boards... under an open source license.
 
-The Datalayer Science Platform is **secured** and **scalable**. It brings better [Kubernetes](https://kubernetes.io) and [Jupyter](https://jupyter.org) operations on [Amazon AWS](https://aws.amazon.com). We are planning **Multi Cloud** in a future.
+The Datalayer Science Platform is __secured__ and __scalable__. It brings better [Kubernetes](https://kubernetes.io) and [Jupyter](https://jupyter.org) operations on [Amazon AWS](https://aws.amazon.com). We are planning __Multi Cloud__ in a future.
 
 The [sources](./src) are available under a open source [license](LICENSE).
 
