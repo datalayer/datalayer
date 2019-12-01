@@ -3,7 +3,7 @@
     <img alt="Datalayer" src="https://docs.datalayer.io/logo/datalayer-square.png" width="60" />
   </a>
 </p>
-<h3 align="center">
+<h3 align="left">
   Learn to 💚 Data with Datalayer
 </h3>
 <p/>
