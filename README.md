@@ -6,13 +6,10 @@
 <h3 align="center">
   Learn to 💚 Data
 </h3>
-<h4 align="center">
-  <a href="https://datalayer.io">Try Datalayer for free</a>
-</h4>
-<p/>
+<hr/>
 <p/>
 
-<b>Learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
+<a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 
 + You use real datasets and code to create and publish **Reproducible** analysis.
 + You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.

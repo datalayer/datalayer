@@ -22,7 +22,7 @@ ENV=datalayer && \
 #    nodejs=11.14.0 \
 #    nodejs=12.3.0 \
 #    nodejs=13.0.0 \
-ENV=datalayer && \
+ENV=jk_mgmt_docs && \
   conda activate $ENV && \
   export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
 ```
