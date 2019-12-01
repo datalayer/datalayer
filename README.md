@@ -2,11 +2,11 @@
   <a href="https://datalayer.io">
     <img alt="Datalayer" src="https://docs.datalayer.io/logo/datalayer-square.png" width="60" />
   </a>
+  <h1 align="center">Datalayer</h1>
+  <div align="center"/>
+    Learn to 💚 Data
+  </div>
 </p>
-<h3 align="left">
-  Learn to 💚 Data with Datalayer
-</h3>
-<p/>
 
 <a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 

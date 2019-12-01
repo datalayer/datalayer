@@ -6,15 +6,17 @@
 
 Welcome to `Datalayer Lab`, a `place` to experiment with software to support data cases.
 
-Check you have the [needed prerequisites](https://docs.datalayer.io/dev/requirements.html).
+Check you have the [needed prerequisites](https://docs.datalayer.io/dev/requirements.html). You are now ready to contribute code, ideas... via [pull requests](https://github.com/datalayer/datalayer/pulls).
 
-You are now ready to contribute code, ideas... via [pull requests](https://github.com/datalayer/datalayer/pulls).
+**With great technology comes great user value.**
 
-**With great technology comes great value for the user.**
+## :ghost: Applications
 
-#### :ghost: Applications
++ [Box](./box)
++ [Slack](./slack)
++ [MS-Teams](./ms-teams)
 
-#### :alien: UI Toolkits, Theming and Others
+## :alien: UI Toolkits, Theming and Others
 
 Showcase user interface widget `toolkits` and `theming` with `react.js` and `typescript`.
 
@@ -36,46 +38,43 @@ Other useful topics.
 + [Typedoc](./typedoc)
 + [Webpack](./webpack)
 
-#### Jupyter
+## Jupyter
 
 + [Jupyter Kernel](./jupyter-kernel)
 + [Jupyter Kernel Management](./jupyter-kernel-mgmt)
 + [Jupyter Server](./jupyter-server)
 
-#### :passport_control: Authentication and Authorization
+## :passport_control: Authentication and Authorization
 
 Authenticate and authorize with various providers.
 
-+ Authentication with [Tornado]](./tornado-auth)
-+ Authentication with [Twitter]](./auth-twitter)
++ Authentication with [Tornado](./tornado-auth)
++ Authentication with [Twitter](./auth-twitter)
 + Authentication with [Okta](./auth-okta)
 + OpenID Connect with [Keycloak](./keycloak)
 + OpenID Connect for [Tornado](./tornado-oidc)
-+ OpenID Connect for [JupyterHub]](./jupyterhub-oidc)
++ OpenID Connect for [JupyterHub](./jupyterhub-oidc)
 
-#### :moyai: Integration with External APIs
+## :moyai: Integration with External APIs
 
 + [JupyterHub API](./jupyterhub-api)
-+ [Box](./box)
-+ [Slack](./slack)
-+ [MS-Teams](./ms-teams)
-+ [OpenAPI](./openapi) (aka `swagger`
++ [OpenAPI](./openapi), aka `swagger`
 
-#### :tent: Others
+## :tent: Others
 
 + [Node.js](./node-js).
-+ [Micro Services](./microservices) examples.
-+ [Now.sh](./now-sh) for serverless deployment.
-+ [Github CLA](./cla) bot (Customer License Approval).
++ [Micro Services](./microservices) examples
++ [Now.sh](./now-sh) for serverless deployment
++ [Github CLA](./cla) bot (Customer License Approval)
 
-#### :panda_face: Golang
+## :panda_face: Golang
 
-[Golang](./golang) Lab.
+[Golang](./golang) Lab
 
-#### :snake: Python
+## :snake: Python
 
-[Python](./python) Lab.
+[Python](./python) Lab
 
-#### :coffee: JVM
+## :coffee: JVM
 
-[Scala and Java](./jvm) Lab.
+[Scala and Java](./jvm) Lab

@@ -2,13 +2,7 @@
 
 # Datalayer Lab Jupyter Kernel Management
 
-## Jupyter Kernel Management in Server
-
-+ [WIP] Kernel providers [#112](https://github.com/jupyter/jupyter_server/pull/112).
-
-+ Transition to Kernel Provider model for kernel management [#90](https://github.com/jupyter/jupyter_server/issues/90).
-
-## Install from GitHub
+## Install
 
 ```bash
 cd $DLAHOME/lab/jupyter-kernel-mgmt && \
@@ -20,7 +14,7 @@ cd $DLAHOME/lab/jupyter-kernel-mgmt && \
   python setup.py develop
 ```
 
-## Build from Source
+## Build
 
 ```bash
 conda deactivate && \
@@ -34,7 +28,7 @@ conda deactivate && \
   git clone https://github.com/kevin-bates/jupyter_server.git --branch jupyter-kernel-mgmt --single-branch --depth 1 && \
   cd jupyter_server && python setup.py develop && cd .. && \
   git clone https://github.com/zsailer/notebook.git --branch notebook-ext --single-branch --depth 1 && \
-  cd notebook && python setup.py develop && cd .. && \
+  cd notebook && python setup.py develop && cd ..
 ```
 
 ## Start
@@ -45,12 +39,12 @@ jupyter server --ServerApp.jpserver_extensions="{'notebook': True}"
 open http://localhost:8888/tree
 ```
 
-## Jupyter Kernel Management Async
+## Async
 
 + Async support for Kernel Management [#23](https://github.com/takluyver/jupyter_kernel_mgmt/pull/23).
 
-## [DEPRECATED] Jupyter Kernel Management in Notebook
+## [DEPRECATED] Notebook
 
-+ WIP: Use new kernel management APIs in notebook server 6.x [#4837](https://github.com/jupyter/notebook/pull/4837).
-+ WIP: Use new kernel management APIs in notebook server [#4170](https://github.com/jupyter/notebook/pull/4170) is superseded by #4837.
-+ Add support for async kernel management [#4479](https://github.com/jupyter/notebook/pull/4479).
++ [DEPRECATED] Use new kernel management APIs in notebook server 6.x [#4837](https://github.com/jupyter/notebook/pull/4837).
++ [DEPRECATED] Use new kernel management APIs in notebook server [#4170](https://github.com/jupyter/notebook/pull/4170) is superseded by #4837.
++ [DEPRECATED] Add support for async kernel management [#4479](https://github.com/jupyter/notebook/pull/4479).
