@@ -16,7 +16,7 @@ title: JupyterLab Develop Extensions
 + https://github.com/jtpio/jupyterlab-extension-tutorial
 + https://github.com/mmesch/labextension_tutorial
 
-## Wishlist
+## Enhancement
 
 [Extension Development Wishlist](https://github.com/jupyterlab/jupyterlab/issues/7468).
 
@@ -25,6 +25,8 @@ title: JupyterLab Develop Extensions
 + Be clearer about when we have sourcemaps on, make sure sourcemaps go all the way back to TypeScript.
 + Prebuild extensions and have them served without building.
 + What about vscode model? They keep every extension in a seperate process and just use message passing to communicate. We don't do that cause we wanna give extensions access to shared JS objects and the DOM.
+
+[Develop extensions inside JupyterLab itself](https://github.com/jupyterlab/jupyterlab/issues/7469).
 
 ## CookieCutter
 
