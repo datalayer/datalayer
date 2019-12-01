@@ -10,11 +10,11 @@
 
 <a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
 
-+ You use real datasets and code to create and publish **Reproducible** analysis.
-+ You **Write and Share Data Papers** with a mix of **Math**, **Code** and **Medias** in a **Collaborative** way.
-+ You also access a searchable online **Library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
++ You use real datasets and code to create and publish **reproducible** analysis.
++ You **write and share data papers** with a mix of **math**, **code** and **medias** in a **collaborative** way.
++ You also access a searchable online **library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
 
-See it as a <b>GitHub for education</b> or a <b>Google Docs for datasets</b>.
+See it as a <b>GitHub for Education</b> or a <b>Google Docs for Datasets</b>.
 
 ## 🎓 Learn Data
 
