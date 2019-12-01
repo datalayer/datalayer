@@ -3,9 +3,9 @@
     <img alt="Datalayer" src="https://docs.datalayer.io/logo/datalayer-square.png" width="60" />
   </a>
 </p>
-<h4 align="center">
-  Datalayer - Learn to 💚 Data
-</h4>
+<h3 align="center">
+  Datalayer, Learn to 💚 Data
+</h3>
 <hr/>
 <p/>
 
