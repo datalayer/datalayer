@@ -16,6 +16,7 @@ start-endpoints:
 	@exec yarn endpoints
 
 clean-ui:
+	@exec yarn clean
 	find . -name node_modules | xargs rm -fr {} || true
 	find . -name lib | xargs rm -fr {} || true
 	find . -name build | xargs rm -fr {} || true
@@ -33,6 +34,3 @@ build-ui:
 	cd ${DLAHOME}/src/widgets && yarn build && \
 	    cd ${DLAHOME}/src/components && yarn build && \
 		cd ${DLAHOME}/src && yarn build
-
-clean:
-	@exec yarn clean
