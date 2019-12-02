@@ -10,6 +10,14 @@ title: Kubernetes Cluster API Amazon AWS
 
 [Zoom Meetings](https://zoom.us/j/166836624)
 
+## Docs
+
+[Docs](https://github.com/kubernetes-sigs/cluster-api-provider-aws/blob/master/docs/README.md).
+
+[Prerequisites](https://github.com/kubernetes-sigs/cluster-api-provider-aws/blob/master/docs/prerequisites.md).
+
+[Quick Start](https://cluster-api.sigs.k8s.io/user/quick-start.html).
+
 ## Build
 
 ```bash
@@ -157,7 +165,7 @@ From https://gist.github.com/detiber/3e0346c9c722f7245664f985b196af41
 
 > Also: `clusterctl alpha phases --help` specifically `clusterctl alpha phases apply-cluster-api-components -p ./cmd/clusterctl/examples/aws/out/provider-components.yaml --kubeconfig <YOUR KUBECONFIG>`.
 
-## Build and install the artifacts
+## Build and install the Artifacts
 
 ```bash
 make clean
@@ -291,4 +299,5 @@ EOF
 ## About Node Join
 
 [Control plane node join](https://github.com/kubernetes-sigs/cluster-api-provider-aws/pull/463)
+
 [WIP: re-use existing subnets](https://github.com/sethp-nr/cluster-api-provider-aws/commit/7b9ad1256dccbde151484fbc9375135f22b20005)

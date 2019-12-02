@@ -39,7 +39,7 @@ echo -e $WHITE_BCK"Golang Version"$NOCOLOR
 echo
 G=$(go version) \
   && GV=$(cut -d '.' -f2 <<<${G}) \
-  && if [ $GV -ne "11" ]; then echo 'You should have go version 1.11.'; exit -1; fi
+  && if [ $GV -ne "13" ]; then echo 'You should have go version 1.13.x'; exit -1; fi
 echo Golang version $GV is OK.
 echo
 

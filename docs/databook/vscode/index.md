@@ -60,6 +60,8 @@ git clone https://github.com/microsoft/vscode --depth 1 && \
 
 ```bash
 # Terminal 1.
+yarn && yarn compile
+# ... or
 yarn && yarn watch
 # Terminal 2.
 ./scripts/code.sh
@@ -128,6 +130,8 @@ To debug code running in the render you can either use [1] VS Code or the [2] Ch
 
 ```bash
 # Terminal 1.
+yarn && yarn compile
+# ... or
 yarn && yarn watch
 # Terminal 2.
 yarn web
@@ -257,21 +261,47 @@ code --enable-proposed-api (<extension-id>) # Enables proposed API features for 
 
 [Theme Extension Example](https://dev.to/thegeoffstevens/launch-a-product-in-the-vs-code-marketplace-in-30-minutes-or-less-16oa).
 
-## Extension Pack
+## Extension Packaging
+
+[Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
+
+[Extension Pack Roundup](https://code.visualstudio.com/blogs/2017/03/07/extension-pack-roundup).
 
 [Create your own VS Code Extension Pack](https://dev.to/thegeoffstevens/how-to-create-your-own-vs-code-extension-pack-nab).
 
+[VS Code how to create your own extension pack](https://medium.com/@sanik.bajracharya/vscode-how-to-create-your-own-extension-pack-483385644c29).
+
 ## Python Extension
 
-GitHub [repo](https://github.com/microsoft/vscode-python)
+GitHub [repo](https://github.com/microsoft/vscode-python) source code.
 
-[Docs](https://code.visualstudio.com/docs/python/jupyter-support).
+[Contributing](https://github.com/Microsoft/vscode-python/blob/master/CONTRIBUTING.md).
 
-[Blog](https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code).
+```bash
+ENV=vscode && \
+  conda activate $ENV && \
+  export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
+cd $DLAHOME/repos/vscode-python
+npm ci
+# python -m venv .venv
+npx gulp installPythonLibs
+yarn run compile
+npx gulp prePublishNonBundle
+yarn run compile-webviews-watch # For data science (React Code)
+yarn run package
+yarn run test:unittests # runs all unit tests
+yarn run test:unittests -- --grep='<NAME-OF-SUITE>'
+yarn run testSingleWorkspace  # will launch the VSC UI
+yarn run testMultiWorkspace  # will launch the VSC UI
+```
 
-[Feature Request: Support inline code execution similar to jupyter notebooks / hydrogen](https://github.com/microsoft/vscode/issues/10680)
+## Python Extension for Jupyter
 
-Jupyter.
+[Jupyter Support](https://code.visualstudio.com/docs/python/jupyter-support).
+
+[Jupyter Announce](https://devblogs.microsoft.com/python/announcing-support-for-native-editing-of-jupyter-notebooks-in-vs-code).
+
+[Jupyter Support Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
 + https://github.com/microsoft/vscode-python/tree/master/src/client/datascience
 + https://github.com/microsoft/vscode-python/tree/master/src/client/datascience/jupyter

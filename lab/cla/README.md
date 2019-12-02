@@ -16,6 +16,7 @@ Review the following existing implementations for inspiration.
 + [snowplow-incubator/cla-bot](https://github.com/snowplow-incubator/cla-bot) #go
 + [cla-enforcer](https://github.com/datastax/cla-enforcer) #ruby #docusign
 + [clahu](https://github.com/JayBeavers/clahub) #js #unmaintained
++ [icla.dev](https://github.com/quenda/icla.dev)
 
 From Kubernetes.
 
