@@ -14,6 +14,8 @@ The plan is to move most of our models over to that generic data store.
 
 + https://github.com/jupyterlab/jupyterlab/issues/5382#issuecomment-532752990
 + https://github.com/quansight/jupyter-datastore
++ https://github.com/jupyterlab/lumino/tree/master/packages/datastore
++ https://github.com/jupyterlab/rtc
 
 + [Real Time Collaboration](https://github.com/jupyterlab/jupyterlab/issues/5382).
 + [ellisonbg/jupyterlab-rtc](https://github.com/ellisonbg/jupyterlab-rtc).

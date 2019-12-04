@@ -1,3 +1,3 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Lab Jupyter Application
+# Datalayer Lab Jupyter

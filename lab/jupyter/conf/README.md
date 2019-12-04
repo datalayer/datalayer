@@ -6,5 +6,5 @@
 python load_conf.py --NotebookApp.hello=notebook --ServerApp.hello=server --NewApp.hello=new
 
 {'NotebookApp': {'allow_credentials': False, 'port': 8889, 'password_required': True, 'hello': 'notebook'}, 'ServerApp': {'hello': 'server'}, 'NewApp': {'hello': 'new'}}
-{'ServerApp': {'allow_credentials': False, 'port': 8889, 'password_required': True, 'hello': 'server'}, 'NotebookApp': {'hello': 'notebook'}, 'NewApp': {'hello': 'new'}}
+...
 ```

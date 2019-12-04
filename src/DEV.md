@@ -59,7 +59,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 
 ## Voila
 
-+ 🔵 [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/270)
++ 🔵 [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/492)
 
 ## Visual Studio Code
 
