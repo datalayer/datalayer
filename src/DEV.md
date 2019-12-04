@@ -41,7 +41,7 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 
 ## Jupyter Notebook Classic
 
-+ 🏃 [Shim the NotebookApp Configs]()
++ 🏃 [Config shim initial support ](https://github.com/zsailer/nbclassic/pull/3)
 + 🏃 [Validate Flags and Aliases Handling](https://github.com/zsailer/nbclassic/issues/1)
 + 💪 [Kernel name is not displayed with Kernel Manager](https://github.com/zsailer/nbclassic/issues/2)
 

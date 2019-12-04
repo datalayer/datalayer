@@ -21,7 +21,6 @@ setuptools.setup(
         'flask_oidc',
         'flask_cors',
         'requests',
-        'pysolr @ git+https://github.com/django-haystack/pysolr@master',
         "kazoo",
         "simplejson",
     ],
@@ -30,13 +29,12 @@ setuptools.setup(
         'flask_oidc',
         'flask_cors',
         'requests',
-        'pysolr @ git+https://github.com/django-haystack/pysolr@master',
         "kazoo",
         "simplejson",
     ],
-#    dependency_links = [
-#     "git+https://github.com/django-haystack/pysolr.git#egg=pysolr",
-#    ],
+    dependency_links = [
+     "git+https://github.com/django-haystack/pysolr.git#egg=pysolr",
+    ],
     tests_requires = [
         'pytest',
         'pytest-cov',

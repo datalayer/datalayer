@@ -24,7 +24,7 @@ dla dsp-down iam,kuber,jupyterhub,library,explorer
 
 ```bash
 cd $DLAHOME/src && \
-  make install-endpoints
+  make build-endpoints
 ```
 
 ```bash
