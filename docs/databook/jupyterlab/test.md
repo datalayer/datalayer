@@ -6,7 +6,7 @@ title: JupyterLab Test
 
 ```bash
 cd $DLAHOME/repos/jupyterlab && \
-  pytest
+py.test -v --junitxml=junit.xml &&
 ```
 
 ```bash

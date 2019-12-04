@@ -24,6 +24,15 @@ The plan is to move most of our models over to that generic data store.
 + [Implement Datastore class](https://github.com/phosphorjs/phosphor/pull/371).
 + [vidartf/phosphor/feature-tables3-extras](https://github.com/vidartf/phosphor/commits/feature-tables3-extras).
 
+## Algorithm
+
++ [Operational Transformation](https://en.wikipedia.org/wiki/Operational_transformation).
++ [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type).
+
+## Libraries
+
+[Automerge](https://github.com/automerge/automerge).
+
 ## WebRTC
 
 + https://www.webrtc-experiment.com

@@ -5,7 +5,7 @@
     },
     "go.inferGopath": false,
     "go.formatTool": "goimports",
-    "python.pythonPath": "${workspaceFolder}/opt/miniconda3/envs/datalayer/bin/python",
+    "python.pythonPath": "/opt/datalayer/opt/miniconda3/envs/datalayer/bin/python",
     "terminal.integrated.fontFamily": "Meslo LG S for Powerline",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,

@@ -4,7 +4,7 @@
 
 The `Endgame` details for this iteration are tracked in the linked issues.
 
-+ Begin: Monday December 2, 2019
++ Begin: Monday December 2, 2019.
 + End: Sunday November 8, 2019.
 
 Below is a summary of the top level play items (see the [legend](#legend)).
@@ -12,35 +12,36 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 ## Datalayer
 
 + 🏃 [Port DSP on Material UI](https://github.com/datalayer/datalayer/issues/2)
-+ 💪 [Implement jupyter-control ExtensionApp](https://github.com/datalayer/datalayer/issues/19)
 + 💪 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 + 💪 [Index and Search Data Papers](https://github.com/datalayer/datalayer/issues/3)
 + 🔵 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
-+ 🔵 [Implement jupyter-code ExtensionApp](https://github.com/datalayer/datalayer/issues/27)
-
-## Jupyter Kernel Management
-
-+ 🔄 [Release jupyter_kernel_mgmt 0.5.0](https://github.com/takluyver/jupyter_kernel_mgmt/issues/33)
-+ 💪 [Implement a conda_kernel_provider](https://github.com/takluyver/jupyter_kernel_mgmt/issues/32)
-+ ✋ [De-gateway the providers](https://github.com/gateway-experiments/remote_kernel_provider/issues/19)
++ 🔵 [Implement Jupyter Control ExtensionApp](https://github.com/datalayer/datalayer/issues/19)
++ 🔵 [Implement Jupyter Code ExtensionApp](https://github.com/datalayer/datalayer/issues/27)
 
 ## Jupyter Server
 
-+ 🏃 [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
-+ 🏃 [Enforce Python 3.6 in setup.py to support JKM](https://github.com/jupyter/jupyter_server/pull/142)
-+ 🏃 [Replace Travis with GitHub Actions](https://github.com/jupyter/jupyter_server/issues/143)
-+ 🏃 [Refactor tests to use pytest fixtures ](https://github.com/jupyter/jupyter_server/issues/136)
 + 🏃 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
-+ 💪 [Document jupyter_server](https://github.com/jupyter/jupyter_server/issues/131)
++ 🏃 [Ensure extension app read config from file and cli](https://github.com/jupyter/jupyter_server/pull/149)
++ 🏃 [Refactor tests to use pytest fixtures](https://github.com/jupyter/jupyter_server/issues/136)
++ 🏃 [Document jupyter_server](https://github.com/jupyter/jupyter_server/issues/131)
++ 🏃 [Release jupyter_server 0.2.0](https://github.com/jupyter/jupyter_server/issues/144)
 + 💪 [Kernel Providers](https://github.com/jupyter/jupyter_server/pull/112)
 + 💪 [Transition to Kernel Provider model for kernel management](https://github.com/jupyter/jupyter_server/issues/90)
-+ 💪 [Release jupyter_server 0.2.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
++ 💪 [Release jupyter_server 0.3.0 with kernel_mgmt 0.5.0](https://github.com/jupyter/jupyter_server/issues/138)
 + 🔵 [Make frontends discoverable and add a frontend alias](https://github.com/jupyter/jupyter_server/issues/121)
 + 🔵 [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)
 + ✋ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
++ ⛳ [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
+
+## Jupyter Kernel Management
+
++ 👀 [Parameterized Kernel Launch](https://github.com/takluyver/jupyter_kernel_mgmt/issues/38)
++ ✋ [De-gateway the Providers](https://github.com/gateway-experiments/remote_kernel_provider/issues/19)
++ 💄 [Conda Formal jupyter_kernel_mgmt support](https://github.com/anaconda-platform/nb_conda_kernels/issues/151)
 
 ## Jupyter Notebook Classic
 
++ 🏃 [Shim the NotebookApp Configs]()
 + 🏃 [Validate Flags and Aliases Handling](https://github.com/zsailer/nbclassic/issues/1)
 + 💪 [Kernel name is not displayed with Kernel Manager](https://github.com/zsailer/nbclassic/issues/2)
 
@@ -68,18 +69,22 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 
 | Mark | Description |
 | -----| ----------- |
+| ⛳ | Roadmap |
 | 🚀 | Ready to be released |
 | 🏃 | Work in progress |
-| 💪 | Stretch goal for this iteration |
-| ⚫️ | More investigation required to remove uncertainty |
-| 🔵 | Under discussion within the Team |
-| 🔴 | Missing issue reference |
-| ⚪️ | Looking for help |
-| ⌛ | On hold |
+| 💪 | Stretch it |
+| 👀 | Review is needed |
+| 🔥 | This is burning, hurry up to fix |
 | 💄 | Nice to have |
+| ⏰ | Timeboxed |
 | 🏄 | Spike |
 | 💡 | Innovation |
-| 😄 | Fun |
-| 🔄 | To review |
+| 😄 | Have fun |
+| ⌛ | On hold |
+| 🔄 | Do it again |
 | 🐛 | Bug |
 | ✋ | Blocked task |
+| 🔵 | Under discussion within the team |
+| 🔴 | Urgent action needed |
+| ⚪️ | Looking for help |
+| ⚫️ | More investigation required to remove uncertainty |

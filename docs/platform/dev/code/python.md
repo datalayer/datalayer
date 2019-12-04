@@ -86,6 +86,7 @@ conda env create -f environment.yml
 
 ```bash
 pip install -e .
+pip install -e .[test]
 python setup.py develop
 ```
 

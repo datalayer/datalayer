@@ -40,6 +40,8 @@ KDnuggets: This has a detailed list of public datasets, including some of those 
 
 Labeled Faces in the Wild: http://vis-www.cs.umass.edu/lfw In 2007, Labeled Faces in the Wild was released in an effort to spur re-search in face recognition, specifically for the problem of face verification with un-constrained images. Since that time, more than 50 papers have been published that improve upon this benchmark in some respect. A remarkably wide variety of innovative methods have been developed to overcome the challenges presented in this database. As performance on some aspects of the benchmark approaches 100% accuracy, it seems appropriate to review this progress, derive what general principles we can from these works, and identify key future challenges in face recognition. In this survey, we review the contributions to LFW for which the authors have provided results to the curators (results found on the LFW results web page). We also review the cross cutting topic of alignment and how it is used in various methods. We end with a brief discussion of recent databases designed to challenge the next generation of face recognition algorithms
 
+https://datadryad.org
+
 http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
 
 https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki
