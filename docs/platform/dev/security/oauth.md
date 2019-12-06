@@ -18,10 +18,12 @@ See example application in the [Datalayer Lab folder](https://github.com/datalay
 
 OAuth2 is about [authorization, not authentication](https://oauth.net/articles/authentication).
 
-Read more.
+## See Also
+
++ https://oauth.net/2
+
++ https://connect2id.com/learn/oauth-2
++ https://connect2id.com/learn/token-binding
 
 + https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-protocols-openid-connect-code
 + https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc
-+ https://connect2id.com/learn/oauth-2
-+ https://connect2id.com/learn/token-binding
-+ https://oauth.net/2

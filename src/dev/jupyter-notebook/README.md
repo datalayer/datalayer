@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# JupyterHub
+# Jupyter Notebook
 
 ```bash
 make start

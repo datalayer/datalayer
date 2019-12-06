@@ -15,4 +15,4 @@ default: start ## default target is start.
 
 start:
 	echo open http://localhost:8000/jupyterhub
-	@exec jupyterhub -f jupyterhub_config_dev.py --debug
+	@exec jupyterhub -f jupyterhub_config.py --debug

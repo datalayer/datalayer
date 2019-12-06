@@ -5,13 +5,13 @@ import setuptools
 VERSION = '0.0.1'
 
 setuptools.setup(
-    name = 'jupyterhub',
+    name = 'jupyterhub-ctl',
     version = VERSION,
-    description = 'Datalayer JupyterHub',
+    description = 'Datalayer JupyterHub Control',
     long_description = open('README.md').read(),
     packages = setuptools.find_packages(),
     package_data = {
-        'jupyterhub': [
+        'jupyterhub-ctl': [
             '*',
         ],
     },

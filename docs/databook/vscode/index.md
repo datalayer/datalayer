@@ -435,6 +435,10 @@ open http://localhost:8080
 + https://github.com/theia-ide/theia
 + https://www.gitpod.io
 
+## Eclipse Che
+
+[Eclipse Che](https://github.com/eclipse/che).
+
 ## Hydrogen
 
 Nteract Hydrogen [VS Code Integration](https://github.com/nteract/hydrogen/issues/449).

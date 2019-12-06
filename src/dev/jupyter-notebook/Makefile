@@ -15,4 +15,4 @@ default: start ## default target is start.
 
 start:
 	echo open http://localhost:8000
-	@exec jupyter notebook -f jupyter_notebook_config_dev.py --debug
+	@exec jupyter notebook -f jupyter_notebook_config.py --debug

@@ -13,3 +13,4 @@ title: Others
 + [NbGallery](https://github.com/nbgallery/nbgallery)
 + [Gallery](https://github.com/openhumans/jupyter-gallery)
 + [OpenRefine](https://github.com/OpenRefine/OpenRefine/wiki/Jupyter)
++ [nbdev](https://www.fast.ai/2019/12/02/nbdev)

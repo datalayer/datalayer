@@ -10,7 +10,7 @@ help: ## display this help.
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
 build-endpoints:
-	@exec dev/install-dev-env.sh endpoints
+	@exec dla env-dev all
 
 start-endpoints:
 	@exec yarn endpoints
@@ -36,5 +36,5 @@ build-ui:
 		cd ${DLAHOME}/src && yarn build
 
 build-all:
-	@exec dev/install-dev-env.sh all
+	@exec make build-endpoints
 	@exec make build-ui

@@ -37,4 +37,5 @@ macos_pre() {
 
 # ------------------------------------
 
-$DLAHOME/src/dev/install-dev-env.sh all
+$DLASBIN/env-dev
+

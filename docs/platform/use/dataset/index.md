@@ -10,6 +10,12 @@ Datalayer ships datasets you can analyse.
 
 http://datacommons.org
 
+https://toolbox.google.com/datasetsearch
+https://github.com/lyft/amundsen
+https://www.alation.com/gartner-data-catalogs-must-have
+https://github.com/intake/intake
+https://intake.readthedocs.io/en/latest
+
 https://datacatalog.worldbank.org/search?sort_by=field_wbddh_modified_date&sort_order=DESC#
 
 https://offeneregister.de/daten/
@@ -94,7 +100,7 @@ http://data.gov.be
 
 http://statbel.fgov.be
 
-Stanford Snap https://snap.stanford.edu/data
+[Stanford Snap](https://snap.stanford.edu/data)
 
 h2o dataset documentation page
 

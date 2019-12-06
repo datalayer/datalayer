@@ -2,7 +2,7 @@
 
 # Datalayer Environment
 
-## Development Environment Example
+## Minimal
 
 ```bash
 ENV=datalayer && \
