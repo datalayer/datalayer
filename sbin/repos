@@ -88,6 +88,7 @@ jupyterlab|https://github.com/datalayer-contrib/jupyterlab.git|https://github.co
 jupyterlab-commenting|https://github.com/datalayer-contrib/jupyterlab-commenting.git|https://github.com/jupyterlab/jupyterlab-commenting.git|master \
 jupyterlab-cookiecutter-extension|https://github.com/datalayer-contrib/jupyterlab-cookiecutter-extension.git|https://github.com/jupyterlab/extension-cookiecutter-ts.git|master \
 jupyterlab-cookiecutter-mimerender|https://github.com/datalayer-contrib/jupyterlab-cookiecutter-mimerender.git|https://github.com/jupyterlab/mimerender-cookiecutter-ts.git|master \
+jupyterlab-dat|https://github.com/datalayer-contrib/jupyterlab-dat.git|https://github.com/deathbeds/jupyterlab-dat.git|master \
 jupyterlab-data-explorer|https://github.com/datalayer-contrib/jupyterlab-data-explorer.git|https://github.com/jupyterlab/jupyterlab-data-explorer.git|master \
 jupyterlab-demo|https://github.com/datalayer-contrib/jupyterlab-demo.git|https://github.com/jupyterlab/jupyterlab-demo.git|master \
 jupyterlab-drawio|https://github.com/datalayer-contrib/jupyterlab-drawio.git|https://github.com/quantstack/jupyterlab-drawio.git|master \

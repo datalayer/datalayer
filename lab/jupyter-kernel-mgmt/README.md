@@ -48,3 +48,11 @@ open http://localhost:8888/tree
 + [DEPRECATED] Use new kernel management APIs in notebook server 6.x [#4837](https://github.com/jupyter/notebook/pull/4837).
 + [DEPRECATED] Use new kernel management APIs in notebook server [#4170](https://github.com/jupyter/notebook/pull/4170) is superseded by #4837.
 + [DEPRECATED] Add support for async kernel management [#4479](https://github.com/jupyter/notebook/pull/4479).
+
+## Provider
+
++ A kernel spec is a directory with a kernel.json file.
++ A kernel type is anything discovered through the JKM machinery (which includes kernel specs, exposed with the spec/ prefix). This has:
++ A kernel type ID (the qualified string, e.g. spec/python3)
++ kernel type metadata (the dictionary from find_kernels with more details about that kernel type)
++ kernel instances are specific processes created by launching a kernel type

@@ -173,14 +173,20 @@ Outdated.
 + https://github.com/AaronWatters/jp_doodle
 + https://github.com/AaronWatters/widget-cookiecutter
 
-## Perspective
+## Data Grids
+
+Perspective
 
 + [Perspective](https://github.com/finos/perspective).
 + [Perspective JupyterLab Extension](https://github.com/finos/perspective/tree/master/packages/perspective-jupyterlab).
 + [Perspective Python](https://github.com/timkpaine/perspective-python).
 + [Example](https://perspective.finos.org).
 
-## Folium
+QGrid
+
++ https://github.com/quantopian/qgrid
+
+## Ohter Visualizations
 
 [Folium](https://github.com/python-visualization/folium).
 

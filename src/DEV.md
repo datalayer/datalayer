@@ -2,12 +2,12 @@
 
 # Datalayer Source Development
 
-The `Endgame` details for this iteration are tracked in the linked issues.
+The `EndGame` details for this iteration are tracked in the linked issues.
 
 + Begin: Monday December 2, 2019.
 + End: Sunday November 8, 2019.
 
-Below is a summary of the top level play items (see the [legend](#legend)).
+Below is a summary of the top level play items. See the [legend](#legend) for interpretation.
 
 ## Datalayer
 
@@ -31,10 +31,11 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 + 🔵 [Make frontends discoverable and add a frontend alias](https://github.com/jupyter/jupyter_server/issues/121)
 + 🔵 [Pluggable user token creation/validation](https://github.com/jupyter/jupyter_server/issues/50)
 + ✋ [Add a Session Management infrastructure for extension developers](https://github.com/jupyter/jupyter_server/issues/122)
-+ ⛳ [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
++ 🗺️ [Jupyter Server Roadmap](https://github.com/jupyter/jupyter_server/issues/127)
 
 ## Jupyter Kernel Management
 
++ 💪 [Fix KernelApp](https://github.com/takluyver/jupyter_kernel_mgmt/issues/40)
 + 👀 [Parameterized Kernel Launch](https://github.com/takluyver/jupyter_kernel_mgmt/issues/38)
 + ✋ [De-gateway the Providers](https://github.com/gateway-experiments/remote_kernel_provider/issues/19)
 + 💄 [Conda Formal jupyter_kernel_mgmt support](https://github.com/anaconda-platform/nb_conda_kernels/issues/151)
@@ -69,7 +70,8 @@ Below is a summary of the top level play items (see the [legend](#legend)).
 
 | Mark | Description |
 | -----| ----------- |
-| ⛳ | Roadmap |
+| ⛳ | Goal |
+| 🗺️ | Roadmap |
 | 🚀 | Ready to be released |
 | 🏃 | Work in progress |
 | 💪 | Stretch it |

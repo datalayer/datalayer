@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Environement
+# Datalayer Environment
 
 ## Development Environment Example
 
@@ -9,20 +9,26 @@ ENV=datalayer && \
   conda env create 
 #    -n $ENV \
     -f environment.yml
-ENV=py35 && \
-  conda deactivate && \
-  conda remove -n $ENV -y --all && \
-  conda create -y -n $ENV \
-    python=3.5 \
-    nodejs=10.16.3 \
-    yarn=1.19.2 \
-    jupyterlab=1.2.3
+```
+
+```bash
 #    nodejs=8.10.0 \
 #    nodejs=10.16.3 \
 #    nodejs=11.14.0 \
 #    nodejs=12.3.0 \
 #    nodejs=13.0.0 \
-ENV=py35 && \
+ENV=datalayer && \
+  conda deactivate && \
+  conda remove -n $ENV -y --all && \
+  conda create -y -n $ENV \
+    python=3.7 \
+    nodejs=10.16.3 \
+    yarn=1.19.2 \
+    jupyterlab=1.2.3
+```
+
+```bash
+ENV=datalayer && \
   conda activate $ENV && \
   export PATH=/opt/miniconda3/envs/$ENV/bin:$PATH
 ```

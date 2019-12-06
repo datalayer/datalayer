@@ -133,6 +133,7 @@ Embedded.
 * [Embed](/embed/index.md)
   * [TheBeLab](/embed/thebelab.md)
   * [Juniper](/embed/juniper.md)
+  * [Interact](/embed/interact.md)
 
 Education.
 

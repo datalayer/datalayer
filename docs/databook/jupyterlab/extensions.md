@@ -21,6 +21,7 @@ JupyterLab Extensions [Docs](https://jupyterlab.readthedocs.io/en/latest/user/ex
 + [celltags](https://github.com/jupyterlab/jupyterlab-celltags)
 + [celltests](https://github.com/timkpaine/jupyterlab_celltests)
 + [commenting](https://github.com/jupyterlab/jupyterlab-commenting)
++ [dat](https://github.com/deathbeds/jupyterlab-dat)
 + [debugger](https://github.com/quantstack/jupyterlab-debugger)
 + [draw.io](https://github.com/quantstack/jupyterlab-drawio)
 + [easygit](https://github.com/jennalandy/jupyterlab-easygit)

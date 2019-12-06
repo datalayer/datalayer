@@ -34,3 +34,7 @@ build-ui:
 	cd ${DLAHOME}/src/widgets && yarn build && \
 	    cd ${DLAHOME}/src/components && yarn build && \
 		cd ${DLAHOME}/src && yarn build
+
+build-all:
+	@exec dev/install-dev-env.sh all
+	@exec make build-ui

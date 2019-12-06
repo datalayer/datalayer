@@ -55,6 +55,7 @@ Create a [FREE account on the Datalayer Web Site](https://datalayer.io).
 * [User Guide](/use/index.md)
   * [Datasets](/use/dataset/index.md)
     * [Connectors](/use/dataset/connectors.md)
+    * [Management](/use/dataset/management.md)
   * [Analytics](/use/analytics/index.md)
   * [Algorithms](/use/algo/index.md)
     * [NLP](/use/algo/nlp.md)

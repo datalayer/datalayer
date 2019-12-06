@@ -46,7 +46,8 @@ function install_endpoints() {
     "iam"
     "library"
     "explorer"
-    "jupyterpool"
+    "jupyter/pool"
+    "jupyter/hub/ctl"
     )
 
   for ENDPOINT in "${ENDPOINTS[@]}"
@@ -87,6 +88,7 @@ function install_library() {
     make install && \
     make build && \
     make dev
+
 }
 
 # ------------------------------------
@@ -178,59 +180,105 @@ function install_jupyterlab() {
 #      rm -fr node_modules || true && \
 #      rm -fr lib || true && \
 #      yarn install
-#    pip install --pre --upgrade jupyterlab
-    pip install jupyterlab
+
+#    cd $DLAHOME/repos/jupyterlab-server && \
+#      pip install -e .
 
 #    cd $DLAHOME/repos/jupyterlab/packages/cells && \
 #      yarn install && \
 #      yarn build
 
-#    cd $DLAHOME/repos/jupyterlab-server && \
-#      pip install -e .
+#    pip install --pre --upgrade jupyterlab
+    pip install jupyterlab
+
+}
+
+function install_jupyterlab_ext() {
+
+    echo
+    echo -e $WHITE_BCK"INSTALLING JUPYTERLAB EXTENSIONS"$NOCOLOR
+    echo
 
 #     cd $DLAHOME/repos/jupyterwidgets-ipy && \
 #       ./dev-install.sh
 
-#    pip install ipyresuse \
-#      cufflinks
-
-#    pip install matplotlib && \
-#      jupyter labextension install jupyter-matplotlib --no-build
-
-#    pip install ipyleaflet && \
-#      jupyter labextension install jupyter-leaflet --no-build
-
-#    pip install ipymaterialui && \
-#      jupyter labextension install jupyter-materialui --no-build
-
-#    pip install jupyterlab_latex && \
-#      jupyter labextension install @jupyterlab/latex --no-build
-
-#    pip install bokeh && \
-#      jupyter labextension install jupyterlab_bokeh --no-build
-
-#    pip install bqplot && \
-#      jupyter labextension install bqplot --no-build
-
-#    pip install perspective-python && \
-#      jupyter labextension install @finos/perspective-jupyterlab --no-build
-
-#    pip install sidecar && \
-#      jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build
-
-#    pip install voila && \
-#      jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build
-
     jupyter labextension install \
-      @jupyter-widgets/jupyterlab-manager
+      @jupyter-widgets/jupyterlab-manager \
       --no-build
 
-#    jupyter labextension install \
-#      @jupyterlab/geojson-extension \
-#      @jupyterlab/plotly-extension \
-#      @pyviz/jupyterlab_pyviz \
-#      jupyterlab-chart-editor \
-#      --no-build
+    pip install ipyresuse
+
+    pip install matplotlib && \
+      jupyter labextension install \
+        jupyter-matplotlib \
+        --no-build
+
+    pip install ipyleaflet && \
+      jupyter labextension install \
+        jupyter-leaflet \
+        --no-build
+
+    pip install ipymaterialui && \
+      jupyter labextension install \
+        jupyter-materialui \
+        --no-build
+
+    pip install jupyterlab_latex && \
+      jupyter labextension install \
+        @jupyterlab/latex \
+        --no-build
+
+    pip install bokeh \
+      seaborn \
+      holoviews && \
+      jupyter labextension install \
+        jupyterlab_bokeh \
+        --no-build
+
+    pip install bqplot && \
+      jupyter labextension install \
+        bqplot \
+        --no-build
+
+    pip install perspective-python && \
+      jupyter labextension install \
+        @finos/perspective-jupyterlab \
+        --no-build
+
+    pip install sidecar && \
+      jupyter labextension install \
+        @jupyter-widgets/jupyterlab-sidecar \
+        --no-build
+
+    pip install voila && \
+      jupyter labextension install \
+        @jupyter-voila/jupyterlab-preview \
+        --no-build
+
+    pip install \
+      networkx \
+      cufflinks \
+      chart_studio && \
+      jupyter labextension install \
+        @jupyterlab/geojson-extension \
+        @jupyterlab/plotly-extension \
+        @pyviz/jupyterlab_pyviz \
+        jupyterlab-chart-editor \
+        --no-build
+
+    jupyter labextension install \
+      @jupyterlab/dataregistry-extension \
+      --no-build
+
+    pip install h5py && \
+      jupyterlab_hdf && \
+      jupyter labextension install \
+        @jupyterlab/hdf5 \
+        --no-build
+
+    jupyter labextension install \
+      @jupyterlab/dataregistry-extension \
+      --no-build
 
     cd $DLAHOME/src/jupyter/lab/twitter && \
       make install && \
@@ -241,6 +289,20 @@ function install_jupyterlab() {
 
     jupyter serverextension list && \
       jupyter labextension list
+
+}
+
+# ------------------------------------
+
+function install_jupyterpool() {
+
+  echo
+  echo -e $WHITE_BCK"INSTALLING JUPYTERPOOL"$NOCOLOR
+  echo
+
+  cd $DLAHOME/src && \
+    make install-ui-deps && \
+    make build-ui
 
 }
 
@@ -290,6 +352,8 @@ function apply_cmd() {
       install_jupyter
       install_jupyterhub
       install_jupyterlab
+      install_jupyterlab_ext
+      install_jupyterpool
       install_ui
       fix_libs
       ;;
@@ -320,6 +384,18 @@ function apply_cmd() {
 
     jupyterlab)
       install_jupyterlab
+      ;;
+
+    jupyterlab-ext)
+      install_jupyterlab_ext
+      ;;
+
+    jupyterpool)
+      install_jupyterpool
+      ;;
+
+    fix-libs)
+      fix_libs
       ;;
 
     ui)
