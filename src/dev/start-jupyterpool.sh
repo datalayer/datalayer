@@ -8,5 +8,5 @@
 
 echo -e "\x1b[34m\x1b[43mStart JupyterPool\x1b[0m"
 
-cd $DLAHOME/src/jupyter/pool && \
+cd $DLAHOME/src/jupyter/pool/server && \
   make start
