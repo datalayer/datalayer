@@ -4,8 +4,8 @@ import { PathExt } from '@jupyterlab/coreutils'
 import { INotebookTracker } from '@jupyterlab/notebook'
 import { ILayoutRestorer, JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'
 // import { IMainMenu } from '@jupyterlab/mainmenu'
-import {  Menu } from '@phosphor/widgets'
-import { Token } from '@phosphor/coreutils'
+import {  Menu } from '@lumino/widgets'
+import { Token } from '@lumino/coreutils'
 import { DatalayerSessions } from './sessions'
 
 /**

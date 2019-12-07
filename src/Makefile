@@ -9,20 +9,16 @@ default: help ## Default target is help.
 help: ## display this help.
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
-build-endpoints:
-	@exec dla env-dev all
-
-start-endpoints:
-	@exec yarn endpoints
-
 clean-ui:
-	@exec yarn clean
 	find . -name node_modules | xargs rm -fr {} || true
 	find . -name lib | xargs rm -fr {} || true
 	find . -name build | xargs rm -fr {} || true
 	find . -name yarn.lock | xargs rm {} || true
 	find . -name yarn-error.log | xargs rm {} || true
 	find . -name tsconfig.tsbuildinfo | xargs rm {} || true
+	@exec yarn clean
+
+clean: clean-ui
 
 deps-ui:
 	@exec yarn install
@@ -35,6 +31,10 @@ build-ui:
 	    cd ${DLAHOME}/src/components && yarn build && \
 		cd ${DLAHOME}/src && yarn build
 
-build-all:
-	@exec make build-endpoints
-	@exec make build-ui
+build-endpoints:
+	@exec dla env-dev all
+
+build: deps-ui build-ui build-endpoints
+
+start-endpoints:
+	@exec yarn endpoints

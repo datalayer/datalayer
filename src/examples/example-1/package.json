@@ -8,8 +8,8 @@
     "@datalayer/widgets": "0.0.3",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.3",
+    "@types/react": "16.9.15",
+    "@types/react-dom": "16.9.4",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "@react-workspaces/react-scripts": "3.0.1-alpha-07",
@@ -37,7 +37,7 @@
     ]
   },
   "resolutions": {
-    "**/@types/react": "16.9.11",
-    "**/@types/react-dom": "16.9.3"
+    "**/@types/react": "16.9.15",
+    "**/@types/react-dom": "16.9.4"
   }
 }

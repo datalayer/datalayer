@@ -11,10 +11,13 @@ Datalayer ships datasets you can analyse.
 http://datacommons.org
 
 https://toolbox.google.com/datasetsearch
+
 https://github.com/lyft/amundsen
+https://eng.lyft.com/amundsen-lyfts-data-discovery-metadata-engine-62d27254fbb9
+
+https://open.quiltdata.com
+
 https://www.alation.com/gartner-data-catalogs-must-have
-https://github.com/intake/intake
-https://intake.readthedocs.io/en/latest
 
 https://datacatalog.worldbank.org/search?sort_by=field_wbddh_modified_date&sort_order=DESC#
 

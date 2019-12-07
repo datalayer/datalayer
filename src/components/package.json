@@ -30,8 +30,8 @@
   "devDependencies": {
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.3",
+    "@types/react": "16.9.15",
+    "@types/react-dom": "16.9.4",
     "@types/classnames": "2.2.3",
     "@react-workspaces/react-scripts": "3.0.1-alpha-07",
     "@storybook/addon-links": "5.2.1",
@@ -61,7 +61,7 @@
     ]
   },
   "resolutions": {
-    "**/@types/react": "16.9.11",
-    "**/@types/react-dom": "16.9.3"
+    "**/@types/react": "16.9.15",
+    "**/@types/react-dom": "16.9.4"
   }
 }

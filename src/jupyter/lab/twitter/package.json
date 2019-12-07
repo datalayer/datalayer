@@ -47,18 +47,17 @@
   "dependencies": {
     "@material-ui/core": "4.6.1",
     "@material-ui/icons": "4.5.1",
-    "@jupyterlab/application": "^2.0.0-alpha.1",
-    "@jupyterlab/apputils": "^2.0.0-alpha.1",
-    "@jupyterlab/cells": "^2.0.0-alpha.1",
-    "@jupyterlab/console": "^2.0.0-alpha.1",
-    "@jupyterlab/coreutils": "^4.0.0-alpha.1",
-    "@jupyterlab/filebrowser": "^2.0.0-alpha.1",
-    "@jupyterlab/mainmenu": "^2.0.0-alpha.1",
-    "@jupyterlab/notebook": "^2.0.0-alpha.1",
-    "@jupyterlab/terminal": "^2.0.0-alpha.1",
+    "@jupyterlab/application": "2.0.0-alpha.3",
+    "@jupyterlab/apputils": "2.0.0-alpha.3",
+    "@jupyterlab/cells": "2.0.0-alpha.3",
+    "@jupyterlab/console": "2.0.0-alpha.3",
+    "@jupyterlab/coreutils": "4.0.0-alpha.3",
+    "@jupyterlab/filebrowser": "2.0.0-alpha.3",
+    "@jupyterlab/mainmenu": "2.0.0-alpha.3",
+    "@jupyterlab/notebook": "2.0.0-alpha.3",
+    "@jupyterlab/terminal": "2.0.0-alpha.3",
     "@jupyterlab/theming": "0.9.0",
     "es6-promise": "4.2.8",
-    "@phosphor/widgets": "1.9.3",
     "better-react-spinkit": "2.0.4",
     "html2canvas": "1.0.0-alpha.12",
     "nbdime": "5.0.1",
@@ -75,8 +74,8 @@
   "devDependencies": {
     "@types/prop-types": "15.7.3",
     "@types/react-redux": "7.1.4",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.3",
+    "@types/react": "16.9.15",
+    "@types/react-dom": "16.9.4",
     "rimraf": "3.0.0",
     "typescript": "3.7.1-rc"
   },
@@ -94,7 +93,7 @@
     }
   },
   "resolutions": {
-    "**/@types/react": "16.9.11",
-    "**/@types/react-dom": "16.9.3"
+    "**/@types/react": "16.9.15",
+    "**/@types/react-dom": "16.9.4"
   }
 }

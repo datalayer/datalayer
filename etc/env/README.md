@@ -22,8 +22,8 @@ ENV=datalayer && \
   conda remove -n $ENV -y --all && \
   conda create -y -n $ENV \
     python=3.7 \
-    nodejs=10.16.3 \
-    yarn=1.19.2 \
+    nodejs=13.0.0 \
+    yarn=1.19.1 \
     jupyterlab=1.2.3
 ```
 

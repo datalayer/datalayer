@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@react-workspaces/react-scripts": "3.0.1-alpha-07",
-    "gh-pages": "^2.0.1", 
+    "gh-pages": "^2.0.1",
     "@material-ui/core": "4.6.1",
     "@material-ui/icons": "4.5.1",
     "animate.css": "3.7.2",
@@ -81,8 +81,8 @@
     "development": []
   },
   "resolutions": {
-    "**/@types/react": "16.9.11",
-    "**/@types/react-dom": "16.9.3"
+    "**/@types/react": "16.9.15",
+    "**/@types/react-dom": "16.9.4"
   },
   "jupyterlab": {
     "extension": false

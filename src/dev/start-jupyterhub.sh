@@ -28,7 +28,7 @@ start_with_docker() {
 }
 
 start_dev() {
-  cd $DLAHOME/src/dev/jupyterhub && \
+  cd $DLAHOME/etc/dev/jupyterhub && \
     make start
 }
 
