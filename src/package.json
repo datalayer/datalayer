@@ -20,6 +20,7 @@
       "common",
       "components",
       "data",
+      "dsp",
       "examples/*",
       "explorer",
       "iam",

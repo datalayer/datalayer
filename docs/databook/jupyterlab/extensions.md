@@ -16,6 +16,7 @@ JupyterLab Extensions [Docs](https://jupyterlab.readthedocs.io/en/latest/user/ex
 ## Catalog
 
 + [404](https://github.com/afshin/custom404-extension)
++ [apod](https://github.com/jupyterlab/jupyterlab_apod)
 + [autoversion](https://github.com/timkpaine/jupyterlab_autoversion)
 + [bqplot](https://github.com/bloomberg/bqplot)
 + [celltags](https://github.com/jupyterlab/jupyterlab-celltags)

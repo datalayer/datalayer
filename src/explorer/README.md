@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Explorer UI
+# Datalayer Explorer
 
 :chart_with_upwards_trend: :bar_chart: Datalayer Explorer is an open source tool to discover, collaborate and analyze data.
 

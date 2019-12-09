@@ -8,13 +8,27 @@
   </div>
 </p>
 
-<a href="https://datalayer.io">Try Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>.
+Try <a href="https://datalayer.io">Datalayer for free</a> and <b>learn data</b> by <b>doing</b> in a <b>collaborative way</b> at <b>Internet scale</b>. Datalayer tackles the following issues.
+
+| Issue                 | Solution         |
+| --------------------- | ---------------- |
+| Data Accessibility    |  dla.io/data     |
+| Tooling Availability  |  dla.io/studio   |
+| Knowledge Sharing     |  dla.io/explorer |
 
 + You use real datasets and code to create and publish **reproducible** analysis.
 + You **write and share data papers** with a mix of **math**, **code** and **medias** in a **collaborative** way.
 + You also access a searchable online **library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
 
 See it as a <b>GitHub for Education</b> or a <b>Google Docs for Datasets</b>.
+
+Datalayer is available via many channels.
+
+| Channel |                |
+| ------- | -------------- |
+| GUI     | Web and Mobile |
+| CLI     | Console        |
+| API     | HTTP           |
 
 ## 🎓 Learn Data
 
@@ -24,7 +38,7 @@ Users get online **Jupyter notebooks** with **collaboration** and **sharing** ca
 
 ## 📓 Data Papers
 
-Others can understand, reuse and build on top of your papers.
+Other users can understand, reuse and build on top of your papers.
 
 1.  **Open Science.**
 
@@ -58,4 +72,6 @@ We welcome you to contribute to this repository. For this, [setup your local env
 
 If you simply want to use the features and have fun with data, create a free account on [Datalayer](https://datalayer.io).
 
-Read more about Datalayer on the [documentation site](https://docs.datalayer.io) and check the latest [blog posts](https://blog.datalayer.io). You can also follow us on [Twitter](https://twitter.com/datalayerio).
+Read more about Datalayer on the [documentation site](https://docs.datalayer.io) and check the latest [blog posts](https://blog.datalayer.io).
+
+You can also [follow us on Twitter](https://twitter.com/datalayerio).

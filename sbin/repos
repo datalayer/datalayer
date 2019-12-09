@@ -127,6 +127,7 @@ kubeflow|https://github.com/datalayer-contrib/kubeflow.git|https://github.com/ku
 kubeflow-examples|https://github.com/datalayer-contrib/kubeflow-examples.git|https://github.com/kubeflow/examples.git|master \
 kubeflow-kvc|https://github.com/datalayer-contrib/kubeflow-kvc.git|https://github.com/IntelAI/vck.git|master \
 kubeflow-tf-operator|https://github.com/datalayer-contrib/kubeflow-tf-operator.git|https://github.com/kubeflow/tf-operator.git|master \
+material-ui|https://github.com/datalayer-contrib/material-ui.git|https://github.com/mui-org/material-ui.git|master \
 nteract|https://github.com/datalayer-contrib/nteract.git|https://github.com/nteract/nteract.git|master \
 nteract-data-explorer|https://github.com/datalayer-contrib/nteract-data-explorer.git|https://github.com/benrussert/data-explorer.git|master \
 nteract-hydrogen|https://github.com/datalayer-contrib/nteract-hydrogen.git|https://github.com/nteract/hydrogen.git|master \

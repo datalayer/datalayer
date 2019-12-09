@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Library Service
+# Datalayer Library
 
 Datalayer Library is an open source tools to persist and search Jupyter notebooks.
 

@@ -9,5 +9,6 @@
     "terminal.integrated.fontFamily": "Meslo LG S for Powerline",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "restructuredtext.confPath": "${workspaceFolder}/repos/jupyter-kernel-provider-kubernetes/docs"
+    "restructuredtext.confPath": "${workspaceFolder}/repos/jupyter-kernel-provider-kubernetes/docs",
+    "python.dataScience.jupyterServerURI": "http://localhost:8000/jupyterhub/user/echar4/?token=991f203827ca420983b2b04e997fb18f"
 }

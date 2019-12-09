@@ -1,5 +1,5 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Jupyter Server Controller
+# Jupyter Server Control
 
-Jupyter Controller is an open source tool to manage `Jupyter Server`.
+Jupyter Server Control is an open source tool to manage `Jupyter Server`.

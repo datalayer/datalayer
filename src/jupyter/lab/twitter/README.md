@@ -1,6 +1,6 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Notebook
+# Datalayer JupyterLab Twitter
 
 :rocket: JupyterLab Extension for Datalayer.
 

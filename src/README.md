@@ -8,24 +8,24 @@ Read more on the [current activities](./DEV.md) and the [development environment
 
 ## Building Blocks
 
-+ [Common](./common)
-+ [Components](./components)
-+ [Data](./data)
-+ [Explorer](./explorer)
-+ [IAM](./iam)
-+ [JupyterPool](./jupyter/pool)
-+ [Jupyter StoryBook Addon](./jupyter/storybook)
-+ [JupyterLab Twitter](./jupyter/lab/twitter)
-+ [Jupyter Server Controller](./jupyter/server/ctl)
-+ [Jupyter Server Code](./jupyter/server/code)
-+ [Jupyter Server HTTP Proxy](./jupyter/server/http-proxy)
-+ [Kuber](./kuber)
-+ [Library](./library)
-+ [Widgets](./widgets)
+- [Common](./common)
+- [Components](./components)
+- [Data](./data)
+- [Explorer](./explorer)
+- [IAM](./iam)
+- [JupyterPool](./jupyter/pool)
+- [Jupyter StoryBook Addon](./jupyter/storybook)
+- [JupyterLab Twitter](./jupyter/lab/twitter)
+- [Jupyter Server Controller](./jupyter/server/ctl)
+- [Jupyter Server Code](./jupyter/server/code)
+- [Jupyter Server HTTP Proxy](./jupyter/server/http-proxy)
+- [Kuber](./kuber)
+- [Library](./library)
+- [Widgets](./widgets)
 
 ## Examples
 
 You can also try the examples.
 
-+ [Example 1](./examples/example-1)
-+ [Example 2](./examples/example-2)
+- [Example 1](./examples/example-1)
+- [Example 2](./examples/example-2)
