@@ -125,8 +125,8 @@ function install_jupyterhub() {
     echo -e $WHITE_BCK"INSTALLING JUPYTERHUB"$NOCOLOR
     echo
 
-# sudo npm install -g configurable-http-proxy
-# npm install configurable-http-proxy
+#    sudo npm install -g configurable-http-proxy
+#    npm install configurable-http-proxy
 
 #    pip install jupyterhub==1.0.0
 
@@ -157,7 +157,7 @@ function install_jupyterhub() {
   cd $DLAHOME/repos/jupyterhub-spawner-docker && \
     pip install -e .
 
-  conda install -y -c anaconda-nb-extensions nb_conda && \
+  conda install -y -c anaconda-nb-extensions nb_conda
 #  jupyter nbextension install nb_conda --py --sys-prefix --symlink
 #  jupyter nbextension enable nb_conda --py --sys-prefix
 
@@ -173,12 +173,8 @@ function install_jupyterlab() {
     echo -e $WHITE_BCK"INSTALLING JUPYTERLAB"$NOCOLOR
     echo
 
-#    cd $DLAHOME/repos/jupyterlab && \
-#      git checkout master && \
-#      pip install -e . && \
-#      rm -fr node_modules || true && \
-#      rm -fr lib || true && \
-#      yarn install
+#    pip install --pre --upgrade jupyterlab
+#    pip install jupyterlab
 
 #    cd $DLAHOME/repos/jupyterlab-server && \
 #      pip install -e .
@@ -187,8 +183,13 @@ function install_jupyterlab() {
 #      yarn install && \
 #      yarn build
 
-#    pip install --pre --upgrade jupyterlab
-    pip install jupyterlab
+    BRANCH=react-upgrade-16.9  && \
+      cd $DLAHOME/repos/jupyterlab && \
+      git checkout $BRANCH && \
+      pip install -e . && \
+      rm -fr node_modules || true && \
+      rm -fr lib || true && \
+      jupyter lab build
 
 }
 
@@ -269,14 +270,10 @@ function install_jupyterlab_ext() {
       @jupyterlab/dataregistry-extension \
       --no-build
 
-    pip install h5py jupyterlab_hdf && \
-      jupyter labextension install \
-        @jupyterlab/hdf5 \
-        --no-build
-
-    jupyter labextension install \
-      @jupyterlab/dataregistry-extension \
-      --no-build
+#    pip install h5py jupyterlab_hdf && \
+#      jupyter labextension install \
+#        @jupyterlab/hdf5 \
+#        --no-build
 
     cd $DLAHOME/src/jupyter/lab/twitter && \
       make install && \
@@ -312,7 +309,7 @@ function install_ui() {
   echo
 
   cd $DLAHOME/src && \
-    make install-ui-deps && \
+    make deps-ui && \
     make build-ui
 
 }
@@ -325,8 +322,8 @@ function fix_libs() {
   echo -e $WHITE_BCK"FIXING LIBS"$NOCOLOR
   echo
 
-#  pip install tornado==6.0.2
 #  pip install tornado==5.1.1
+#  pip install tornado==6.0.2
 
 }
 
@@ -343,9 +340,9 @@ function apply_cmd() {
 
     all)
       install_endpoints
-      install_iam
-      install_library
-      install_explorer
+#      install_iam
+#      install_library
+#      install_explorer
       install_jupyter
       install_jupyterhub
       install_jupyterlab

@@ -18,6 +18,11 @@ title: React.js
 
 + https://github.com/transitive-bullshit/create-react-library
 
+## Templates
+
++ https://www.creative-tim.com/templates/react
++ https://marmelab.com/react-admin
+
 ## Widgets
 
 - [tabler-react](https://github.com/tabler/tabler-react) - React components and demo for the Tabler UI theme.

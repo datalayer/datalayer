@@ -8,11 +8,11 @@ title: Playground
 
 + https://gist.github.com
 
-## JsFiddle
+## Js Fiddle
 
 + https://jsfiddle.net
 
-## Build with React.js
+## Built with React.js
 
 + https://codesandbox.io
 + https://github.com/codesandbox/codesandbox-client

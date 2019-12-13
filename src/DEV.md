@@ -16,31 +16,23 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 - 💪 [Index and Search Data Papers](https://github.com/datalayer/datalayer/issues/3)
 - 🔵 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
 - 🔵 [Implement Jupyter Control ExtensionApp](https://github.com/datalayer/datalayer/issues/19)
-- 🔵 [Implement Datalayer DSP Control]()
+- 🔵 [Implement Datalayer DSP Control](https://github.com/datalayer/datalayer/issues)
 - ✋ [Implement Jupyter Code ExtensionApp](https://github.com/datalayer/datalayer/issues/27)
 
 ## Datalayer Data
 
-- 🔵 [Implement datalayer.io/data GUI]()
-- 🔵 [Implement datalayer.io/data API]()
+- 🔵 [Implement datalayer.io/data GUI](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement datalayer.io/data API](https://github.com/datalayer/datalayer/issues)
 
 ## Datalayer Studio
 
-- 🔵 [Implement datalayer.io/studio GUI]()
-- 🔵 [Implement datalayer.io/studio API]()
+- 🔵 [Implement datalayer.io/studio GUI](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement datalayer.io/studio API](https://github.com/datalayer/datalayer/issues)
 
 ## Datalayer Explorer
 
-- 🔵 [Implement datalayer.io/explorer GUI]()
-- 🔵 [Implement datalayer.io/explorer API]()
-
-## Datalayer Enterprise
-
-- 🔵 [Implement datalayer.io/enterprise GUI]()
-
-## Datalayer Blog
-
-- ⌛ [Feed datalayer.io/blog Content]()
+- 🔵 [Implement datalayer.io/explorer GUI](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement datalayer.io/explorer API](https://github.com/datalayer/datalayer/issues)
 
 ## Jupyter Server
 
@@ -60,7 +52,8 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 ## Jupyter Kernel Management
 
 - 💪 [Fix KernelApp](https://github.com/takluyver/jupyter_kernel_mgmt/issues/40)
-- 👀 [Parameterized Kernel Launch](https://github.com/takluyver/jupyter_kernel_mgmt/issues/38)
+- 👀 [Parameterized Kernel Launch](https://github.com/jupyter/enhancement-proposals/pull/46)
++ 👀 [Proposal for new kernel providers mechanism](https://github.com/jupyter/enhancement-proposals/pull/45)
 
 ## Jupyter Kernel Provider
 
@@ -74,14 +67,14 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 - 💪 [POC Kernel Launch Parameters](https://github.com/datalayer/datalayer/issues/24)
 - ⚫️ [Upgrade to React to 16.9](https://github.com/jupyterlab/jupyterlab/pull/7504)
 
-## JupyterLab Theme
+## 👔 JupyterLab Themes
 
-- 🏄 [JupyterLab Material UI Theme]()
-- 🏄 [JupyterLab Theme Editor]()
+- 🏄 [JupyterLab Material UI Theme](https://github.com/datalayer/datalayer/issues)
+- 🏄 [JupyterLab Theme Editor](https://github.com/datalayer/datalayer/issues)
 
 ## JupyterLab Examples
 
-- 💪 [Upgrade from Phasphot to Lumino]()
+- 💪 [Upgrade from Phasphor to Lumino](https://github.com/jtpio/jupyterlab-extension-examples/issues)
 - 🗺️ [Create JupyterLab Extension Examples](https://github.com/datalayer/datalayer/issues/21)
 
 ## Visual Studio Code

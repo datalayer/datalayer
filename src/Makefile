@@ -16,7 +16,7 @@ clean-ui:
 	find . -name yarn.lock | xargs rm {} || true
 	find . -name yarn-error.log | xargs rm {} || true
 	find . -name tsconfig.tsbuildinfo | xargs rm {} || true
-	@exec yarn clean
+#	@exec yarn clean
 
 clean: clean-ui
 

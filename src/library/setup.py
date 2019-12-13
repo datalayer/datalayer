@@ -31,7 +31,7 @@ setuptools.setup(
         'requests',
         "kazoo",
         "simplejson",
-        "pysolr@ git+https://github.com/django-haystack/pysolr.git"
+        "pysolr@ git+https://github.com/django-haystack/pysolr.git@master"
     ],
     tests_requires = [
         'pytest',

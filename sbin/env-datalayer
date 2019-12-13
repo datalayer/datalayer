@@ -11,7 +11,7 @@ echo
 
 linux_pre() {
   echo
-  echo -e $WHITE_BCK"DSP PRE-INSTALL ON LINUX"$NOCOLOR
+  echo -e $WHITE_BCK"PRE-INSTALL ON LINUX"$NOCOLOR
   echo
 #     sudo apt -y install libcurl4-openssl-dev
 #     sudo apt -y install slapd ldap-utils
@@ -25,17 +25,16 @@ linux_pre() {
 
 macos_pre() {
   echo
-  echo -e $WHITE_BCK"DSP PRE-INSTALL ON MAC OSX"$NOCOLOR
+  echo -e $WHITE_BCK"PRE-INSTALL ON MAC OSX"$NOCOLOR
   echo
 }
 
-# case "${OS}" in
-#     LINUX)     linux_pre;;
-#     MACOS)     macos_pre;;
-#     *)         echo "Unsupported operating system ${OS}"
-# esac
+case "${OS}" in
+    LINUX)     linux_pre;;
+    MACOS)     macos_pre;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
 
 # ------------------------------------
 
-$DLASBIN/env-dev
-
+$DLASBIN/env-dev all

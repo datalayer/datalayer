@@ -148,6 +148,10 @@ EOF
 + https://github.com/jupyterlab/debugger
 + https://github.com/jupyterlab/debugger/pull/36
 
++ https://github.com/jupyterlab/debugger/issues/274
++ https://github.com/jupyterlab/debugger/issues/64#issue-508391980
+ +https://jupyter-client.readthedocs.io/en/latest/messaging.html#debug-request
+
 ## No Webpack
 
 + [Create and install extensions without Webpack](https://github.com/jupyterlab/jupyterlab/issues/5672#issuecomment-526278264)

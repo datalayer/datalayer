@@ -4,9 +4,9 @@ title: JupyterLab Slides
 
 # JupyterLab Slides
 
-## RISE
+## Rise
 
-+ [Rise](https://github.com/damianavila/rise), live Reveal.js Jupyter/IPython Slideshow Extension.
++ [Rise](https://github.com/damianavila/rise) - Live Reveal.js Jupyter/IPython Slideshow Extension.
 + [Reveal.js](https://github.com/hakimel/reveal.js).
 
 ```python
@@ -38,3 +38,7 @@ jupyter nbconvert *.ipynb \
 + `SlidesExporter.reveal_transition`: Sets the transition to None. I don’t like to use any transition effect because adding them creates a sort of jerkiness to the screen which I believe to be unsuitable for code. The optins are: none, fade, slide, convex, concave and zoom.
 
 [Config Options](https://nbconvert.readthedocs.io/en/latest/config_options.html).
+
+## See Also
+
++ https://github.com/jxnblk/mdx-deck
