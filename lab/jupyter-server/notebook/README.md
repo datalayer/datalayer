@@ -2,11 +2,9 @@
 
 # Classic Notebook as Jupyter Server Extension
 
-[WIP] notebook as a jupyter server extension [notebook#4653](https://github.com/jupyter/notebook/pull/4653)
-
-[Notebook as jupyter server extension](https://github.com/zsailer/notebook/tree/notebook-ext)
-
-[NbClassic Shim](https://github.com/zsailer/nbclassic)
+- ✋ [Notebook as an ExtensionApp](https://github.com/jupyter/notebook/pull/4653)
+- [Notebook as jupyter server extension](https://github.com/zsailer/notebook/tree/notebook-ext)
+- [NbClassic Shim](https://github.com/zsailer/nbclassic)
 
 ## Install from GitHub
 

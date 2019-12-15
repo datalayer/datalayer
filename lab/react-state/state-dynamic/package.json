@@ -1,0 +1,28 @@
+{
+  "name": "redux-dynamic-modules-todos-example",
+  "version": "5.2.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "2.1.8"
+  },
+  "dependencies": {
+    "prop-types": "15.6.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-redux": "7.1.0",
+    "redux": "4.0.1",
+    "redux-dynamic-modules": "^5.2.0",
+    "redux-saga": "0.16.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build:dev": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

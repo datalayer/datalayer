@@ -15,24 +15,24 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 - 💪 [Port DSP on K8S](https://github.com/datalayer/datalayer/issues/18)
 - 💪 [Index and Search Data Papers](https://github.com/datalayer/datalayer/issues/3)
 - 🔵 [Deploy DSP PROD on K8S](https://github.com/datalayer/datalayer/issues/20)
-- 🔵 [Implement Jupyter Control ExtensionApp](https://github.com/datalayer/datalayer/issues/19)
-- 🔵 [Implement Datalayer DSP Control](https://github.com/datalayer/datalayer/issues)
-- ✋ [Implement Jupyter Code ExtensionApp](https://github.com/datalayer/datalayer/issues/27)
+- 🔵 [Implement Datalayer Control GUI + API](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement Datalayer Data GUI + API](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement Datalayer Explorer GUI + API](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement Datalayer Studio GUI + API](https://github.com/datalayer/datalayer/issues)
 
-## Datalayer Data
+## Jupyter Control
 
-- 🔵 [Implement datalayer.io/data GUI](https://github.com/datalayer/datalayer/issues)
-- 🔵 [Implement datalayer.io/data API](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement Jupyter Control](https://github.com/datalayer/datalayer/issues/19)
+- ✋ [Implement Jupyter HTTP Proxy ExtensionApp](https://github.com/datalayer/datalayer/issues)
 
-## Datalayer Studio
+## Jupyter Pool
 
-- 🔵 [Implement datalayer.io/studio GUI](https://github.com/datalayer/datalayer/issues)
-- 🔵 [Implement datalayer.io/studio API](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement Jupyter Kernel Pool](https://github.com/datalayer/datalayer/issues/19)
+- 🔵 [Implement Jupyter Server Pool](https://github.com/datalayer/datalayer/issues/19)
 
-## Datalayer Explorer
+## Jupyter Storybook
 
-- 🔵 [Implement datalayer.io/explorer GUI](https://github.com/datalayer/datalayer/issues)
-- 🔵 [Implement datalayer.io/explorer API](https://github.com/datalayer/datalayer/issues)
+- 🔵 [Implement Jupyter Storybook](https://github.com/datalayer/datalayer/issues)
 
 ## Jupyter Server
 
@@ -69,8 +69,7 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 ## 👔 JupyterLab Themes
 
-- 🏄 [JupyterLab Material UI Theme](https://github.com/datalayer/datalayer/issues)
-- 🏄 [JupyterLab Theme Editor](https://github.com/datalayer/datalayer/issues)
+- 🏄 [Material UI Themes for JupyterLab](https://github.com/datalayer/datalayer/issues)
 
 ## JupyterLab Examples
 
@@ -79,21 +78,17 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 ## Visual Studio Code
 
+- ✋ [Implement Jupyter Code ExtensionApp](https://github.com/datalayer/datalayer/issues/27)
 - ⚪️ [yarn web should support extension](https://github.com/microsoft/vscode/issues/84901)
 
 ## Voila
 
 - 👀 [Voila as an ExtensionApp](https://github.com/voila-dashboards/voila/pull/492)
 
-## Jupyter Notebook Classic
-
-- 👀 [Config shim initial support ](https://github.com/zsailer/nbclassic/pull/3)
-- 👀 [Validate Flags and Aliases Handling](https://github.com/zsailer/nbclassic/issues/1)
-- 💪 [Kernel name is not displayed with Kernel Manager](https://github.com/zsailer/nbclassic/issues/2)
-
 ## Jupyter Notebook
 
-- ✋ [Notebook as an ExtensionApp](https://github.com/jupyter/notebook/pull/4653)
+- 💪 [Config shim initial support ](https://github.com/zsailer/nbclassic/pull/3)
+- 💪 [Kernel name is not displayed with Kernel Manager](https://github.com/zsailer/nbclassic/issues/2)
 
 ## Legend
 
