@@ -6,5 +6,5 @@
 
 echo -e "\x1b[34m\x1b[43mStart Explorer Dev\x1b[0m"
 
-cd $DLAHOME/src/explorer && \
+cd $DLAHOME/src/dsp/explorer && \
   make yarn-start

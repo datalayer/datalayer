@@ -14,20 +14,20 @@ all: clean install build ## make clean install build.
 clean: ## clean.
 
 build-explorer: ## build explorer
-	cd ${DLAHOME}/src/explorer && \
+	cd ${DLAHOME}/src/dsp/explorer && \
 		make yarn-install && \
 		make yarn-build
-		(rm ${DLAHOME}/src/explorer/build/static/css/*.map || true) && \
-		(rm ${DLAHOME}/src/explorer/build/static/js/*.map || true)
+		(rm ${DLAHOME}/src/dsp/explorer/build/static/css/*.map || true) && \
+		(rm ${DLAHOME}/src/dsp/explorer/build/static/js/*.map || true)
 
 build-explorer-docker: ## build the docker image.
-	cd ${DLAHOME}/src/explorer && \
+	cd ${DLAHOME}/src/dsp/explorer && \
 	  docker build \
 		  -t datalayer/explorer:${DLAVERSION} \
 		  .
 
 static-to-s3:
-	cd ${DLAHOME}/src/explorer && \
+	cd ${DLAHOME}/src/dsp/explorer && \
 		make static-to-s3
 
 build+s3: build-explorer static-to-s3 build-explorer-docker ## build explorer, deploy to s3 and build the docker image.

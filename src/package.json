@@ -17,17 +17,9 @@
   },
   "workspaces": {
     "packages": [
-      "common",
-      "components",
-      "data",
-      "dsp",
+      "dsp/*",
       "examples/*",
-      "explorer",
-      "iam",
-      "jupyter/*/*",
-      "kuber",
-      "library",
-      "widgets"
+      "jupyter/*/*"
     ],
     "nohoist": [
       "**/webpack-dev-server",

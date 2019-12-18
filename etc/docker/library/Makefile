@@ -14,7 +14,7 @@ all: clean install build ## make clean install build.
 clean: ## clean.
 
 build: ## build the image.
-	cd ${DLAHOME}/src/library && \
+	cd ${DLAHOME}/src/dsp/library && \
 	  docker build \
 		  -t datalayer/library:${DLAVERSION} \
 		  .

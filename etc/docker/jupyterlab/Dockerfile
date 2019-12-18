@@ -77,7 +77,7 @@ RUN cd $REPOS_FOLDER && \
 # jupyterlab-datalayer
 RUN cd $REPOS_FOLDER && \
   git clone --depth 1 https://github.com/datalayer/datalayer.git && \
-  cd $REPOS_FOLDER/datalayer/src/library && \
+  cd $REPOS_FOLDER/datalayer/src/dsp/library && \
   make install && \
   cd $REPOS_FOLDER/datalayer/src/jupyter/lab/twitter && \
   make install && \

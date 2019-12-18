@@ -36,9 +36,8 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 ## Jupyter Server
 
-- 🏃 [Ensure extension apps read config from file and cli](https://github.com/jupyter/jupyter_server/pull/149)
-- 👀 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
-- ⌛ [Link server extension subcommands to main app](https://github.com/jupyter/jupyter_server/pull/157)
+- 🏃 [Simple Extension Example](https://github.com/jupyter/jupyter_server/pull/117)
+- 👀 [Link server extension subcommands to main app](https://github.com/jupyter/jupyter_server/pull/157)
 - ⌛ [Document jupyter_server](https://github.com/jupyter/jupyter_server/issues/131)
 - 💪 [Kernel Providers](https://github.com/jupyter/jupyter_server/pull/112)
 - 💪 [Transition to Kernel Provider model for kernel management](https://github.com/jupyter/jupyter_server/issues/90)
@@ -53,7 +52,7 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 - 💪 [Fix KernelApp](https://github.com/takluyver/jupyter_kernel_mgmt/issues/40)
 - 👀 [Parameterized Kernel Launch](https://github.com/jupyter/enhancement-proposals/pull/46)
-+ 👀 [Proposal for new kernel providers mechanism](https://github.com/jupyter/enhancement-proposals/pull/45)
+- 👀 [Proposal for new kernel providers mechanism](https://github.com/jupyter/enhancement-proposals/pull/45)
 
 ## Jupyter Kernel Provider
 

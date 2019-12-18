@@ -18,5 +18,5 @@ echo -e "\x1b[34m\x1b[43mStart IAM\x1b[0m"
 #   open http://minikube.datalayer.io.local:9700/iam && \
 #   make start
 
-cd $DLAHOME/src/iam && \
+cd $DLAHOME/src/dsp/iam && \
   make start

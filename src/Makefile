@@ -24,17 +24,17 @@ deps-ui:
 	@exec yarn install
 	sed 's|useEslintrc: false|useEslintrc: true|g' node_modules/@react-workspaces/react-scripts/config/webpack.config.js > /tmp/webpack.config.js
 	mv /tmp/webpack.config.js node_modules/@react-workspaces/react-scripts/config/webpack.config.js
-	rm -fr components/node_modules/@datalayer/widgets
+	rm -fr dsp/components/node_modules/@datalayer/widgets
 
 build-ui:
-	cd ${DLAHOME}/src/widgets && yarn build && \
-	    cd ${DLAHOME}/src/components && yarn build && \
+	cd ${DLAHOME}/src/dsp/widgets && yarn build && \
+	    cd ${DLAHOME}/src/dsp/components && yarn build && \
 		cd ${DLAHOME}/src && yarn build
 
 build-endpoints:
-	@exec dla env-dev all
+	@exec dla env-dev endpoints
 
-build: deps-ui build-ui build-endpoints
+build: build-endpoints deps-ui build-ui
 
 start-endpoints:
 	@exec yarn endpoints

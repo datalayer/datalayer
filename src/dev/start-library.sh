@@ -6,5 +6,5 @@
 
 echo -e "\x1b[34m\x1b[43mStart Library\x1b[0m"
 
-cd $DLAHOME/src/library && \
+cd $DLAHOME/src/dsp/library && \
   make start

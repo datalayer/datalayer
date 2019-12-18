@@ -41,11 +41,13 @@ function install_endpoints() {
   echo
 
   declare -a ENDPOINTS=(
-    "iam"
-    "library"
-    "jupyter/hub/ctl"
+    "dsp/iam"
+    "dsp/library"
+    "dsp/explorer"
+    "jupyter/ctl"
+    "jupyter/lab/twitter"
+    "jupyter/pool/kernel"
     "jupyter/pool/server"
-    "explorer"
     )
 
   for ENDPOINT in "${ENDPOINTS[@]}"
@@ -65,7 +67,7 @@ function install_iam() {
   echo -e $WHITE_BCK"INSTALLING IAM"$NOCOLOR
   echo
 
-  cd $DLAHOME/src/iam && \
+  cd $DLAHOME/src/dsp/iam && \
     make clean && \
     make install && \
     make build && \
@@ -81,7 +83,7 @@ function install_library() {
   echo -e $WHITE_BCK"INSTALLING LIBRARY"$NOCOLOR
   echo
 
-  cd $DLAHOME/src/library && \
+  cd $DLAHOME/src/dsp/library && \
     make clean && \
     make install && \
     make build && \
@@ -97,7 +99,7 @@ function install_explorer() {
   echo -e $WHITE_BCK"INSTALLING EXPLORER"$NOCOLOR
   echo
 
-  cd $DLAHOME/src/explorer && \
+  cd $DLAHOME/src/dsp/explorer && \
     make py-clean && \
     make py-install && \
     make py-build
@@ -186,9 +188,9 @@ function install_jupyterlab() {
     BRANCH=react-upgrade-16.9  && \
       cd $DLAHOME/repos/jupyterlab && \
       git checkout $BRANCH && \
-      pip install -e . && \
       rm -fr node_modules || true && \
       rm -fr lib || true && \
+      pip install -e . && \
       jupyter lab build
 
 }
@@ -199,9 +201,9 @@ function install_jupyterlab_ext() {
     echo -e $WHITE_BCK"INSTALLING JUPYTERLAB EXTENSIONS"$NOCOLOR
     echo
 
+"""
 #     cd $DLAHOME/repos/jupyterwidgets-ipy && \
 #       ./dev-install.sh
-
     jupyter labextension install \
       @jupyter-widgets/jupyterlab-manager \
       --no-build
@@ -275,6 +277,8 @@ function install_jupyterlab_ext() {
 #        @jupyterlab/hdf5 \
 #        --no-build
 
+    jupyter lab build
+"""
     cd $DLAHOME/src/jupyter/lab/twitter && \
       make install && \
       make build && \
@@ -354,6 +358,12 @@ function apply_cmd() {
 
     endpoints)
       install_endpoints
+      install_jupyter
+      install_jupyterhub
+      install_jupyterlab
+      install_jupyterlab_ext
+      install_jupyterpool
+      fix_libs
       ;;
 
     iam)

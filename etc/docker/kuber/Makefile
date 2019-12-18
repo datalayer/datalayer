@@ -14,7 +14,7 @@ all: clean install build ## make clean install build.
 clean: ## clean.
 
 build-kuber:
-	@exec cd ${DLAHOME}/src/kuber && make build-to-docker
+	@exec cd ${DLAHOME}/src/k8s/kuber && make build-to-docker
 
 build: build-kuber ## build the image.
 	@exec docker build \

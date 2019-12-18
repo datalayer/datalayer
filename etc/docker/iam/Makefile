@@ -14,7 +14,7 @@ all: clean install build ## make clean install build.
 clean: ## clean.
 
 build: ## build the image.
-	cd ${DLAHOME}/src/iam && \
+	cd ${DLAHOME}/src/dsp/iam && \
 	  docker build \
 		  -t datalayer/iam:${DLAVERSION} \
 		  .

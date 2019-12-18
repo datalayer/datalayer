@@ -1,0 +1,67 @@
+{
+  "name": "@datalayer/components",
+  "version": "0.0.3",
+  "private": false,
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "main:src": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "concurrently \"tsc\" \"gulp resources-to-lib\"",
+    "build-app": "react-scripts build",
+    "build-storybook": "build-storybook",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009",
+    "tsc": "tsc",
+    "lint": "eslint ./src/**/*.tsx --max-warnings=0 --format=codeframe"
+  },
+  "dependencies": {
+    "@datalayer/widgets": "/repos/datalayer/src/dsp/widgets",
+    "@storybook/react": "5.2.1",
+    "cross-env": "5.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "prop-types": "^15.6.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "moment": "2.24.0"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.5",
+    "@types/react": "16.9.15",
+    "@types/react-dom": "16.9.4",
+    "@types/classnames": "2.2.3",
+    "@react-workspaces/react-scripts": "3.0.1-alpha-07",
+    "@storybook/addon-links": "5.2.1",
+    "@storybook/addon-actions": "5.2.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "concurrently": "5.0.0",
+    "gulp": "4.0.2",
+    "gulp-filter": "6.0.0",
+    "react-docgen-typescript-loader": "^3.2.1",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "storybook-react-router": "1.0.7",
+    "typescript": "3.7.1-rc"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "**/@types/react": "16.9.15",
+    "**/@types/react-dom": "16.9.4"
+  }
+}

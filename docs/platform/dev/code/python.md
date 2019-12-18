@@ -184,6 +184,7 @@ python -m pytest -s -v tests/test_foo.py
 
 ```bash
 pip install --upgrade --pre pyqt5
+pip install pyqt5 --force-reinstall
 python3 -m pip install --upgrade --pre pyqt5
 pip list
 pip show pyqt5

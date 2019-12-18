@@ -19,5 +19,5 @@ echo -e "\x1b[34m\x1b[43mStart Kuber\x1b[0m"
 #   sleep 3s && \
 #   open http://localhost:9091/kuber/about/kuber.html
 
-cd $DLAHOME/src/kuber && \
+cd $DLAHOME/src/k8s/kuber && \
   make start
