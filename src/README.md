@@ -14,7 +14,7 @@ Read more on the [current endgame](./DEV.md) and the [development environment](.
 - [Components](./dsp/components)
 - [Data](./dsp/data)
 - [Explorer](./dsp/explorer)
-- [IAM](./viam)
+- [IAM](./dsp/iam)
 - [Library](./dsp/library)
 - [Widgets](./dsp/widgets)
 
