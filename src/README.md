@@ -8,7 +8,7 @@ Read more on the [current activities](./DEV.md) and the [development environment
 
 ## Building Blocks
 
-DSP
+### DSP
 
 - [Common](./dsp/common)
 - [Components](./dsp/components)
@@ -18,7 +18,7 @@ DSP
 - [Library](./dsp/library)
 - [Widgets](./dsp/widgets)
 
-Jupyter
+### Jupyter
 
 - [JupyterPool](./jupyter/pool)
 - [Jupyter StoryBook Addon](./jupyter/storybook)
@@ -27,13 +27,11 @@ Jupyter
 - [Jupyter Server Code](./jupyter/server/code)
 - [Jupyter Server HTTP Proxy](./jupyter/server/http-proxy)
 
-Kubernetes
+### Kubernetes
 
 - [Kuber](./kuber)
 
-## Examples
-
-You can also try the examples.
+### Examples
 
 - [Example 1](./examples/example-1)
 - [Example 2](./examples/example-2)
