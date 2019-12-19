@@ -50,8 +50,7 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 ## Jupyter Kernel Management
 
 💪 [Fix KernelApp](https://github.com/takluyver/jupyter_kernel_mgmt/issues/40)  
-👀 [Parameterized Kernel Launch](https://github.com/jupyter/enhancement-proposals/pull/46)  
-👀 [Proposal for new kernel providers mechanism](https://github.com/jupyter/enhancement-proposals/pull/45)  
+👀 [Proposal for new Kernel Providers Mechanism](https://github.com/jupyter/enhancement-proposals/pull/45)  
 
 ## Jupyter Kernel Provider
 
@@ -65,6 +64,7 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 ## JupyterLab Kernels
 
+👀 [Parameterized Kernel Launch](https://github.com/jupyter/enhancement-proposals/pull/46)  
 💪 [POC Kernel Launch Parameters](https://github.com/datalayer/datalayer/issues/24)  
 💪 [Rework kernel and session architecture](https://github.com/jupyterlab/jupyterlab/pull/7252)  
 💪 [Make session dialogs configurable](https://github.com/jupyterlab/jupyterlab/pull/7618)  
