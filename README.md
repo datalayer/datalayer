@@ -16,11 +16,11 @@ Try <a href="https://datalayer.io">Datalayer for free</a> and <b>learn data</b> 
 | Tooling Availability  |  dla.io/studio   |
 | Knowledge Sharing     |  dla.io/explorer |
 
+See it as a <b>GitHub for Education</b> or a <b>Google Docs for Datasets</b>.
+
 + You use real datasets and code to create and publish **reproducible** analysis.
 + You **write and share data papers** with a mix of **math**, **code** and **medias** in a **collaborative** way.
 + You also access a searchable online **library** with tons of artifacts like datasets, papers, courses, dashboards... you can reuse.
-
-See it as a <b>GitHub for Education</b> or a <b>Google Docs for Datasets</b>.
 
 Datalayer is available via many channels.
 

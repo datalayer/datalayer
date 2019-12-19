@@ -8,20 +8,28 @@ Read more on the [current activities](./DEV.md) and the [development environment
 
 ## Building Blocks
 
-- [Common](./common)
-- [Components](./components)
-- [Data](./data)
-- [Explorer](./explorer)
-- [IAM](./iam)
+DSP
+
+- [Common](./dsp/common)
+- [Components](./dsp/components)
+- [Data](./dsp/data)
+- [Explorer](./dsp/explorer)
+- [IAM](./viam)
+- [Library](./dsp/library)
+- [Widgets](./dsp/widgets)
+
+Jupyter
+
 - [JupyterPool](./jupyter/pool)
 - [Jupyter StoryBook Addon](./jupyter/storybook)
 - [JupyterLab Twitter](./jupyter/lab/twitter)
 - [Jupyter Server Controller](./jupyter/server/ctl)
 - [Jupyter Server Code](./jupyter/server/code)
 - [Jupyter Server HTTP Proxy](./jupyter/server/http-proxy)
+
+Kubernetes
+
 - [Kuber](./kuber)
-- [Library](./library)
-- [Widgets](./widgets)
 
 ## Examples
 

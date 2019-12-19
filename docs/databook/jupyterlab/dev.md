@@ -105,6 +105,23 @@ yarn clean
 
 Try the Datalayer JupyterLab [Examples](https://github.com/datalayer/datalayer/tree/master/etc/jupyterlab/examples).
 
-## Custom Phospor
+## Custom Lumino
 
 [Testing changes to external packages](https://github.com/jupyterlab/jupyterlab/blob/master/CONTRIBUTING.md#testing-changes-to-external-packages).
+
+## Update Dependencies
+
+```bash
+# Update all dependencies to latest.
+jlpm run update:dependency '^(?!@jupyterlab).*' latest --regex
+```
+
+```bash
+# Update all dependencies (except jupyterlab) to latest.
+jlpm run update:dependency '^(?!@jupyterlab).*' latest --regex
+```
+
+```bash
+# Update all dependencies (except jupyterlab, codemirror, xterm) to latest
+jlpm run update:dependency --regex '^(?!@jupyterlab|codemirror|@types/codemirror|xterm|linters).*' latest
+```
