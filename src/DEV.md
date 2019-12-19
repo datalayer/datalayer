@@ -4,8 +4,8 @@
 
 The `Endgame` details for this iteration are tracked in the linked issues.
 
-- Begin: Monday December 9, 2019.
-- End: Sunday November 15, 2019.
+- Begin: Monday December 16, 2019.
+- End: Sunday November 22, 2019.
 
 Below is a summary of the top level play items. See the [legend](#legend) for interpretation.
 
