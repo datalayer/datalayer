@@ -18,6 +18,7 @@ jupyter kernel
 ```bash
 jupyter qtconsole --existing $(jupyter --runtime-dir)/kernel-217c09c0-44eb-48bd-ab50-3c5c42754d8c.json
 ```
+
 ```bash
 %connect_info
 {
@@ -46,18 +47,22 @@ if this is the most recent Jupyter kernel you have started.
 %qtconsole
 ```
 
+## Server
+
 ```bash
 # Kernel Server.
-python python/echo-kernel.py
+python server/echo-kernel.py
 ```
+
+## Client
 
 ```bash
 # Kernel Client.
-python python/client-1.py 217c09c0-44eb-48bd-ab50-3c5c42754d8c
-python python/client-2.py
-python python/client-3.py
-python python/client-4.py
-python python/client-5.py
+python client/client-1.py 217c09c0-44eb-48bd-ab50-3c5c42754d8c
+python client/client-2.py
+python client/client-3.py
+python client/client-4.py
+python client/client-5.py
 ```
 
 ## Examples
@@ -72,3 +77,61 @@ python python/client-5.py
 
 + https://medium.com/@halmubarak/connecting-spyder-ide-to-a-remote-ipython-kernel-25a322f2b2be
 + https://github.com/spyder-ide/spyder/blob/0397e98adc903b95ddbaee669e2d4f448c1d349d/spyder/plugins/ipythonconsole/plugin.py
+
+## Kernel Management
+
+A `Kernel Spec` is a directory with a `kernel.json` file.
+
+A `Kernel Type` is anything discovered through the JKM machinery (which includes the `Kernel Specs`, exposed with the spec/ prefix). This has:
+
++ A `Kernel Type ID`: the qualified string (e.g. spec/python3).
++ A `Kernel Type Metadata`: the dictionary from find_kernels with more details about that Kernel Type.
+
+The `Kernel Instances` are the specific processes created by launching a Kernel Kype.
+
+Install Kernel Management 
+
+```bash
+cd $DLAHOME/lab/jupyter-kernel-mgmt && \
+  pip uninstall -y jupyter_protocol && \
+  pip uninstall -y jupyter_kernel_mgmt && \
+  pip uninstall -y jupyter_server && \
+  pip uninstall -y notebook && \
+  pip uninstall -y nbclassic && \
+  python setup.py develop
+```
+
+Build Kernel Management 
+
+```bash
+conda deactivate && \
+  conda remove -y --name dlab_jkm --all || true && \
+  conda create -y -n dlab_jkm python=3.7 nodejs && \
+  conda activate dlab_jkm && \
+  git clone https://github.com/takluyver/jupyter_protocol --branch master --single-branch --depth 1 && \
+  cd jupyter_protocol && python setup.py develop && cd .. && \
+  git clone https://github.com/takluyver/jupyter_kernel_mgmt --branch master --single-branch --depth 1 && \
+  cd jupyter_kernel_mgmt && python setup.py develop && cd .. && \
+  git clone https://github.com/kevin-bates/jupyter_server.git --branch jupyter-kernel-mgmt --single-branch --depth 1 && \
+  cd jupyter_server && python setup.py develop && cd .. && \
+  git clone https://github.com/zsailer/notebook.git --branch notebook-ext --single-branch --depth 1 && \
+  cd notebook && python setup.py develop && cd ..
+```
+
+Start
+
+```bash
+jupyter notebook
+jupyter server --ServerApp.jpserver_extensions="{'notebook': True}"
+open http://localhost:8888/tree
+```
+
+Async
+
++ Async support for Kernel Management [#23](https://github.com/takluyver/jupyter_kernel_mgmt/pull/23).
+
+[DEPRECATED] Notebook
+
++ [DEPRECATED] Use new kernel management APIs in notebook server 6.x [#4837](https://github.com/jupyter/notebook/pull/4837).
++ [DEPRECATED] Use new kernel management APIs in notebook server [#4170](https://github.com/jupyter/notebook/pull/4170) is superseded by #4837.
++ [DEPRECATED] Add support for async kernel management [#4479](https://github.com/jupyter/notebook/pull/4479).

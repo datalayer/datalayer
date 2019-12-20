@@ -22,6 +22,7 @@ env-status:
 env-rm:
 	conda remove -y --name py2 --all || true
 	conda remove -y --name py3 --all || true
+	conda remove -y --name node8 --all || true
 	conda remove -y --name datalayer --all || true
 
 env-datalayer:
@@ -34,7 +35,7 @@ env:
 	SLUGIFY_USES_TEXT_UNIDECODE=yes conda create -y -n py3 python=3.7
 	SLUGIFY_USES_TEXT_UNIDECODE=yes conda env create -n node8 -f ${DLAHOME}/etc/env/conda/node8.yml
 	SLUGIFY_USES_TEXT_UNIDECODE=yes conda env create -n datalayer -f ${DLAHOME}/etc/env/conda/datalayer.yml
-	@exec echo "You can now further populate the datalayer env."
+	@exec echo "You can now further populate the datalayer environment."
 	@exec echo 
 	@exec echo "conda activate datalayer"
 	@exec echo "make env-datalayer"
