@@ -23,9 +23,9 @@ Showcase user interface widget `toolkits` and `theming` with `react.js` and `typ
 + [Create React App](./react-boilerplate/embed)
 + [Create React App Eject](./react-boilerplate/eject)
 + [JupyterLab Lumino](./jupyterlab-lumino)
-+ [React Blueprint JS](./react-blueprint-js)
-+ [React Fabric UI](./react-fabric-ui)
-+ [React Material UI](./react-material-ui)
++ [React Blueprint JS](./blueprint-js)
++ [React Fabric UI](./fabric-ui)
++ [React Material UI](./material-ui)
 + [Semantic UI](./semantic-ui)
 
 Other useful topics.
