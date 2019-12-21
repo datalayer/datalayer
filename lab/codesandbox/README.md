@@ -1,5 +1,5 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Lab Code Sandbox
+# Datalayer Lab Codesandbox
 
-https://github.com/codesandbox/codesandbox-client
+[Codesandbox Client](https://github.com/codesandbox/codesandbox-client).

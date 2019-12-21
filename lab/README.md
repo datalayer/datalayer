@@ -20,8 +20,8 @@ Check you have the [needed prerequisites](https://docs.datalayer.io/dev/requirem
 
 Showcase user interface widget `toolkits` and `theming` with `react.js` and `typescript`.
 
-+ [Create React App](./react-boilerplate/embed)
-+ [Create React App Eject](./react-boilerplate/eject)
++ [Create React App](./cra-embed)ß
++ [Create React App Eject](./cra-eject)
 + [JupyterLab Lumino](./jupyterlab-lumino)
 + [React Blueprint JS](./blueprint-js)
 + [React Fabric UI](./fabric-ui)

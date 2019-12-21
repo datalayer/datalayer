@@ -46,6 +46,8 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 ## Jupyter Kernel Management
 
+🔍 
+
 ## Jupyter Kernel Provider
 
 ✋ [De-gateway the Providers](https://github.com/gateway-experiments/remote_kernel_provider/issues/19)  
@@ -95,11 +97,14 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 | 💄 | Beautify me |
 | ✋ | Blocked task |
 | 🐛 | Bug |
+| 🔨 | Building |
 | 🔄 | Do it again |
 | 🔴 | Do not merge |
+| 🚚 | Fetching details |
 | ⛳ | Goal |
 | 😄 | Have fun |
 | 💡 | Innovation |
+| 🔗 | Linkings to others |
 | ⚪️ | Looking for help |
 | ⚫️ | More investigation required to remove uncertainty |
 | 👔 | Nice to have |
@@ -112,4 +117,5 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 | 🔥 | This is burning, hurry up to fix |
 | ⏰ | Timeboxed |
 | 🔵 | Under discussion within the team |
+| 🔍 | Under investigation |
 | 🏃 | Work in progress |
