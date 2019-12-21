@@ -4,7 +4,12 @@ title: JupyterLab Real Time Collaboration
 
 ## Real Time Collaboration
 
-## Data Store
+## Algorithms
+
++ [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type).
++ [Operational Transformation](https://en.wikipedia.org/wiki/Operational_transformation).
+
+## Lumino Data Store
 
 Moving full data models between lumino and component.
 
@@ -27,14 +32,12 @@ The plan is to move most of our models over to that generic data store.
 + [Implement Datastore class](https://github.com/phosphorjs/phosphor/pull/371)
 + [vidartf/phosphor/feature-tables3-extras](https://github.com/vidartf/phosphor/commits/feature-tables3-extras)
 
-## Algorithms
+## See Also
 
-+ [Operational Transformation](https://en.wikipedia.org/wiki/Operational_transformation).
-+ [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type).
-
-## Libraries
-
-[Automerge](https://github.com/automerge/automerge).
+[Automerge](https://github.com/automerge/automerge)  
+[Automerge Codemirror](https://github.com/aslakhellesoy/automerge-codemirror)  
+[yjs](https://github.com/yjs/yjs)  
+[Conclave](https://github.com/conclave-team/conclave)  
 
 ## WebRTC
 
