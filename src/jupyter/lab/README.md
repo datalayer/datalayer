@@ -1,7 +1,7 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer JupyterLab Extensions
+# Datalayer JupyterLab
 
-JupyterLab Extensions for the `Datalayer Science Platform`.
+JupyterLab for the `Datalayer Science Platform`.
 
 + [Twitter](./twitter)

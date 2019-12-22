@@ -14,6 +14,10 @@ IpyWidget [Examples](https://github.com/jupyter-widgets/ipywidgets/tree/master/d
 
 [IpyWidget JupyterLab Manager](https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager).
 
+## JupyterLab
+
+[IpyLab](https://github.com/jtpio/ipylab).
+
 ## Articles
 
 + [Authoring Custom Jupyter Widgets](https://blog.jupyter.org/authoring-custom-jupyter-widgets-2884a462e724).
@@ -47,27 +51,23 @@ Receiving on the js side: https://github.com/jupyter-widgets/ipywidgets/blob/mas
 - https://colab.research.google.com/gist/blois/9ca9c4556b14f0cdb84d7fe1e5aee691/data-explorer.ipynb
 - https://colab.research.google.com/notebooks/snippets/advanced_outputs.ipynb#scrollTo=9OyC1_bSEccg&line=7&uniqifier=1
 
-## JupyterLab
-
-[IpyLab](https://github.com/jtpio/ipylab).
-
 ## Widgets
 
-+ [bqplot](https://github.com/bloomberg/bqplot).
-+ [d3-slider](https://gitlab.com/oscar6echo/jupyter-widget-d3-slider).
-+ [drawing-pad](https://github.com/ocoudray/jupyter-drawing-pad).
-+ [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet).
-+ [ipymaterialui](https://github.com/maartenbreddels/ipymaterialui).
-+ [ipypivot](https://github.com/pierremarion23/ipypivot).
-+ [ipyplotly](https://github.com/jonmmease/ipyplotly).
-+ [ipyresuse](https://github.com/jtpio/ipyresuse).
-+ [ipyscales](https://github.com/vidartf/ipyscales).
-+ [ipysheet](https://github.com/quantstack/ipysheet).
-+ [ipyvolume](https://github.com/maartenbreddels/ipyvolume).
-+ [ipywebrtc](https://github.com/maartenbreddels/ipywebrtc).
-+ [nglview](https://github.com/arose/nglview).
-+ [pythreejs](https://github.com/jupyter-widgets/pythreejs).
-+ [sidecar](https://github.com/jupyter-widgets/jupyterlab-sidecar).
++ [bqplot](https://github.com/bloomberg/bqplot)
++ [d3-slider](https://gitlab.com/oscar6echo/jupyter-widget-d3-slider)
++ [drawing-pad](https://github.com/ocoudray/jupyter-drawing-pad)
++ [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet)
++ [ipymaterialui](https://github.com/maartenbreddels/ipymaterialui)
++ [ipypivot](https://github.com/pierremarion23/ipypivot)
++ [ipyplotly](https://github.com/jonmmease/ipyplotly)
++ [ipyresuse](https://github.com/jtpio/ipyresuse)
++ [ipyscales](https://github.com/vidartf/ipyscales)
++ [ipysheet](https://github.com/quantstack/ipysheet)
++ [ipyvolume](https://github.com/maartenbreddels/ipyvolume)
++ [ipywebrtc](https://github.com/maartenbreddels/ipywebrtc)
++ [nglview](https://github.com/arose/nglview)
++ [pythreejs](https://github.com/jupyter-widgets/pythreejs)
++ [sidecar](https://github.com/jupyter-widgets/jupyterlab-sidecar)
 
 ## Example
 

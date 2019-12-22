@@ -71,6 +71,10 @@ Below is a summary of the top level play items. See the [legend](#legend) for in
 
 🏃 [Material UI Themes for JupyterLab](https://github.com/datalayer/datalayer/issues)  
 
+## 👔 JupyterLab Widgets
+
+🏃 [Material UI Widgets for JupyterLab](https://github.com/datalayer/datalayer/issues)  
+
 ## JupyterLab Examples
 
 🗺️ [Create JupyterLab Extension Examples](https://github.com/datalayer/datalayer/issues/21)  

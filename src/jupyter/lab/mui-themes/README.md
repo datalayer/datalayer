@@ -2,4 +2,4 @@
 
 # 👔 JupyterLab Themes for Material UI
 
-[TODO] Migrate this to [jupyterlab-themes-mui](https://github.com/datalayer/datalayer/jupyterlab-themes-mui) repository.
+[TODO] Migrate this to [jupyterlab-mui-themes](https://github.com/datalayer/datalayer/jupyterlab-mui-themes) repository.
