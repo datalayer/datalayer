@@ -4,7 +4,7 @@ title: Dataset
 
 # Dataset
 
-Datalayer ships datasets you can analyse.
+Datasets you can analyse.
 
 <!--
 
@@ -13,6 +13,7 @@ http://datacommons.org
 https://toolbox.google.com/datasetsearch
 
 https://github.com/lyft/amundsen
+
 https://eng.lyft.com/amundsen-lyfts-data-discovery-metadata-engine-62d27254fbb9
 
 https://open.quiltdata.com
@@ -138,20 +139,15 @@ Below are links to publicly available data sets and resources. Datasets are such
 
 ## Open City Dataset
 
-Palo Alto Open Data
-http://www.cityofpaloalto.org/gov/depts/it/open_data/default.asp
+Palo Alto Open Data http://www.cityofpaloalto.org/gov/depts/it/open_data/default.asp
 
-Chicago
-https://data.cityofchicago.org
+Chicago https://data.cityofchicago.org
 
-20 yrs crime data
-https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2
+20 yrs crime data https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2
 
-NYC
-https://nycopendata.socrata.com
+NYC https://nycopendata.socrata.com
 
-Rents & Neighborhoods
-http://www.huduser.org/portal/datasets/HUD_data_matrix.html
+Rents & Neighborhoods http://www.huduser.org/portal/datasets/HUD_data_matrix.html
 
 Transportation and Travel
 
@@ -248,17 +244,13 @@ US Open Data
 http://www.data.gov
 http://www.data.gov/opendatasites
 
-WorldBank Data
-http://data.worldbank.org/data-catalog
+WorldBank Data http://data.worldbank.org/data-catalog
 
-Guardian Data
-http://www.guardian.co.uk/news/datablog/interactive/2013/jan/14/all-our-datasets-index
+Guardian Data http://www.guardian.co.uk/news/datablog/interactive/2013/jan/14/all-our-datasets-index
 
-Statistics Netherlands
-http://www.cbs.nl/en-GB/menu/home/default.htm?Languageswitch=on
+Statistics Netherlands http://www.cbs.nl/en-GB/menu/home/default.htm?Languageswitch=on
 
-Quandl 6M Financial, Economics, and Social Datasets
-http://www.quandl.com
+Quandl 6M Financial, Economics, and Social Datasets http://www.quandl.com
 
 ## Other Dataset
 

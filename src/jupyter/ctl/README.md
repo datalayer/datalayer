@@ -2,4 +2,4 @@
 
 # Jupyter Control
 
-Jupyter Control is an open source tool to manage the `Jupyter` stack.
+Jupyter Control is a tool to manage the `Jupyter` stack.

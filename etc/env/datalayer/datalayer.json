@@ -1,0 +1,19 @@
+{
+    "name": "@datalayer/demo_project",
+    "version": "0.0.1",
+    "description": "Datalayer Demo Project",
+    "server": {
+        "image": "@datalayer/demo_server:0.0.1",
+        "size": "S",
+        "ttl": "1h"
+    },
+    "kernel": {
+        "image": "@datalayer/demo_kernel:0.0.1",
+        "size": "S",
+        "ttl": "1h"
+    },
+    "datasets": {
+        "iris": "@datalayer/iris:0.1.0",
+        "nyc_crimes": "@datalayer/nyc-crimes:0.0.1"
+    }
+}

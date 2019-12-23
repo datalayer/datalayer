@@ -4,11 +4,5 @@
 
 JupyterPool is a collection of useful services for JupyterHub.
 
-<!--
-
-+ `ServerPoolSpawner` for instant server start in JupyterHub.
-+ `KernelPoolManager` for instant kernel start from the server.
 + `VoilaHub` service is a Jupyter Dashboard Hub.
 + `JupyterOperator` service is a backup and disaster recovery for user volumes and system configuration.
-
--->

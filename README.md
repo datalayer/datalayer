@@ -62,7 +62,7 @@ Other users can understand, reuse and build on top of your papers.
 
 This **monorepo** builds up the `Datalayer Science Plaform`. You will find here the source code, docs, scripts, configuration, issues, boards... under an open source license.
 
-The Datalayer Science Platform is **secured** and **scalable**. It brings better [Kubernetes](https://kubernetes.io) and [Jupyter](https://jupyter.org) operations on [Amazon AWS](https://aws.amazon.com). We are planning **Multi Cloud** in a future.
+The Datalayer Science Platform is **secured** and **scalable**. It brings better [Kubernetes](https://kubernetes.io), [Jupyter](https://jupyter.org) operations and portable Kernels on [Amazon AWS](https://aws.amazon.com). We are planning **Multi Cloud** in the future.
 
 The [sources](./src) are available under a open source [license](LICENSE).
 

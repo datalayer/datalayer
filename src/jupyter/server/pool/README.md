@@ -1,6 +1,5 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# Datalayer Examples
+# Jupyter Server Pool
 
-- [Simple Example](./simple)
-- [Page Example](./page)
+`ServerPoolSpawner` for instant server start in JupyterHub.
