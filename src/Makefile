@@ -18,8 +18,6 @@ clean-ui:
 	find . -name tsconfig.tsbuildinfo | xargs rm {} || true
 #	@exec yarn clean
 
-clean: clean-ui
-
 deps-ui:
 	@exec yarn install
 	sed 's|useEslintrc: false|useEslintrc: true|g' node_modules/@react-workspaces/react-scripts/config/webpack.config.js > /tmp/webpack.config.js
@@ -34,7 +32,11 @@ build-ui:
 build-endpoints:
 	@exec dla env-dev endpoints
 
-build: build-endpoints deps-ui build-ui
-
 start-endpoints:
 	@exec yarn endpoints
+
+clean: clean-ui
+
+ui: clean-ui deps-ui build-ui
+
+build: build-endpoints deps-ui build-ui

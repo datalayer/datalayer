@@ -19,7 +19,7 @@ State Management with react.js built with [React Redux](https://github.com/redux
 
 # Mobx
 
-https://mobx.js.org/best/react.html
+[mobx](https://mobx.js.org/best/react.html)
 
 ## Easy Peasy
 
@@ -29,11 +29,12 @@ Hook with [easy-peasy](https://github.com/ctrlplusb/easy-peasy).
 
 ## Unstated Next
 
-- [unstated-next](https://github.com/jamiebuilds/unstated-next)
+[unstated-next](https://github.com/jamiebuilds/unstated-next)
 
 ## Constante
 
-See also [constate](https://github.com/diegohaz/constate) as alternative to `redux` ([codesandbox](https://codesandbox.io/s/github/diegohaz/constate/tree/master/examples/counter)).
+[constate](https://github.com/diegohaz/constate)  
+[codesandbox example](https://codesandbox.io/s/github/diegohaz/constate/tree/master/examples/counter)  
 
 ## See also
 

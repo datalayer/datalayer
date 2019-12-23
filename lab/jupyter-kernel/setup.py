@@ -3,9 +3,9 @@ import setuptools
 VERSION = '0.0.1'
 
 setuptools.setup(
-    name = 'dlab_jkm',
+    name = 'dlab_jupyter_kernel',
     version = VERSION,
-    description = 'Datalayer Lab for Jupyter Kernel Management',
+    description = 'Datalayer Lab for Jupyter Kernel',
     long_description = open('README.md').read(),
     packages = setuptools.find_packages(),
     install_requires = [

@@ -1,8 +1,3 @@
 [![Datalayer](https://docs.datalayer.io/logo/datalayer-25.svg)](https://datalayer.io)
 
-# JupyterPool
-
-JupyterPool is a collection of useful services for JupyterHub.
-
-+ `VoilaHub` service is a Jupyter Dashboard Hub.
-+ `JupyterOperator` service is a backup and disaster recovery for user volumes and system configuration.
+# Jupyter Kernel

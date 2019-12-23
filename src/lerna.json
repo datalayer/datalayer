@@ -1,9 +1,14 @@
 {
+  "version": "0.0.3",
   "useWorkspaces": true,
+  "ignoreVersionCheck": false,
   "packages": [
-    "packages/*/*/*"
+    "dsp/*",
+    "examples/*",
+    "jupyter/*",
+    "jupyter/*/*",
+    "jupyter/*/*/*"
   ],
-  "version": "1.0.0",
   "command": {
     "run": {
       "npmClient": "yarn"

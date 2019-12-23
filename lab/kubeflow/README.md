@@ -2,4 +2,4 @@
 
 # Kubeflow
 
-+ [kubeflow-examples](https://github.com/datalayer-contrib/kubeflow-examples).
+[kubeflow-examples](https://github.com/datalayer-contrib/kubeflow-examples).

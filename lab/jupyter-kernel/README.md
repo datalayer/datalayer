@@ -2,9 +2,18 @@
 
 # Datalayer Lab Jupyter Kernel
 
+## Kernel Specs
+
 ```bash
 # List the Kernels Specs.
 jupyter kernelspec list
+```
+
+## Kernel Server
+
+```bash
+# Kernel Server.
+python server/echo-kernel.py
 ```
 
 ```bash
@@ -47,14 +56,7 @@ if this is the most recent Jupyter kernel you have started.
 %qtconsole
 ```
 
-## Server
-
-```bash
-# Kernel Server.
-python server/echo-kernel.py
-```
-
-## Client
+## Kernel Client
 
 ```bash
 # Kernel Client.
@@ -64,19 +66,6 @@ python client/client-3.py
 python client/client-4.py
 python client/client-5.py
 ```
-
-## Examples
-
-+ https://github.com/jupyter/kernel_gateway_demos/tree/master/python_client_example
-+ https://github.com/jupyter/kernel_gateway_demos/tree/master/node_client_example
-
-+ https://github.com/jupyter/jupyter_client/issues/358
-+ https://github.com/abalter/polyglottus
-+ https://github.com/abalter/polyglottus/blob/master/simple_kernel.py
-+ https://gist.github.com/abalter/9786332199806a03961f06da9861edf6
-
-+ https://medium.com/@halmubarak/connecting-spyder-ide-to-a-remote-ipython-kernel-25a322f2b2be
-+ https://github.com/spyder-ide/spyder/blob/0397e98adc903b95ddbaee669e2d4f448c1d349d/spyder/plugins/ipythonconsole/plugin.py
 
 ## Kernel Management
 
@@ -89,10 +78,9 @@ A `Kernel Type` is anything discovered through the JKM machinery (which includes
 
 The `Kernel Instances` are the specific processes created by launching a Kernel Kype.
 
-Install Kernel Management 
-
 ```bash
-cd $DLAHOME/lab/jupyter-kernel-mgmt && \
+# Install Kernel Management.
+cd $DLAHOME/lab/jupyter-kernel && \
   pip uninstall -y jupyter_protocol && \
   pip uninstall -y jupyter_kernel_mgmt && \
   pip uninstall -y jupyter_server && \
@@ -101,9 +89,8 @@ cd $DLAHOME/lab/jupyter-kernel-mgmt && \
   python setup.py develop
 ```
 
-Build Kernel Management 
-
 ```bash
+# Build Kernel Management.
 conda deactivate && \
   conda remove -y --name dlab_jkm --all || true && \
   conda create -y -n dlab_jkm python=3.7 nodejs && \
@@ -118,20 +105,32 @@ conda deactivate && \
   cd notebook && python setup.py develop && cd ..
 ```
 
-Start
+## Server
 
 ```bash
+# Start Server.
 jupyter notebook
 jupyter server --ServerApp.jpserver_extensions="{'notebook': True}"
 open http://localhost:8888/tree
 ```
 
-Async
+## Kernel Async
 
-+ Async support for Kernel Management [#23](https://github.com/takluyver/jupyter_kernel_mgmt/pull/23).
-
-[DEPRECATED] Notebook
+Async support for Kernel Management [#23](https://github.com/takluyver/jupyter_kernel_mgmt/pull/23).
 
 + [DEPRECATED] Use new kernel management APIs in notebook server 6.x [#4837](https://github.com/jupyter/notebook/pull/4837).
 + [DEPRECATED] Use new kernel management APIs in notebook server [#4170](https://github.com/jupyter/notebook/pull/4170) is superseded by #4837.
 + [DEPRECATED] Add support for async kernel management [#4479](https://github.com/jupyter/notebook/pull/4479).
+
+## Kernel Examples
+
++ https://github.com/jupyter/kernel_gateway_demos/tree/master/python_client_example
++ https://github.com/jupyter/kernel_gateway_demos/tree/master/node_client_example
+
++ https://github.com/jupyter/jupyter_client/issues/358
++ https://github.com/abalter/polyglottus
++ https://github.com/abalter/polyglottus/blob/master/simple_kernel.py
++ https://gist.github.com/abalter/9786332199806a03961f06da9861edf6
+
++ https://medium.com/@halmubarak/connecting-spyder-ide-to-a-remote-ipython-kernel-25a322f2b2be
++ https://github.com/spyder-ide/spyder/blob/0397e98adc903b95ddbaee669e2d4f448c1d349d/spyder/plugins/ipythonconsole/plugin.py

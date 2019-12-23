@@ -25,14 +25,14 @@ See also the [libraries trends](https://www.npmtrends.com/aphrodite-vs-emotion-v
 + [typestyle](https://github.com/typestyle/typestyle).
 + [styled-jsx](https://github.com/zeit/styled-jsx).
 
-Q&A.
+## Q&A
 
 + [Stardust UI - Why fela?](https://github.com/stardust-ui/react/issues/170).
 + [Blueprint - Theming](https://github.com/palantir/blueprint/wiki/Frequently-Asked-Questions#4-what-about-css-in-js-and-inline-styles).
 + [Fabric UI - Unified Styles Please](https://github.com/OfficeDev/office-ui-fabric-react/issues/5328).
 + [Fabric UI - Support Dynamic Theming](https://github.com/OfficeDev/office-ui-fabric-react/issues/6792).
 
-About Performance.
+## Performance
 
 + [Managing highly dynamic styles](https://github.com/styled-components/styled-components/issues/134).
 + [Optimize styling of <Cell /> in notebook app](https://github.com/nteract/nteract/pull/4047).
