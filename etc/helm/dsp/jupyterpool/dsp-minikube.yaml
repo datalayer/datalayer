@@ -1,0 +1,5 @@
+jupyterpool:
+  clusterType: "minikube"
+  replicaCount: 1
+  env:
+    DLAHOST: "minikube.local"

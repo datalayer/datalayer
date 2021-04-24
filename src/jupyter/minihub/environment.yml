@@ -1,0 +1,23 @@
+name: minihub
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - dockerspawner
+  - jq
+  - jupyter-packaging
+  - jupyterhub=1.3.0
+  - jupyterlab=3.0.9
+  - nodejs=14.15.1
+  - oauthenticator
+  - oauthlib
+  - pip
+  - pycurl
+  - python=3.9
+  - twine
+  - yarn=1.22.5
+  - pip:
+    - cdsdashboards[user]
+#    - jupyterhub_oauth_spawner
+    - nullauthenticator==1.0.0
+    - voila

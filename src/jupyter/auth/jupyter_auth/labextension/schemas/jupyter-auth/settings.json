@@ -1,0 +1,8 @@
+{
+  "title": "Jupyter Auth",
+  "description": "Settings for Jupyter Auth",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+  }
+}

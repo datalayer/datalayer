@@ -1,0 +1,11 @@
+$bg-color: green;
+
+$border-color: yello;
+
+.Example {
+  padding: 5px;
+  border: 5px solid $border-color;
+  p {
+    background-color: $bg-color;
+  }
+}

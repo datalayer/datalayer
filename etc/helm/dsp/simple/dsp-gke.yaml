@@ -1,0 +1,7 @@
+simple:
+  image: gcr.io/datalayer-dev-1/dsp-simple:0.0.3
+  ingress: true
+  ingressMinikube: false
+  cert: true
+service:
+  type: ClusterIP

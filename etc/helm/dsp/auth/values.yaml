@@ -1,0 +1,30 @@
+auth:
+  image: datalayer/dsp-auth:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 9700
+  service:
+    name: auth
+    type: LoadBalancer
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"
+  env:
+    DLAHOST: ""
+    DSP_JWT_SECRET: ""
+    DSP_SMTP_HOST: ""
+    DSP_SMTP_PORT: ""
+    DSP_SMTP_USERNAME: ""
+    DSP_SMTP_PASSWORD: ""
+    DSP_AUTH_AUTH_CALLBACK: ""
+    DSP_AUTH_UI_REDIRECT: ""
+    DSP_AUTH_JOIN_SUCCESS: ""
+    DSP_AUTH_JOIN_ERROR: ""
+    DSP_AUTH_PASSWORD_SUCCESS: ""
+    DSP_AUTH_PASSWORD_ERROR: ""
+    DSP_AUTH_ROOT_URL: ""
+    DSP_LDAP_HOST: ""
+    DSP_LDAP_BIND: ""
+    DSP_LDAP_BIND_PWD: ""
+    DSP_KEYCLOAK_REALM_CLIENT_SECRET: ""
+    DSP_KEYCLOAK_SCHEME_HOST: ""

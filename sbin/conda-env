@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $YELLOW$BOLD"Conda $@"$NOBOLD$NOCOLOR
+echo
+
+# . $DLAHOME/opt/miniconda3/etc/profile.d/conda.sh && \
+#  conda activate "$@"
+
+echo """
+conda activate $1
+export PATH=$DLAHOME/opt/miniconda3/envs/${1}/bin:$PATH
+"""

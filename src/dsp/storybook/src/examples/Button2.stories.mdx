@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import Button from '@material-ui/core/Button';
+
+<Meta title="Material UI/Buttons" component={Button} />
+
+export const getResult = (a, b) => {
+   return a + ' - ' + b;
+};
+
+export const Template = ({a, b, ...rest}) => {
+  return <Button variant="outlined" color="primary" onClick={action('clicked')} {...rest}>
+    {getResult(a, b)}
+  </Button>
+}
+
+<Canvas>
+  <Story
+    name="Controlled Button"
+    argTypes={{
+      a: {
+        control: {
+          type: 'select',
+          options: [
+            'Item One', 
+            'Item Two', 
+            'Item Three'
+          ],
+        },
+      },
+      b: {
+        control: {
+          type: 'select',
+          options: [
+            'Another Item One',
+            'Another Item Two',
+            'Another Item Three'
+          ],
+        },
+      },
+    }}
+    args={{
+      a: 'Item One',
+      b: 'Another Item One',
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

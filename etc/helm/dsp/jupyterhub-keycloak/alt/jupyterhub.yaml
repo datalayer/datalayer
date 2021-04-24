@@ -1,0 +1,23 @@
+proxy:
+  secretToken: 
+hub:
+  image:
+    name: datalayer/hub-k8s
+    tag: 0.0.1
+  extraConfig:
+    jupyterlab: |
+      c.Spawner.cmd = ['jupyter-labhub']
+singleuser:
+  image:
+    name: jupyterlab
+    tag: 0.0.1
+#    name: jupyterhub/k8s-singleuser-sample
+#    tag: 0.8.2
+  lifecycleHooks:
+    postStart:
+      exec:
+        command: ["sh", "-C", "/datalayer/init.sh"]
+auth:
+  type: hmac
+  hmac:
+    secretKey: 

@@ -1,0 +1,16 @@
+env:
+  PHPLDAPADMIN_LDAP_HOSTS: "dsp-ldap-openldap.dsp-ldap.svc.cluster.local"
+  PHPLDAPADMIN_HTTPS: "false"
+  PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
+service:
+  type: ClusterIP
+ingress:
+  enabled: true
+  annotations:
+#    kubernetes.io/ingress.class: "nginx"
+#    nginx.ingress.kubernetes.io/rewrite-target: /$1/$3
+#  path: /api/ldapadmin
+  path: /
+  hosts:
+#    - minikube.local
+    - ldapadmin.minikube.local

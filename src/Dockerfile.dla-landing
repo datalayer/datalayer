@@ -1,0 +1,28 @@
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+FROM python:3.8.8
+
+RUN mkdir /opt/datalayer
+
+WORKDIR /opt/datalayer
+
+COPY dsp/utils /opt/datalayer/utils
+RUN pip install -e ./utils
+
+COPY dsp/auth /opt/datalayer/auth
+RUN cd auth && pip install -e .
+
+COPY dsp/library /opt/datalayer/library
+RUN cd library && pip install -e .
+
+COPY dla/landing /opt/datalayer/landing
+RUN cd landing && \
+  pip install -e . && \
+  cp ./res/index.html dist/index.html
+
+WORKDIR /opt/datalayer/landing
+
+EXPOSE 9500
+
+CMD ["python", "dla_landing/main.py"]

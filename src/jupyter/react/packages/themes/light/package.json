@@ -1,0 +1,39 @@
+{
+  "name": "@jupyter-react/light-theme",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": false,
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -b --watch"
+  },
+  "dependencies": {
+    "@jupyterlab/ui-components": "^3.0.4",
+    "@jupyterlab/theme-light-extension": "^3.0.7",
+    "@material-ui/core": "4.11.3"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.5",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "typescript": "3.7.3",
+    "typed-css-modules": "~0.6.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

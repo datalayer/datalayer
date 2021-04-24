@@ -1,0 +1,13 @@
+auth:
+  clusterType: "minikube"
+  env:
+    DLAHOST: "minikube.local"
+    DSP_AUTH_ROOT_URL: "http://minikube.local"
+    DSP_AUTH_AUTH_CALLBACK: "http://minikube.local/oidc_callback"
+    DSP_AUTH_UI_REDIRECT: "http://minikube.local/home"
+    DSP_AUTH_JOIN_SUCCESS: "http://minikube.local/join/welcome"
+    DSP_AUTH_JOIN_ERROR: "http://minikube.local/join/error"
+    DSP_AUTH_PASSWORD_SUCCESS: "http://minikube.local/new/password/welcome"
+    DSP_AUTH_PASSWORD_ERROR: "http://minikube.local/new/password/error"
+    DSP_LDAP_HOST: "dsp-ldap-openldap"
+    DSP_KEYCLOAK_SCHEME_HOST: "http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local"

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $YELLOW$BOLD"Apache Zookeeper Help"$NOCOLOR$NOBOLD$NOCOLOR
+echo
+echo -e $YELLOW"dla zookeeper-status"$NOCOLOR
+echo
+echo -e $YELLOW"dla zookeeper-cli"$NOCOLOR
+echo
+echo -e "connect localhost:2181"
+echo -e "create /hello hello-data"
+echo -e "ls /"
+echo -e "quit"
+echo

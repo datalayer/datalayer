@@ -1,0 +1,10 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "outDir": "./lib",
+    "sourceMap": true,
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true
+  }
+}

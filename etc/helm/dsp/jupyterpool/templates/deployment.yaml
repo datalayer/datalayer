@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-jupyterpool
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "jupyterpool.name" . }}
+spec:
+  replicas: {{ .Values.jupyterpool.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "jupyterpool.name" . }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ template "jupyterpool.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: jupyterpool
+          image: {{ .Values.jupyterpool.image }}
+          imagePullPolicy: {{ .Values.jupyterpool.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.jupyterpool.port }}
+              protocol: TCP
+          env:
+          - name: DLAHOST
+            value: {{ .Values.jupyterpool.env.DLAHOST }}
+          readinessProbe:
+            httpGet:
+              path: /api/jupyterpool/lab
+              port: 8888
+            successThreshold: 1
+            failureThreshold: 5
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          volumeMounts:
+          resources:
+{{ toYaml .Values.jupyterpool.resources | indent 12 }} 
+        - name: jupyterpool-sidecar
+          image: {{ .Values.jupyterpool.sidecar.image }}
+          imagePullPolicy: {{ .Values.jupyterpool.imagePullPolicy }}
+          args: ["proxy", "-p", "8001"]

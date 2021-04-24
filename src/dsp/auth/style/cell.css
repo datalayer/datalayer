@@ -1,0 +1,38 @@
+#cell-panel-id {
+/*  border-bottom: 1px solid #e0e0e0; */
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+}
+
+.jp-Toolbar {
+  min-height: 27px;
+  border-bottom: var(--jp-border-width) solid white;
+  box-shadow: none;
+}
+
+.jp-CodeCell {
+  display: flex;
+  flex-direction: column;
+}
+
+.jp-Cell-inputWrapper {
+  flex: 0 0 auto;
+}
+
+.jp-Cell-outputWrapper {
+  flex: 1 1 auto;
+}
+
+.jp-OutputArea {
+  overflow: visible;
+}
+
+.jp-Cell-inputCollapser {
+  background: var(--jp-brand-color1);
+}
+
+.jp-Cell-outputCollapser {
+  background: var(--jp-brand-color1);
+}

@@ -1,0 +1,510 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Deploying Datalayer DSP on K8S"$NOCOLOR$NOBOLD
+echo
+
+CLUSTER_TYPE=$1
+
+function dla_landing() {
+  export RELEASE=dla-landing
+  export NAMESPACE=dla-landing
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dla/landing \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dla/landing/dla-$CLUSTER_TYPE.yaml \
+    --set landing.env.DLA_LANDING_INDEX_PAGE=${DLA_LANDING_INDEX_PAGE} \
+    --set landing.env.DSP_JWT_SECRET=${DSP_JWT_SECRET} \
+    --timeout 5m
+}
+
+function dsp_config() {
+  export RELEASE=dsp-config
+  export NAMESPACE=dsp-config
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/config \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/config/dsp-$CLUSTER_TYPE.yaml \
+    --set config.DSP_AUTH_AUTH_CALLBACK=${DSP_AUTH_AUTH_CALLBACK} \
+    --set config.DSP_STUDIO_INDEX_PAGE=${DSP_STUDIO_INDEX_PAGE=} \
+    --timeout 5m
+}
+
+function dsp_vault() {
+  export RELEASE=dsp-vault
+  export NAMESPACE=dsp-vault
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/secret \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/secret/dsp-$CLUSTER_TYPE.yaml \
+    --set secret.DSP_JWT_SECRET=${DSP_JWT_SECRET} \
+    --set secret.DSP_LDAP_BIND_PWD=${DSP_LDAP_BIND_PWD} \
+    --timeout 5m
+}
+
+function k8s-dashboard() {
+  export RELEASE=k8s-dashboard
+  export NAMESPACE=kube-system
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/k8s/dashboard \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --timeout 5m
+}
+
+function k8s_ingress() {
+  export RELEASE=k8s-ingress
+  export NAMESPACE=k8s-ingress
+  helm install ingress \
+    --install $RELEASE \
+    stable/nginx-ingress \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/k8s/ingress/dsp-$CLUSTER_TYPE.yaml \
+    --timeout 5m
+}
+
+function dsp_simple() {
+  export RELEASE=dsp-simple
+  export NAMESPACE=dsp-simple
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/simple \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/simple/dsp-$CLUSTER_TYPE.yaml \
+    --set secret.DSP_LDAP_BIND_PWD=${DSP_LDAP_BIND_PWD} \
+    --timeout 5m
+}
+
+function dsp_kuber() {
+  export RELEASE=dsp-kuber
+  export NAMESPACE=dsp-kuber
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/kuber \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/kuber/dsp-$CLUSTER_TYPE.yaml \
+    --timeout 5m
+}
+
+function dsp_ldap() {
+  export RELEASE=dsp-ldap
+  export NAMESPACE=dsp-ldap
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/ldap \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --timeout 5m \
+    --values $DLAHOME/etc/helm/dsp/ldap/dsp-$CLUSTER_TYPE.yaml \
+    --set adminPassword=${DSP_LDAP_BIND_PWD} \
+    --set configPassword=${DSP_LDAP_BIND_PWD}
+}
+
+function dsp_ldapadmin() {
+  export RELEASE=dsp-ldap
+  export NAMESPACE=dsp-ldap
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/ldapadmin \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/ldapadmin/dsp-$CLUSTER_TYPE.yaml \
+    --timeout 5m
+}
+
+function dsp_keycloak() {
+  export RELEASE=dsp-keycloak
+  export NAMESPACE=dsp-keycloak
+#    $DLAHOME/etc/helm/keycloak \
+#    --set postgresql.postgresqlPassword=${DSP_KEYCLOAK_DB_PWD} \
+#    --set persistence.dbPassword=${DSP_KEYCLOAK_DB_PWD} \
+#    --set dbPassword=${DSP_KEYCLOAK_DB_PWD} \
+  helm upgrade \
+    --install $RELEASE \
+    codecentric/keycloak \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/keycloak/dsp-$CLUSTER_TYPE.yaml \
+    --set keycloak.password=${DSP_KEYCLOAK_PWD} \
+    --timeout 5m
+}
+
+function dsp_auth() {
+  export RELEASE=dsp-auth
+  export NAMESPACE=dsp-auth
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/auth\
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/auth/dsp-$CLUSTER_TYPE.yaml \
+    --set auth.env.DSP_JWT_SECRET="${DSP_JWT_SECRET}" \
+    --set auth.env.DSP_SMTP_HOST="${DSP_SMTP_HOST}" \
+    --set auth.env.DSP_SMTP_PORT="${DSP_SMTP_PORT}" \
+    --set auth.env.DSP_SMTP_USERNAME="${DSP_SMTP_USERNAME}" \
+    --set auth.env.DSP_SMTP_PASSWORD="${DSP_SMTP_PASSWORD}" \
+    --set auth.env.DSP_LDAP_BIND="${DSP_LDAP_BIND}" \
+    --set auth.env.DSP_LDAP_BIND_PWD="${DSP_LDAP_BIND_PWD}" \
+    --set auth.env.DSP_KEYCLOAK_REALM_CLIENT_SECRET="${DSP_KEYCLOAK_REALM_CLIENT_SECRET}" \
+    --timeout 5m
+}
+
+function dsp_solr() {
+  export RELEASE=dsp-solr
+  export NAMESPACE=dsp-solr
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/solr \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/solr/dsp-$CLUSTER_TYPE.yaml \
+    --timeout 5m
+}
+
+function dsp_library() {
+  export RELEASE=dsp-library
+  export NAMESPACE=dsp-auth
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/library \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/library/dsp-$CLUSTER_TYPE.yaml \
+    --set library.env.DSP_KEYCLOAK_REALM_CLIENT_SECRET="${DSP_KEYCLOAK_REALM_CLIENT_SECRET}" \
+    --set library.env.AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+    --set library.env.AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+    --set library.env.AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+    --set library.env.AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}" \
+    --set library.env.DSP_JWT_SECRET="${DSP_JWT_SECRET}" \
+    --set library.env.DSP_SMTP_HOST="${DSP_SMTP_HOST}" \
+    --set library.env.DSP_SMTP_PORT="${DSP_SMTP_PORT}" \
+    --set library.env.DSP_SMTP_USERNAME="${DSP_SMTP_USERNAME}" \
+    --set library.env.DSP_SMTP_PASSWORD="${DSP_SMTP_PASSWORD}" \
+    --set library.env.DSP_LDAP_BIND="${DSP_LDAP_BIND}" \
+    --set library.env.DSP_LDAP_BIND_PWD="${DSP_LDAP_BIND_PWD}" \
+    --set library.env.DSP_KEYCLOAK_REALM_CLIENT_SECRET="${DSP_KEYCLOAK_REALM_CLIENT_SECRET}" \
+    --timeout 5m
+}
+
+#    --set jupyterhub.singleuser.extraEnv.DSP_GITHUB_TOKEN=${DSP_GITHUB_TOKEN} \
+#    --set jupyterhub.singleuser.extraEnv.DSP_TWITTER_CONSUMER_KEY=${DSP_TWITTER_CONSUMER_KEY} \
+#    --set jupyterhub.singleuser.extraEnv.DSP_TWITTER_CONSUMER_SECRET=${DSP_TWITTER_CONSUMER_SECRET} \
+function dsp_jupyterhub() {
+  export RELEASE=dsp-jupyterhub
+  export NAMESPACE=dsp-jupyterhub
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/jupyterhub \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/jupyterhub/dsp-$CLUSTER_TYPE.yaml \
+    --set jupyterhub.proxy.secretToken=${DSP_JUPYTERHUB_HTTP_PROXY_AUTH_TOKEN} \
+    --set jupyterhub.hub.db.password=${DSP_JUPYTERHUB_DB_PWD} \
+    --set jupyterhub.hub.extraEnv.JUPYTERHUB_CRYPT_KEY=${JUPYTERHUB_CRYPT_KEY} \
+    --set jupyterhub.hub.extraEnv.DSP_KEYCLOAK_REALM_CLIENT_SECRET=${DSP_KEYCLOAK_REALM_CLIENT_SECRET} \
+    --set jupyterhub.hub.extraEnv.DSP_TWITTER_CONSUMER_KEY=${DSP_TWITTER_CONSUMER_KEY} \
+    --set jupyterhub.hub.extraEnv.DSP_TWITTER_CONSUMER_SECRET=${DSP_TWITTER_CONSUMER_SECRET} \
+    --timeout 5m
+}
+
+function dsp_jupyterpool() {
+  export RELEASE=dsp-jupyterpool
+  # For now we need to be in the same namespace to allow ingress support
+  export NAMESPACE=dsp-auth
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/jupyterpool \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/jupyterpool/dsp-$CLUSTER_TYPE.yaml \
+    --timeout 5m
+}
+
+#    --set accessKey=${DSP_MINIO_ACCESS_KEY} \
+#    --set secretKey=${DSP_MINIO_SECRET_KEY} \
+function dsp_minio() {
+  export RELEASE=dsp-minio
+  export NAMESPACE=dsp-minio
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/minio \
+    --create-namespace \
+    --namespace dsp-minio \
+    --values $DLAHOME/etc/helm/dsp/minio/dsp-$CLUSTER_TYPE.yaml \
+    --set minio.DSP_MINIO_TENANT_URL=${DSP_AUTH_AUTH_CALLBACK} \
+    --timeout 5m
+  kubectl apply -f $DLAHOME/etc/helm/dsp/minio/specs/tenant.yaml
+  kubectl minio init
+  kubectl create namespace $NAMESPACE
+}
+
+function dsp_studio() {
+  export RELEASE=dsp-studio
+  export NAMESPACE=dsp-studio
+  helm upgrade \
+    --install $RELEASE \
+    $DLAHOME/etc/helm/dsp/studio \
+    --create-namespace \
+    --namespace $NAMESPACE \
+    --values $DLAHOME/etc/helm/dsp/studio/dsp-$CLUSTER_TYPE.yaml \
+    --set studio.env.DSP_STUDIO_INDEX_PAGE=${DSP_STUDIO_INDEX_PAGE} \
+    --set studio.env.DSP_JWT_SECRET=${DSP_JWT_SECRET} \
+    --timeout 5m
+}
+function etcd() {
+  helm install \
+    etcd \
+    --set StorageClass=gp2 \
+    -n etcd
+}
+
+function hdfs() {
+  helm install \
+    hdfs \
+    --set imagePullPolicy=Always \
+    --set persistence.nameNode.enabled=true \
+    --set persistence.nameNode.storageClass=gp2 \
+    --set persistence.dataNode.enabled=true \
+    --set persistence.dataNode.storageClass=gp2 \
+    --set hdfs.dataNode.replicas=3 \
+    -n hdfs
+}
+
+function spark() {
+  helm install \
+    spark \
+    --set spark.imagePullPolicy=Always \
+    -n spark
+}
+: '
+function dsp_studio_deprecated() {
+  helm install \
+    studio \
+    --set studio.hostNetwork=false \
+    --set studio.imagePullPolicy=Always \
+    --set studio.notebookRepo=https://github.com/datalayer/notebook-init.git \
+    -n studio
+  cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: studio-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: studio
+    release: studio
+EOF
+  cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: studio-spark-ui-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 4040
+  selector:
+    app: studio
+    release: studio
+EOF
+  echo """
+# Check HDFS
+  kubectl exec -it hdfs-hdfs-hdfs-nn-0 -- hdfs dfsadmin -report
+# Browse Studio
+  http://localhost:8001/api/v1/namespaces/default/services/http:studio-studio:8080/proxy
+"
+# ---
+  echo "
+# Before running the next step, check the LoadBalancer Ingress value for \`studio-lb\` (rerun in a few minutes if no hostname is shown)
+   kubectl describe services studio-lb | grep Ingress
+"
+  kubectl describe services studio-lb
+  echo
+  kubectl describe services studio-lb | grep Ingress
+  echo
+  echo "Please enter the hostname created for the studio-lb:"
+  read EXPLORER_LB_HOSTNAME
+  echo
+  echo "You entered: $STUDIO_LB_HOSTNAME"
+  echo
+  echo "We will now deploy Studio..."
+  echo
+  helm install \
+    --set studio.hostNetwork=false \
+    --set studio.imagePullPolicy="Always" \
+    --set google.apiKey="$DSP_GOOGLE_API_KEY" \
+    --set google.clientId="$DSP_GOOGLE_CLIENT_ID" \
+    --set google.redirect="" \
+    --set google.secret="$DSP_GOOGLE_SECRET" \
+    --set google.scope="profile email https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/user.emails.read" \
+    --set hdfs="" \
+    --set kuber.insecureBindAddress="0.0.0.0" \
+    --set kuber.insecurePort="9091" \
+    --set kuber.manageReservations="true" \
+    --set kuber.rest="" \
+    --set kuber.ui="" \
+    --set kuber.ws="" \
+    --set microsoft.applicationId="$DSP_MICROSOFT_APPLICATION_ID" \
+    --set microsoft.redirect="" \
+    --set microsoft.secret="$DSP_MICROSOFT_SECRET" \
+    --set microsoft.scope="User.ReadBasic.All" \
+    --set studio.rest="http://$STUDIO_LB_HOSTNAME" \
+    --set studio.ws="ws://$EXPLORER_LB_HOSTNAME" \
+    --set twitter.consumerKey="$DSP_TWITTER_CONSUMER_KEY" \
+    --set twitter.consumerSecret="$DSP_TWITTER_CONSUMER_SECRET" \
+    --set twitter.redirect="" \
+    studio \
+    -n studio
+  cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: studio-lb
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: 3600
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 9091
+  selector:
+    app: studio
+    release: studio
+EOF
+  echo "
+# Check the LoadBalancer Ingress value for \`studio-lb\` (rerun in a few minutes if no hostname is shown)
+   kubectl describe services studio-lb | grep Ingress
+"
+  kubectl describe services studio-lb
+  echo
+  kubectl describe services studio-lb | grep Ingress
+  echo
+}
+'
+function commands() {
+  echo -e $YELLOW"💛  Valid commands: [ dsp-simple | dsp-config | dsp-vault | k8s-ingress | k8s-dashboard | dsp-kuber | dsp-ldap | dsp-ldapadmin | dsp-keycloak | dsp-auth | dsp-solr | dsp-library | dsp-jupyterhub | dsp-jupyterpool | dsp-minio | dla-landing | dsp-studio ]"$NOCOLOR 1>&2
+}
+
+CMDS="$2"
+
+if [ -z "$CMDS" ]; then
+  echo -e $RED$BOLD"💔  No command to execute has been provided."$NOCOLOR$NOBOLD 1>&2
+  echo
+  commands
+  echo
+  exit 1
+fi
+
+# TODO see https://stackoverflow.com/questions/33387263/invoke-function-whose-name-is-stored-in-a-variable-in-bash
+# TODO see https://stackoverflow.com/questions/17529220/why-should-eval-be-avoided-in-bash-and-what-should-i-use-instead/17529221#17529221
+function apply_cmd() {
+
+  echo -e $BOLD"🔥  Deploying service [$BLUE$1$NOCOLOR]."$NOBOLD
+  echo
+
+  case "$1" in
+
+    dsp-simple)
+      dsp_simple
+      ;;
+
+    dsp-config)
+      dsp_config
+      ;;
+
+    dsp-vault)
+      dsp_vault
+      ;;
+
+    dsp-kuber)
+      dsp_kuber
+      ;;
+
+    dsp-ldap)
+      dsp_ldap
+      ;;
+
+    dsp-ldapadmin)
+      dsp_ldapadmin
+      ;;
+
+    dsp-keycloak)
+      dsp_keycloak
+      ;;
+
+    dsp-auth)
+      dsp_auth
+      ;;
+
+    dsp-solr)
+      dsp_solr
+      ;;
+
+    k8s-ingress)
+      k8s_ngress
+      ;;
+
+    dsp-library)
+      dsp_library
+      ;;
+
+    dsp-jupyterhub)
+      dsp_jupyterhub
+      ;;
+
+    dsp-jupyterpool)
+      dsp_jupyterpool
+      ;;
+
+    dsp-minio)
+      dsp_minio
+      ;;
+
+    dla-landing)
+      dla_landing
+      ;;
+
+    dsp-studio)
+      dsp_studio
+      ;;
+
+    k8s-dashboard)
+      k8s-dashboard
+      ;;
+
+    *)
+      echo -e $RED$BOLD"💔  Unknown command: $1"$NOBOLD$NOCOLOR 1>&2
+      echo
+      commands
+      echo
+      exit 1
+
+  esac
+
+  echo
+  echo -e $BOLD"✅  Service [$BLUE$1$NOCOLOR] is deployed."$NOBOLD
+  echo
+
+}
+
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+for i in "${CMD_SPLITS[@]}"; do
+  apply_cmd $i
+done

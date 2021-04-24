@@ -1,0 +1,12 @@
+{{ if eq .Values.auth.clusterType "gke" -}}
+# https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features
+# https://blog.doit-intl.com/say-goodbye-to-improvised-https-redirection-workarounds-138d7420c1bc
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: datalayer-frontend-config
+spec:
+  redirectToHttps:
+    enabled: true
+    responseCodeName: PERMANENT_REDIRECT
+{{- end }}

@@ -1,0 +1,54 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import TransformVDOM from "@nteract/transform-vdom";
+
+<Meta title="VDOM/VDOM" />
+
+# VDOM
+
+## VDOM with @lumino/virtualdom
+
+Lumino [Virtual DOM](https://github.com/jupyterlab/lumino/tree/master/packages/virtualdom>) package.
+
+See also [Adds a "pass thru" virtual element](https://github.com/jupyterlab/lumino/pull/29).
+
+## VDOM with Nteract
+
+WE use here the Nteract Transform VDOM package.
+
+<Canvas>
+  <TransformVDOM
+    data={{ key: '', tagName: "div", attributes: { style: { color: "green" } },
+      children: [
+        {
+          key: '',
+          tagName: "h1",
+          attributes: {},
+          children: "DATALAYER"
+        },
+      ]
+    }}
+  />
+</Canvas>
+
+<TransformVDOM
+  data={{ key: '', tagName: "div", attributes: { style: { } },
+    children: [
+      {
+        key: '',
+        tagName: "img",
+        attributes: {
+          src: "https://raw.githubusercontent.com/datalayer/datalayer/main/res/logo/datalayer-25.svg?sanitize=true"
+        },
+        children: []
+      }
+    ]
+  }}
+/>
+
+## VDOM with @jupyterlab/vdom
+
+JupyterLab [VDOM](https://github.com/jupyterlab/jupyterlab/tree/master/packages/vdom) and [VDOM Extension ](https://github.com/jupyterlab/jupyterlab/tree/master/packages/vdom-extension) packages which use the described `@nteract/transform-vdom` package.
+
+- [Add event handling support to vdom-extension](https://github.com/jupyterlab/jupyterlab/pull/5670).
+- [Nteract Python VDOM](https://github.com/nteract/vdom) is Virtual DOM for Python.

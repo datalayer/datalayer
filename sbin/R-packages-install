@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Install Datalayer R Packages"$NOCOLOR$NOBOLD
+echo
+
+sudo R CMD BATCH $DLASBIN/R-packages-install.R /tmp/R-packages-install.R .out
+cat /tmp/install_packages.R.out

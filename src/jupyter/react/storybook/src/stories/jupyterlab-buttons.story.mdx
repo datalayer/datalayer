@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { Button as JLButton } from '@jupyterlab/ui-components';
+
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+
+import { muiLightTheme } from '@jupyter-react/light-theme';
+
+import { Spacer, H3 } from './../utils/formats';
+
+<Meta title="JupyterLab/Buttons" component={Button} />
+
+# Button
+
+This is a story for `Button` flavors.
+
+Let's start with simple JupyterLab Buttons.
+
+<Canvas>
+  <Story name="Simple Buttons">
+    <>
+      <H3>JupyterLab</H3>
+      <JLButton onClick={action('jupyterlab clicked')} type="button">
+        Button
+      </JLButton>
+      <Spacer />
+      <JLButton onClick={action('jupyterlab clicked')} type="submit">
+        Submit
+      </JLButton>
+      <Spacer />
+      <JLButton onClick={action('jupyterlab clicked')} type="reset">
+        Reset
+      </JLButton>
+      <Spacer />
+      <JLButton onClick={action('jupyterlab clicked')}>
+        <span role="img" aria-label="so cool">
+          😀 😎 👍 💯
+        </span>
+      </JLButton>
+    </>
+    <ThemeProvider theme={muiLightTheme}>
+      <CssBaseline />
+      <H3>Material UI</H3>
+      <Button variant="contained" color="primary" onClick={action('material ui clicked')}>
+        Primary
+      </Button>
+      <Spacer />
+      <Button variant="contained" color="secondary" onClick={action('material ui clicked')}>
+        Secondary
+      </Button>
+    </ThemeProvider>
+  </Story>
+</Canvas>

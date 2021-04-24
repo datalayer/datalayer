@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+source $DLASBIN/repos
+
+echo -e $BOLD$YELLOW"Pulling the Datalayer Repositories..."$NOCOLOR$NOBOLD
+echo
+
+for rep in $DLAHOME/repos/*/
+do
+  cd $rep
+  echo -e $GREEN"--- pulling $(git remote get-url --push origin) ---"$NOCOLOR
+  echo
+  git pull $i
+  echo
+done

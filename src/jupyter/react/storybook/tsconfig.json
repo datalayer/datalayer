@@ -1,0 +1,14 @@
+{
+  "extends": "./../tsconfig-base.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "types": [
+      "webpack-env",
+      "node"
+    ],
+    "rootDir": "src"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

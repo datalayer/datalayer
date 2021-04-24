@@ -1,0 +1,73 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { useState } from 'react';
+
+import Button from '@material-ui/core/Button';
+
+import './../utils/buttons.css';
+
+<Meta title="Material UI/Buttons" component={Button} />
+
+# Button
+
+This is a story for `Button` flavors. Go team! 🚀
+
+Let's start with simple Material UI Buttons.
+
+<Canvas>
+  <Story name="Material UI Colors">
+    <Button variant="outlined" onClick={action('clicked')}>Default</Button>
+    <Button variant="outlined" color="primary" onClick={action('clicked')}>Primary</Button>
+    <Button variant="outlined" color="secondary" onClick={action('clicked')} >Secondary</Button>
+  </Story>
+</Canvas>
+
+You can add CSS to skin the Material UI Buttons.
+
+<Canvas>
+  <Story name="Material UI CSS">
+    <Button
+      type="button"
+      className='Button-Color Button-Background'
+      title="A Button with CSS"
+      onClick={action('clicked')}
+      >
+        With CSS
+    </Button>
+    <Button
+      type="button"
+      className='Button-Color'
+      title="A Button with more CSS"
+      onClick={action('clicked')}
+      >
+        With more CSS
+    </Button>
+  </Story>
+</Canvas>
+
+You can also display Emojis.
+
+<Canvas>
+  <Story name="Material UI Emoji">
+    <Button onClick={action('clicked')}>
+      <span role="img" aria-label="so cool">
+        😀 😎 👍 💯 🚀 🎉
+      </span>
+    </Button>
+  </Story>
+</Canvas>
+
+This Example demonstrates `React.js` hooks working for a Button.
+
+export const WithCounter = () => {
+  const [counter, setCounter] = useState(0);
+  const label = `Counter: ${counter}`;
+  return <Button variant="outlined" color="secondary" onClick={() => setCounter(counter + 1)}>{label}</Button>;
+};
+
+<Canvas>
+  <Story name="Material UI Counter">
+    <WithCounter />
+  </Story>
+</Canvas>

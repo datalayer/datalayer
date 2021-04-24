@@ -1,0 +1,14 @@
+apiVersion: v1
+description: OpenLDAP.
+name: openldap
+version: 0.0.3
+appVersion: 0.0.3
+home: https://datalayer.io
+icon: https://raw.githubusercontent.com/datalayer/datalayer/main/res/logo/datalayer-square.png
+maintainers:
+  - name: eric
+    email: eric@datalayer.io
+# dependencies:
+#   - name: openldap
+#     version: 1.1.0
+#     repository: https://charts.helm.sh/stable 

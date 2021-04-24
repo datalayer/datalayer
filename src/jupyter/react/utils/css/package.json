@@ -1,0 +1,103 @@
+{
+  "name": "@jupyter-react/css",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "author": "Datalayer",
+  "homepage": "https://github.com/datalayer/datalayer/lab/css#README",
+  "bugs": {
+    "url": "https://github.com/datalayer/datalayer/issues"
+  },
+  "scripts": {
+    "watch": "concurrently --kill-others \"yarn tsc-watch\" \"yarn serve-watch\"",
+    "tsc-watch": "tsc --watch",
+    "serve-watch": "webpack-dev-server --open --watch",
+    "build": "webpack",
+    "css-deps": "./dev/remove_tilde.sh && node dev/css.js",
+    "css": "node dev/css.js --trace-warnings",
+    "dev": "webpack --progress --colors --watch --env dev",
+    "start": "webpack-dev-server --open",
+    "start-watch": "webpack-dev-server --open --watch",
+    "clean": "rimraf lib dist",
+    "clean-all": "rimraf lib dist node_modules",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datalayer/datalayer.git"
+  },
+  "dependencies": {
+    "@jupyterlab/ui-components": "^3.0.4",
+    "@jupyterlab/theme-light-extension": "^3.0.7",
+    "@jupyterlab/theme-dark-extension": "^3.0.7",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@types/jest": "^22.2.3",
+    "@types/node": "~13.1.4",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "@types/react-jss": "10.0.0",
+    "@types/webpack": "4.41.12",
+    "babel-loader": "^8.0.6",
+    "codecov": "^3.1.0",
+    "css-loader": "^3.2.0",
+    "concurrently": "5.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.13.2",
+    "rimraf": "3.0.0",
+    "react-jss": "10.3.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-jest": "24.1.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "~3.7.3",
+    "webpack": "4.44.1",
+    "webpack-cli": "4.0.0-beta.8",
+    "webpack-dev-server": "3.1.4",
+    "postcss": "~7.0.26",
+    "postcss-import": "~12.0.1",
+    "postcss-css-variables": "0.14.0",
+    "postcss-merge-rules": "~4.0.3",
+    "postcss-omit-import-tilde": "~1.0.1",
+    "svg-url-loader": "~3.0.3",
+    "raw-loader": "~4.0.0",
+    "file-loader": "~5.0.2",
+    "url-loader": "~3.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },
+  "files": [
+    "lib/**/*.d.ts",
+    "lib/**/*.js.map",
+    "lib/**/*.js",
+    "style/**/*.css",
+    "themes/**/*.*"
+  ],
+  "sideEffects": [
+    "style/*.css"
+  ],
+  "style": "style/index.css",
+  "directories": {
+    "lib": "lib/"
+  }
+}

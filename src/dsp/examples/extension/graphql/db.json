@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+        "id": 1,
+        "name": "service",
+        "info": "info",
+        "slug": "auth",
+        "manifestId": 1
+      }
+  ],
+  "manifests": [
+    {
+      "id": 1,
+      "name": "button",
+      "url": "http://localhost:3002/app2.js",
+      "scope": "app2",
+      "module": "./Button"
+     }
+  ]
+}

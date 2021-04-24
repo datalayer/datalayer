@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Building Datalayer DSP Docker Images"$NOCOLOR$NOBOLD
+echo
+
+source $DLASBIN/dsp-docker
+
+do_push() {
+  FILE=$1
+  echo -e $WHITE_BCK"Pushing Docker image $BOLD[$FILE]$NOBOLD"$NOCOLOR
+  echo
+  cd $DLAHOME/etc/docker/$FILE && \
+    make push
+  if [ $? -eq 0 ]
+  then
+    echo
+    echo -e $BOLD$GREEN"Docker image [${FILE}] push SUCCESS"$NOCOLOR$NOBOLD
+  else
+    echo
+    echo -e $BOLD$RED"Docker image [${FILE}] push FAILURE"$NOCOLOR$NOBOLD
+    echo
+    exit
+  fi
+  echo
+}
+
+push() {
+  if [ -z "$1" ]; then
+    for DOCKER_FILE in "${DOCKER_FILES[@]}"
+    do
+      do_push $DOCKER_FILE
+    done
+  else
+    build $1
+  fi
+}
+
+push
+
+: <<'EOC'
+source dsp-docker
+
+for DOCKERIMAGE in "${DOCKER_IMAGES[@]}"
+do
+  echo
+  echo -e $BOLD"Pushing $DOCKERIMAGE..."$NOBOLD
+  docker push $DOCKERIMAGE
+  if [ $? -eq 0 ]
+  then
+    echo
+    echo -e $BOLD$GREEN"Push of docker image [${DOCKERFILE%/}] is successful."$NOCOLOR$NOBOLD
+  else
+    echo
+    echo -e $BOLD$RED"Push of docker image [${DOCKERFILE%/}] failed..."$NOCOLOR$NOBOLD
+    echo
+    exit
+  fi
+  echo
+done
+EOC

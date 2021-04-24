@@ -1,0 +1,6 @@
+studio:
+  imagePullPolicy: Always
+  clusterType: "eks"
+  env:
+    DLAHOST: "datalayer.io"
+    DSP_JWT_SECRET: ""

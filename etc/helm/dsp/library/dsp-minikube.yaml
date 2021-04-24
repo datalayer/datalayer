@@ -1,0 +1,4 @@
+library:
+  clusterType: "minikube"
+  env:
+    DLAHOST: "minikube.local"

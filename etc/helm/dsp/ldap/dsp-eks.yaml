@@ -1,0 +1,11 @@
+openldap:
+  image:
+    repository: osixia/openldap
+    tag: 1.1.10
+    pullPolicy: IfNotPresent
+  env:
+    LDAP_ORGANISATION: "Datalayer, Inc."
+    LDAP_DOMAIN: "datalayer.io"
+    LDAP_LOG_LEVEL: "256"
+  service:
+    ldapPort: 389

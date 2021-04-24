@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Terraform Help"$NOCOLOR$NOBOLD
+echo
+
+terraform help
+
+echo -e $YELLOW"""
+terraform help
+
+terraform console
+"""

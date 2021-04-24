@@ -1,0 +1,11 @@
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+name: datalayer
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - nodejs=14.5.0
+  - yarn=1.22.5
+  - awscli

@@ -1,0 +1,84 @@
+# ~/.bash_profile
+
+export DLAHOME=~/datalayer
+export PATH=$DLAHOME/bin:$PATH
+
+export PATH=~/.local/bin:$PATH
+
+source $DLAHOME/sbin/version
+
+export EXPHOME=~/...
+export PATH=$EXPHOME/sbin:$PATH
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Linux
+    export JAVA_HOME=~/opt/jdk
+    export GOHOME=/opt/go
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+    export GOHOME=/usr/local/go
+    export R_SCRIPT_PATH=/usr/local/bin
+    unset DYLD_LIBRARY_PATH
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+        # POSIX compatibility layer and Linux environment emulation for Windows
+        echo cygwin is not supported...
+elif [[ "$OSTYPE" == "msys" ]]; then
+        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+        echo msys is not supported...
+elif [[ "$OSTYPE" == "win32" ]]; then
+        # I'm not sure this can happen.
+        echo win32 is not supported...
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+        # ...
+        echo freebsd is not supported...
+else
+        # Unknown.
+        echo Unkown Operating System..
+fi
+
+export KUBECONFIG=~/.datalayer/k8s/config
+
+export NODE_OPTIONS="--max-old-space-size=8192"
+
+export GOROOT=$GOHOME
+export PATH=$GOHOME/bin:$PATH
+export GOPATH=~/go
+# export GOBIN=/usr/local/bin
+
+source $DLAHOME/sbin/env && trap - ERR
+
+# [ -f ~/.datalayer/dlarc ] && export $(sed '/^#/d' ~/.datalayer/dlarc)
+source ~/.datalayer/dlarc &>/dev/null
+
+export GCLOUD_HOME=~/opt/google-cloud-sdk
+export PATH=$GCLOUD_HOME/bin:$PATH
+if [ -f '~/opt/google-cloud-sdk/completion.bash.inc' ]; then . '~/opt/google-cloud-sdk/completion.bash.inc'; fi
+
+alias d='dla'
+alias c='dla cls'
+alias cls='dla cls'
+alias ll='ls -alp'
+# alias td='dla todo'
+alias k='kubectl'
+alias tf='terraform'
+alias jlab='jupyter lab'
+alias jhub='jupyterhub'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/datalayer/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/datalayer/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/datalayer/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/datalayer/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+. $DLAHOME/opt/miniconda3/etc/profile.d/conda.sh
+conda activate $DLA_CONDA

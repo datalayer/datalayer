@@ -1,0 +1,12 @@
+
+Your Simple chart has now been installed, and can be accessed in the following ways:
+
+  * Internally, within the kubernetes cluster on:
+
+{{ template "simple.service-name" . }}.{{ .Release.Namespace }}:{{ .Values.port }}
+
+  * External to the kubernetes cluster:
+
+export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "simple.name" . }},component=server,release={{ .Release.Name }}" -o jsonpath="{ .items[0].metadata.name }")
+echo "Visit http://127.0.0.1:{{ .Values.port }} to access the simple service"
+kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME {{ .Values.port }}:{{ .Values.port }}

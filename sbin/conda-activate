@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+CONDA_ENV=$1
+
+echo -e $YELLOW$BOLD"Activating Conda Env [$GREEN$CONDA_ENV$YELLOW]"$NOBOLD$NOCOLOR
+echo
+
+. $DLAHOME/opt/miniconda3/etc/profile.d/conda.sh && \
+  conda activate $CONDA_ENV && \
+  export PATH=/opt/datalayer/opt/miniconda3/envs/$CONDA_ENV/bin:$PATH

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Generating Apache Zookeeper Configuration from Template"$NOCOLOR$NOBOLD
+echo
+
+sed -e "s|DLAHOME|$DLAHOME|g" $DSP_ZOOKEEPER_CONF_TEMPLATE_DIR/zoo.template.cfg > $ZOOKEEPER_CONF_DIR/zoo.cfg
+
+echo $ZOOKEEPER_CONF_DIR
+ls -alp $ZOOKEEPER_CONF_DIR

@@ -1,0 +1,7 @@
+type Manifest {
+  id: Int!
+  name: String!
+  url: String!
+  scope: String!
+  module: String!
+}

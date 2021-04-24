@@ -1,0 +1,22 @@
+{{/*
+Expand the name of the chart.
+*/}}
+{{- define "library.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 24 chars because some librarynetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "library.fullname" -}}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- printf "%s-%s" .Release.Name $name | trunc 24 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Define the name of the client service for library.
+*/}}
+{{- define "library.service-name" -}}
+{{- printf "%s-%s" (include "library.fullname" .) "svc" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Building Datalayer DSP Docker Images"$NOCOLOR$NOBOLD
+echo
+
+source $DLASBIN/dsp-docker
+
+build() {
+  FILE=$1
+  echo -e $WHITE_BCK"Building Docker image $BOLD[$FILE]$NOBOLD"$NOCOLOR
+  echo
+  cd $DLAHOME/etc/docker/$FILE && \
+    make build
+  if [ $? -eq 0 ]
+  then
+    echo
+    echo -e $BOLD$GREEN"Docker image [$YELLOW${FILE}$GREEN] build SUCCESS"$NOCOLOR$NOBOLD
+  else
+    echo
+    echo -e $BOLD$RED"Docker image [$YELLOW${FILE}$GREEN] build FAILURE"$NOCOLOR$NOBOLD
+    echo
+    exit
+  fi
+  echo
+}
+: '
+build_more() {
+  # HDFS.
+  cd $DLAHOME/etc/docker/hdfs/base && \
+    make build && \
+    cd $DLAHOME/etc/docker/hdfs/dn && \
+    make build && \
+    cd $DLAHOME/etc/docker/hdfs/nn && \
+    make build
+  # Spark.
+  cd $DLAHOME/etc/docker/spark && \
+    make build
+  # Jupyter HTTP Proxy.
+  cd $DLAHOME/repos/jupyterhub-proxy-http && \
+    git checkout datalayer && \
+    docker build -t datalayer/jupyterhub-proxy-http:0.0.1 .
+}
+'
+if [ -z "$1" ]; then
+  for DOCKER_FILE in "${DOCKER_FILES[@]}"
+  do
+    build $DOCKER_FILE
+  done
+else
+  build $1
+fi

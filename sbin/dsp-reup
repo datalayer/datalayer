@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Redeploying Datalayer DSP on K8S"$NOCOLOR$NOBOLD
+echo
+
+CMDS="$2"
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+
+DSP_SKIP_HEADER=true dla dsp-down $CMD_SPLITS
+
+echo
+
+DSP_SKIP_HEADER=true dla dsp-up "$@"

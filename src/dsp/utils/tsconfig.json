@@ -1,0 +1,25 @@
+{
+  "include": [
+    "./src/*", "src/examples/Utils.tsx", "src/components"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "outDir": "./lib",
+    "jsx": "react",
+    "target": "es5",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  }
+}

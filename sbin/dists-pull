@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Pulling Distribution Packages"$NOCOLOR$NOBOLD
+echo
+
+source dists
+
+for DIST in $DISTS; do
+
+  REMOTE_FOLDER="$(cut -d'|' -f1 <<<"$DIST")"
+  PACKAGE_FILE_NAME="$(cut -d'|' -f2 <<<"$DIST")"
+  LOCAL_FOLDER="$(cut -d'|' -f3 <<<"$DIST")"
+
+  REMOTE=s3://$REMOTE_FOLDER/$DLAVERSION/$PACKAGE_FILE_NAME
+  LOCAL=$LOCAL_FOLDER/$PACKAGE_FILE_NAME
+
+  echo "Pulling $REMOTE to $LOCAL"
+  echo
+#  aws s3 cp $REMOTE $LOCAL
+  S3_URL=https://$REMOTE_FOLDER.s3.amazonaws.com/$DLAVERSION/$PACKAGE_FILE_NAME
+  echo "curl "$S3_URL
+  curl -Lo $LOCAL $S3_URL
+  if [[ $PACKAGE_FILE_NAME == *gz ]] 
+  then
+    tar -C $LOCAL_FOLDER -xzf $LOCAL
+    rm $LOCAL
+  fi
+  echo
+
+done

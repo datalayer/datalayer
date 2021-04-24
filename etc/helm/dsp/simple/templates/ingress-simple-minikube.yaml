@@ -1,0 +1,18 @@
+{{ if .Values.simple.ingressMinikube -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-ingress
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+#    nginx.ingress.kubernetes.io/rewrite-target: '/'
+spec:
+  rules:
+  - host: minikube.local
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: {{ .Values.service.name }}
+            servicePort: 9876
+{{- end }}

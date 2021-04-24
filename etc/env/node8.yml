@@ -1,0 +1,9 @@
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+name: node8
+channels:
+  - conda-forge
+dependencies:
+  - nodejs=8.11.3
+  - yarn=1.17.3

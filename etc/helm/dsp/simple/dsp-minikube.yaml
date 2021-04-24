@@ -1,0 +1,4 @@
+simple:
+  ingress: false
+  ingressMinikube: true
+  cert: false

@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Datalayer DSP Backup"$NOCOLOR$NOBOLD
+echo
+
+backup_ldap_users() {
+  echo -e $BOLD$YELLOW"Backup LDAP Users from Datalayer DSP"$NOCOLOR$NOBOLD
+  echo
+  mkdir -p ~/backups/users &>/dev/null
+  """
+  DSP_LDAP_HOST=localhost DSP_LDAP_PORT=389 && \
+    ldapsearch -x -H ldap://\$DSP_LDAP_HOST:\$DSP_LDAP_PORT \
+      -b dc=datalayer,dc=io -D \$DSP_LDAP_BIND \
+      -w \$DSP_LDAP_BIND_PWD \
+      -z 3000 + > ~/backups/users/users.ldif &&
+    python dsp-ldap-backup.py
+  EXPORT_LDIF=~/backups/users/users.ldif
+  ldapsearch -x -D \$DSP_LDAP_BIND \
+    -w admin -H ldap:// \
+    -b \"ou=users,dc=datalayer,dc=io\" \
+    -s sub \"(uid=*)\" > \$EXPORT_LDIF
+  ldapsearch -x -H ldap://localhost:\$DSP_LDAP_PORT \
+    -b dc=datalayer,dc=io \
+    -D \$DSP_LDAP_BIND \
+    -w \$DSP_LDAP_BIND_PWD \
+#    uid createTimestamp \
+    + \
+    -z 3000 \
+    > ~/backups/users/users.ldif
+  """
+  ldapsearch -x -H ldap://localhost:$DSP_LDAP_PORT \
+    -b dc=datalayer,dc=io \
+    -D "$DSP_LDAP_BIND" \
+    -w $DSP_LDAP_BIND_PWD \
+    -z 3000 > ~/backups/users.ldif
+  ls ~/backups/users/users*.ldif
+  echo
+}
+
+backup_solr() {
+  echo -e $BOLD$YELLOW"Backup Solr from Datalayer DSP"$NOCOLOR$NOBOLD
+  echo
+  mkdir -p ~/backups/solr &>/dev/null
+  solrdump -server http://localhost:8983/solr/datalayer -q '*:*' >  ~/backups/solr/solr-datalayer.json
+  ls ~/backups/solr/solr-datalayer.json
+  echo
+}
+
+backup_ldap_users
+backup_solr

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Initialize Datalayer DSP Solr"$NOCOLOR$NOBOLD
+echo
+
+dla solr-help
+
+echo
+
+export SCALE=2
+
+$SOLR_HOME/bin/solr create \
+  -c datalayer \
+  -shards $SCALE \
+  -replicationFactor $SCALE \
+  -d $DLAHOME/etc/solr/datalayer \
+  -p 8983 \
+  -force
+
+# $SOLR_HOME/bin/solr zk upconfig -n datalayer -d $DLAHOME/etc/solr -p 8983
+
+curl -X GET "http://localhost:8983/solr/admin/collections?action=MODIFYCOLLECTION&collection=datalayer&autoAddReplicas=false"

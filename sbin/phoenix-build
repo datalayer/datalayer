@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# Licensed to Datalayer (http://datalayer.io) under one or more
+# contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership. Datalayer licenses this file
+# to you under the Apache License, Version 2.0 (the 
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+echo -e $BOLD$YELLOW"Building Apache Phoenix..."$NOCOLOR$NOBOLD
+echo
+
+# Builds, runs fast unit tests and package Phoenix and put the resulting jars (phoenix-[version].jar and phoenix-[version]-client.jar)
+# in the generated phoenix-core/target/ and phoenix-assembly/target/ directories respectively.
+
+# To only build the generated parser (i.e. PhoenixSQLLexer and PhoenixSQLParser), you can do:
+#  $ mvn install -DskipTests
+#  $ mvn process-sources
+
+# cd /dla/phoenix-datalayer
+# git checkout datalayer
+
+#  -s $DLAHOME/mvn/settings.xml \
+mvn clean install \
+  -Dscala.binary.version=2.11 \
+  -Dscala.version=2.11.8 \
+  -Dspark.version=2.1.0 \
+  -Dhadoop.version=2.9.0 \
+  -Dmaven.findbugs.enable=false \
+  -Drat.skip=true \
+  -Dcheckstyle.skip=true \
+  -DskipTests "$@"
+
+echo
+echo -e $BOLD$GREN"Copy ./phoenix-server/target/phoenix-4.10.0-HBase-1.2-SNAPSHOT-server.jar to the lib folder of all all HBase Region Servers: cp ./phoenix-server/target/phoenix-4.10.0-HBase-1.2-SNAPSHOT-server.jar $HBASE_HOME/lib"$NOCOLOR$NOBOLD
+echo
+echo -e $BOLD$GREN"The client is ./phoenix-client/target/phoenix-4.10.0-HBase-1.2-SNAPSHOT-client.jar"$NOCOLOR$NOBOLD
+echo
+echo -e $BOLD$GREN"The distribution is ./phoenix-assembly/target/phoenix-4.10.0-HBase-1.2-SNAPSHOT.tar.gz"$NOCOLOR$NOBOLD
+echo

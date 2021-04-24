@@ -1,0 +1,41 @@
+{
+  "name": "@datalayer/jupyterpool",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Jupyterpool",
+  "homepage": "https://github.com/datalayer/jupyterpool",
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "run-p start:*",
+    "start:server": "./dev/start-jupyterpool.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/datalayer/jupyterpool/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datalayer/jupyterpool.git"
+  },
+  "author": "Datalayer",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "sideEffects": [
+    "style/**/*"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "directories": {
+    "lib": "lib/"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

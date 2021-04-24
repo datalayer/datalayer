@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"JupyterLab Clean Build"$NOCOLOR$NOBOLD
+echo
+
+echo
+echo -e $YELLOW"Yarn Build Test Utils"$NOCOLOR
+echo
+
+yarn build:testutils
+
+echo
+echo -e $YELLOW"Jupyter Lab Test"$NOCOLOR
+echo
+
+yarn test

@@ -1,0 +1,38 @@
+{{ if eq .Values.auth.clusterType "gke" -}}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: auth-ingress
+  annotations:
+    # specify the name of the global IP address resource to be associated with the HTTP(S) Load Balancer.
+    kubernetes.io/ingress.global-static-ip-name: datalayer-io-ip
+    # add an annotation indicating the issuer to use.
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # controls whether the ingress is modified ‘in-place’,
+    # or a new one is created specifically for the HTTP01 challenge.
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    networking.gke.io/v1beta1.FrontendConfig: "datalayer-frontend-config"
+  labels:
+    app: auth
+spec:
+  tls: # < placing a host in the TLS config will indicate a certificate should be created
+  - hosts:
+    - datalayer.io
+    secretName: auth-cert-secret # < cert-manager will store the created certificate in this secret
+  rules:
+  - host: datalayer.io
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: {{ .Release.Name }}-auth-svc
+          servicePort: {{ .Values.auth.port }}
+      - path: /api/library/*
+        backend:
+          serviceName: dsp-library-library-svc
+          servicePort: 9800
+      - path: /api/jupyterpool/*
+        backend:
+          serviceName: dsp-jupyterpool-jupyterpool-svc
+          servicePort: 8888
+{{- end }}

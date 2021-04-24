@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Datalayer DSP LDAP Help"$NOCOLOR$NOBOLD
+echo
+
+# N_DAYS=100 && TIMESTAMP=$(date --date=\"-$N_DAYS days\" +'%Y%m%d'\"100000Z\")
+# N_DAYS=100 && TIMESTAMP=$(gdate --date="-$N_DAYS days" +%Y%m%d100000Z) # for mac (with gdate frombrew install coreutils)
+
+echo """ldapsearch -x -D $DSP_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b \"ou=users,dc=datalayer,dc=io\" \
+  -s sub \"(uid=*)\"
+
+ldapsearch -x -H ldap:// -b dc=datalayer,dc=io -D $DSP_LDAP_BIND -w $DSP_LDAP_BIND_PWD \"(&(objectclass=inetOrgPerson)(createTimestamp>=$TIMESTAMP))\" createTimestamp
+ldapsearch -x -H ldap:// -b dc=datalayer,dc=io -D $DSP_LDAP_BIND -w $DSP_LDAP_BIND_PWD \"(&(objectclass=inetOrgPerson)(modifyTimestamp>=$TIMESTAMP))\" modifyTimestamp
+
+ldapsearch -x -D $DSP_LDAP_BIND \
+  -w admin -H ldap:// \
+  -b \"cn=schema\" \
+  -s base \"(objectclass=subschema)\" objectclasses
+"""

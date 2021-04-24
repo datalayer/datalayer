@@ -1,0 +1,25 @@
+# https://github.com/codecentric/helm-charts/blob/master/charts/keycloak/values.yaml
+keycloak:
+  image:
+    repository: 
+    tag: 0.0.1
+    pullPolicy: Always
+  lifecycleHooks: |
+     postStart:
+       exec:
+         command: ["/bin/sh", "/opt/jboss/keycloak.sh"]
+  service:
+    type: LoadBalancer
+  password: 
+  persistence:
+    # Disable deployment of the PostgreSQL chart
+    deployPostgres: true
+    # The database vendor. Can be either "postgres", "mysql", "mariadb", or "h2"
+    dbVendor: postgres
+    ## The following values only apply if "deployPostgres" is set to "false"
+    dbName: keycloak
+    dbHost: mykeycloak
+    dbPort: 5432 # 5432 is PostgreSQL's default port. For MySQL it would be 3306
+    dbUser: keycloak
+    # Only used if no existing secret is specified. In this case a new secret is created
+    dbPassword: 

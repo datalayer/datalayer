@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Datalayer Zookeeper Status"$NOCOLOR$NOBOLD
+echo
+
+echo -e $BOLD$GREEN"RUOK\n"$NOCOLOR$NOBOLD
+echo ruok | nc localhost 2181
+echo
+echo
+echo -e $BOLD$GREEN"ISRO\n"$NOCOLOR$NOBOLD
+echo isro  | nc localhost 2181
+echo
+echo
+echo -e $BOLD$GREEN"DUMP\n"$NOCOLOR$NOBOLD
+echo dump | nc 127.0.0.1 2181
+echo
+echo
+echo -e $BOLD$GREEN"STAT\n"$NOCOLOR$NOBOLD
+echo stat | nc localhost 2181
+echo
+echo
+echo -e $BOLD$GREEN"MNTR\n"$NOCOLOR$NOBOLD
+echo mntr | nc localhost 2181
+echo

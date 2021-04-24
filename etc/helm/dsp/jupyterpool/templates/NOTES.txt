@@ -1,0 +1,25 @@
+Your jupyterpool server has now been installed, and can be accessed in the following ways:
+
+1. Connect to the jupyterpool CLI pod:
+
+  kubectl exec -n {{ .Release.Namespace }} $(kubectl get pod -n {{ .Release.Namespace }} --selector=app={{ template "jupyterpool.name" . }} -o jsonpath='{.items...metadata.name}') -- sh
+
+2. Connect with HTTP internally, within the jupyterpoolnetes cluster on:
+
+  {{ template "jupyterpool.service-name" . }}.{{ .Release.Namespace }}:{{ .Values.jupyterpool.port }}
+
+3. Connect with HTTP Node Port to the jupyterpoolnetes cluster:
+
+  export NODE_IP=$(kubectl get nodes --namespace jupyterpool -o jsonpath="{.items[0].status.addresses[0].address}")
+  export NODE_PORT=$(kubectl get --namespace jupyterpool -o jsonpath="{.spec.ports[0].nodePort}" services {{ template "jupyterpool.service-name" . }})
+  echo http://$NODE_IP:$NODE_PORT/jupyterpool/
+
+4. Connect with HTTP external service to the jupyterpoolnetes cluster:
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "jupyterpool.name" . }}" -o jsonpath="{ .items[0].metadata.name }")
+  echo "Visit http://127.0.0.1:{{ .Values.jupyterpool.port }}/jupyterpool/ to access jupyterpool"
+  kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME {{ .Values.jupyterpool.port }}:{{ .Values.jupyterpool.port }}
+
+5. For Minikube:
+
+  open http://minikube.local/api/jupyterpool/

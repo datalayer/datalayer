@@ -1,0 +1,9 @@
+jupyterpool:
+  clusterType: "gke"
+  image: gcr.io/datalayer-dev-1/dsp-jupyterpool:0.0.3
+#  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
+  sidecar:
+    image: gcr.io/datalayer-dev-1/k8s-sidecar:0.0.3
+  env:
+    DLAHOST: "datalayer.io"

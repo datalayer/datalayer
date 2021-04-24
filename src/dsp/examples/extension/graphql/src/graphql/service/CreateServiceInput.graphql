@@ -1,0 +1,4 @@
+input CreateServiceInput {
+  name: String!
+  manifestId: Int!
+}

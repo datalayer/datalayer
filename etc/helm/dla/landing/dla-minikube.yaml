@@ -1,0 +1,5 @@
+landing:
+  clusterType: "minikube"
+  env:
+    DLAHOST: "minikube.local"
+    DSP_JWT_SECRET: ""

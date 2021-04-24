@@ -1,0 +1,17 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.terminal.activateEnvironment": false,
+    "go.docsTool": "gogetdoc",
+    "go.toolsEnvVars": {
+        "GO111MODULE": "on"
+    },
+    "go.inferGopath": false,
+    "go.formatTool": "goimports",
+    "terminal.integrated.fontFamily": "Meslo LG S for Powerline",
+    "terminal.integrated.inheritEnv": false,
+    "restructuredtext.confPath": "${workspaceFolder}/repos/jupyter-kernel-provider-kubernetes/docs",
+    "editor.wordWrap": "on",
+    "jupyter.jupyterServerType": "local",
+    "python.pythonPath": "opt/miniconda3/envs/datalayer/bin/python"
+}

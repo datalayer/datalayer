@@ -1,0 +1,24 @@
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+FROM python:3.8.8
+
+RUN mkdir /opt/datalayer
+
+WORKDIR /opt/datalayer
+
+RUN pip install kazoo
+
+COPY utils /opt/datalayer/utils
+RUN pip install -e ./utils
+
+COPY auth /opt/datalayer/auth
+RUN cd auth && pip install -e .
+
+COPY auth/index-dist.html /opt/datalayer/auth/dist/index.html
+
+WORKDIR /opt/datalayer/auth
+
+EXPOSE 9700
+
+CMD ["python", "dsp_auth/main.py"]

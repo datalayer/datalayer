@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+export REMOVES="
+tsconfig.tsbuildinfo \
+node_modules \
+lib \
+build \
+yarn.lock \
+yarn-error.log \
+__pycache__  \
+develop-eggs \
+sdist \
+egg-info \
+.eggs \
+.pytest_cache \
+";
+
+for REMOVE in $REMOVES; do
+
+  echo Removing $REMOVE
+  find . -name $REMOVE | xargs rm -fr {} || true
+  echo
+
+done

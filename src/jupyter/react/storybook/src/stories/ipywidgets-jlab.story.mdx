@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="IpyWidgets/JupyterLab" parameters={{ viewMode: 'docs' }}/>
+
+# IpyWidgets for JupyterLab
+
+[IpyWidgets](https://github.com/jupyter-widgets/ipywidgets) are Jupyter Widgets, Interactive Widgets for the Jupyter Notebook.
+
+You need a python library for this.
+
+```bash
+pip install ipywidgets
+```
+
+They integrate with JupyterLab via the [IpyWidgets Jupyterlab Manager](https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager) extension `@jupyter-widgets/jupyterlab-manager`.
+
+```bash
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+```
+
+To display a React component in the IpyWidget output, see for example [IpyResuse Widget](https://github.com/jtpio/ipyresuse/blob/ad36caf300fb18daab92279597b86cea95a5372d/src/widget.tsx#L106-L107): `ReactDOM.render(...)` your component on `this.el`, the DOM node you have control over. It's the root node of the widget.
+
+[IpyMaterialUI](https://github.com/maartenbreddels/ipymaterialui) is Jupyter Widgets based on React Material UI components. You can access your children's props, which are immutable, but the underlying IpyWidget model can change.

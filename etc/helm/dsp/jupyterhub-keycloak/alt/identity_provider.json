@@ -1,0 +1,30 @@
+{
+  "alias": "oidc",
+  "displayName": "",
+  "internalId": "",
+  "providerId": "oidc",
+  "enabled": "True",
+  "updateProfileFirstLoginMode": "on",
+  "trustEmail": "False",
+  "storeToken": "False",
+  "addReadTokenRoleOnCreate": "False",
+  "authenticateByDefault": "False",
+  "linkOnly": "False",
+  "firstBrokerLoginFlowAlias": "first broker login",
+  "config": {
+    "hideOnLoginPage": "",
+    "userInfoUrl": "https://qa.com/oauth2/default/v1/userinfo",
+    "validateSignature": "",
+    "clientId": "nk.eda.dla",
+    "tokenUrl": "https://qa.com/oauth2/default/v1/token",
+    "uiLocales": "",
+    "backchannelSupported": "",
+    "useJwksUrl": "True",
+    "loginHint": "",
+    "authorizationUrl": "https://qa.com/oauth2/default/v1/authorize",
+    "disableUserInfo": "",
+    "logoutUrl": "https://qa.com/oauth2/default/v1/logout",
+    "clientSecret": "",
+    "defaultScope": "openid profile email"
+  }
+}

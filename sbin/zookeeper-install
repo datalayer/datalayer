@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Installing Apache Zookeeper"$NOCOLOR$NOBOLD
+echo
+
+rm -fr $DLAOPT/zookeeper* || true
+
+cd $DLAOPT && \
+  curl https://downloads.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/apache-zookeeper-${ZOOKEEPER_VERSION}-bin.tar.gz | tar -xz && \
+  mv apache-zookeeper-${ZOOKEEPER_VERSION}-bin zookeeper-${ZOOKEEPER_VERSION} && \
+  ln -s zookeeper-${ZOOKEEPER_VERSION} zookeeper

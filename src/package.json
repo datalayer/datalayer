@@ -1,0 +1,61 @@
+{
+  "name": "@datalayer/datalayer",
+  "private": true,
+  "scripts": {
+    "build": "lerna run --scope @datalayer/* --scope @jupyter-react/* build",
+    "build:prod": "lerna run --scope @datalayer/dsp-widgets --scope @datalayer/dsp-utils --scope @datalayer/dsp-auth --scope @jupyter-react/lumino-adapter build:prod",
+    "clean": "lerna run --scope @datalayer/* --scope @jupyter-react/* clean",
+    "example:dsp:extension": "lerna run --parallel --scope '@datalayer/example-extension-*' start",
+    "example:dsp:simple": "lerna run --parallel --scope '@datalayer/{example-simple,dsp-utils,dsp-widgets}' start",
+    "example:jupyterlab:react": "lerna run --parallel --scope @jupyter-react/* example:jupyterlab:react",
+    "install": "lerna run --scope @datalayer/* --scope @jupyter-react/* --parallel install",
+    "ls": "lerna ls",
+    "pkill:dev": "pkill node; pkill python; pkill kubectl",
+    "port-forward": "run-p port-forward:*",
+    "port-forward__disabled__:solr:zookeeper": "concurrently \"./dev/port-forward-dsp-solr-zookeeper.sh\" \"./dev/port-forward-dsp-solr.sh\"",
+    "port-forward:dsp-ldap": "./dev/port-forward-dsp-ldap.sh",
+    "port-forward:dsp-solr": "./dev/port-forward-dsp-solr.sh",
+    "port-forward:dsp-zookeeper": "./dev/port-forward-dsp-solr-zookeeper.sh",
+    "port-forward:k8s-dashboard": "./dev/port-forward-k8s-dashboard.sh",
+    "serve": "lerna run --parallel --scope @datalayer/* serve",
+    "start": "lerna run --parallel --scope '@datalayer/{dsp-studio,dsp-auth,dsp-utils,dsp-widgets}' start",
+    "start:dsp": "lerna run --parallel --scope '@datalayer/{dsp-studio,dsp-auth,dsp-library,dsp-utils,dsp-widgets}'start",
+    "start:dsp-auth": "yarn pkill:dev; lerna run --parallel --scope '@datalayer/{dsp-auth,dsp-library,dsp-utils,dsp-widgets}' start",
+    "start:dsp-studio": "lerna run  --parallel --scope '@datalayer/{dsp-studio,dsp-auth,dsp-library,dsp-utils,dsp-widgets}'start",
+    "start:dsp-widgets": "lerna run --scope '@datalayer/dsp-widgets' --parallel start",
+    "start:dla-landing": "lerna run --parallel --scope '@datalayer/{dla-landing,dsp-auth,dsp-library,dsp-utils,dsp-widgets}' start",
+    "start:jupyterhub": "./dev/start-jupyterhub.sh",
+    "storybook": "lerna run --parallel --scope @datalayer/* storybook"
+  },
+  "workspaces": {
+    "packages": [
+      "dla/*",
+      "dsp/*",
+      "dsp/examples/*",
+      "dsp/examples/*/*",
+      "jupyter/react/examples/jupyterlab",
+      "jupyter/react/packages/lumino-adapter",
+      "jupyter/pool/packages/jupyterpool"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^3.16.4",
+    "concurrently": "5.2.0",
+    "npm-run-all": "4.1.5"
+  },
+  "resolutions": {
+    "**/@types/react": "16.9.16",
+    "**/@types/react-dom": "16.9.4",
+    "**/html-webpack-plugin": "4.3.0",
+    "**/react": "16.13.0",
+    "**/react-dom": "16.13.0",
+    "**/typescript": "4.2.2",
+    "**/webpack": "5.11.0",
+    "**/webpack-cli": "3.3.11",
+    "**/webpack-dev-server": "3.11.0",
+    "**/webpack-virtual-modules": "^0.4.2"
+  },
+  "resolutions-sb": {
+    "**/webpack-virtual-modules": "^0.4.2"
+  }
+}

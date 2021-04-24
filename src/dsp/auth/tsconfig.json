@@ -1,0 +1,29 @@
+{
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "**/node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./lib",
+    "sourceMap": true,
+    "strict": true,
+    "allowJs": true,
+    "target": "es5",
+    "noImplicitAny": false,
+    "jsx": "react",
+    "esModuleInterop": true,
+//    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
+    "types": [
+      "node",
+      "react"
+    ],
+  }
+}

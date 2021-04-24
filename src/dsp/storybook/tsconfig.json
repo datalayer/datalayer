@@ -1,0 +1,34 @@
+{
+  "include": [
+    "src/*",
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./lib",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
+    "paths": {
+      "assets/*": ["node_modules/@datalayer/dsp-widgets/lib/assets/*"],
+      "/assets/*": ["node_modules/@datalayer/dsp-widgets/lib/assets/*"],
+      "./*.scss": ["node_modules/@datalayer/widget/lib/example/*"],
+    },
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "types": [
+      "node",
+      "react"
+    ]
+  }
+}

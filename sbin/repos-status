@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+source $DLASBIN/repos
+
+echo -e $BOLD$YELLOW"Status of the Datalayer Repositories..."$NOCOLOR$NOBOLD
+echo
+
+for ((i=0; i<${#DSP_REPOS[@]}; i+=4)); do
+  echo -e $GREEN"--- git status $BOLD${DSP_REPOS[i]}$NOBOLD ---"$NOCOLOR
+  echo
+  cd $DLAHOME/repos/${DSP_REPOS[i]}
+  git status
+  echo
+done

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Installing Apache Phoenix"$NOCOLOR$NOBOLD
+echo
+
+rm -fr $DLAOPT/phoenix* || true
+
+cd $DLAOPT && \
+  curl https://downloads.apache.org/phoenix/apache-phoenix-${PHOENIX_VERSION}/bin/apache-phoenix-${PHOENIX_VERSION}-bin.tar.gz | tar -xz && \
+  mv apache-phoenix-${PHOENIX_VERSION}-bin phoenix-${PHOENIX_VERSION} && \
+  ln -s phoenix-${PHOENIX_VERSION} phoenix && \
+  cp phoenix/phoenix-${PHOENIX_VERSION}-server.jar $HBASE_HOME/lib && \
+  curl https://repo1.maven.org/maven2/org/apache/htrace/htrace-core/3.1.0-incubating/htrace-core-3.1.0-incubating.jar $DLAOPT/hbase/lib/htrace-core-3.1.0-incubating.jar
+
+cd $DLAOPT/phoenix && \
+  pip install -e .

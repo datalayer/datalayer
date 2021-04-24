@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-auth
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "auth.name" . }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ template "auth.name" . }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ template "auth.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: auth
+          image: {{ .Values.auth.image }}
+          imagePullPolicy: {{ .Values.auth.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.auth.port }}
+              protocol: TCP
+          env:
+          - name: DLAHOST
+            value: {{ .Values.auth.env.DLAHOST }}
+          - name: DSP_JWT_SECRET
+            value: {{ .Values.auth.env.DSP_JWT_SECRET }}
+          - name: DSP_AUTH_ROOT_URL
+            value: {{ .Values.auth.env.DSP_AUTH_ROOT_URL }}
+          - name: DSP_AUTH_AUTH_CALLBACK
+            value: {{ .Values.auth.env.DSP_AUTH_AUTH_CALLBACK }}
+          - name: DSP_AUTH_UI_REDIRECT
+            value: {{ .Values.auth.env.DSP_AUTH_UI_REDIRECT }}
+          - name: DSP_AUTH_JOIN_SUCCESS
+            value: {{ .Values.auth.env.DSP_AUTH_JOIN_SUCCESS }}
+          - name: DSP_AUTH_JOIN_ERROR
+            value: {{ .Values.auth.env.DSP_AUTH_JOIN_ERROR }}
+          - name: DSP_AUTH_PASSWORD_SUCCESS
+            value: {{ .Values.auth.env.DSP_AUTH_PASSWORD_SUCCESS }}
+          - name: DSP_AUTH_PASSWORD_ERROR
+            value: {{ .Values.auth.env.DSP_AUTH_PASSWORD_ERROR }}
+          - name: DSP_JWT_SECRET
+            value: {{ .Values.auth.env.DSP_JWT_SECRET }}
+          - name: DSP_SOLR_ZK_HOST
+            value: {{ .Values.auth.env.DSP_SOLR_ZK_HOST }}
+          - name: DSP_SMTP_HOST
+            value: {{ .Values.auth.env.DSP_SMTP_HOST }}
+          - name: DSP_SMTP_PORT
+            value: {{ .Values.auth.env.DSP_SMTP_PORT | quote }}
+          - name: DSP_SMTP_USERNAME
+            value: {{ .Values.auth.env.DSP_SMTP_USERNAME }}
+          - name: DSP_SMTP_PASSWORD
+            value: {{ .Values.auth.env.DSP_SMTP_PASSWORD }}
+          - name: DSP_LDAP_HOST
+            value: {{ .Values.auth.env.DSP_LDAP_HOST }}
+          - name: DSP_LDAP_BIND
+            value: {{ .Values.auth.env.DSP_LDAP_BIND }}
+          - name: DSP_LDAP_BIND_PWD
+            value: {{ .Values.auth.env.DSP_LDAP_BIND_PWD }}
+          - name: DSP_KEYCLOAK_REALM_CLIENT_SECRET
+            value: {{ .Values.auth.env.DSP_KEYCLOAK_REALM_CLIENT_SECRET }}
+          - name: DSP_KEYCLOAK_SCHEME_HOST
+            value: {{ .Values.auth.env.DSP_KEYCLOAK_SCHEME_HOST }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.auth.resources | indent 12 }} 
+        - name: auth-sidecar
+          image: {{ .Values.auth.sidecar.image }}
+          imagePullPolicy: {{ .Values.auth.imagePullPolicy }}
+          args: ["proxy", "-p", "8001"]

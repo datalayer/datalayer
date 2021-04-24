@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $YELLOW$BOLD"Serving Datalayer Blog WEB Site on http://localhost:4001"$NOBOLD$NOCOLOR
+echo
+
+cd $DLAHOME/docs/blog && \
+  rm -fr _site && \
+  make serve

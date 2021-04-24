@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Generating Apache Solr Configuration from Template"$NOCOLOR$NOBOLD
+echo
+
+echo $SOLR_CONF_DIR
+ls -alp $SOLR_CONF_DIR

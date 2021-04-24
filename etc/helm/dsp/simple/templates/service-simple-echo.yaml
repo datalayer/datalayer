@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}-echo
+  namespace: {{ .Values.namespace }}
+  labels:
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: 5678
+    targetPort: 5678
+    protocol: TCP
+  selector:
+    app: simple-echo

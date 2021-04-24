@@ -1,0 +1,22 @@
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+FROM python:3.8.8
+
+RUN mkdir /opt/datalayer
+
+WORKDIR /opt/datalayer
+
+COPY utils /opt/datalayer/utils
+RUN pip install -e ./utils
+
+RUN pip install kazoo
+
+COPY studio /opt/datalayer/studio
+RUN cd studio && pip install -e .
+
+WORKDIR /opt/datalayer/studio
+
+EXPOSE 9600
+
+CMD ["python", "dsp_studio/main.py"]

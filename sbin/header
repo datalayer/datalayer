@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+if [ "$DSP_SHOW_HEADER" == "false" ]
+then
+  exit 0
+fi
+
+if [ "$DSP_SKIP_HEADER" == "true" ]
+then
+  exit 0
+fi
+
+echo -e $GREEN$BOLD"""            ___       __       __
+  ───────  / _ \___ _/ /____ _/ /__ ___ _____ ____
+ ───────  / // / _ \`/ __/ _ \`/ / _ \`/ // / -_) __/
+───────  /____/\_,_/\__/\_,_/_/\_,_/\_, /\__/_/
+                                  /___/
+
+Datalayer Science Platform $DLAVERSION (c) 2020 https://datalayer.io"""
+echo -e $NOBOLD$NOCOLOR

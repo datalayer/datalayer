@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Installing Helm..."$NOCOLOR$NOBOLD
+echo
+
+install_helm_on_linux() {
+    curl -Lo /tmp/helm-v${DSP_HELM_VERSION}-linux-amd64.tar.gz https://get.helm.sh/helm-v${DSP_HELM_VERSION}-linux-amd64.tar.gz \
+        && tar xvfz /tmp/helm-v${HELM_VERSION}-linux-amd64.tar.gz -C /tmp \
+        && mv /tmp/linux-amd64/helm /usr/local/bin \
+        && chmod +x /usr/local/bin/helm
+}
+
+install_helm_on_macos() {
+    curl -Lo /tmp/helm-v${DSP_HELM_VERSION}-darwin-amd64.tar.gz https://get.helm.sh/helm-v${DSP_HELM_VERSION}-darwin-amd64.tar.gz \
+        && tar xvfz /tmp/helm-v${DSP_HELM_VERSION}-darwin-amd64.tar.gz -C /tmp \
+        && mv /tmp/darwin-amd64/helm /usr/local/bin \
+        && chmod +x /usr/local/bin/helm
+}
+
+case "${OS}" in
+    LINUX)     install_helm_on_linux;;
+    MACOS)     install_helm_on_macos;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+# helm init --client-only
+# echo
+# DSP_SHOW_HEADER=false dla helm-status

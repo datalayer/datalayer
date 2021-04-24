@@ -1,0 +1,699 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Install Datalayer Development Environment"$NOCOLOR$NOBOLD
+echo
+
+# -------------------------------------
+
+linux_pre() {
+  echo -e $WHITE_BCK"PRE-INSTALL ON LINUX"$NOCOLOR
+  echo
+#     sudo apt -y install libcurl4-openssl-dev
+#     sudo apt -y install slapd ldap-utils
+#     sudo dpkg-reconfigure slapd
+#     sudo update-rc.d slapd enable
+#     mkdir $DLAOPT/docker-lib && ln -s $DLAOPT/docker-lib /var/lib/docker && sudo apt -y install docker.io
+#     sudo apt install -y nodejs npm
+#     npm install -g yarn
+}
+
+macos_pre() {
+  echo -e $WHITE_BCK"PRE-INSTALL ON MAC OSX"$NOCOLOR
+  echo
+}
+
+case "${OS}" in
+    LINUX)     linux_pre;;
+    MACOS)     macos_pre;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+# -------------------------------------
+
+setup_var() {
+  mkdir -p $DLAHOME/var/datalayer
+  chown -R $USER:$(id -gn) $DLAHOME/var/srv/jupyterhub
+  #
+  openssl rand -hex 32 > $DLAHOME/var/srv/jupyterhub/jupyterhub_auth_token
+  chmod 600 $DLAHOME/var/srv/jupyterhub/jupyterhub_auth_token
+  openssl rand -hex 32 > $DLAHOME/var/srv/jupyterhub/jupyterhub_cookie_secret
+  chmod 600 $DLAHOME/var/srv/jupyterhub/jupyterhub_cookie_secret
+  #
+  mkdir -p $DLAHOME/var/log
+  touch $DLAHOME/var/log/datalayer.log
+  chown -R $USER:$(id -gn) $DLAHOME/var/log/datalayer.log
+}
+
+# -------------------------------------
+
+function setup_yarn {
+  # rm -fr ~/.yarn-cache || true
+  yarn config set cache-folder ~/.yarn-cache
+}
+
+# -------------------------------------
+
+function install_conda() {
+  echo
+: '
+  # Valid for AWS EMR 5.21.0
+  cd && \
+    curl -o miniconda-install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    chmod +x miniconda-install.sh && \
+    ./miniconda-install.sh -b
+  cat << 'EOF' >> ~/.bashrc
+# >>> conda initialize >>>
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/~/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="~/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+EOF
+  sed -i "s|~|$HOME|g" ~/.bashrc
+  source ~/.bashrc
+  cat << EOF > ./jupyterlab.yml
+name: jupyterlab
+channels:
+  - anaconda-nb-extensions
+  - conda-forge
+  - plotly
+dependencies:
+  - altair
+  - bokeh
+  - boto3
+  - bqplot
+  - geoviews
+  - holoviews
+  - ipympl
+  - ipywidgets
+  - ipyleaflet
+  - jupyter
+  - nodejs
+  - matplotlib
+  - networkx
+  - pandas
+  - pyviz_comms
+  - pip
+  - plotly=3.7.1
+  - plotly-orca
+  - pyspark=2.4.0
+  - python=3.6
+  - seaborn
+  - vega_datasets
+  - voila
+  - xesmf
+  - yarn
+  - pip:
+    - cufflinks
+    - dynamodb-encryption-sdk
+    - findspark
+    - opencv-python
+    - vdom
+EOF
+  conda env create -n jupyterlab -f ./jupyterlab.yml
+  conda activate jupyterlab
+'
+}
+
+# -------------------------------------
+
+function install_dla_landing() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING LANDING"$NOCOLOR
+  echo
+  cd $DLAHOME/src/dla/landing && \
+    make py-clean && \
+    make py-install && \
+    make py-build
+}
+
+# -------------------------------------
+
+function install_dsp_endpoints() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING ENDPOINTS"$NOCOLOR
+  echo
+  declare -a PHYTONS=(
+    "dsp/utils"
+    "dsp/auth"
+    "dsp/library"
+    "dsp/studio"
+    "dsp/admin"
+    "dsp/sdk"
+    "dla/landing"
+    )
+  for PHYTON in "${PHYTONS[@]}"
+  do
+    cd $DLAHOME/src/$PHYTON && \
+      echo && \
+      echo -e "Installing \x1b[7m${PHYTON}\x1b[0m endpoint" && \
+      echo && \
+      pip install -e .[test]
+  done
+}
+
+function install_dsp_auth() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING AUTH"$NOCOLOR
+  echo
+  cd $DLAHOME/src/dsp/auth&& \
+    make clean && \
+    make install && \
+    make build && \
+    make dev
+}
+
+# -------------------------------------
+
+function install_dsp_library() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING LIBRARY"$NOCOLOR
+  echo
+  cd $DLAHOME/src/dsp/library && \
+    make clean && \
+    make install && \
+    make build && \
+    make dev
+}
+
+# -------------------------------------
+
+function install_dsp_studio() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING STUDIO"$NOCOLOR
+  echo
+  cd $DLAHOME/src/dsp/studio && \
+    make py-clean && \
+    make py-install && \
+    make py-build
+}
+
+# -------------------------------------
+
+install_jupyter() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING JUPYTER"$NOCOLOR
+  echo
+  cd $DLAHOME/repos/jupyter && \
+    pip install -e .
+}
+
+# -------------------------------------
+
+function install_jupyterhub() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING JUPYTERHUB"$NOCOLOR
+  echo
+  # JupyterHub Server
+  conda install -y configurable-http-proxy
+#    pip install jupyterhub==1.0.0
+#    git checkout datalayer
+  cd $DLAHOME/repos/jupyterhub && \
+    git checkout master && \
+    python setup.py clean sdist && \
+    pip install --upgrade -e .
+  # JupyterHub Client
+  cd $DLAHOME/repos/jupyterhub-client && \
+    pip install -e .
+  # JupyterHub Authenticators
+#    pip install oauthenticator
+  cd $DLAHOME/repos/jupyterhub-auth-oauth && \
+    pip install -e .
+  cd $DLAHOME/repos/jupyterhub-auth-jwt && \
+    git checkout datalayer && \
+    pip install -e .
+  cd $DLAHOME/repos/jupyterhub-auth-ldap && \
+    git checkout datalayer && \
+    pip install -e .
+  # JupyterHub Spawners
+  cd $DLAHOME/repos/jupyterhub-spawn-batch && \
+    pip install -e .
+  cd $DLAHOME/repos/jupyterhub-spawn-wrap && \
+    pip install -e .
+  cd $DLAHOME/repos/jupyterhub-spawn-sudo && \
+    pip install -e .
+  cd $DLAHOME/repos/jupyterhub-spawn-docker && \
+    pip install -e .
+}
+
+# -------------------------------------
+
+function install_jupyterlab() {
+    echo
+    echo -e $WHITE_BCK"INSTALLING JUPYTERLAB"$NOCOLOR
+    echo
+: '
+  install_jupyterlab_from_dst() {
+    pip install jupyterlab
+  }
+  if [ "$1" == "SRC" ]; then
+    install_jupyterlab
+  else
+    install_jupyterlab_from_dst
+  fi
+  pip install jupyterlab_latex && \
+    jupyter serverextension enable --sys-prefix jupyterlab_latex && \
+    pip install ipyleaflet && \
+    pip install bqplot && \
+    jupyter labextension install \
+      @jupyter-widgets/jupyterlab-manager \
+      @jupyter-widgets/jupyterlab-sidecar \
+      @jupyterlab/plotly-extension \
+      @jupyterlab/latex \
+      @pyviz/jupyterlab_pyviz \
+      jupyterlab_bokeh \
+      jupyterlab-chart-editor \
+      jupyter-matplotlib \
+      bqplot \
+      jupyter-leaflet \
+      @jupyterlab/geojson-extension
+'
+: '
+    pip install --pre --upgrade jupyterlab
+    pip install jupyterlab
+    cd $DLAHOME/repos/jupyterlab-server && \
+      pip install -e .
+    cd $DLAHOME/repos/jupyterlab/packages/cells && \
+      yarn install && \
+      yarn build
+'
+  # Install from source.
+  # JLAB_BRANCH=datalayer && \
+  JLAB_BRANCH=master && \
+    cd $DLAHOME/repos/jupyterlab && \
+    git checkout $JLAB_BRANCH && \
+    find . -name node_modules | xargs rm -fr {} || true && \
+    find . -name lib | xargs rm -fr {} || true && \
+    find . -name build | xargs rm -fr {} || true && \
+    find . -name tsconfig.tsbuildinfo | xargs rm -fr {} || true && \
+    pip install -e . && \
+    yarn && \
+    yarn build:utils && \
+    yarn build:packages && \
+    yarn build:testutils && \
+#    yarn build:examples && \
+    jupyter lab build
+}
+
+function install_jupyterlab_contents() {
+  pip install s3contents
+}
+
+
+
+function install_jupyterlab_kernels() {
+  conda install \
+    -y \
+    -c anaconda-nb-extensions \
+    nb_conda
+  conda install \
+    -y \
+    nb_conda_kernels
+}
+
+# -------------------------------------
+
+function build_jupyterlab() {
+  jupyter lab build
+}
+
+# -------------------------------------
+
+function start_jupyterlab() {
+  # export PYSPARK_PYTHON=/usr/bin/python3 && \
+  #   export PYSPARK_DRIVER_PYTHON=/usr/bin/python3 && \
+  nohup jupyter lab --port 8889 --notebook-dir ~/notebooks & > jupyterlab.out
+  jupyter notebook list
+  # conda deactivate && \
+  #   conda remove -n jupyterlab -y --all
+}
+
+# -------------------------------------
+
+function install_jupyterlab_ext() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING JUPYTERLAB EXTENSIONS"$NOCOLOR
+  echo
+: '
+  jupyter labextension install \
+    @jupyter-widgets/jupyterlab-manager@2.0 \
+    --no-build
+  jupyter labextension install \
+    @jupyterlab/geojson-extension \
+    --no-build
+  pip install ipyleaflet && \
+    jupyter labextension install \
+      jupyter-leaflet@latest \
+      --no-build
+  pip install jupyterlab_latex && \
+    jupyter labextension install \
+      @jupyterlab/latex \
+      --no-build
+  pip install matplotlib seaborn ipympl && \
+    jupyter labextension install \
+      jupyter-matplotlib \
+      --no-build
+  pip install bokeh \
+    jupyter_bokeh && \
+    jupyter labextension install \
+      @bokeh/jupyter_bokeh \
+      --no-build
+  pip install bqplot && \
+    jupyter labextension install \
+      bqplot \
+      --no-build
+  pip install \
+    plotly \
+    networkx \
+    cufflinks && \
+    jupyter labextension install \
+      jupyterlab-plotly \
+      --no-build
+  pip install plotly jupyter-dash && \
+    jupyter labextension install \
+      jupyter-dash \
+      --no-build
+  pip install voila && \
+    jupyter labextension install \
+      @jupyter-voila/jupyterlab-preview \
+      --no-build
+  pip install holoviews pyviz_comms panel && \
+    jupyter labextension install \
+      @pyviz/jupyterlab_pyviz \
+      --no-build
+  jupyter lab build
+  jupyter serverextension list && \
+    jupyter labextension list
+'
+: '
+  # TODO Upgrade to jupyterlab 3
+  pip install ipymaterialui && \
+    jupyter labextension install \
+      jupyter-materialui@latest \
+      --no-build
+  # TODO Upgrade to jupyterlab 3
+  pip install ipyresuse
+  # TODO Upgrade to jupyterlab 3
+  pip install sidecar && \
+    jupyter labextension install \
+      @jupyter-widgets/jupyterlab-sidecar@latest \
+      --no-build
+  # TODO Upgrade to jupyterlab 3
+  pip install \
+    chart_studio \
+    jupyter labextension install \
+      jupyterlab-chart-editor \
+      --no-build
+  # TODO Upgrade to jupyterlab 3
+  jupyter labextension install \
+    @jupyterlab/dataregistry-extension \
+    --no-build
+  # TODO Upgrade to jupyterlab 3
+  pip install h5py jupyterlab_hdf && \
+    jupyter labextension install \
+      @jupyterlab/hdf5 \
+      --no-build
+  # TODO Upgrade to jupyterlab 3
+  pip install perspective-python && \
+    jupyter labextension install \
+      @finos/perspective-jupyterlab \
+      --no-build
+  # Breaks ipyleaflet
+  pip install gmaps
+'
+: '
+  jupyter labextension install \
+    @jupyterlab/toc \
+    --no-build
+'
+: '
+  jupyter labextension install \
+    @jupyterlab/geojson-extension \
+    --no-build
+'
+: '
+  cd $DLAHOME/repos/jupyterlab-renderers && \
+    git checkout master && \
+    yarn && \
+    yarn build && \
+    cd packages/geojson-extension && \
+    jupyter labextension link --no-build
+#  cd $DLAHOME/repos/ipywidgets && \
+#       ./dev-install.sh
+  jupyter labextension install \
+    @jupyter-widgets/jupyterlab-manager@2.0 \
+    --no-build
+  pip install ipyleaflet && \
+    jupyter labextension install \
+      jupyter-leaflet@latest \
+      --no-build
+  pip install jupyterlab_latex && \
+    jupyter labextension install \
+      @jupyterlab/latex \
+      --no-build
+  pip install matplotlib seaborn ipympl && \
+    jupyter labextension install \
+      jupyter-matplotlib \
+      --no-build
+  pip install bokeh \
+    jupyter_bokeh && \
+    jupyter labextension install \
+      @bokeh/jupyter_bokeh \
+      --no-build
+  pip install bqplot && \
+    jupyter labextension install \
+      bqplot \
+      --no-build
+  pip install \ 
+    plotly \
+    networkx \
+    cufflinks && \
+    jupyter labextension install \
+      jupyterlab-plotly \
+      --no-build
+#  jupyter labextension install \
+#    @jupyter-voila/jupyterlab-preview \
+  pip install voila && \
+    cd $DLAHOME/repos/voila/packages/jupyterlab-voila && \
+      git checkout master && \
+      jupyter labextension link \
+      --no-build
+  pip install ipydatawidgets && \
+    jupyter labextension install \
+      jupyterlab-datawidgets \
+      --no-build
+  pip install \
+    pythreejs && \
+    jupyter labextension install \
+      jupyter-threejs \
+      --no-build
+  pip install nbdime && \
+    jupyter labextension install \
+      nbdime-jupyterlab \
+      --no-build
+  # pyviz
+  pip install holoviews pyviz_comms panel && \
+    jupyter labextension install \
+      @pyviz/jupyterlab_pyviz \
+      --no-build
+  pip install ipyvolume
+  pip install jupyter-dash
+'
+: '
+  conda install -y nb_conda_kernels
+'
+: '
+  # This will also build jupyterlab.
+  cd $DLAREPOS/writer && \
+    make install && \
+    make build && \
+    make ext-enable
+'
+: '
+  # This is not needed as the previous step should build it...
+  # jupyter lab build
+'
+  jupyter serverextension list && \
+    jupyter labextension list
+}
+
+# -------------------------------------
+
+function install_jupyterpool() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING JUPYTERPOOL"$NOCOLOR
+  echo
+  cd $DLAHOME/repos/jupyterpool && \
+    pip install -e .
+}
+
+# -------------------------------------
+
+function install_jupyter_admin() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING JUPYTER ADMIN"$NOCOLOR
+  echo
+  cd $DLAHOME/repos/jupyterpool && \
+    pip install -e .
+}
+
+# -------------------------------------
+
+function install_ui() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING UI"$NOCOLOR
+  echo
+  cd $DLAHOME/src && \
+    make ui
+}
+
+# -------------------------------------
+
+function install_additional_libs() {
+  echo
+  echo -e $WHITE_BCK"INSTALLING ADDITIONAL LIBS"$NOCOLOR
+  echo
+  pip install \
+    aiohttp \
+    altair \
+    findspark \
+    geopandas \
+    numpy \
+    pandas \
+    pyarrow \
+    pyspark==2.4.3 \
+    scikit-learn \
+    sympy \
+    vdom \
+    vega \
+    vega_datasets
+    pip install \
+      git+https://github.com/datalayer-contrib/pysolr@master \
+      kazoo \
+      simplejson
+: '
+    pip install \
+      happybase \
+      aiohappybase
+'
+}
+
+# -------------------------------------
+
+function commands() {
+  echo -e $YELLOW"💛  Valid commands: [ all dsp-endpoints dsp-auth dsp-library dsp-studio \
+jupyter jupyterhub jupyterlab jupyterlab-ext jupyterpool jupyter-admin ui additional-libs ]"$NOCOLOR 1>&2
+}
+
+function apply_cmd() {
+
+  echo -e $BOLD"🔥  Running [$BLUE$1$NOCOLOR]."$NOBOLD
+  echo
+
+  case "$1" in
+
+    all)
+      install_dsp_endpoints
+      install_jupyterhub
+      install_jupyterlab
+      install_jupyterlab_ext
+      install_jupyterlab_contents
+#      install_jupyterlab_kernels
+      build_jupyterlab
+      install_ui
+      install_additional_libs
+      ;;
+
+    dla-landing)
+      install_dla_landing
+      ;;
+
+    dsp-endpoints)
+      install_dsp_endpoints
+      ;;
+
+    dsp-auth)
+      install_dsp_auth
+      ;;
+
+    ldsp-ibrary)
+      install_dsp_library
+      ;;
+
+    dsp-studio)
+      install_dsp_studio
+      ;;
+
+    jupyter)
+      install_jupyter
+      ;;
+
+    jupyterhub)
+      install_jupyterhub
+      ;;
+
+    jupyterlab)
+      install_jupyterlab
+      install_jupyterlab_ext
+      install_jupyterlab_contents
+#      install_jupyterlab_kernels
+      build_jupyterlab
+      ;;
+
+    jupyterlab-ext)
+      install_jupyterlab_ext
+      ;;
+
+    jupyterpool)
+      install_jupyterpool
+      ;;
+
+    jupyter-admin)
+      install_jupyter_admin
+      ;;
+
+    additional-libs)
+      install_additional_libs
+      ;;
+
+    ui)
+      install_ui
+      ;;
+
+    *)
+      echo -e $RED$BOLD"💔  No valid command to execute has been provided."$NOCOLOR$NOBOLD 1>&2
+      echo
+      commands
+
+  esac
+
+  echo
+  echo -e $BOLD"✅  Completed [$BLUE$1$NOCOLOR]."$NOBOLD
+  echo
+
+}
+
+CMDS="$1"
+
+if [ -z "$CMDS" ]; then
+  echo -e $RED$BOLD"💔  No command to execute has been provided."$NOCOLOR$NOBOLD 1>&2
+  echo
+  commands
+  echo
+  exit 1
+fi
+
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+for i in "${CMD_SPLITS[@]}"; do
+  apply_cmd $i
+done

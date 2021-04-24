@@ -1,0 +1,8 @@
+default_context:
+  author_name: "Your Name"
+  python_name: "quirkshop_jlab3_react"
+  labextension_name: "quirkshop-jlab3-react"
+  project_short_description: "Quirkshop JupyterLab3 React"
+  repository: "https://github.com/datalayer-jupyterlab/quirkshops"
+  has_server_extension: "false"
+  has_binder: "n"

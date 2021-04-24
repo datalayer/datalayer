@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-kuber
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "kuber.name" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "kuber.name" . }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ template "kuber.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: kuber
+          image: {{ .Values.kuber.image }}
+          imagePullPolicy: {{ .Values.kuber.imagePullPolicy }}
+          env:
+          - name: APISERVER_HOST
+            value: http://localhost:8001
+          - name: DSP_AUTHREST
+            value: {{ .Values.kuber.env.DSP_AUTHREST }}
+          - name: DSP_JUPYTERHUBUI
+            value: {{ .Values.kuber.env.DSP_JUPYTERHUBUI }}
+          - name: DSP_KUBERWS
+            value: {{ .Values.kuber.env.DSP_KUBERWS }}
+          - name: DSP_LIBRARYREST
+            value: {{ .Values.kuber.env.DSP_LIBRARYREST }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.kuber.resources | indent 12 }} 
+        - name: kuber-sidecar
+          image: datalayer/k8s-sidecar:0.0.3
+          imagePullPolicy: IfNotPresent
+          args: ["proxy", "-p", "8001"]

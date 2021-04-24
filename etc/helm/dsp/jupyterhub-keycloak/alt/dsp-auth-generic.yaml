@@ -1,0 +1,34 @@
+proxy:
+  secretToken: 0419da72b2ef6bb8908ad586bd1fc6421aeba14b12ae008ead9f6090ba4f5495
+hub:
+  baseUrl: /api/jupyterhub
+  extraConfig:
+    jupyterlab: |
+      c.Spawner.cmd = ['jupyter-labhub']
+  extraEnv:
+    OAUTH2_AUTHORIZE_URL: http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local/auth/realms/datalayer/protocol/openid-connect/auth
+    OAUTH2_TOKEN_URL: http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local/auth/realms/datalayer/protocol/openid-connect/token
+    OAUTH_CALLBACK_URL: http://minikube.local/api/jupyterhub/hub/oauth_callback
+auth:
+#  type: dummy
+#  dummy:
+#    password: password
+  type: custom
+  custom:
+    className: oauthenticator.generic.GenericOAuthenticator
+    config:
+      login_service: Datalayer
+      client_id: datalayer
+      client_secret: a_secret
+      token_url: http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local/auth/realms/datalayer/protocol/openid-connect/token
+      userdata_url: http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local/auth/realms/datalayer/protocol/openid-connect/userinfo
+      userdata_method: GET
+      userdata_params: {'state': 'state'}
+      username_key: preferred_username
+ingress:
+  enabled: true
+  pathSuffix: (/|$)(.*)
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  hosts:
+    - minikube.local

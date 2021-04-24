@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo
+echo -e $GREEN$BOLD"Minio Help"$NOCOLOR$NOBOLD$NOCOLOR
+echo
+echo """
+mc --help
+
+mc ls play
+
+export POD_NAME=\$(kubectl get pods --namespace dsp-minio -l "release=dsp-minio" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward \$POD_NAME 12000:9000 --namespace dsp-minio
+
+mc config host add minikube http://localhost:12000 \$DSP_MINIO_ACCESS_KEY \$DSP_MINIO_SECRET_KEY
+
+mc ls minikube
+mc mb minikube/datalayer-1
+mc ls minikube/datalayer-1
+echo \"hello\" > hello.txt
+mc cp hello.txt minikube/datalayer-1
+mc ls minikube/datalayer-1
+mc cat minikube/datalayer-1/hello.txt
+mc rm minikube/datalayer-1/hello.txt
+rm hello.txt
+
+"""

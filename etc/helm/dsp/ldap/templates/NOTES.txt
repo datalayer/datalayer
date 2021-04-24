@@ -1,0 +1,10 @@
+Your LDAP Server has now been installed, and can be accessed in the following ways:
+
+1. Connect via Cluster IP:
+
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "ldap.name" . }}" -o jsonpath="{ .items[0].metadata.name }")
+  sudo kubectl port-forward --namespace {{ .Release.Namespace }} $POD_NAME {{ .Values.openldap.service.ldapPort }}:{{ .Values.openldap.service.ldapPort }}
+
+2. Initialize:
+
+  dla dsp-ldap-add $DLAHOME/etc/seed/ldap/ldap-seed.ldif

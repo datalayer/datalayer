@@ -1,0 +1,43 @@
+{
+  "name": "@datalayer/jupyterhub-api-browser",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc && webpack",
+    "clean": "rimraf lib build",
+    "clean-all": "rimraf lib build",
+    "prepublishOnly": "npm run build",
+    "watch": "concurrently --kill-others \"jupyterhub\" \"tsc -w\" \"webpack --watch\" \"webpack-dev-server\""
+  },
+  "license": "MIT",
+  "author": "Datalayer",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "images/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-json-tree": "0.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "@types/react-json-tree": "0.6.7",
+    "concurrently": "5.3.0",
+    "css-loader": "4.3.0",
+    "file-loader": "6.1.0",
+    "raw-loader": "4.0.1",
+    "rimraf": "3.0.2",
+    "style-loader": "1.2.1",
+    "url-loader": "4.1.0",
+    "typescript": "~3.7.3",
+    "watch": "1.0.2",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0",
+    "whatwg-fetch": "3.4.1"
+  }
+}

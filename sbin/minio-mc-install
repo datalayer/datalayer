@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Installing Minio Client"$NOCOLOR$NOBOLD
+echo
+
+install_on_linux() {
+    curl -Lo /usr/local/bin/mc https://dl.min.io/client/mc/release/linux-amd64/mc \
+        && chmod +x /usr/local/bin/mc
+    echo
+}
+
+install_on_macos() {
+    brew install minio/stable/mc
+    echo
+}
+
+case "${OS}" in
+    LINUX)     install_on_linux;;
+    MACOS)     install_on_macos;;
+    *)         echo "Unsupported operating system ${OS}"
+esac
+
+dla minio-help

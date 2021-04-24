@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-landing
+  labels:
+    app: {{ template "landing.name" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "landing.name" . }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ template "landing.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: landing
+          image: {{ .Values.landing.image }}
+          imagePullPolicy: {{ .Values.landing.imagePullPolicy }}
+          env:
+          - name: APISERVER_HOST
+            value: http://localhost:8001
+          - name: DLAHOST
+            value: {{ .Values.landing.env.DLAHOST }}
+          - name: DLA_LANDING_INDEX_PAGE
+            value: {{ .Values.landing.env.DLA_LANDING_INDEX_PAGE }}
+          - name: DSP_JWT_SECRET
+            value: {{ .Values.landing.env.DSP_JWT_SECRET }}
+          volumeMounts:
+          resources:
+{{ toYaml .Values.landing.resources | indent 12 }} 
+        - name: landing-sidecar
+          image: datalayer/k8s-sidecar:0.0.3
+          imagePullPolicy: IfNotPresent
+          args: ["proxy", "-p", "8001"]

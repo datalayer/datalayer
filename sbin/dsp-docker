@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+declare -a DOCKER_FILES=(
+  "sharebook/base"
+#  "sharebook/example"
+#  "sharebook/simple"
+  "dla/landing"
+  "dsp/apis"
+  "dsp/auth"
+  "dsp/jupyterhub-hub"
+  "dsp/jupyterpool"
+  "dsp/keycloak"
+  "dsp/kuber"
+  "dsp/library"
+  "dsp/simple"
+  "dsp/solr"
+  "dsp/studio"
+  "dsp/whoami"
+  "k8s/sidecar"
+  )
+
+declare -a DOCKER_IMAGES=(
+  "datalayer/k8s-sidecar:1.8.2"
+  "datalayer/hdfs-base:2.9.0"
+  "datalayer/hdfs-nn:2.9.0"
+  "datalayer/hdfs-dn:2.9.0"
+  "datalayer/jupyterhub:0.0.1"
+  "datalayer/jupyterhub-http-proxy:0.0.1"
+  "datalayer/jupyterhub-image-awaiter:0.0.1"
+  "datalayer/jupyterhub-network-tools:0.0.1"
+  "datalayer/jupyterhub-pod-culler:0.0.1"
+  "datalayer/jlab:0.0.1"
+  "datalayer/spark-base:2.4.0"
+  "datalayer/spark:2.4.0"
+  "datalayer/spark-py:2.4.0"
+  "datalayer/spark-r:2.4.0"
+  "datalayer/spark-resource-staging-server:2.2.0"
+  "datalayer/spark-shuffle-service:2.2.0"
+  "datalayer/spark-init:2.2.0"
+  "datalayer/spark-driver:2.2.0"
+  "datalayer/spark-driver-py:2.2.0"
+  "datalayer/spark-executor:2.2.0"
+  "datalayer/spark-executor-py:2.2.0"
+)

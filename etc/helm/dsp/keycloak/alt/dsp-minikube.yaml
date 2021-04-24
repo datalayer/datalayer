@@ -1,0 +1,59 @@
+keycloak:
+  postgresql:
+    # Disable PostgreSQL dependency
+    enabled: false
+  extraEnv: |
+    - name: KEYCLOAK_USER
+      value: admin
+    - name KEYCLOAK_PASSWORD
+      value: '{{ .Values.keycloak.password }}'
+    - name: DB_VENDOR
+      value: postgres
+    - name: DB_ADDR
+      value: mypostgres
+    - name: DB_PORT
+      value: "5432"
+    - name: DB_DATABASE
+      value: mydb
+  extraEnvFrom: |
+    - secretRef:
+        name: '{{ include "keycloak.fullname" . }}-db'
+  secrets:
+    db:
+      stringData:
+        DB_USER: '{{ .Values.keycloak.dbUser }}'
+        DB_PASSWORD: '{{ .Values.keycloak.dbPassword }}'
+  ingress:
+    enabled: true
+    path: /auth(/|$)(.*)
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: "/auth/$2"
+    hosts:
+      - dsp-keycloak-http.dsp-keycloak.svc.cluster.local
+  username: admin
+  # https://github.com/codecentric/helm-charts/issues/331
+  pgchecker:
+    # Resource requests and limits for the pgchecker container
+    resources:
+      requests:
+        cpu: "20m"
+        memory: "32Mi"
+      limits:
+        cpu: "20m"
+        memory: "32Mi"
+  persistence:
+    deployPostgres: true
+    dbVendor: postgres
+    dbUser: keycloak
+#  lifecycleHooks: |
+#     postStart:
+#       exec:
+#         command: ["/bin/sh", "/opt/jboss/keycloak.sh"]
+#  service:
+#    type: LoadBalancer
+postgresql:
+  persistence:
+    enabled: true
+  global:
+    postgresql:
+      postgresqlUsername: keycloak

@@ -1,0 +1,17 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Nteract/Nteract" />
+
+# Nteract
+
+We get an error... see <https://github.com/nteract/nteract/issues/4413>
+
+```md
+browser.js?9cdb:38 Uncaught Invariant Violation: Could not find "store" in the context of "Connect(Cells)".
+
+Either wrap the root component in a <Provider>, or pass a custom React context provider to <Provider> 
+and the corresponding React context consumer to Connect(Cells) in connect options.
+jsx
+import { NteractExample } from '@jupyter-react/nteract-examples/lib';
+<NteractExample/>
+```

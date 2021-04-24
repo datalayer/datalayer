@@ -1,0 +1,52 @@
+{
+  "name": "@jupyter-react/lumino-examples",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "concurrently \"tsc\" \"gulp resources-to-lib\" && webpack",
+    "clean": "rimraf node_modules lib build",
+    "example-lumino": "webpack-dev-server --watch",
+    "server": "node server.js",
+    "start": "webpack-dev-server --watch",
+    "storybook": "tsc -w",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@jupyterlab/apputils": "^3.0.5",
+    "@jupyterlab/cells": "^3.0.7",
+    "@jupyterlab/codemirror": "^3.0.5",
+    "@jupyterlab/completer": "^3.0.5",
+    "@jupyterlab/rendermime": "^3.0.6",
+    "@jupyterlab/services": "^6.0.5",
+    "@jupyterlab/theme-light-extension": "^3.0.7",
+    "@jupyter-react/lumino-adapter": "0.0.1",
+    "@lumino/commands": "^1.12.0",
+    "@lumino/default-theme": "^0.10.0",
+    "@lumino/widgets": "^1.19.0"
+  },
+  "devDependencies": {
+    "@types/codemirror": "^0.0.97",
+    "css-loader": "~3.2.0",
+    "file-loader": "~5.0.2",
+    "ts-loader": "8.0.3",
+    "mini-css-extract-plugin": "~0.9.0",
+    "raw-loader": "~4.0.0",
+    "sass-loader": "8.0.2",
+    "rimraf": "~3.0.0",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
+    "gulp-filter": "6.0.0",
+    "style-loader": "~1.0.1",
+    "svg-url-loader": "~3.0.3",
+    "typescript": "~3.9.2",
+    "url-loader": "~3.0.0",
+    "watch": "~1.0.2",
+    "html-webpack-plugin": "4.3.0",
+    "html-webpack-tags-plugin": "2.0.17",
+    "webpack": "^5.11.0",
+    "webpack-cli": "3.3.11",
+    "express": "4.17.1",
+    "webpack-dev-middleware": "3.7.2",
+    "webpack-dev-server": "3.11.0"
+  }
+}

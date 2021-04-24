@@ -1,0 +1,128 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import { 
+  addIcon,
+  bugIcon,
+  buildIcon,
+  caretDownEmptyIcon,
+  html5Icon,
+  runningIcon,
+  textEditorIcon,
+  trustedIcon,
+  undoIcon,
+  vegaIcon,
+  yamlIcon,
+  LabIcon
+ } from '@jupyterlab/ui-components';
+
+<!--
+caretDownEmptyThinIcon = new LabIcon({ name: 'ui-components:caret-down-empty-thin', svgstr: caretDownEmptyThinSvgstr });
+caretDownIcon = new LabIcon({ name: 'ui-components:caret-down', svgstr: caretDownSvgstr });
+caretLeftIcon = new LabIcon({ name: 'ui-components:caret-left', svgstr: caretLeftSvgstr });
+caretRightIcon = new LabIcon({ name: 'ui-components:caret-right', svgstr: caretRightSvgstr });
+caretUpEmptyThinIcon = new LabIcon({ name: 'ui-components:caret-up-empty-thin', svgstr: caretUpEmptyThinSvgstr });
+caretUpIcon = new LabIcon({ name: 'ui-components:caret-up', svgstr: caretUpSvgstr });
+caseSensitiveIcon = new LabIcon({ name: 'ui-components:case-sensitive', svgstr: caseSensitiveSvgstr });
+checkIcon = new LabIcon({ name: 'ui-components:check', svgstr: checkSvgstr });
+circleEmptyIcon = new LabIcon({ name: 'ui-components:circle-empty', svgstr: circleEmptySvgstr });
+circleIcon = new LabIcon({ name: 'ui-components:circle', svgstr: circleSvgstr });
+clearIcon = new LabIcon({ name: 'ui-components:clear', svgstr: clearSvgstr });
+closeIcon = new LabIcon({ name: 'ui-components:close', svgstr: closeSvgstr });
+consoleIcon = new LabIcon({ name: 'ui-components:console', svgstr: consoleSvgstr });
+copyIcon = new LabIcon({ name: 'ui-components:copy', svgstr: copySvgstr });
+cutIcon = new LabIcon({ name: 'ui-components:cut', svgstr: cutSvgstr });
+downloadIcon = new LabIcon({ name: 'ui-components:download', svgstr: downloadSvgstr });
+editIcon = new LabIcon({ name: 'ui-components:edit', svgstr: editSvgstr });
+ellipsesIcon = new LabIcon({ name: 'ui-components:ellipses', svgstr: ellipsesSvgstr });
+extensionIcon = new LabIcon({ name: 'ui-components:extension', svgstr: extensionSvgstr });
+fastForwardIcon = new LabIcon({ name: 'ui-components:fast-forward', svgstr: fastForwardSvgstr });
+fileIcon = new LabIcon({ name: 'ui-components:file', svgstr: fileSvgstr });
+fileUploadIcon = new LabIcon({ name: 'ui-components:file-upload', svgstr: fileUploadSvgstr });
+filterListIcon = new LabIcon({ name: 'ui-components:filter-list', svgstr: filterListSvgstr });
+folderIcon = new LabIcon({ name: 'ui-components:folder', svgstr: folderSvgstr });
+imageIcon = new LabIcon({ name: 'ui-components:image', svgstr: imageSvgstr });
+inspectorIcon = new LabIcon({ name: 'ui-components:inspector', svgstr: inspectorSvgstr });
+jsonIcon = new LabIcon({ name: 'ui-components:json', svgstr: jsonSvgstr });
+jupyterFaviconIcon = new LabIcon({ name: 'ui-components:jupyter-favicon', svgstr: jupyterFaviconSvgstr });
+jupyterIcon = new LabIcon({ name: 'ui-components:jupyter', svgstr: jupyterSvgstr });
+jupyterlabWordmarkIcon = new LabIcon({ name: 'ui-components:jupyterlab-wordmark', svgstr: jupyterlabWordmarkSvgstr });
+kernelIcon = new LabIcon({ name: 'ui-components:kernel', svgstr: kernelSvgstr });
+keyboardIcon = new LabIcon({ name: 'ui-components:keyboard', svgstr: keyboardSvgstr });
+launcherIcon = new LabIcon({ name: 'ui-components:launcher', svgstr: launcherSvgstr });
+lineFormIcon = new LabIcon({ name: 'ui-components:line-form', svgstr: lineFormSvgstr });
+linkIcon = new LabIcon({ name: 'ui-components:link', svgstr: linkSvgstr });
+listIcon = new LabIcon({ name: 'ui-components:list', svgstr: listSvgstr });
+listingsInfoIcon = new LabIcon({ name: 'ui-components:listings-info', svgstr: listingsInfoSvgstr });
+markdownIcon = new LabIcon({ name: 'ui-components:markdown', svgstr: markdownSvgstr });
+newFolderIcon = new LabIcon({ name: 'ui-components:new-folder', svgstr: newFolderSvgstr });
+notTrustedIcon = new LabIcon({ name: 'ui-components:not-trusted', svgstr: notTrustedSvgstr });
+notebookIcon = new LabIcon({ name: 'ui-components:notebook', svgstr: notebookSvgstr });
+paletteIcon = new LabIcon({ name: 'ui-components:palette', svgstr: paletteSvgstr });
+pasteIcon = new LabIcon({ name: 'ui-components:paste', svgstr: pasteSvgstr });
+pythonIcon = new LabIcon({ name: 'ui-components:python', svgstr: pythonSvgstr });
+rKernelIcon = new LabIcon({ name: 'ui-components:r-kernel', svgstr: rKernelSvgstr });
+reactIcon = new LabIcon({ name: 'ui-components:react', svgstr: reactSvgstr });
+redoIcon = new LabIcon({ name: 'ui-components:redo', svgstr: redoSvgstr });
+refreshIcon = new LabIcon({ name: 'ui-components:refresh', svgstr: refreshSvgstr });
+regexIcon = new LabIcon({ name: 'ui-components:regex', svgstr: regexSvgstr });
+runIcon = new LabIcon({ name: 'ui-components:run', svgstr: runSvgstr });
+runningIcon = new LabIcon({ name: 'ui-components:running', svgstr: runningSvgstr });
+saveIcon = new LabIcon({ name: 'ui-components:save', svgstr: saveSvgstr });
+searchIcon = new LabIcon({ name: 'ui-components:search', svgstr: searchSvgstr });
+settingsIcon = new LabIcon({ name: 'ui-components:settings', svgstr: settingsSvgstr });
+spreadsheetIcon = new LabIcon({ name: 'ui-components:spreadsheet', svgstr: spreadsheetSvgstr });
+stopIcon = new LabIcon({ name: 'ui-components:stop', svgstr: stopSvgstr });
+tabIcon = new LabIcon({ name: 'ui-components:tab', svgstr: tabSvgstr });
+terminalIcon = new LabIcon({ name: 'ui-components:terminal', svgstr: terminalSvgstr });
+-->
+
+<Meta title="JupyterLab/Icons/All" component={LabIcon} />
+
+# JupyterLab Icons
+
+<div style={{ 'display': 'flex'}}>
+  <addIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <bugIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <buildIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <caretDownEmptyIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <html5Icon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <runningIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <textEditorIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <trustedIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <undoIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <vegaIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+  <yamlIcon.react
+    elementPosition="center"
+    kind="launcherCard"
+  />
+</div>

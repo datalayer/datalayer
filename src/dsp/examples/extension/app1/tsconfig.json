@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "sourceMap": true,
+    "strict": true,
+    "jsx": "react",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false
+  },
+  "include": [
+    "src/**/*",
+    "./../app2/lib/*"
+  ]
+}

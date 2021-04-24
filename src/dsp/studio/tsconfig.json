@@ -1,0 +1,29 @@
+{
+  "include": [
+    "src/**/*",
+    "./../widgets/lib/**/*",
+  ],
+  "exclude": [
+    "**/node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./lib",
+    "sourceMap": true,
+    "strict": true,
+    "allowJs": true,
+    "jsx": "react",
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+//    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
+    "types": [
+      "node",
+      "react"
+    ],
+  }
+}

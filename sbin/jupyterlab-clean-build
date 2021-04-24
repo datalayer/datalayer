@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"JupyterLab Clean Build"$NOCOLOR$NOBOLD
+echo
+
+echo -e $YELLOW"Removing Folders"$NOCOLOR
+echo
+
+find . -name __pycache__ | xargs rm -fr {} || true && \
+  find . -name lib | xargs rm -fr {} || true && \
+  find . -name node_modules | xargs rm -fr {} || true && \
+  find . -name build | xargs rm -fr {} || true && \
+  find . -name tsconfig.tsbuildinfo | xargs rm -fr {} || true
+
+echo
+echo -e $YELLOW"Pip Install"$NOCOLOR
+echo
+
+pip install -e .[test]
+
+echo
+echo -e $YELLOW"Yarn && Yarn Install"$NOCOLOR
+echo
+
+yarn && \
+  yarn build
+
+echo
+echo -e $YELLOW"Yarn Build Test Utils"$NOCOLOR
+echo
+
+yarn build:testutils
+
+echo
+echo -e $YELLOW"Yarn Build Examples"$NOCOLOR
+echo
+
+yarn build:examples
+
+# yarn build:src && \
+#   yarn build:utils && \
+#   yarn build:packages
+
+# yarn build:test:scope
+
+echo
+echo -e $YELLOW"Jupyter Lab Build"$NOCOLOR
+echo
+
+jupyter lab build

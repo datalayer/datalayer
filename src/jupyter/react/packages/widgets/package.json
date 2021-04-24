@@ -1,0 +1,78 @@
+{
+  "name": "@jupyter-react/widgets",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Jupyter React",
+  "homepage": "https://github.com/datalayer/jupyter-react",
+  "bugs": {
+    "url": "https://github.com/datalayer/jupyter-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datalayer/jupyter-react.git"
+  },
+  "author": "Datalayer",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "sideEffects": [
+    "style/**/*"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "directories": {
+    "lib": "lib/"
+  },
+  "scripts": {
+    "build": "concurrently \"tsc\" \"gulp resources-to-lib\"",
+    "clean": "rimraf lib",
+    "watch": "tsc -b --watch",
+    "build:watch": "run-p build:watch:*",
+    "build:watch:tsc": "tsc --watch",
+    "build:watch:res": "gulp resources-to-lib-watch"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^3.0.6",
+    "@jupyterlab/ui-components": "^3.0.4",
+    "@jupyterlab/apputils": "^3.0.5",
+    "@jupyterlab/theme-light-extension": "^3.0.7",
+    "@jupyterlab/vdom": "^3.0.7",
+    "@lumino/messaging": "^1.4.3",
+    "@lumino/virtualdom": "^1.8.0",
+    "@lumino/widgets": "^1.19.0",
+    "@material-ui/core": "4.11.3",
+    "@material-ui/icons": "4.11.2",
+    "@material-ui/lab": "4.0.0-alpha.57",
+    "@nteract/transform-vdom": "~4.0.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.7.6",
+    "@types/node": "~12.12.21",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "@types/webpack-env": "^1.14.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "~3.4.0",
+    "gulp": "4.0.2",
+    "gulp-filter": "6.0.0",
+    "gulp-watch": "5.0.1",
+    "gulp-append-prepend": "1.0.8",
+    "npm-run-all": "4.1.5",
+    "raw-loader": "~4.0.0",
+    "style-loader": "1.1.1",
+    "file-loader": "5.0.2",
+    "rimraf": "~3.0.0",
+    "svg-url-loader": "~2.3.2",
+    "svgo": "~1.2.1",
+    "svgo-loader": "~2.2.0",
+    "url-loader": "3.0.0",
+    "typescript": "~3.7.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

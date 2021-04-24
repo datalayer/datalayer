@@ -1,0 +1,16 @@
+jupyterpool:
+  image: datalayer/dsp-jupyterpool:0.0.3
+  replicaCount: 3
+  sidecar:
+    image: datalayer/k8s-sidecar:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 8888
+  service:
+    name: jupyterpool
+    type: LoadBalancer
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"
+  env:
+    DLAHOST: ""

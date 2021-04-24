@@ -1,0 +1,13 @@
+kuber:
+  image: datalayer/dsp-kuber:0.0.3
+  imagePullPolicy: IfNotPresent
+  port: 9091
+  env:
+    DSP_AUTHREST: ""
+    DSP_JUPYTERHUBUO: ""
+    DSP_KUBERWS: ""
+    DSP_LIBRARYREST: ""
+#  resources:
+#    limits:
+#      memory: "8192Mi"
+#      cpu: "3000m"

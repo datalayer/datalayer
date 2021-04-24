@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Initialize Datalayer DSP LDAP"$NOCOLOR$NOBOLD
+echo
+
+ldapadd -x -D $DSP_LDAP_BIND \
+  -w $DSP_LDAP_BIND_PWD \
+  -H ldap://:$DSP_LDAP_PORT \
+  -f $1
+
+echo
+
+dla dsp-ldap-help
+
+ldapsearch -x -D $DSP_LDAP_BIND \
+  -w $DSP_LDAP_BIND_PWD \
+  -H ldap://:$DSP_LDAP_PORT \
+  -b "ou=users,dc=datalayer,dc=io" \
+  -s sub "(uid=*)"
+
+echo """
+ldapsearch -x -D $DSP_LDAP_BIND \
+  -w $DSP_LDAP_BIND_PWD \
+  -H ldap://:$DSP_LDAP_PORT \
+  -b \"ou=users,dc=datalayer,dc=io\" \
+  -s sub \"(uid=*)\"
+"""

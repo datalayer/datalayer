@@ -1,0 +1,40 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import { runningIcon as icon, LabIcon } from '@jupyterlab/ui-components';
+
+<Meta title="JupyterLab/Icons/Kind" component={LabIcon} />
+
+# JupyterLab Icons Kind
+
+Running Icon Toolbar Button.
+
+<Canvas>
+  <Story name="toolbarButton">
+    <icon.react
+      elementPosition="center"
+      kind="toolbarButton"
+    />
+  </Story>
+</Canvas>
+
+Running Icon Launcher Card.
+
+<Canvas>
+  <Story name="launcherCard">
+    <icon.react
+      elementPosition="center"
+      kind="launcherCard"
+    />
+  </Story>
+</Canvas>
+
+Running Icon Main Area Tab.
+
+<Canvas>
+  <Story name="mainAreaTab">
+    <icon.react
+      elementPosition="center"
+      kind="mainAreaTab"
+    />
+  </Story>
+</Canvas>

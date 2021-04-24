@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e """$GREEN
++ Simple, Collaborative, Extensible by Design.
++ Secured, Scalable, Multi Cloud by Default.
+$NOCOLOR"""
+echo -e $YELLOW"Version  $DLAVERSION"$NOCOLOR
+echo -e $YELLOW"Home     $DLAHOME"$NOCOLOR
+
+open https://github.com/datalayer/datalayer/blob/main/README.md

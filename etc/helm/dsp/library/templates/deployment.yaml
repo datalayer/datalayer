@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-library
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "library.name" . }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ template "library.name" . }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ template "library.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#            - matchExpressions:
+#              - key: datalayer-role
+#                operator: NotIn
+#                values:
+#                - master
+      containers:
+        - name: library
+          image: {{ .Values.library.image }}
+          imagePullPolicy: {{ .Values.library.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.library.port }}
+              protocol: TCP
+          env:
+          - name: DLAHOST
+            value: {{ .Values.library.env.DLAHOST }}
+          - name: DSP_LIBRARY_AUTH_CALLBACK
+            value: {{ .Values.library.env.DSP_LIBRARY_AUTH_CALLBACK }}
+          - name: DSP_LIBRARY_UI_REDIRECT
+            value: {{ .Values.library.env.DSP_LIBRARY_UI_REDIRECT }}
+          - name: DSP_SOLR_ZK_HOST
+            value: {{ .Values.library.env.DSP_SOLR_ZK_HOST }}
+          - name: DSP_KEYCLOAK_REALM_CLIENT_SECRET
+            value: {{ .Values.library.env.DSP_KEYCLOAK_REALM_CLIENT_SECRET }}
+          - name: DSP_KEYCLOAK_SCHEME_HOST
+            value: {{ .Values.library.env.DSP_KEYCLOAK_SCHEME_HOST }}
+          - name: AWS_ACCESS_KEY_ID
+            value: {{ .Values.library.env.AWS_ACCESS_KEY_ID }}
+          - name: AWS_SECRET_ACCESS_KEY
+            value: {{ .Values.library.env.AWS_SECRET_ACCESS_KEY }}
+          - name: AWS_DEFAULT_REGION
+            value: {{ .Values.library.env.AWS_DEFAULT_REGION }}
+          - name: DSP_JWT_SECRET
+            value: {{ .Values.library.env.DSP_JWT_SECRET }}
+          - name: DSP_AUTH_ROOT_URL
+            value: {{ .Values.library.env.DSP_AUTH_ROOT_URL }}
+          - name: DSP_AUTH_JOIN_SUCCESS
+            value: {{ .Values.library.env.DSP_AUTH_JOIN_SUCCESS }}
+          - name: DSP_AUTH_JOIN_ERROR
+            value: {{ .Values.library.env.DSP_AUTH_JOIN_ERROR }}
+          - name: DSP_AUTH_PASSWORD_SUCCESS
+            value: {{ .Values.library.env.DSP_AUTH_PASSWORD_SUCCESS }}
+          - name: DSP_AUTH_PASSWORD_ERROR
+            value: {{ .Values.library.env.DSP_AUTH_PASSWORD_ERROR }}
+          - name: DSP_JWT_SECRET
+            value: {{ .Values.library.env.DSP_JWT_SECRET }}
+          - name: DSP_SOLR_ZK_HOST
+            value: {{ .Values.library.env.DSP_SOLR_ZK_HOST }}
+          - name: DSP_SMTP_HOST
+            value: {{ .Values.library.env.DSP_SMTP_HOST }}
+          - name: DSP_SMTP_PORT
+            value: {{ .Values.library.env.DSP_SMTP_PORT | quote }}
+          - name: DSP_SMTP_USERNAME
+            value: {{ .Values.library.env.DSP_SMTP_USERNAME }}
+          - name: DSP_SMTP_PASSWORD
+            value: {{ .Values.library.env.DSP_SMTP_PASSWORD }}
+          - name: DSP_LDAP_HOST
+            value: {{ .Values.library.env.DSP_LDAP_HOST }}
+          - name: DSP_LDAP_BIND
+            value: {{ .Values.library.env.DSP_LDAP_BIND }}
+          - name: DSP_LDAP_BIND_PWD
+            value: {{ .Values.library.env.DSP_LDAP_BIND_PWD }}
+          readinessProbe:
+            httpGet:
+              path: /api/library/version
+              port: 9800
+            successThreshold: 1
+            failureThreshold: 5
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          volumeMounts:
+          resources:
+{{ toYaml .Values.library.resources | indent 12 }} 
+        - name: library-sidecar
+          image: {{ .Values.library.sidecar.image }}
+          imagePullPolicy: {{ .Values.library.imagePullPolicy }}
+          args: ["proxy", "-p", "8001"]

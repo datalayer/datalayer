@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+
+# Licensed to Datalayer (http://datalayer.io) under one or more
+# contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership. Datalayer licenses this file
+# to you under the Apache License, Version 2.0 (the 
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+echo -e $BOLD"Datalayer Phoenix Usage"$NOBOLD
+echo -e $BOLD"-----------------------"$NOBOLD
+echo
+echo -e "python2 "$PHOENIX_HOME"/bin/sqlline.py localhost:2181/hbase"
+echo -e """
+!tables
+
+create table if not exists hosts (
+   host char(255) not null,
+   domain varchar not null,
+   feature varchar not null,
+   ts timestamp not null,
+   date date,
+   uage.core bigint,
+   usage.db bigint,
+   stats.active_visitor integer
+   constraint pk primary key (host, domain, feature, ts)
+);
+
+!describe hosts
+
+upsert into hosts (host, domain, feature, ts) values ('host_1', 'domain_1', 'feature_1', '2002-05-30T09:30:10.5');
+upsert into hosts (host, domain, feature, ts) values ('host_2', 'domain_2', 'feature_2', '2002-05-30T09:33:12.5');
+
+select * from hosts;
+
+drop table hosts;
+
+!q"""
+echo
+
+echo -e $BOLD"Datalayer Phoenix Examples"$NOBOLD
+echo -e $BOLD"--------------------------"$NOBOLD
+echo
+echo -e "python2 "$PHOENIX_HOME"/bin/psql.py localhost:2181/hbase $DLAOPT/phoenix/examples/WEB_STAT.sql $DLAOPT/phoenix/examples/WEB_STAT.csv $DLAOPT/phoenix/examples/WEB_STAT_QUERIES.sql"
+echo
+
+echo -e $BOLD"Datalayer Phoenix Query Server"$NOBOLD
+echo -e $BOLD"------------------------------"$NOBOLD
+
+echo """
+HBASE_CONF_DIR=${HBASE_CONF_DIR} && \
+  python2 $DLAOPT/phoenix/bin/queryserver.py start
+"""
+
+echo """python2 $DLAOPT/phoenix/bin/sqlline-thin.py http://localhost:8765
+"""
+
+echo """python
+
+import phoenixdb
+import phoenixdb.cursor
+
+database_url = 'http://localhost:8765/'
+conn = phoenixdb.connect(database_url, autocommit=True)
+
+cursor = conn.cursor()
+cursor.execute(\"CREATE TABLE users (id INTEGER PRIMARY KEY, username VARCHAR)\")
+cursor.execute(\"UPSERT INTO users VALUES (?, ?)\", (1, 'admin'))
+cursor.execute(\"SELECT * FROM users\")
+print(cursor.fetchall())
+
+cursor = conn.cursor(cursor_factory=phoenixdb.cursor.DictCursor)
+cursor.execute(\"SELECT * FROM users WHERE id=1\")
+print(cursor.fetchone()['USERNAME'])
+"""

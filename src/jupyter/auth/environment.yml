@@ -1,0 +1,12 @@
+name: jupyter-auth
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab>=3.0.4
+  - jupyter-packaging
+  - nodejs=14.15.1
+  - pycurl
+  - python=3.9
+  - twine
+  - yarn=1.22.5

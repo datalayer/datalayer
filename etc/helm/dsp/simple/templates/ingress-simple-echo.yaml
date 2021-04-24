@@ -1,0 +1,26 @@
+{{ if .Values.simple.ingress -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-echo-ingress
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    nginx.ingress.kubernetes.io/rewrite-target: '/'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    cert-manager.io/acme-challenge-type: 'http01'
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+spec:
+  tls:
+  - hosts:
+    - simple-echo.datalayer.io
+    secretName: simple-echo-datalayer-io-cert
+  rules:
+  - host: simple-echo.datalayer.io
+    http:
+      paths:
+        - path: /simple-echo
+          backend:
+            serviceName: {{ .Values.service.name }}-echo
+            servicePort: 5678
+{{- end }}

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  DSP_AUTH_AUTH_CALLBACK: {{ .Values.config.DSP_AUTH_AUTH_CALLBACK }}
+  DSP_STUDIO_INDEX_PAGE: {{ .Values.config.DSP_STUDIO_INDEX_PAGE }}

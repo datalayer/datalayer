@@ -1,0 +1,35 @@
+{
+  "name": "@datalayer/example-extension-graphql",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "run-p start:*",
+    "start:dev": "nodemon",
+    "start:api": "json-server db.json",
+    "dev": "nodemon",
+    "generate": "graphql-codegen",
+    "lint": "eslint --ext .ts ."
+  },
+  "dependencies": {
+    "@types/node": "^13.1.6",
+    "apollo-datasource-rest": "^0.6.11",
+    "apollo-server": "^2.9.16",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.11.2",
+    "@graphql-codegen/typescript": "^1.11.2",
+    "@graphql-codegen/typescript-operations": "^1.11.2",
+    "@graphql-codegen/typescript-resolvers": "^1.11.2",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "eslint": "^6.8.0",
+    "json-server": "0.16.1",
+    "npm-run-all": "4.1.5"
+  }
+}

@@ -1,0 +1,5 @@
+jupyterpool:
+  imagePullPolicy: Always
+  clusterType: "eks"
+  env:
+    DLAHOST: "datalayer.io"

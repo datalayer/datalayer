@@ -1,0 +1,221 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Removing Datalayer DSP from K8S"$NOCOLOR$NOBOLD
+echo
+
+function dla_landing() {
+  export RELEASE=dla-landing
+  export NAMESPACE=dla-landing
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_config() {
+  export RELEASE=dsp-config
+  export NAMESPACE=dsp-config
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_vault() {
+  export RELEASE=dsp-vault
+  export NAMESPACE=dsp-vault
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function k8s-dashboard() {
+  export RELEASE=k8s-dashboard
+  export NAMESPACE=kube-system
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_kuber() {
+  export RELEASE=dsp-kuber
+  export NAMESPACE=dsp-kuber
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_ldap() {
+  export RELEASE=dsp-ldap
+  export NAMESPACE=dsp-ldap
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_ldapadmin() {
+  export RELEASE=dsp-ldap
+  export NAMESPACE=dsp-ldap
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_keycloak() {
+  export RELEASE=dsp-keycloak
+  export NAMESPACE=dsp-keycloak
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_solr() {
+  export RELEASE=dsp-solr
+  export NAMESPACE=dsp-solr
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function k8s_ingress() {
+  export RELEASE=k8s-ingress
+  export NAMESPACE=k8s-ingress
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_auth() {
+  export RELEASE=dsp-auth
+  export NAMESPACE=dsp-auth
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_library() {
+  export RELEASE=dsp-library
+  export NAMESPACE=dsp-auth
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_jupyterhub() {
+  export RELEASE=dsp-jupyterhub
+  export NAMESPACE=dsp-jupyterhub
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_jupyterpool() {
+  export RELEASE=dsp-jupyterpool
+  export NAMESPACE=dsp-auth
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_minio() {
+  export RELEASE=dsp-minio
+  export NAMESPACE=dsp-minio
+  helm delete $RELEASE --namespace $NAMESPACE
+  kubectl minio tenant delete $RELEASE -n $NAMESPACE
+  kubectl minio delete
+  kubectl delete namespace $NAMESPACE
+}
+
+function dsp_simple() {
+  export RELEASE=dsp-simple
+  export NAMESPACE=dsp-simple
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function dsp_studio() {
+  export RELEASE=dsp-studio
+  export NAMESPACE=dsp-studio
+  helm delete $RELEASE --namespace $NAMESPACE
+}
+
+function commands() {
+  echo -e $YELLOW"💛  Valid commands: [ dla-landing | dsp-config | dsp-vault | k8s-dashboard | dsp-kuber | dsp-ldap | dsp-ldapadmin | dsp-keycloak | k8s-ingress | dsp-auth | dsp-solr | dsp-library | dsp-jupyterhub | dsp-jupyterpool | dsp-minio | dsp-simple | dsp-studio ]"$NOCOLOR 1>&2
+}
+
+CMDS="$1"
+
+if [ -z "$CMDS" ]; then
+  echo -e $RED$BOLD"💔  No command to execute has been provided."$NOCOLOR$NOBOLD 1>&2
+  echo
+  commands
+  echo
+  exit 1
+fi
+
+function apply_cmd() {
+
+  echo -e $BOLD"✋  Removing service [$BLUE$1$NOCOLOR]."$NOBOLD
+  echo
+
+  case "$1" in
+
+    dla-landing)
+      dla_landing
+      ;;
+
+    dsp-config)
+      dsp_config
+      ;;
+
+    dsp-vault)
+      dsp_vault
+      ;;
+
+    k8s-dashboard)
+      k8s-dashboard
+      ;;
+
+    dsp-kuber)
+      dsp_kuber
+      ;;
+
+    dsp-ldap)
+      dsp_ldap
+      ;;
+
+    dsp-ldapadmin)
+      dsp_ldapadmin
+      ;;
+
+    dsp-keycloak)
+      dsp_keycloak
+      ;;
+
+    dsp-solr)
+      dsp_solr
+      ;;
+
+    k8s-ingress)
+      k8s_ingress
+      ;;
+
+    dsp-auth)
+      dsp_auth
+      ;;
+
+    dsp-library)
+      dsp_library
+      ;;
+
+    dsp-jupyterhub)
+      dsp_jupyterhub
+      ;;
+
+    dsp-jupyterpool)
+      dsp_jupyterpool
+      ;;
+
+    dsp-minio)
+      dsp_minio
+      ;;
+
+    dsp-simple)
+      dsp_simple
+      ;;
+
+    dsp-studio)
+      dsp_studio
+      ;;
+
+    *)
+      echo -e $RED$BOLD"💔  Unknown command: $1"$NOBOLD$NOCOLOR 1>&2
+      echo
+      commands
+      echo
+      exit 1
+
+  esac
+
+  echo
+  echo -e $BOLD"🛑  Service [$BLUE$1$NOCOLOR] is removed."$NOBOLD
+
+}
+
+IFS=',' read -ra CMD_SPLITS <<< "$CMDS"
+for i in "${CMD_SPLITS[@]}"; do
+  apply_cmd $i
+  echo
+done

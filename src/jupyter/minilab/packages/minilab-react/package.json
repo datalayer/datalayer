@@ -1,0 +1,69 @@
+{
+  "name": "@datalayer/minilab-react",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Minilab",
+  "homepage": "https://github.com/datalayer/minilab",
+  "bugs": {
+    "url": "https://github.com/datalayer/minilab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datalayer/minilab.git"
+  },
+  "author": "Datalayer",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "sideEffects": [
+    "style/**/*"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "directories": {
+    "lib": "lib/"
+  },
+  "scripts": {
+    "build": "concurrently \"tsc\" \"gulp resources-to-lib\"",
+    "clean": "rimraf lib",
+    "watch": "tsc -b --watch",
+    "build:watch": "run-p build:watch:*",
+    "build:watch:tsc": "tsc --watch",
+    "build:watch:res": "gulp resources-to-lib-watch"
+  },
+  "dependencies": {
+    "@datalayer/minilab": "0.0.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.7.6",
+    "@types/node": "~12.12.21",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "@types/webpack-env": "^1.14.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "~3.4.0",
+    "gulp": "4.0.2",
+    "gulp-filter": "6.0.0",
+    "gulp-watch": "5.0.1",
+    "gulp-append-prepend": "1.0.8",
+    "npm-run-all": "4.1.5",
+    "raw-loader": "~4.0.0",
+    "style-loader": "1.1.1",
+    "file-loader": "5.0.2",
+    "rimraf": "~3.0.0",
+    "svg-url-loader": "~2.3.2",
+    "svgo": "~1.2.1",
+    "svgo-loader": "~2.2.0",
+    "url-loader": "3.0.0",
+    "typescript": "~3.7.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

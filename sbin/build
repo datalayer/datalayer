@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+for f in $DLAHOME/src $DLAHOME/docs/*/
+do
+  cd $f && \
+    make build
+done

@@ -1,0 +1,8 @@
+.Button-Color {
+    background-color: yellow !important;
+    background-image: linear-gradient(yellow, red);
+}
+
+.Button-Background {
+    background-image: none !important;
+}

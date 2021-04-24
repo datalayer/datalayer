@@ -1,0 +1,34 @@
+keycloak:
+  ingress:
+    enabled: true
+    path: /auth(/|$)(.*)
+    annotations:
+      kubernetes.io/ingress.class: 'nginx'
+      nginx.ingress.kubernetes.io/rewrite-target: '/auth/$2'
+      nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+      nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+      cert-manager.io/acme-challenge-type: 'http01'
+      cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+    tls:
+    - hosts:
+      - datalayer.io
+      secretName: auth-datalayer-io-cert
+    hosts:
+      - datalayer.io
+  username: admin
+  persistence:
+    deployPostgres: true
+    dbVendor: postgres
+    dbUser: keycloak
+#  lifecycleHooks: |
+#     postStart:
+#       exec:
+#         command: ["/bin/sh", "/opt/jboss/keycloak.sh"]
+#  service:
+#    type: LoadBalancer
+postgresql:
+  persistence:
+    enabled: true
+  global:
+    postgresql:
+      postgresqlUsername: keycloak

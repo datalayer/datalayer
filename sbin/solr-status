@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+cd $SOLR_HOME
+
+echo -e $BOLD$YELLOW"Apache Solr Status"$NOCOLOR$NOBOLD
+
+$SOLR_HOME/bin/solr status

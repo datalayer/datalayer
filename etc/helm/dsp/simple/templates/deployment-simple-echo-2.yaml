@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-echo-2
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: simple-echo-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-echo-2
+  template:
+    metadata:
+      labels:
+        app: simple-echo-2
+    spec:
+      containers:
+        - name: simple-echo-2
+          image: gcr.io/google-samples/node-hello:1.0
+          env:
+          - name: DEMO_GREETING
+            value: "Hello from the environment"
+          - name: "SIMPLE"
+            valueFrom:
+              configMapKeyRef:
+                name: simple-configmap
+                key:  SIMPLE
+          - name: "DSP_LDAP_BIND_PWD"
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.simpleSecretName }}
+                key: DSP_LDAP_BIND_PWD
+          ports:
+            - containerPort: 8080
+              protocol: TCP

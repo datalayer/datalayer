@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $YELLOW$BOLD"Serving Datalayer Docs WEB Site on http://localhost:4000"$NOBOLD$NOCOLOR
+echo
+
+cd $DLAHOME/repos/docs && \
+  rm -fr _book && \
+  gitbook install && \
+  gitbook serve

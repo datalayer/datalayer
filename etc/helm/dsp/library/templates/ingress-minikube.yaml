@@ -1,0 +1,19 @@
+{{ if eq .Values.library.clusterType "minikube" -}}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: library-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1/$3
+spec:
+  rules:
+  - host: minikube.local
+    http:
+      paths:
+      - path: /(api/library)(/|$)(.*)
+        backend:
+          serviceName: {{ .Release.Name }}-library-svc
+          servicePort: {{ .Values.library.port }}
+{{- end }}

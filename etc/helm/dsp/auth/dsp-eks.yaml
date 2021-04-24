@@ -1,0 +1,17 @@
+auth:
+  image: datalayer/dsp-auth:0.0.3
+  sidecar:
+    image: datalayer/k8s-sidecar:0.0.3
+  imagePullPolicy: IfNotPresent
+  clusterType: "eks"
+  env:
+    DLAHOST: "datalayer.io"
+    DSP_AUTH_ROOT_URL: "https://datalayer.io"
+    DSP_AUTH_AUTH_CALLBACK: "https://datalayer.io/api/auth/oidc_callback"
+    DSP_AUTH_UI_REDIRECT: "https://datalayer.io/home"
+    DSP_AUTH_JOIN_SUCCESS: "https://datalayer.io/join/welcome"
+    DSP_AUTH_JOIN_ERROR: "https://datalayer.io/join/error"
+    DSP_AUTH_PASSWORD_SUCCESS: "https://datalayer.io/forgotpassword/welcome"
+    DSP_AUTH_PASSWORD_ERROR: "https://datalayer.io/forgotpassword/error"
+    DSP_LDAP_HOST: "dsp-ldap-openldap"
+    DSP_KEYCLOAK_SCHEME_HOST: "https://datalayer.io"

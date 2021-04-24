@@ -1,0 +1,20 @@
+@import '~@lumino/default-theme/style/index.css';
+
+@import './content.css';
+
+#menuBar {
+  flex: 0 0 auto;
+}
+
+#main {
+  flex: 1 1 auto;
+}
+
+#palette {
+  min-width: 300px;
+  border-right: 1px solid #DDDDDD;
+}
+
+#dock {
+  padding: 4px;
+}

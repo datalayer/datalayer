@@ -1,0 +1,94 @@
+{
+  "name": "@datalayer/jupyterlab-twitter",
+  "version": "0.0.3",
+  "description": "JupyterLab Extension for Twitter",
+  "license": "Apache-2.0",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datalayer/jupyterlab-twitter"
+  },
+  "author": "Datalayer <info@datalayer.io>",
+  "keywords": [
+    "datalayer",
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension",
+    "twitter"
+  ],
+  "bugs": {
+    "url": "https://github.com/datalayer/datalayer/issues"
+  },
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/*.css",
+    "style/images/*.svg"
+  ],
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "clean": "yarn run clean:jupyter && yarn clean:packages && yarn clean:node",
+    "clean2": "rimraf lib",
+    "clean:jupyter": "yarn run uninstall:extensions && (lerna run --no-bail unlink || echo 'At least one unlink command failed, but continuing...') && jupyter lab clean",
+    "clean:node": "lerna clean --yes && rimraf node_modules",
+    "clean:packages": "lerna run clean",
+    "build": "tsc",
+    "build:watch": "tsc --build --watch --listEmittedFiles",
+    "build2": "yarn run build:dev",
+    "build:dev": "yarn install && yarn run link:packages && jupyter labextension list",
+    "build:jupyter": "(jupyter lab build || (yarn run build:jupyter:remediate && jupyter lab build)) && jupyter lab",
+    "build:jupyter:remediate": "curr_dir=$PWD && (cd $(jupyter lab path | head -n1 | sed s/Application\\ directory:\\ *//)/staging && echo $PWD && echo '\"@datalayer:registry\" \"http://localhost:4873\"' >> .yarnrc && cat .yarnrc && YARN_REGISTRY=http://localhost:4873 node ./yarn.js install --non-interactive && cd $curr_dir) || cd $curr_dir",
+    "build:jupyter:watch": "(jupyter lab build || (yarn run build:jupyter:remediate && jupyter lab build)) && jupyter lab --watch",
+    "link:packages": "jupyter labextension link . --no-build"
+  },
+  "dependencies": {
+    "@material-ui/core": "5.0.0-alpha.1",
+    "@material-ui/icons": "5.0.0-alpha.1",
+    "@jupyterlab/application": "~3.0.0-alpha.0",
+    "@jupyterlab/apputils": "~3.0.0-alpha.0",
+    "@jupyterlab/cells": "~3.0.0-alpha.0",
+    "@jupyterlab/console": "~3.0.0-alpha.0",
+    "@jupyterlab/coreutils": "~5.0.0-alpha.0",
+    "@jupyterlab/filebrowser": "~3.0.0-alpha.0",
+    "@jupyterlab/mainmenu": "~3.0.0-alpha.0",
+    "@jupyterlab/notebook": "~3.0.0-alpha.0",
+    "@jupyterlab/terminal": "~3.0.0-alpha.0",
+    "@jupyterlab/theming": "~0.9.0",
+    "es6-promise": "4.2.8",
+    "better-react-spinkit": "2.0.4",
+    "html2canvas": "1.0.0-alpha.12",
+    "nbdime": "5.0.1",
+    "prop-types": "15.7.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-redux": "7.1.1",
+    "react-redux-toastr": "7.6.1",
+    "react-twitter-widgets": "1.7.1",
+    "redux": "4.0.4",
+    "redux-thunk": "2.3.0",
+    "react-toggle-display": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/prop-types": "15.7.3",
+    "@types/react-redux": "7.1.4",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "rimraf": "3.0.0",
+    "typescript": "3.7.1-rc"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "discovery": {
+      "server": {
+        "managers": [
+          "pip"
+        ],
+        "base": {
+          "name": "writer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+<!-- 
+import '@jupyterlab/theme-dark-extension/style/index.css';
+import '@jupyterlab/theme-light-extension/style/index.css';
+-->
+import './../utils/css.css';
+
+<Meta title="JupyterLab/Theme/Light" />
+
+# JupyterLab Light Theme
+
+See the [variables](https://github.com/jupyterlab/jupyterlab/blob/master/packages/theme-light-extension/style/variables.css).
+
+<Canvas>
+  <table>
+    {[
+      '--jp-border-color0',
+      '--jp-border-color1',
+      '--jp-border-color2',
+      '--jp-border-color3',
+      '--jp-border-radius',
+      '--jp-ui-font-color0',
+      '--jp-ui-font-color1',
+      '--jp-ui-font-color2',
+      '--jp-ui-font-color3',
+      '--jp-ui-inverse-font-color0',
+      '--jp-ui-inverse-font-color1',
+      '--jp-ui-inverse-font-color2',
+      '--jp-ui-inverse-font-color3',
+      '--jp-content-font-color0',
+      '--jp-content-font-color1',
+      '--jp-content-font-color2',
+      '--jp-content-font-color3',
+      '--jp-content-link-color',
+      '--jp-layout-color0',
+      '--jp-layout-color1',
+      '--jp-layout-color2',
+      '--jp-layout-color3',
+      '--jp-layout-color4',
+      '--jp-inverse-layout-color0',
+      '--jp-inverse-layout-color1',
+      '--jp-inverse-layout-color2',
+      '--jp-inverse-layout-color3',
+      '--jp-inverse-layout-color4',
+      '--jp-brand-color0',
+      '--jp-brand-color1',
+      '--jp-brand-color2',
+      '--jp-brand-color3',
+      '--jp-brand-color4',
+      '--jp-accent-color0',
+      '--jp-accent-color1',
+      '--jp-accent-color2',
+      '--jp-accent-color3',
+      '--jp-warn-color0',
+      '--jp-warn-color1',
+      '--jp-warn-color2',
+      '--jp-warn-color3',
+      '--jp-error-color0',
+      '--jp-error-color1',
+      '--jp-error-color2',
+      '--jp-error-color3',
+      '--jp-success-color0',
+      '--jp-success-color1',
+      '--jp-success-color2',
+      '--jp-success-color3',
+      '--jp-info-color0',
+      '--jp-info-color1',
+      '--jp-info-color2',
+      '--jp-info-color3',
+      '--jp-icon-contrast-color0',
+      '--jp-icon-contrast-color1',
+      '--jp-icon-contrast-color2',
+      '--jp-icon-contrast-color3',
+      ].map(cn => (
+        <tr>
+          <td>{cn}</td>
+          <td> <div class="CSS-Square" style={{ 'background-color': `var(${cn})` }}/></td>       
+        </tr>
+    ))}
+  </table>
+</Canvas>

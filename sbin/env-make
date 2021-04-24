@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $YELLOW$BOLD"Making the Datalayer Environment"$NOBOLD$NOCOLOR
+echo
+
+cd $DLAHOME/src && \
+  make env

@@ -1,0 +1,15 @@
+# import Manifest from "manifest/Manifest.graphql"
+
+# import Service from "service/Service.graphql"
+# import CreateServiceInput from "service/CreateServiceInput.graphql"
+
+type Query {
+  service(id: Int): Service
+  services: [Service]
+  manifest(id: Int): Manifest
+  manifests: [Manifest]
+}
+
+type Mutation {
+  createService(input: CreateServiceInput!): Service
+}

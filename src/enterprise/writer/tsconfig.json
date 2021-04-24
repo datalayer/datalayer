@@ -1,0 +1,24 @@
+{
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "./lib",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "types": [],
+    "jsx": "react"
+  }
+}

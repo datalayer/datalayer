@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Copyright (c) Datalayer, Inc https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+echo -e $BOLD$YELLOW"Initialize Datalayer DSP Keycloak"$NOCOLOR$NOBOLD
+echo
+
+echo -e $YELLOW"""Login on Keycloak$NOCOLOR
+
+Open the Keycloak Admin UI.
+
+open http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local/auth/admin/master/console # admin/...
+open https://datalayer.io/auth/admin/master/console # admin/...
+$YELLOW
+Create a Realm$NOCOLOR
+
+Create a \`datalayer\` Realm.
+$YELLOW
+Create a Client$NOCOLOR
+
+Create and a \`datalayer\` Client with \`Root URL\`
+ - http://minikube.local for Minikube.
+ - https://datalayer.io for Cloud.
+ 
+Define the \`Valid Redirect URIs\`.
+
+  For Minikube:
+    - http://minikube.local/*
+    - http://localhost:3000/*
+    - http://localhost:9700/*
+    - http://localhost:9800/*
+    - http://localhost:8000/*
+
+  For Cloud:
+    - https://datalayer.io/*
+
+Set the \`datalayer\` Client Access Type to \`confidential\`.
+
+Copy and activate the \`Secret Credential\` (in the \`Credentials\` tab).
+
+  \`vi ~/.datalayer/dlarc\` - Update with DSP_KEYCLOAK_REALM_CLIENT_SECRET with the copied secret.
+  \`source ~/.datalayer/dlarc\`
+$YELLOW
+Configure the LDAP User Federation$NOCOLOR
+
+In the User Federation menu, add the LDAP provider with following settings.
+
+- Vendor:          Other.
+- Connection URL:  ldap://dsp-ldap-openldap.dsp-ldap.svc.cluster.local (click on the Test connection button).
+- Users DN:        ou=users,dc=datalayer,dc=io
+- Bind DN:         cn=admin,dc=datalayer,dc=io
+- Bind Credential: admin (click on the Test authentication button).
+- Cache Policy:    NO_CACHE.
+$YELLOW
+Synchronize the Users$NOCOLOR
+
+Click on \`Synchronize all users\` button.
+$YELLOW
+Validate the Configuration$NOCOLOR
+
+In \`Manage\` \`Users\`, clik on \`View all users\` and check you see the synced user \`charlie\`.
+
+open http://dsp-keycloak-http.dsp-keycloak.svc.cluster.local/auth/realms/datalayer/account and logon with charlie/123
+
+open https://datalayer.io/auth/realms/datalayer/account and logon with charlie
+"""

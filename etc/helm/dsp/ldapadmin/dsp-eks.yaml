@@ -1,0 +1,12 @@
+env:
+  PHPLDAPADMIN_LDAP_HOSTS: "dsp-ldap-openldap.dsp-ldap.svc.cluster.local"
+  PHPLDAPADMIN_HTTPS: "false"
+  PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
+service:
+  type: ClusterIP
+ingress:
+  enabled: false
+  annotations: {}
+  path: /
+  hosts:
+    - ldapadmin.datalayer.io

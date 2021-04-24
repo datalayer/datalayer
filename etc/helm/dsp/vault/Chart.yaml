@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Secret.
+name: secret
+version: 0.0.3
+appVersion: 0.0.3
+home: https://datalayer.io
+sources:
+- https://github.com/datalayer/datalayer/tree/master/etc/helm/secret
+icon: https://raw.githubusercontent.com/datalayer/datalayer/master/docs/dsp/logo/datalayer-square.png
+maintainers:
+- name: eric
+  email: eric@datalayer.io

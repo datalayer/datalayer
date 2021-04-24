@@ -1,0 +1,6 @@
+simple:
+  ingress: false
+  ingressMinikube: false
+  cert: true
+service:
+  type: ClusterIP

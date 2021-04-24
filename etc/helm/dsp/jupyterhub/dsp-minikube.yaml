@@ -1,0 +1,26 @@
+jupyterhub:
+  hub:
+    baseUrl: '/api/jupyterhub'
+    allowNamedServers: true
+    config:
+      Authenticator:
+        allowed_users:
+          - 'charlie'
+      DummyAuthenticator:
+        password: '123'
+      JupyterHub:
+        authenticator_class: dummy
+  singleuser:
+#    cmd: jupyterhub-singleuser
+    cmd: jupyterhub-sharebook.sh
+    defaultUrl: '/lab'
+    image:
+      name: datalayer/sharebook-example
+      tag: 0.0.3
+    storage:
+      # Decide if you want storage to be provisioned dynamically (dynamic), or if you want to attach existing storage (static), or don’t want any storage to be attached (none).
+      type: none
+  ingress:
+    enabled: true
+    hosts:
+      - minikube.local

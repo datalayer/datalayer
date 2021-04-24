@@ -1,0 +1,6 @@
+kuber:
+  env:
+    DSP_AUTHREST: http://minikube.local
+    DSP_JUPYTERHUBUI: http://minikube.local
+    DSP_KUBERWS: ws://minikube.local
+    DSP_LIBRARYREST: http://minikube.local

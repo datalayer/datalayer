@@ -1,0 +1,17 @@
+image:
+  tag: 8.1
+  pullPolicy: IfNotPresent
+javaMem: "-Xms500m -Xmx2g"
+logLevel: "INFO"
+replicaCount: 2
+livenessProbe:
+  initialDelaySeconds: 10
+  periodSeconds: 10
+readinessProbe:
+  initialDelaySeconds: 60
+  periodSeconds: 60
+exporter:
+  readinessProbe:
+    periodSeconds: 120
+zookeeper:
+  replicaCount: 1 # Desired quantity of ZooKeeper pods. This should always be (1,3,5 or 7)
