@@ -1,0 +1,396 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: jupyters.gcp.datalayer.io
+spec:
+  writeConnectionSecretsToNamespace: crossplane-system
+  compositeTypeRef:
+    apiVersion: gcp.datalayer.io/v1alpha1
+    kind: Jupyter
+  resources:
+
+    # Network
+    ############################
+
+    - base:
+        apiVersion: compute.gcp.crossplane.io/v1beta1
+        kind: Network
+        spec:
+          forProvider:
+            autoCreateSubnetworks: false
+            routingConfig:
+              routingMode: REGIONAL
+
+    # GKECluster
+    ############################
+
+    - base:
+        apiVersion: container.gcp.crossplane.io/v1beta1
+        kind: GKECluster
+        spec:
+          forProvider:
+            addonsConfig:
+              kubernetesDashboard:
+                disabled: true
+              networkPolicyConfig:
+                disabled: false
+            databaseEncryption:
+              state: DECRYPTED
+            defaultMaxPodsConstraint:
+              maxPodsPerNode: 110
+            description: Host Cluster instance of basic tier
+            ipAllocationPolicy:
+              createSubnetwork: true
+              useIpAliases: true
+            networkPolicy:
+              enabled: true
+            legacyAbac:
+              enabled: false
+            podSecurityPolicyConfig:
+              enabled: false
+            verticalPodAutoscaling:
+              enabled: true
+            masterAuth:
+              username: admin
+            loggingService: logging.googleapis.com/kubernetes
+            monitoringService: monitoring.googleapis.com/kubernetes
+            networkSelector:
+              matchControllerRef: true
+            location: us-central1
+            locations:
+              - us-central1-a
+              - us-central1-f
+          writeConnectionSecretToRef:
+            namespace: crossplane-system
+      patches:
+        - fromFieldPath: "metadata.name"
+          toFieldPath: "metadata.annotations[crossplane.io/external-name]"
+          transforms:
+            - type: string
+              string:
+                fmt: "jupyterhub-%s"
+        - fromFieldPath: "metadata.labels"
+          toFieldPath: "metadata.labels"
+        - fromFieldPath: "metadata.annotations[crossplane.io/external-name]"
+          toFieldPath: "metadata.annotations[crossplane.io/external-name]"
+        - fromFieldPath: "metadata.uid"
+          toFieldPath: "spec.writeConnectionSecretToRef.name"
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-jupyterhub-gkecluster"
+        - fromFieldPath: "spec.clusterVersion"
+          toFieldPath: "spec.forProvider.initialClusterVersion"
+      connectionDetails:
+        - fromConnectionSecretKey: kubeconfig
+
+    # NodePool
+    ############################
+
+    - base:
+        apiVersion: container.gcp.crossplane.io/v1alpha1
+        kind: NodePool
+        spec:
+          forProvider:
+            locations:
+              - us-central1-a
+#              - us-central1-f
+            autoscaling:
+              enabled: true
+              minNodeCount: 0
+              maxNodeCount: 10
+            config:
+              diskSizeGb: 100
+              diskType: pd-standard
+              imageType: COS
+              machineType: n1-standard-4
+              metadata:
+                disable-legacy-endpoints: "true"
+              oauthScopes:
+                - https://www.googleapis.com/auth/devstorage.read_only
+                - https://www.googleapis.com/auth/logging.write
+                - https://www.googleapis.com/auth/monitoring
+                - https://www.googleapis.com/auth/servicecontrol
+                - https://www.googleapis.com/auth/service.management.readonly
+                - https://www.googleapis.com/auth/trace.append
+                - https://www.googleapis.com/auth/cloud-platform
+              preemptible: false
+              serviceAccount: default
+              shieldedInstanceConfig:
+                enableIntegrityMonitoring: true
+                enableSecureBoot: true
+            clusterSelector:
+              matchControllerRef: true
+            management:
+              autoRepair: true
+              autoUpgrade: true
+            maxPodsConstraint:
+              maxPodsPerNode: 110
+      patches:
+        - fromFieldPath: spec.clusterVersion
+          toFieldPath: spec.forProvider.version
+        - fromFieldPath: spec.nodesCount
+          toFieldPath: spec.forProvider.initialNodeCount
+
+    # Bucket
+    ############################
+
+    - base:
+        apiVersion: storage.gcp.crossplane.io/v1alpha3
+        kind: Bucket
+        metadata:
+        spec:
+          location: US
+          storageClass: MULTI_REGIONAL
+          deletionPolicy: Delete
+          writeConnectionSecretToRef:
+            namespace: crossplane-system
+      patches:
+        - fromFieldPath: metadata.uid
+          toFieldPath: metadata.name
+          transforms:
+            - type: string
+              string:
+                fmt: "jupyterhub-%s"
+        - fromFieldPath: metadata.uid
+          toFieldPath: metadata.annotations[crossplane.io/external-name]
+          transforms:
+            - type: string
+              string:
+                fmt: "jupyterhub-%s"
+        - fromFieldPath: "metadata.uid"
+          toFieldPath: "spec.writeConnectionSecretToRef.name"
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-jupyterhub-bucket"
+
+    # CloudSQLInstance
+    ############################
+
+    - base:
+        apiVersion: database.gcp.crossplane.io/v1beta1
+        kind: CloudSQLInstance
+        spec:
+          forProvider:
+            databaseVersion: POSTGRES_9_6
+            region: us-central1
+            settings:
+              tier: db-custom-1-3840
+              dataDiskType: PD_SSD
+              ipConfiguration:
+                ipv4Enabled: true
+                authorizedNetworks:
+                  - value: "0.0.0.0/0"
+          writeConnectionSecretToRef:
+            namespace: crossplane-system
+      patches:
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.writeConnectionSecretToRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-jupyterhub-postgresql"
+        - fromFieldPath: spec.parameters.storageGB
+          toFieldPath: spec.forProvider.settings.dataDiskSizeGb
+
+    # SQL Provider Config
+    ############################
+
+    - base:
+        apiVersion: postgresql.sql.crossplane.io/v1alpha1
+        kind: ProviderConfig
+        spec:
+          credentials:
+            source: PostgreSQLConnectionSecret
+            connectionSecretRef:
+              name: 
+              namespace: crossplane-system
+      patches:
+        - fromFieldPath: metadata.name
+          toFieldPath: metadata.name
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.credentials.connectionSecretRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-jupyterhub-postgresql"
+
+    # SQL Database, Role and Grant
+    ###############################
+
+    - base:
+        apiVersion: postgresql.sql.crossplane.io/v1alpha1
+        kind: Database
+        metadata:
+          annotations:
+            crossplane.io/external-name: jupyterhub
+        spec:
+          forProvider: {}
+      patches:
+        - fromFieldPath: metadata.name
+          toFieldPath: metadata.name
+        - fromFieldPath: metadata.name
+          toFieldPath: spec.providerConfigRef.name
+    - base:
+        apiVersion: postgresql.sql.crossplane.io/v1alpha1
+        kind: Role
+        metadata:
+          annotations:
+            crossplane.io/external-name: jupyter-role
+        spec:
+          forProvider:
+            privileges:
+              createDb: true
+              login: true
+          writeConnectionSecretToRef:
+            namespace: crossplane-system
+      patches:
+        - fromFieldPath: metadata.name
+          toFieldPath: metadata.name
+        - fromFieldPath: metadata.name
+          toFieldPath: spec.providerConfigRef.name
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.writeConnectionSecretToRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-role-jupyterhub-postgresql"
+    - base:
+        apiVersion: postgresql.sql.crossplane.io/v1alpha1
+        kind: Grant
+        metadata:
+          name: jupyterhub-grant-role-on-database
+        spec:
+          forProvider:
+            privileges:
+              - CREATE
+            withOption: GRANT
+            roleRef:
+              name: 
+            databaseRef:
+              name: 
+      patches:
+        - fromFieldPath: metadata.name
+          toFieldPath: metadata.name
+        - fromFieldPath: metadata.name
+          toFieldPath: spec.providerConfigRef.name
+        - fromFieldPath: metadata.name
+          toFieldPath: spec.forProvider.roleRef.name
+        - fromFieldPath: metadata.name
+          toFieldPath: spec.forProvider.databaseRef.name
+
+    # Helm Provider Config
+    ############################
+
+    - base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: ProviderConfig
+        spec:
+          credentials:
+            source: Secret
+            secretRef:
+              namespace: crossplane-system
+              key: kubeconfig
+      patches:
+        - fromFieldPath: metadata.name
+          toFieldPath: metadata.name
+        # This ProviderConfig uses the above GKECluster's connection secret as
+        # its credentials secret.
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.credentials.secretRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-jupyterhub-gkecluster"
+      readinessChecks:
+        - type: None
+
+    # Helm Release
+    ############################
+
+    - base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: Release
+        metadata:
+          annotations: 
+            crossplane.io/external-name: jupyterhub
+        spec:
+          forProvider:
+            chart:
+              name: jupyterhub
+              repository: http://datalayer-helm.s3-website-us-east-1.amazonaws.com/experiments
+              version: 0.0.3
+            namespace: jupyterhub
+            values:
+              proxy:
+                secretToken: bbe8f8106c9395359e9a92ea5d74a6ca59fbabcc3c5e33cc53ef0ea6b62bc0ea
+              hub:
+                cookieSecret: 6870fe08eacb8eae74273091ce89218a0fd51a8d83e1561ec64f8ec87030d034
+                config:
+                  JupyterHub:
+                    authenticator_class: dummy
+                  Authenticator:
+                    admin_users:
+                      - admin
+                      - datalayer
+                  DummyAuthenticator:
+                    password: password
+                allowNamedServers: true
+                extraConfig:
+                  jupyterlab: |
+                    c.Spawner.default_url = '/lab'
+              cull:
+                enabled: true
+              singleuser:
+                image:
+                  name: datalayer/jupyterlab-gcp
+                  tag: 0.0.3
+                  pullPolicy: Always
+#                serviceAccountName: default # hub user-scheduler
+                storage:
+                  type: none
+#                  capacity: 2Gi
+                extraEnv:
+                  GOOGLE_APPLICATION_CREDENTIALS: /tmp/creds
+                extraFiles:
+                  gcpcreds:
+                    mountPath: /tmp/creds
+              custom:
+                fake: fake
+            set:
+              - name: hub.db.endpoint
+                valueFrom:
+                  secretKeyRef:
+                    name: 
+                    namespace: crossplane-system
+                    key: endpoint
+              - name: hub.db.username
+                value: jupyter-role
+              - name: hub.db.password
+                valueFrom:
+                  secretKeyRef:
+                    name: 
+                    namespace: crossplane-system
+                    key: password
+              - name: singleuser.extraFiles.gcpcreds.binaryData
+                valueFrom:
+                  secretKeyRef:
+                    name: gcp-creds-base64
+                    namespace: crossplane-system
+                    key: creds
+      patches:
+        - fromFieldPath: metadata.name
+          toFieldPath: spec.providerConfigRef.name
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.forProvider.set[0].valueFrom.secretKeyRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-role-jupyterhub-postgresql"
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.forProvider.set[2].valueFrom.secretKeyRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-role-jupyterhub-postgresql"

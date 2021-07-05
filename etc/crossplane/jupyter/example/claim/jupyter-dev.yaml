@@ -1,0 +1,7 @@
+apiVersion: gcp.datalayer.io/v1alpha1
+kind: Jupyter
+metadata:
+  name: jupyter-dev-1
+spec:
+  clusterVersion: "1.18"
+  nodesCount: 3

@@ -1,0 +1,15 @@
+name: crossplane-jupyter
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - jupyterhub
+  - oauthenticator
+  - pip
+  - pytest
+  - python=3.9
+  - twine
+  - yarn=1.22.5
+  - pip:
+    - google-cloud-storage
