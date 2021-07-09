@@ -1,8 +1,8 @@
 [![Datalayer](https://raw.githubusercontent.com/datalayer/datalayer/main/res/logo/datalayer-25.svg?sanitize=true)](https://datalayer.io)
 
-# Crossplane Platform for Jupyter
+# Jupyter Platform for Crossplane
 
-## Environemnt
+## Environment
 
 ```bash
 # Setup your development environment.
