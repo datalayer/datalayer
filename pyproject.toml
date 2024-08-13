@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling==1.21.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "datalayer"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "Framework :: Jupyter :: JupyterLab :: Extensions",
+    "Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "datalayer_core>=1.0.0",
+    "jupyter_iam>=1.2.0",
+    "jupyter_kernels>=1.2.7",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+]
+
+[project.scripts]
+
+[tool.hatch.version]
+path = "datalayer/__version__.py"
+
+[tool.hatch.build]
+
+[tool.hatch.build.hooks.custom]
+
+[tool.hatch.build.targets.sdist]
+exclude = [".github", "binder", ".yarn"]
+
+[tool.hatch.build.targets.wheel]
+
+[tool.hatch.build.targets.wheel.shared-data]
+
+[tool.hatch.build.hooks.version]
+path = "datalayer/_version.py"
+
+[tool.hatch.build.hooks.jupyter-builder]
+dependencies = ["hatch-jupyter-builder>=0.5"]
+
+[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
+build_cmd = "build:prod"
+
+[tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
+build_cmd = "install:extension"
+
+[tool.jupyter-releaser.options]
+version_cmd = "hatch version"

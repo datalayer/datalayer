@@ -1,0 +1,7 @@
+.*
+__pycache__
+datalayer/_version
+dist
+
+# Include
+!**/.*ignore
