@@ -12,4 +12,4 @@ Install with the following command.
 pip install datalayer
 ```
 
-Read the docs on https://docs.datalayer.run.
+Read the docs on https://docs.datalayer.io.
