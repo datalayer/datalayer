@@ -1,0 +1,32 @@
+package:
+  name: datalayer # Name of the package
+  version: "{{ DATALAYER_VERSION }}"
+
+source:
+  path: ../   # Path to the directory containing pyproject.toml
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . -vv" # Use pip to build the package from pyproject.toml
+  scripts:
+    # The script can be removed once the dependencies are available as conda packages
+    - scripts/post-link.sh
+
+requirements:
+  build:
+    - python
+    - pip
+    - hatch-jupyter-builder>=0.5
+    - hatchling>=1.26.0
+    - hatch-vcs
+  run:
+    - python
+    - pip
+#   Unconmment this section once all packages are available as conda packages in a conda-channel
+#    - datalayer_core==1.0.23
+#    - jupyter_iam==1.2.6
+#    - jupyter_kernels==1.2.13
+
+test:
+  imports:
+    - datalayer  # Ensure the package can be imported

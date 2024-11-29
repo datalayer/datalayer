@@ -2,6 +2,7 @@
 __pycache__
 datalayer/_version
 dist
+conda-recipe/out/*
 
 # Include
 !**/.*ignore
