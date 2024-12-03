@@ -5,7 +5,7 @@
 - miniconda
 - conda-build
 
-### Install Miniconda
+## Install Miniconda
 
 Installing Miniconda on Linux.
 
@@ -16,12 +16,13 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm ~/miniconda3/miniconda.sh
 ```
 
-### Create a conda-build Environment
+## Create a conda-build Environment
 
 Create an environment containing all the requirements for building the package.
 
 ```bash
-conda create -y -n conda-build python=3.11 conda-build anaconda-client
+conda create -y -n conda-build \
+  python=3.11 conda-verify conda-build anaconda-client
 ```
 
 ## Conda Recipe
@@ -34,9 +35,29 @@ However, since none of the dependencies are available as conda packages and also
 
 > TODO Build conda packages for datalayer_core jupyter_iam jupyter_kernels and publish them to a conda channel, so the `post-link.sh` script can be removed. Once they are available they should be added to the `requirements:run` section.
 
-## Build Package
+## Prepare
 
-The script `build-conda.sh` is responsible for building the package out of the conda recipe and optionally upload the package to a conda channel.
+```bash
+conda activate conda-build
+```
+
+Login on Anaconda.org.
+
+```bash
+anaconda login
+Using Anaconda API: https://api.anaconda.org
+Username: ...
+```
+
+Configure for automatic upload
+
+```bash
+conda config --set anaconda_upload yes
+```
+
+## Build and Publish
+
+The script `publish-conda.sh` is responsible for building and publishing the package out of the conda recipe and optionally upload the package to a conda channel.
 
 The script sets two variables:
 
@@ -45,9 +66,7 @@ The script sets two variables:
 
 In the end the package will be located in `conda-recipe/out/noarch/` and the file extension is a `tar.bz2`.
 
-### Running and Building 
-
 ```bash
 conda activate conda-build
-./build-conda.sh
+./publish-conda.sh
 ```
