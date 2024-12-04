@@ -1,13 +1,16 @@
 package:
-  name: datalayer # Name of the package
+  name: datalayer
   version: "{{ DATALAYER_VERSION }}"
 
 source:
-  path: ../   # Path to the directory containing pyproject.toml
+  path: ../
+
+channels:
+  - datalayer
 
 build:
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv" # Use pip to build the package from pyproject.toml
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
@@ -19,11 +22,10 @@ requirements:
   run:
     - python
     - pip
-#   Uncomment this section once all packages are available as conda packages in a conda-channel
 #    - datalayer_core==1.0.23
 #    - jupyter_iam==1.2.6
 #    - jupyter_kernels==1.2.13
 
 test:
   imports:
-    - datalayer  # Ensure the package can be imported
+    - datalayer

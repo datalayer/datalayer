@@ -1,10 +1,5 @@
 # Building the Conda Package
 
-## Requirements
-
-- miniconda
-- conda-build
-
 ## Install Miniconda
 
 Installing Miniconda on Linux.
@@ -18,11 +13,14 @@ rm ~/miniconda3/miniconda.sh
 
 ## Create a conda-build Environment
 
-Create an environment containing all the requirements for building the package.
+Create an environment containing the requirements for building the package.
 
 ```bash
 conda create -y -n conda-build \
-  python=3.11 conda-verify conda-build anaconda-client
+  python=3.11 \
+  conda-verify conda-build conda-verify \
+  anaconda-client \
+  nodejs=18.17.1 yarn=3.5.0 jupyterlab
 ```
 
 ## Conda Recipe
@@ -49,7 +47,7 @@ Using Anaconda API: https://api.anaconda.org
 Username: ...
 ```
 
-Configure for automatic upload
+Configure for automatic upload.
 
 ```bash
 conda config --set anaconda_upload yes
@@ -59,14 +57,25 @@ conda config --set anaconda_upload yes
 
 The script `publish-conda.sh` is responsible for building and publishing the package out of the conda recipe and optionally upload the package to a conda channel.
 
-The script sets two variables:
+The script sets variables:
 
-- **DATALAYER_VERSION**: Should be adjusted so the package version is correctly set
-- **CONDA_CHANNEL_NAME**: Holds the name of the channel in which the package should be uploaded
+- DATALAYER_VERSION: Should be adjusted so the package version is correctly set.
+- ORGANIZATION: The Anaconda.org organization to use for the upload.
 
-In the end the package will be located in `conda-recipe/out/noarch/` and the file extension is a `tar.bz2`.
+Optional: CONDA_CHANNEL_NAME: Holds the name of the channel in which the package should be uploaded.
+
+In the end the package will be located in `conda-recipe/out/noarch` and the file extension is a `tar.bz2`.
 
 ```bash
 conda activate conda-build
+```
+
+```bash
 ./publish-conda.sh
+```
+
+In case of issue, purge the build
+
+```bash
+conda build purge
 ```

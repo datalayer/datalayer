@@ -15,3 +15,10 @@ publish-pypi: # publish the pypi package
 	@exec echo twine upload ./dist/*-py3-none-any.whl
 	@exec echo
 	@exec echo https://pypi.org/project/datalayer/#history
+
+publish-conda: # publish the conda package
+	@exec echo
+	cd ./conda-recipe; ./publish-conda.sh
+	@exec echo
+	@exec echo https://anaconda.org/datalayer/datalayer
+	@exec echo conda install datalayer::datalayer
