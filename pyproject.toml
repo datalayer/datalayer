@@ -24,9 +24,9 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "datalayer_core==1.0.23",
-    "jupyter_iam==1.2.6",
-    "jupyter_kernels==1.2.13",
+    "datalayer_core==1.0.24",
+    "jupyter_iam==1.2.8",
+    "jupyter_kernels==1.2.14",
 ]
 dynamic = ["version"]
 
