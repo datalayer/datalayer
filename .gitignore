@@ -6,3 +6,14 @@ conda-recipe/out/*
 
 # Include
 !**/.*ignore
+!**/.*ignore
+!**/.*rc
+!**/.*rc.js
+!**/.*rc.json
+!**/.*rc.yml
+!**/.*rc.yaml
+!**/.*config
+!*.*rc.json
+!**/.env
+!.github
+!.devcontainer
