@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright (c) 2023-2024 Datalayer, Inc.
+# Distributed under the terms of the Modified BSD License.
+
 
 # THIS SCRIPT IS A WORKAROUND BECAUSE THE DEPENDENCIES ARE NOT AVAILABLE IN ANY CONDA CHANNEL.
 
