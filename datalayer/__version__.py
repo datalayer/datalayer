@@ -3,4 +3,4 @@
 
 # TODO Fix me as duplicate with _version.py
 
-VERSION = "1.3.0"
+VERSION = "1.3.1"
