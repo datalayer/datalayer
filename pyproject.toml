@@ -28,10 +28,10 @@ classifiers = [
 ]
 dependencies = [
     "datalayer_core==1.0.24",
-    "datalayer_ui==0.3.9",
-    "jupyterlab>=4,<5",
+    "datalayer_ui==0.3.10",
     "jupyter_iam==1.2.8",
     "jupyter_kernels==1.2.15",
+    "jupyterlab>=4,<5",
 ]
 dynamic = ["version"]
 
