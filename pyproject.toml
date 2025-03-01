@@ -45,8 +45,6 @@ path = "datalayer/__version__.py"
 
 [tool.hatch.build]
 
-[tool.hatch.build.hooks.custom]
-
 [tool.hatch.build.targets.sdist]
 exclude = [".github", "binder", ".yarn"]
 
@@ -56,15 +54,3 @@ exclude = [".github", "binder", ".yarn"]
 
 [tool.hatch.build.hooks.version]
 path = "datalayer/_version.py"
-
-[tool.hatch.build.hooks.jupyter-builder]
-dependencies = ["hatch-jupyter-builder>=0.5"]
-
-[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
-build_cmd = "build:prod"
-
-[tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
-build_cmd = "install:extension"
-
-[tool.jupyter-releaser.options]
-version_cmd = "hatch version"
