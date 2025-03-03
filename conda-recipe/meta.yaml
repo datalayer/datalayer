@@ -1,3 +1,6 @@
+# Copyright (c) 2023-2024 Datalayer, Inc.
+# Distributed under the terms of the Modified BSD License.
+
 package:
   name: datalayer
   version: "{{ DATALAYER_VERSION }}"
@@ -15,16 +18,9 @@ build:
 requirements:
   build:
     - python
-    - pip
-    - hatch-jupyter-builder>=0.5
     - hatchling
-    - hatch-vcs
   run:
     - python
-    - pip
-#    - datalayer_core==1.0.23
-#    - jupyter_iam==1.2.6
-#    - jupyter_kernels==1.2.13
 
 test:
   imports:
