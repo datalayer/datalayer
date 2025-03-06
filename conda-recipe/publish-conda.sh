@@ -3,7 +3,7 @@
 # Copyright (c) 2023-2024 Datalayer, Inc.
 # Distributed under the terms of the Modified BSD License.
 
-export DATALAYER_VERSION=1.3.1
+export DATALAYER_VERSION=1.3.4
 
 CONDA_CHANNEL_NAME=datalayer
 
@@ -14,12 +14,9 @@ set -o errtrace -o nounset -o pipefail -o errexit
 
 rm -fr ./out
 
-PKG_PATH=$(conda-build --output-folder ./out . -c defaults -c echarles -c datalayer)
+PKG_PATH=$(conda-build --output-folder ./out . --user $ORGANIZATION -c defaults -c $CONDA_CHANNEL_NAME)
 
 echo $PKG_PATH generated
-
-# Upload the package to a conda channel.
-# anaconda upload $PKG_PATH -c $CONDA_CHANNEL_NAME
 
 # Upload the package to a conda organization.
 anaconda upload --user $ORGANIZATION $PKG_PATH
