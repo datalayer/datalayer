@@ -6,7 +6,7 @@
 # THIS INSTALL IS A WORKAROUND.
 
 "${PREFIX}/bin/pip" install \
-  datalayer_ui==0.3.14 \
-  datalayer_core==1.0.25 \
-  jupyter_iam==1.2.8 \
-  jupyter_kernels==1.2.16
+  datalayer_core==1.0.29 \
+  datalayer_ui==0.3.17 \
+  jupyter_iam==1.2.10 \
+  jupyter_kernels==1.2.18

@@ -25,3 +25,7 @@ requirements:
 test:
   imports:
     - datalayer
+    - datalayer_core
+    - datalayer_ui
+    - jupyter_kernels
+    - jupyter_iam
