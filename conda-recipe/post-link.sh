@@ -7,6 +7,6 @@
 
 "${PREFIX}/bin/pip" install \
   datalayer_core==1.0.29 \
-  datalayer_ui==0.3.17 \
+  datalayer_ui==0.3.18 \
   jupyter_iam==1.2.10 \
   jupyter_kernels==1.2.18

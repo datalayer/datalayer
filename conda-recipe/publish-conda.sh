@@ -3,7 +3,7 @@
 # Copyright (c) 2023-2024 Datalayer, Inc.
 # Distributed under the terms of the Modified BSD License.
 
-export DATALAYER_VERSION=1.3.7
+export DATALAYER_VERSION=1.3.8
 
 CONDA_CHANNEL_NAME=datalayer
 
