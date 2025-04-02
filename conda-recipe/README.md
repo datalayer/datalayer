@@ -59,7 +59,7 @@ The script `publish-conda.sh` is responsible for building and publishing the pac
 
 The script sets variables:
 
-- DATALAYER_VERSION: Should be adjusted so the package version is correctly set.
+- VERSION: Should be adjusted so the package version is correctly set.
 - ORGANIZATION: The Anaconda.org organization to use for the upload.
 
 Optional: CONDA_CHANNEL_NAME: Holds the name of the channel in which the package should be uploaded.

@@ -27,11 +27,10 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "datalayer_core==1.0.30",
-    "datalayer_ui==0.3.19",
-    "jupyter_docker==0.0.5",
-    "jupyter_iam==1.2.11",
-    "jupyter_kernels==1.2.19",
+    "datalayer_core==1.0.32",
+    "datalayer_ui==0.3.20",
+    "jupyter_iam==1.2.12",
+    "jupyter_kernels==1.2.20",
     "jupyterlab>=4,<5",
 ]
 dynamic = ["version"]
@@ -52,6 +51,3 @@ exclude = [".github", "binder", ".yarn"]
 [tool.hatch.build.targets.wheel]
 
 [tool.hatch.build.targets.wheel.shared-data]
-
-[tool.hatch.build.hooks.version]
-path = "datalayer/_version.py"
