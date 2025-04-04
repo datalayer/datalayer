@@ -31,7 +31,7 @@ dependencies = [
     "datalayer_ui==0.3.20",
     "jupyter_iam==1.2.12",
     "jupyter_kernels==1.2.20",
-    "jupyterlab>=4,<5",
+    "jupyterlab>=4,<4.4.0",
 ]
 dynamic = ["version"]
 
