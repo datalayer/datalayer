@@ -35,7 +35,20 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+[project.urls]
+Homepage = "https://github.com/datalayer/datalayer"
+Documentation = "https://docs.datalayer.tech"
+Repository = "https://github.com/datalayer/datalayer"
+Issues = "https://github.com/datalayer/datalayer/issues"
+Changelog = "https://github.com/datalayer/datalayer/blob/main/CHANGELOG.md"
+
 [project.optional-dependencies]
+ai = [
+    "jupyter-ai-agents",
+    "jupyter-mcp-server",
+    "jupyter-earth",
+    "earth-data-mcp-server",
+]
 test = []
 
 [project.scripts]
