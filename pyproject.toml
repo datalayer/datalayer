@@ -31,8 +31,7 @@ dependencies = [
     "datalayer_ui==1.0.3",
     "jupyter_iam==1.2.12",
     "jupyter_kernels==1.2.20",
-    "jupyterlab>=4,<5",
-    "jupyter-collaboration>=4"
+    "jupyterlab>=4.4,<5",
 ]
 dynamic = ["version"]
 
@@ -41,7 +40,7 @@ all = [
     "earthdata-mcp-server",
     "jupyter-ai-agents",
     "jupyter-earth",
-    "jupyter-collaboration",
+    "jupyter-collaboration>=4",
     "jupyter-contents",
     "jupyter-docker",
     "jupyter-kubernetes",
