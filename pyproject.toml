@@ -28,23 +28,23 @@ classifiers = [
 ]
 dependencies = [
     "datalayer_core==1.0.32",
-    "datalayer_ui==1.0.3",
+    "datalayer_ui==1.0.4",
+    "jupyter_contents==0.0.8",
     "jupyter_iam==1.2.12",
     "jupyter_kernels==1.2.20",
-    "jupyterlab>=4.4,<5",
+    "jupyterlab>=4,<5",
 ]
 dynamic = ["version"]
 
 [project.optional-dependencies]
 all = [
-    "earthdata-mcp-server",
-    "jupyter-ai-agents",
-    "jupyter-earth",
-    "jupyter-collaboration>=4",
-    "jupyter-contents",
-    "jupyter-docker",
-    "jupyter-kubernetes",
-    "jupyter-mcp-server",
+    "earthdata_mcp_server",
+    "jupyter_ai_agents",
+    "jupyter_earth",
+    "jupyter_collaboration>=4",
+    "jupyter_docker",
+    "jupyter_kubernetes",
+    "jupyter_mcp_server",
 ]
 test = []
 
