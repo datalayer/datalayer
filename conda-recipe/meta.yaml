@@ -3,7 +3,7 @@
 
 package:
   name: datalayer
-  version: "{{ DATALAYER_VERSION }}"
+  version: "{{ VERSION }}"
 
 source:
   path: ../
