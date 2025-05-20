@@ -27,16 +27,16 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "datalayer_core==1.0.33",
-    "datalayer_ui==1.0.11",
-    "jupyter_contents==0.0.8",
-    "jupyter_iam==1.2.12",
-    "jupyter_kernels==1.2.20",
+    "datalayer_core",
+    "datalayer_ui",
+    "jupyter_ai_agents",
+    "jupyter_collaboration",
+    "jupyter_contents",
+    "jupyter_docker",
+    "jupyter_iam",
+    "jupyter_kernels",
+    "jupyter_kubernetes",
     "jupyterlab>=4.4.2,<5",
-    "jupyter_ai_agents==0.11.1",
-    "jupyter_collaboration==4.0.2",
-    "jupyter_docker==0.0.7",
-    "jupyter_kubernetes==0.0.5",
 ]
 dynamic = ["version"]
 
@@ -62,9 +62,17 @@ path = "datalayer/__version__.py"
 
 [tool.hatch.build]
 
+# [tool.hatch.build.hooks.custom]
+
 [tool.hatch.build.targets.sdist]
+artifacts = [
+    "datalayer/post-install.sh",
+]
 exclude = [".github", "binder", ".yarn"]
 
 [tool.hatch.build.targets.wheel]
+artifacts = [
+    "datalayer/post-install.sh",
+]
 
 [tool.hatch.build.targets.wheel.shared-data]
