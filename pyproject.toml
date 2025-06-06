@@ -36,7 +36,8 @@ dependencies = [
     "jupyter_iam",
     "jupyter_kernels",
 #    "jupyter_kubernetes",
-    "jupyterlab>=4.4.2,<5",
+#    "jupyterlab>=4.4.2,<5",
+    "jupyterlab>=4.0.9,<5",
 ]
 dynamic = ["version"]
 
