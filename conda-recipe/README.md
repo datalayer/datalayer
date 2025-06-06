@@ -11,15 +11,14 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm ~/miniconda3/miniconda.sh
 ```
 
-## Create a conda-build Environment
+## Create an Environment
 
 Create an environment containing the requirements for building the package.
 
 ```bash
 conda create -y -n conda-build \
   python=3.11 \
-  conda-verify conda-build conda-verify \
-  anaconda-client \
+  conda-build conda-verify anaconda-client \
   nodejs=18.17.1 yarn=3.5.0 jupyterlab
 ```
 
