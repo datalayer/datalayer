@@ -29,15 +29,14 @@ classifiers = [
 dependencies = [
     "datalayer_core",
     "datalayer_ui",
-#    "jupyter_ai_agents",
-#    "jupyter_collaboration",
-#    "jupyter_contents",
-#    "jupyter_docker",
+    "jupyter_ai_agents",
+    "jupyter_collaboration",
+    "jupyter_contents",
+    "jupyter_docker",
     "jupyter_iam",
     "jupyter_kernels",
-#    "jupyter_kubernetes",
-#    "jupyterlab>=4.4.2,<5",
-    "jupyterlab>=4.0.9,<5",
+    "jupyter_kubernetes",
+    "jupyterlab>=4.4.2,<5",
 ]
 dynamic = ["version"]
 
