@@ -29,13 +29,8 @@ classifiers = [
 dependencies = [
     "datalayer_core",
     "datalayer_ui",
-    "jupyter_ai_agents",
-    "jupyter_collaboration",
-    "jupyter_contents",
-    "jupyter_docker",
     "jupyter_iam",
     "jupyter_kernels",
-    "jupyter_kubernetes",
     "jupyterlab>=4.4.2,<5",
 ]
 dynamic = ["version"]
@@ -43,7 +38,11 @@ dynamic = ["version"]
 [project.optional-dependencies]
 all = [
     "earthdata_mcp_server",
-    "jupyter_earth",
+    "jupyter_ai_agents",
+    "jupyter_collaboration",
+    "jupyter_contents",
+    "jupyter_docker",
+    "jupyter_kubernetes",
     "jupyter_mcp_server",
 ]
 test = []
