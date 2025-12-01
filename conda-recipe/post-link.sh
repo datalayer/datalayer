@@ -4,7 +4,7 @@
 # Distributed under the terms of the Modified BSD License.
 
 "${PREFIX}/bin/pip" install \
-  datalayer_core==1.1.3 \
-  datalayer_ui==1.0.23 \
-  jupyter_iam==1.2.12 \
-  jupyter_kernels==1.2.20
+  datalayer_core==1.1.8 \
+  datalayer_ui==1.0.24 \
+  jupyter_iam==1.2.13 \
+  jupyter_kernels==1.2.21

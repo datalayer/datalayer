@@ -1,14 +1,14 @@
 # Building the Conda Package
 
-## Install Miniconda
+## Install conda
 
-Installing Miniconda on Linux.
+Installing conda on Linux.
 
 ```bash
-mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm ~/miniconda3/miniconda.sh
+mkdir -p ~/conda3
+wget https://repo.anaconda.com/conda/conda3-latest-Linux-x86_64.sh -O ~/conda3/conda.sh
+bash ~/conda3/conda.sh -b -u -p ~/conda3
+rm ~/conda3/conda.sh
 ```
 
 ## Create an Environment
