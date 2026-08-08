@@ -33,7 +33,9 @@ dependencies = [
     "jupyter-iam",
     "jupyter-kernels",
     "jupyter-server-nbmodel",
+    "jupyterlite-pyodide-kernel",
     "jupyterlab>=4.6.1,<5",
+    "ipykernel",
 ]
 dynamic = ["version"]
 
