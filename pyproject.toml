@@ -27,11 +27,12 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "datalayer_core>=1.1.48",
-    "datalayer_ui>=1.0.29",
-    "jupyter_ai_agents>=0.20.7",
-    "jupyter_iam>=1.2.14",
-    "jupyter_kernels>=1.2.22",
+    "datalayer-core",
+    "datalayer-ui",
+    "jupyter-ai-agents",
+    "jupyter-iam",
+    "jupyter-kernels",
+    "jupyter-server-nbmodel",
     "jupyterlab>=4.6.1,<5",
 ]
 dynamic = ["version"]
