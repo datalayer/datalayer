@@ -27,19 +27,19 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "datalayer-core",
-    "datalayer-ui",
-    "jupyter-collaboration",
-    "jupyter-ai-agents",
-    "jupyter-iam",
-    "jupyter-kernels",
-    "jupyter_mcp-server",
-    "jupyter_mcp-tools",
-    "jupyter_mcp-sanboxes",
-    "jupyter-server-nbmodel",
-    "jupyterlite-pyodide-kernel",
+    "datalayer-core==1.1.51",
+    "datalayer-ui==1.0.31",
+    "jupyter-collaboration>=5",
+    "jupyter-ai-agents==0.20.8",
+    "jupyter-iam==1.2.14",
+    "jupyter-kernels==1.2.22",
+    "jupyter-mcp-server>=1.3.0",
+    "jupyter-mcp-tools==0.1.6",
+    "jupyter-mcp-sandboxes==0.1.1",
+    "jupyter-server-nbmodel==0.1.3",
+    "jupyterlite-pyodide-kernel>0.8.2",
     "jupyterlab>=4.6.1,<5",
-    "ipykernel",
+    "ipykernel>=7.3.0",
 ]
 dynamic = ["version"]
 
