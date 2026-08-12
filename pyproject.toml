@@ -28,7 +28,7 @@ classifiers = [
 ]
 dependencies = [
     "datalayer-core==1.1.51",
-    "datalayer-ui==1.1.0",
+    "datalayer-ui==2.0.0",
     "jupyter-collaboration>=5",
     "jupyter-ai-agents==0.20.9",
     "jupyter-iam==1.2.14",
