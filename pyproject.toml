@@ -28,12 +28,14 @@ classifiers = [
 ]
 dependencies = [
     "datalayer-core>=1.1.56",
-    "datalayer-ui>=1.1.1",
+    "datalayer-ui>=1.1.2",
+    "agent-runtimes[all]>=1.0.25",
+    "code-sandboxes[all]>=1.0.9",
     "jupyter-collaboration>=5",
-    "jupyter-ai-agents>=1.0.0",
+    "jupyter-ai-agents>=1.0.1",
     "jupyter-iam>=1.2.14",
     "jupyter-kernels>=1.2.22",
-    "jupyter-mcp-server>=1.4.3",
+    "jupyter-mcp-server>=1.4.4",
     "jupyter-mcp-tools>=0.1.7",
     "jupyter-mcp-sandboxes>=0.1.4",
     "jupyter-mcp-spaces>=0.1.2",
