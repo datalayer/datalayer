@@ -1,4 +1,4 @@
 # Copyright (c) 2023-2024 Datalayer, Inc.
 # Distributed under the terms of the Modified BSD License.
 
-VERSION = "1.7.2"
+VERSION = "1.7.3"
