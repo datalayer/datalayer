@@ -28,7 +28,7 @@ classifiers = [
 ]
 dependencies = [
     "datalayer-core>=1.2.10",
-    "datalayer-ui>=1.1.6",
+    "datalayer-ui>=1.1.8",
     "agent-runtimes[all]>=1.3.11",
     "code-sandboxes[all]>=1.9.37",
     "jupyter-collaboration>=5",
@@ -36,7 +36,7 @@ dependencies = [
     "jupyter-iam>=1.2.14",
     "jupyter-kernels>=1.2.23",
     "jupyter-mcp-server>=2.1.16",
-    "jupyter-mcp-tools>=0.1.7",
+    "jupyter-mcp-tools>=0.1.8",
     "jupyter-mcp-sandboxes>=0.2.3",
     "jupyter-server-nbmodel>=0.2.9",
     "jupyterlite-pyodide-kernel>=0.8.4",
